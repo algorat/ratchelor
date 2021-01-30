@@ -1,9 +1,8 @@
 import "./App.css";
+import ExampleHooks from "./components/ExampleComponent";
 
 function App() {
-  return (
-    <>Hello world! I'm a starter app!</>
-  );
+  return <ExampleHooks />;
 }
 
 export default App;
