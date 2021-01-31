@@ -12,7 +12,7 @@ body {
   position: absolute;
 }
 
-#root{
+#root {
   position: relative;
   width: 100%;
   height: 100%;
@@ -20,4 +20,79 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* INTRO */
+#introScreen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* RAT SELECT */
+#ratSelectScreen {
+  margin: 30%;
+}
+
+#ratSelectScreen .selectedRat {
+  color: blue;
+  background-color: lightpink !important;
+}
+
+#ratSelectScreen .ratList {
+  cursor: pointer;
+  margin: 10px;
+  padding: 5px;
+  font-weight: bold;
+  background-color: lightblue;
+}
+
+/* TALKING TO RATS */
+#talkingToRatsScreen {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 20%;
+}
+
+#talkingToRatsScreen #ratName {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+/* ROSE CEREMONY */
+#roseCeremonyScreen {
+  margin: 30%;
+}
+
+#roseCeremonyScreen .selectedRat {
+  color: red;
+  background-color: rgb(219, 187, 255) !important;
+}
+
+#roseCeremonyScreen .ratList {
+  cursor: pointer;
+  margin: 10px;
+  padding: 5px;
+  font-weight: bold;
+  background-color: lightpink;
+}
+
+/* ANIME ENDING */
+#animeEndingScreen {
+  width: 60%;
+  height: 100%;
+  margin: 20%;
+  font-size: 30px;
+  color: green;
 }
