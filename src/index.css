@@ -69,7 +69,7 @@ button:focus {
 
 /* RAT SELECT */
 #ratSelectScreen {
-  margin: 30%;
+  margin: 0;
 }
 
 #ratSelectScreen .selectedRat {
