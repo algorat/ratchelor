@@ -67,6 +67,7 @@ class TalkingToRats extends React.Component {
   // You get a random rat, they talk to you, you can respond, after you respond another rat shows up
   render() {
     let ratDialogue = this.activeRats[this.state.ratIndex].dialogue[this.props.round].substring(0, this.state.charsRevealed);
+    if (ratDialogue.length === 0) ratDialogue = ".";
     return (
       <div id="talkingToRatsScreen">
       <div id="dialogueContainer">

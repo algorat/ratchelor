@@ -9,8 +9,7 @@
             "Im only used to looking through people, but when I look at you I feel like I'm looking right at you. It makes me feel like maybe… you wouldn't use me? Not like everyone else does…",
             "I've spent my whole life focused on building an empire, and I'd give it all away for you. My fortune, my place on the throne, my fancy diamonds… I just want you. I love you, and I want to be with you forever."
         ],
-        "couchPicFilename": "",
-        "animePicFilename": ""
+        "filename": ""
     },
     {
         "name": "Migg Mouse",
@@ -22,8 +21,7 @@
             "I can't get you out of my head. I wake up every morning thinking of you. Usually I wake up thinking about protein powder. What's happening to me? I want to wake up next to you every morning, forever… Have you heard of cross fit?",
             "I'm not so good with words. But you need to know something: I truly love you with every muscle, tendon, and fiber in my body. I really do, and I will go on loving you forever. I want to start a family together, I want you to meet my mom. I'm all in."
         ],
-        "couchPicFilename": "",
-        "animePicFilename": ""
+        "filename": ""
     },
     {
         "name": "L'Artiste",
@@ -35,8 +33,7 @@
             "I swoon to just think of beholding your presence. Oh! Woe is me to be in the je ne sais quoi of life, to know that i walk this earth with one such as you ah surely the gods smile down.",
             "I cherish the width of your eyes, the courage of your heart, the love entre your soul. Mon cherie, I love you et j'adore you foreverre. Let us never be apart again even for a single second or even a millisecond."
         ],
-        "couchPicFilename": "",
-        "animePicFilename": ""
+        "filename": ""
     },
     {
         "name": "Bora XIV",
@@ -44,12 +41,11 @@
            "Oh whats this lil yellow ribbon for? Never you mind ;)",
            "I've been told these violet eyes of mine are more purple then all the lavender in the world and I certainly smell better too  owo",
            "When I see you I see a all the stars in the world.. a constellation of thought and love and joy",
-           "Ah to be free and to dance. If I could be anyone I'd be the ocean. Everywhere at once and no where, dancing freely with the waves as the moon pulls me to and fro and the seagulls pec at my ears. Ahhh nothing quite as lovely as the sandy salty scent of seabreeze as the sun sets.",
+           "Ah to be free and to dance. If I could be anyone I'd be the ocean. Everywhere at once and no where, dancing freely with the waves as the moon pulls me to and fro and the seagulls peck at my ears. Ahhh nothing quite as lovely as the sandy salty scent of seabreeze as the sun sets.",
            "Imagine if we were planes in the sky! Like stars, so large yet far away yet bright beautiful, the muse of poets, they'd all write about us",
            "Let's spend the rest of our lives together,.. On the moon! What a lovely idea, i bet everyone would look like ants from way up there. And we can get a cow and grow our own cheese, till the soil for some lovely berries"
         ],
-        "couchPicFilename": "",
-        "animePicFilename": ""
+        "filename": ""
     },
     {
         "name": "Dr. Plagueus, PhD",
@@ -61,8 +57,7 @@
             "I'm so glad you kept me around… I thought for sure I had scared you away. I feel like you really get me. I usually feel so lonely in my day to day life as a consultant for movies. I never had a connection with someone like this before.",
             "You could read all the books in the world about love, the poems, and the stories, but nothing can compare to the true feeling. It's not only a chemical reaction in my brain, it's much more than that, words cannot describe. My love, I am going to dedicate my black plague documentary to you!"
         ],
-        "couchPicFilename": "",
-        "animePicFilename": ""
+        "filename": ""
     },
     {
         "name": "ARealRat",
@@ -74,8 +69,31 @@
             "I think it's finally time for me to show you the true me… I have a horrible secret to tell you. Promise you won't leave me after you find out? Ugh.. I can't do this. I'm too afraid...",
             "Now I'm finally ready. We're actually three geckos in a costume. We're so sorry we lied to you all this time, but we were afraid you would reject us. We're also sorry that we lied about our job, but we just wanted to impress you so much. But when we saw your picture, we just knew we had to meet you. We fell in love instantly. And after getting to know you more, we've fallen even more in love. We love you so much."
         ],
-        "couchPicFilename": "",
-        "animePicFilename": ""
+        "filename": ""
+    },
+    {
+        "name": "Reggie-231",
+        "dialogue": [
+            "Imagine there's no heaven, and no religion too, nothing to live or die for, and above us only sky. Grew my first begonias last year and they changed my life",
+            "My ma had me and the rest of the litter in some sweet old ladies kitchen cupboard but turns out her nephew wasn't so sweet. Put out a lot of no kill traps but then he sent us to the lab for a paycheck that we didn't even get to cash out. I was in there for 6 month - thats 84.23 percent of my life.", 
+            "At around month 5 in the lab I met Franceride-449, medium size rat, normal build, robot arm and I said woah there where'd you get that?",
+            "Turns out Franc 44 got a paper cut while filing some documents and he didnt bleed so he looked at the cut and turned out a whole roboleg was hiding in there. He did some digging and it turns out he wasn't the only one. Ended up being my dad was a robot mouse and my mom a normal house mouse - they fell in love and had me.",
+            "Dad was an experiment and had no idea he wasn't ‘real' (I put that in parentheses cause hes real to me). Anyways 44 helped me get out of there after he realized the truth but not before he and J0J098 figured out how to disable the tracking software running in our wires. Rewrote it with some bitcoin miner so we make a small sum as long as we dont skip out on our sleep. Its not a lot but its enough to live off of",
+            "Listen, I didn't know this cold heart could love the way it does when I see you. If you'd told me back in the lab that I'd meet a rat like you, well, I wouldn't have believed ya. I'll make you happy every day from now on, that's my promise."
+        ],
+        "filename": ""
+    },
+    {
+        "name": "Vim",
+        "dialogue": [
+            "Being a single parent isn't easy. I've been raising these little ones myself since day one.",
+            "It's time you met my children: reggie-997, evangeline, esquire jr., sharpie, trashcan. They already love you.",
+            "Reggie-977 and Esquire Jr. are twins, but you wouldn't know it because Esquire Jr. is way uglier",
+            "Evangeline's piano recital is coming up, and sharpie is jealous because they just started learning to play the Bass while Evangeline is already getting interviews at Julliard",
+            "Trashcan is my little angel, if anything ever happened to them I would simply scream for years and cry forever. They have never done a single wrong they are incapable.",
+            "I thought I already had enough family. Me and my kids, that's the only real family I've ever had. But then I met you and you changed everything. We can't wait to welcome you into our life forever."
+        ],
+        "filename": ""
     },
     {
         "name": "Bear",
@@ -85,7 +103,65 @@
             "I used to be a lab rat, they were experimenting on me with growth serum… until one day I had a growth spurt and got bigger than my cage so they kinda just let me go wherever I wanted",
             "Sometimes I like to go to the autoshop and watch them work on cars - once I drove there but my car was to small and they almost stepped on it, thought it was a Hot Wheels, its not tho, it runs on renewable energy",
             "Picked this up for you!! Its a sandwich from my aunts bakery down near the Promenade. Cheese and more cheese, with a bit of tomato and a single leaf special just for you",
-            "I wrote a song for you. *hits drums*"
+            "When the doctors only told me I had 3 days to live due to my above average size, well, I figured I didn't have much to live for. But now, 3 years later, I'm glad I proved them all wrong because that experience led me to you. You're my forever."
+        ]
+    },
+    {
+        "name": "EggSalad",
+        "dialogue": [
+            "Um, hi… sorry, I'm a little nervous, I've never done anything like this before! It's just… I saw your profile and thought you were so cute… that I had to come compete. I hope that's not too embarrassing!",
+            "Hi again! I really enjoyed talking to you last time and I was thinking… I was hoping… maybe we could keep talking? Maybe that sounds too obvious, I don't know. I just really love – I mean like! – the sound of your voice… ",
+            "So last month, I was volunteering with this local youth organization, and one of the kids taught me how to crochet! And ever since I haven't been able to stop crocheting. So, I'm working on crocheting a special hat for you, I hope you don't mind!",
+            "Honestly, as much as I enjoy being here on The Ratchelor, I can't wait to get back home so I can keep teaching my baking class at the local youth center! The kids are so sweet, next up I'm teaching them all to bake cheesecake. I hope you come with me… I could bake you a cheesecake, the kids would love you...",
+            "You're so funny! Honestly, you make me feel like I haven't felt before. There's something about you that just makes me feel recharged, at peace. Maybe even... in love.",
+            "I hope this doesn't sound too cheesy but.. I wish I was a cat so I could spend all 9 of my lives with you. I love you. I want to be with you forever. I want to bake you endless cakes and pies forever. And I don't care who knows. I'll shout it from the rooftops! I love you!"
+        ],
+        "filename": ""
+    },
+    {
+        "name": "Emacs",
+        "dialogue": [
+            "Uh, hey. Why are you talking to me? I'm Emacs, if it matters. I like to do my own thing.",
+            "Listen sweetie, I don't like to play by the rules, so if you want to ride the Emacs train, you better be ready for some freaky deaky stuff.",
+            "You wanna know something? I didn't get on the top 10 most wanted list of Worldwide Exterminators by being a good little rat and doing what I was told. You've gotta be willing to be bad, and maybe even break a few hearts along the way. Should I break yours?",
+            "I feel like when people meet me they think I'm bad to my core. But, everything I do, I do for justice. It's so frustrating. I... I'll explain when you're ready. I should go.",
+            "Humans every day are out there exploiting others with their money and power… I like to sneak into the evil one's houses and give them a bit of a scare. Been dodging extermination on Wall Street since ‘09. Now you know my secret.",
+            "Hey. When I first met you, I thought you were kind of annoying. But now, I see you for who you truly are, and I see that you see me. I think we'd make a really notorious duo. You get me like no one else ever has. I love you, I'm not afraid to say it. I want to be together forever."
+        ],
+        "filename": ""
+    },
+    {
+        "name": "Jagadoo",
+        "dialogue": [
+            "Hey cool cat, you ever see someone who can do two magic tricks at once?",
+            "One time i was running with the gang back in cirque de soleil and as soon as that elephant got on stage and some acrobat was doing gymnastics on its back, well all eyes where on him -  i ran to the admissions desk and booked it with the ticket stubs. Been living off that $$ evver sense, here do you want some? (hands you a dollar)",
+            "I just love the wet dog smell, god, if I could get a tattoo, but of a scent, kinda like cologne but forever, let me tell you id do it in a heartbeat.",
+            "Hey lets go down to my old haunts and see if we can tie everyones shoelaces together without them noticing",
+            "You almost make me want to stop my dastardly way and live a boring life sitting around the house just like.. Eating sandwiches and watching tv with you… i dont know",
+            "Listen sugar, I think you're sweet. Wha do you say we find ourselves an alcove out west and spend the rest of our lives bonnie and clyde style"
+        ],
+        "filename": ""
+    },
+    {
+        "name": "Slim Jim",
+        "dialogue": [
+            "Im Looking Good Today",
+            "WOw the sparkle in your eyes are almost as brilliant as the sparkle in mine. Maybe if we stare into eachothers eyes for long enough they'll reflect into a supernova",
+            "I picked you this rose. I grew it myself in my single rose garden and pruned its leaves and dyed its pedals the perfect luxurious red so I could give it to you cause we both deserve nothing less than perfection",
+            "Ah together we could truly rule the galaxy. Your brain, and my good looks, and your good look, ah truly a pair to behold.",
+            "Run away with me, who cares about this silly TV show, I know you are perfect, and well, of course I am, so why should we wait? Why spend a single moment apart when we can elope and start our forever right this second.",
+            "I knew it. Destiny had us in store for each other and with good reason *sloppy wet kiss*"
+        ],
+        "filename": ""
+    },
+    {
+        "name": "Hiberdean Hebirdean",
+        "dialogue": [
+            "Mm… meep meep-o ee",
+            "Mippty eee mop quack",
+            "Pipo slop beep meep",
+            "Meee me meep eee meep",
+            "Mip meeeep eee eeep eeee eeee aaAEAEE bip moop mepo pippity"
         ]
     }
 ]
