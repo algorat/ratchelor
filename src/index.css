@@ -10,12 +10,15 @@ body {
   width: 100%;
   height: 100%;
   position: absolute;
+  display: flex;
+  justify-content: center;
 }
 
 #root {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 900px;
+  height: 675px;
+  margin-top: 80px;
 }
 
 * {
@@ -24,6 +27,23 @@ body {
 
 button {
   cursor: pointer;
+  background-color: #f0bb5a;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 40px;
+  border: 3px solid white;
+  font-family: 'Yusei Magic', sans-serif;
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: white;
+  color: #f0bb5a;
+  border: solid #f0bb5a;
+}
+
+button:active {
+  border: none;
 }
 
 /* INTRO */
@@ -34,7 +54,17 @@ button {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: url('../public/img/Intro.png');
+  background-image: url('./img/Intro2.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+#introScreen button {
+  justify-content: center;
+  margin-top: 230px;
+  font-size: 40px;
+  padding: 15px 30px;
+  border-width: 6px;
 }
 
 /* RAT SELECT */
