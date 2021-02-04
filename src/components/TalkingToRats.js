@@ -49,11 +49,11 @@ class TalkingToRats extends React.Component {
     let ratDialogue = this.activeRats[this.state.ratIndex].dialogue[this.props.round];
     return (
       <div id="talkingToRatsScreen">
-        talking to rat #{`${this.state.ratIndex + 1}`} out of {`${this.ratNames.length}`}<br/>
-      <div id="ratName">{this.activeRats[this.state.ratIndex].name}:</div>
-      <br/>
-      {ratDialogue}
-      {responses}
+      <div id="dialogueContainer">
+        <div id="ratName">{this.activeRats[this.state.ratIndex].name}</div>
+        <div id="ratDialogue">{ratDialogue}</div>
+      </div>
+      <div id="responses">{responses}</div>
     </div>
     );
   }

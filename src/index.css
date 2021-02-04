@@ -42,19 +42,19 @@ button:hover {
   border: solid #f0bb5a;
 }
 
-button:active {
-  border: none;
+button:focus {
+  outline: 0;
 }
 
 /* INTRO */
 #introScreen {
-  width: 100%;
+  width: 900px;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: url('./img/Intro2.png');
+  background-image: url('./img/Backgrounds/Intro2.png');
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -87,18 +87,59 @@ button:active {
 
 /* TALKING TO RATS */
 #talkingToRatsScreen {
-  width: 60%;
+  background-image: url('./img/Backgrounds/couch_nobox.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 900px;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-left: 20%;
+  position: relative;
 }
 
 #talkingToRatsScreen #ratName {
-  font-weight: bold;
-  font-size: 30px;
+  font-family: 'Yusei Magic', sans-serif;
+  font-size: 24px;
+  background-color: #ad8f18;
+  color: #ecd9a5;
+  width: fit-content;
+  padding: 5px 20px;
+  margin-left: 20px;
+  border-radius: 10px 10px 0 0;
+}
+
+#talkingToRatsScreen #ratDialogue {
+  font-family: 'Yusei Magic', sans-serif;
+  font-size: 17px;
+  padding: 15px 35px;
+  background-color: #c6b56e;
+  width: 900px;
+  padding-bottom: 65px;
+  border-top: 13px solid #ad8f18;
+}
+
+#talkingToRatsScreen #dialogueContainer {
+  position: absolute;
+  bottom: 0px;
+}
+
+#talkingToRatsScreen button {
+  font-size: 17px;
+  padding: 5px 10px;
+  margin-right: 4px;
+  border: 2px;
+  background-color: #d58d00;
+}
+
+#talkingToRatsScreen button:hover {
+  background-color: #ecd9a5;
+  color: #d58d00;
+}
+
+#talkingToRatsScreen #responses {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
 }
 
 /* ROSE CEREMONY */
