@@ -27,7 +27,7 @@ body {
 
 #hideme {
   visibility: none;
-  background-image: url('./img/preview.png');
+  background-image: url('img/preview.png');
 }
 
 button {
@@ -59,7 +59,7 @@ button:focus {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: url('./img/Backgrounds/Intro2.png');
+  background-image: url('img/Backgrounds/Intro2.png');
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -92,7 +92,7 @@ button:focus {
 
 /* TALKING TO RATS */
 #talkingToRatsScreen {
-  background-image: url('./img/Backgrounds/couch_nobox.png');
+  background-image: url('img/Backgrounds/couch_nobox.png');
   background-repeat: no-repeat;
   background-size: 100%;
   width: 900px;

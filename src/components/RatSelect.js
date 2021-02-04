@@ -1,6 +1,4 @@
 import React from "react";
-import { Row, Box } from "jsxstyle";
-
 
 class RatSelect extends React.Component {
   constructor() {
@@ -60,18 +58,21 @@ class RatSelect extends React.Component {
     let ratsList = []
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.props.rats.length; i++) {
+      let filename = `/ratchelor/img/Characters/${this.props.rats[i].filename}.png`
+      console.log(filename);
       ratsList.push(
         <div key={i} id={`rat${i}`} className="ratList" onClick={() => {
             this.selectRat(this.props.rats[i].name, `rat${i}`);
           }}>
           {`${this.props.rats[i].name}`}
+          <img src={filename}/>
         </div>
       )
     }
     
     return (
       <div id="ratSelectScreen">
-        <div>Select your rats for the game (choose {`${this.props.numRatsInGame}`}):</div>
+        <div>Choose your {`${this.props.numRatsInGame}`} lovely contestants:</div>
         {ratsList}
         <div>Chosen: {this.state.selectedRats.join(",")}</div>
         {this.state.selectRatsButton}
