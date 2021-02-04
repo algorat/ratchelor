@@ -11,14 +11,34 @@ class TalkingToRats extends React.Component {
     this.activeRats = this.ratNames.map((ratName) => this.props.getRatByName(ratName));
     // Store all of your canned responses in an array
     this.responses = responsesJson;
-
+    this.charSpeed = 45;
     this.state = {
       ratIndex: 0,
+      charsRevealed: 0,
+      responses: [],
     }
+  }
+
+  componentDidMount() {
+    this.startTextMoving();
+    this.getRandomResponses();
+  }
+
+  startTextMoving() {
+    this.setState({charsRevealed: 0});
+    window.setInterval(() => {
+      let charsRevealed = this.state.charsRevealed + 1;
+      if (charsRevealed > this.activeRats[this.state.ratIndex].dialogue[this.props.round].length) {
+      } else {
+        this.setState({charsRevealed})
+      }
+    }, this.charSpeed)
   }
 
   // After you submit your response, choose a new rat
   submitResponse() {
+    this.startTextMoving();
+    this.getRandomResponses();
     let newRatIndex = this.state.ratIndex + 1;
     // If that was the last rat, advance to the rose ceremony
     if (newRatIndex === this.ratNames.length) {
@@ -40,20 +60,19 @@ class TalkingToRats extends React.Component {
       let responseDiv = <button onClick={this.submitResponse.bind(this)} key={i}>{responseText}</button>
       responses.push(responseDiv);
     }
-    return responses;
+    this.setState({responses});
   }
 
   // You get a random rat, they talk to you, you can respond, after you respond another rat shows up
   render() {
-    let responses = this.getRandomResponses();
-    let ratDialogue = this.activeRats[this.state.ratIndex].dialogue[this.props.round];
+    let ratDialogue = this.activeRats[this.state.ratIndex].dialogue[this.props.round].substring(0, this.state.charsRevealed);
     return (
       <div id="talkingToRatsScreen">
       <div id="dialogueContainer">
         <div id="ratName">{this.activeRats[this.state.ratIndex].name}</div>
         <div id="ratDialogue">{ratDialogue}</div>
       </div>
-      <div id="responses">{responses}</div>
+      <div id="responses">{this.state.responses}</div>
     </div>
     );
   }
