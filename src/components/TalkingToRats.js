@@ -11,7 +11,7 @@ class TalkingToRats extends React.Component {
     this.activeRats = this.ratNames.map((ratName) => this.props.getRatByName(ratName));
     // Store all of your canned responses in an array
     this.responses = responsesJson;
-    this.charSpeed = 45;
+    this.charSpeed = 36;
     this.state = {
       ratIndex: 0,
       charsRevealed: 0,
@@ -26,7 +26,7 @@ class TalkingToRats extends React.Component {
 
   startTextMoving() {
     this.setState({charsRevealed: 0});
-    window.setInterval(() => {
+    this.interval = window.setInterval(() => {
       let charsRevealed = this.state.charsRevealed + 1;
       if (charsRevealed > this.activeRats[this.state.ratIndex].dialogue[this.props.round].length) {
       } else {
@@ -37,6 +37,7 @@ class TalkingToRats extends React.Component {
 
   // After you submit your response, choose a new rat
   submitResponse() {
+    window.clearInterval(this.interval)
     this.startTextMoving();
     this.getRandomResponses();
     let newRatIndex = this.state.ratIndex + 1;
