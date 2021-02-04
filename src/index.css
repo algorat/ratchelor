@@ -25,6 +25,10 @@ body {
   box-sizing: border-box;
 }
 
+#hideme {
+  visibility: none;
+}
+
 button {
   cursor: pointer;
   background-color: #f0bb5a;
