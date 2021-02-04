@@ -27,6 +27,7 @@ body {
 
 #hideme {
   visibility: none;
+  background-image: url('./img/preview.png');
 }
 
 button {
