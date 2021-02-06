@@ -70,6 +70,9 @@ class TalkingToRats extends React.Component {
     if (ratDialogue.length === 0) ratDialogue = ".";
     return (
       <div id="talkingToRatsScreen">
+      <img id="playerRat" src={`/ratchelor/img/Couch/you.png`}></img>
+      <img id="talkingRat" src={`/ratchelor/img/Couch/${this.activeRats[this.state.ratIndex].filename}.png`}></img>
+
       <div id="dialogueContainer">
         <div id="ratName">{this.activeRats[this.state.ratIndex].name}</div>
         <div id="ratDialogue">{ratDialogue}</div>

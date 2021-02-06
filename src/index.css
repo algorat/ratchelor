@@ -193,6 +193,16 @@ button:focus {
   bottom: 10px;
 }
 
+#talkingToRatsScreen #talkingRat,
+#playerRat {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 /* ROSE CEREMONY */
 #roseCeremonyScreen {
   background-image: url('img/RoseCeremony/Background.png');
