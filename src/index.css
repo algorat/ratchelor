@@ -138,6 +138,7 @@ button:focus {
 
 /* TALKING TO RATS */
 #talkingToRatsScreen {
+  overflow: hidden;
   background-image: url('img/Backgrounds/couch_nobox.png');
   background-repeat: no-repeat;
   background-size: 100%;
