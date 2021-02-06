@@ -273,3 +273,98 @@ button:focus {
   font-size: 30px;
   color: green;
 }
+
+
+.reaction-animation{
+  position: relative;
+  height: 5px;
+  width: 5px;
+  animation: emote-container-up 700ms 0s forwards;
+}
+
+.reaction-emote{
+  position: absolute;
+  animation-timing-function: linear;
+  animation-duration: 4s;
+  animation-delay: 150ms;
+  animation-fill-mode: forwards;
+}
+
+.reaction-emote-1{
+  animation-name: emote-1;
+}
+
+.reaction-emote-2{
+  animation-name: emote-2;
+}
+
+.reaction-emote-3{
+  animation-name: emote-3;
+}
+
+.reaction-emote-4{
+  animation-name: emote-4;
+}
+.reaction-emote-5{
+  animation-name: emote-5;
+}
+
+@keyframes emote-container-up {
+  0% {transform: translate3d(0px, 0px, 0px) scale(1);}
+  100% {transform: translate3d(0px, -20px, 0px) scale(1.6); }
+}
+
+@keyframes emote-1 {
+  from {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(-10px, -40px, 0px);
+  }
+}
+
+@keyframes emote-2 {
+  from {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(-50px, -70px, 0px);
+  }
+}
+
+@keyframes emote-3 {
+  from {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(70px, -65px, 0px);
+  }
+}
+
+@keyframes emote-4 {
+  from {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(-60px, -45px, 0px);
+  }
+}
+
+@keyframes emote-5 {
+  from {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(5px, -80px, 0px);
+  }
+}
