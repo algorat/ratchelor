@@ -170,7 +170,6 @@ button:focus {
 
 #talkingToRatsScreen #dialogueContainer {
   position: absolute;
-  bottom: 0px;
 }
 
 #talkingToRatsScreen button {
@@ -191,7 +190,6 @@ button:focus {
   justify-content: center;
   width: 100%;
   position: absolute;
-  bottom: 10px;
 }
 
 #talkingToRatsScreen #talkingRat,

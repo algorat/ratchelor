@@ -2,6 +2,7 @@ import React from "react";
 import responsesJson from '../responses.json';
 
 const OFF_LEFT = -450;
+const OFF_BOTTOM = -400;
 class TalkingToRats extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +19,8 @@ class TalkingToRats extends React.Component {
       charsRevealed: 0,
       responses: [],
       ratLeft: OFF_LEFT,
-      ratTop: 0
+      ratTop: 0,
+      dialogueBottom: OFF_BOTTOM,
     }
   }
 
@@ -32,6 +34,11 @@ class TalkingToRats extends React.Component {
     this.ratMoveInInterval = window.setInterval(() => {
       if (this.state.ratLeft < 0) {
         this.setState({ratLeft: this.state.ratLeft + 4})
+        if (this.state.dialogueBottom < 0) {
+          let dialogueBottom = this.state.dialogueBottom + 5;
+          if (dialogueBottom > 0) dialogueBottom = 0;
+          this.setState({dialogueBottom})
+        }
       } else {
         window.clearInterval(this.ratMoveInInterval);
         this.startTextMoving();
@@ -44,6 +51,11 @@ class TalkingToRats extends React.Component {
     this.ratMoveOutInterval = window.setInterval(() => {
       if (this.state.ratLeft > OFF_LEFT) {
         this.setState({ratLeft: this.state.ratLeft - 4})
+        if (this.state.dialogueBottom > OFF_BOTTOM) {
+          let dialogueBottom = this.state.dialogueBottom - 3;
+          if (dialogueBottom < OFF_BOTTOM) dialogueBottom = OFF_BOTTOM;
+          this.setState({dialogueBottom})
+        }
       } else {
         window.clearInterval(this.ratMoveOutInterval);
         this.setState({charsRevealed: 0})
@@ -106,11 +118,11 @@ class TalkingToRats extends React.Component {
       <img id="talkingRat" 
       style={{left: `${this.state.ratLeft}px`, top: `${this.state.ratTop}px`}}
       src={`/ratchelor/img/Couch/${this.activeRats[this.state.ratIndex].filename}.png`}></img>
-      <div id="dialogueContainer">
+      <div id="dialogueContainer" style={{bottom: `${this.state.dialogueBottom}px`}}>
         <div id="ratName">{this.activeRats[this.state.ratIndex].name}</div>
         <div id="ratDialogue">{ratDialogue}</div>
       </div>
-      <div id="responses">{this.state.responses}</div>
+      <div id="responses" style={{bottom: `${this.state.dialogueBottom + 10}px`}}>{this.state.responses}</div>
     </div>
     );
   }
