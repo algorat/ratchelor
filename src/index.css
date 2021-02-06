@@ -199,6 +199,9 @@ button:focus {
   padding: 0;
   width: 100%;
   position: absolute;
+}
+
+#talkingToRatsScreen #playerRat {
   left: 0;
   top: 0;
 }
