@@ -59,14 +59,12 @@ class RatSelect extends React.Component {
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.props.rats.length; i++) {
       let filename = `/ratchelor/img/Characters/${this.props.rats[i].filename}.png`
-      console.log(filename);
       ratsList.push(
-        <div id="ratContainer">
-
-        <div key={i} id={`rat${i}`} className="ratListItem" onClick={() => {
+        <div key={i} id="ratContainer">
+          <div  id={`rat${i}`} className="ratListItem" onClick={() => {
             this.selectRat(this.props.rats[i].name, `rat${i}`);
           }}>
-                    <div className="ratName">{`${this.props.rats[i].name}`}</div>
+          <div className="ratName">{`${this.props.rats[i].name}`}</div>
 
           <img className="ratPic" src={filename}/>
         </div>

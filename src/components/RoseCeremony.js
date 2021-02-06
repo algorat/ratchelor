@@ -44,7 +44,7 @@ class RoseCeremony extends React.Component {
 
     // If that was the final rat, display the advance button
     if (this.state.selectedRats.length === this.numRoses) {
-      let giveRosesButton = <button onClick={this.endRoseCeremony.bind(this)}>Give roses</button>
+      let giveRosesButton = <button onClick={this.endRoseCeremony.bind(this)}>Choose Contestants</button>
         this.setState({giveRosesButton})
     } else {
       this.setState({giveRosesButton: ""});
@@ -63,20 +63,26 @@ class RoseCeremony extends React.Component {
     let ratsList = []
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.activeRats.length; i++) {
+      let filename = `/ratchelor/img/Characters/${this.activeRats[i].filename}.png`
       ratsList.push(
         <div key={i} id={`rat${i}`} className="ratList" onClick={() => {
             this.selectRat(this.activeRats[i].name, `rat${i}`);
           }}>
-          {`${this.activeRats[i].name}`}
+          {/* {`${this.activeRats[i].name}`} */}
+          <img className="ratPic" src={filename}/>
+          <img className="rosePic" src="/ratchelor/img/temprose.png"/>
         </div>
       )
     }
+    let roseContainer = []
+    for (let i = 0; i < this.props.numRoses - this.state.selectedRats.length; i++) {
+      roseContainer.push(<img className="roseIcon" src="/ratchelor/img/temprose.png"></img>)
+    }
     return (
       <div id="roseCeremonyScreen">
-        Rose ceremony: Select {`${this.props.numRoses}`} rats
-        {ratsList}
-        <div>Chosen: {this.state.selectedRats.join(",")}</div>
-        {this.state.giveRosesButton}
+        <div id="roseContainer">{roseContainer}</div>
+        <div id="ratListContainer"> {ratsList}</div>
+        <div id="giveRosesButton"> {this.state.giveRosesButton}</div>
     </div>
     );
   }
