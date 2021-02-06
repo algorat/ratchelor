@@ -44,7 +44,7 @@ class RatSelect extends React.Component {
 
     // If that was the final rat, display the advance button
     if (this.state.selectedRats.length === this.props.numRatsInGame) {
-      let selectRatsButton = <button onClick={this.onClickSelectRats}>Select Rats</button>
+      let selectRatsButton = <button onClick={this.onClickSelectRats}>Continue</button>
       this.setState({selectRatsButton});
     } else {
       this.setState({selectRatsButton: ""});
@@ -61,20 +61,23 @@ class RatSelect extends React.Component {
       let filename = `/ratchelor/img/Characters/${this.props.rats[i].filename}.png`
       console.log(filename);
       ratsList.push(
-        <div key={i} id={`rat${i}`} className="ratList" onClick={() => {
+        <div id="ratContainer">
+
+        <div key={i} id={`rat${i}`} className="ratListItem" onClick={() => {
             this.selectRat(this.props.rats[i].name, `rat${i}`);
           }}>
-          {`${this.props.rats[i].name}`}
-          <img src={filename}/>
+                    <div className="ratName">{`${this.props.rats[i].name}`}</div>
+
+          <img className="ratPic" src={filename}/>
+        </div>
         </div>
       )
     }
     
     return (
       <div id="ratSelectScreen">
-        <div>Choose your {`${this.props.numRatsInGame}`} lovely contestants:</div>
-        {ratsList}
-        <div>Chosen: {this.state.selectedRats.join(",")}</div>
+        <div id="chooseText">Choose your {`${this.props.numRatsInGame}`} lovely contestants:</div>
+        <div id="ratListContainer">{ratsList}</div>
         {this.state.selectRatsButton}
     </div>
     );
