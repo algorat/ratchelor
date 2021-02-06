@@ -12,7 +12,7 @@ class TalkingToRats extends React.Component {
     // Store all of your canned responses in an array
     this.responses = responsesJson;
     this.charSpeed = 30;
-    this.ratMoveSpeed = 1;
+    this.ratMoveSpeed = 10;
     this.state = {
       ratIndex: 0,
       charsRevealed: 0,
@@ -29,10 +29,9 @@ class TalkingToRats extends React.Component {
 
  sendRatIn() {
   this.getRandomResponses();
-
     this.ratMoveInInterval = window.setInterval(() => {
       if (this.state.ratLeft < 0) {
-        this.setState({ratLeft: this.state.ratLeft + 1})
+        this.setState({ratLeft: this.state.ratLeft + 4})
       } else {
         window.clearInterval(this.ratMoveInInterval);
         this.startTextMoving();
@@ -44,7 +43,7 @@ class TalkingToRats extends React.Component {
     this.setState({responses: ""})
     this.ratMoveOutInterval = window.setInterval(() => {
       if (this.state.ratLeft > OFF_LEFT) {
-        this.setState({ratLeft: this.state.ratLeft - 1})
+        this.setState({ratLeft: this.state.ratLeft - 4})
       } else {
         window.clearInterval(this.ratMoveOutInterval);
         this.setState({charsRevealed: 0})
