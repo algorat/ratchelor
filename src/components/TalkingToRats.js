@@ -27,7 +27,19 @@ class TalkingToRats extends React.Component {
 
   componentDidMount() {
     this.sendRatIn();
-   
+    
+  }
+
+  componentWillUnmount() {
+    if(this.ratMoveInInterval !== null){
+      window.clearInterval(this.ratMoveOutInterval);
+    }
+    if(this.ratMoveOutInterval !== null){
+      window.clearInterval(this.ratMoveOutInterval);
+    }
+    if(this.textInterval !== null){
+      window.clearInterval(this.textInterval);
+    }
   }
 
  sendRatIn() {
@@ -75,6 +87,7 @@ class TalkingToRats extends React.Component {
     this.textInterval = window.setInterval(() => {
       let charsRevealed = this.state.charsRevealed + 1;
       if (charsRevealed > this.activeRats[this.state.ratIndex].dialogue[this.props.round].length) {
+        window.clearInterval(this.textInterval);
       } else {
         this.setState({charsRevealed})
       }
@@ -89,8 +102,8 @@ class TalkingToRats extends React.Component {
     } else {
       this.setState ({ratIndex: newRatIndex})
       this.props.changeCurrentRatIdx(newRatIndex);
+      this.sendRatIn();
     }
-    this.sendRatIn();
   }
 
   // After you submit your response, choose a new rat

@@ -83,7 +83,7 @@ class RoseCeremony extends React.Component {
     }
     let roseContainer = []
     for (let i = 0; i < this.props.numRoses - this.state.selectedRats.length; i++) {
-      roseContainer.push(<img className="roseIcon" src="/ratchelor/img/temprose.png" alt="a rose"></img>)
+      roseContainer.push(<img key={"rose-ceremony-rat" + i} className="roseIcon" src="/ratchelor/img/temprose.png" alt="a rose"></img>)
     }
     return (
       <div id="roseCeremonyScreen" className="screen">
