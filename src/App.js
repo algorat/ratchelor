@@ -1,3 +1,4 @@
+
 import "./App.css";
 import React from "react";
 import IntroScreen from "./components/IntroScreen";
@@ -7,8 +8,26 @@ import RoseCeremony from "./components/RoseCeremony";
 import AnimeEnding from "./components/AnimeEnding";
 import MusicManager from "./components/MusicManager";
 import GameOptions from "./components/GameOptions";
-
 import ratsJson from './rats.json';
+import firebase from "firebase";
+
+var firebaseConfig = {
+       
+        
+  messagingSenderId: "993096202246",
+  appId: "1:993096202246:web:bf0ebeedc4c347640aeb87"
+};
+var firebaseConfig = {
+  apiKey: "AIzaSyDimK5PvHd3hBT8Xoyup_ogKaSPT3Chwzc",
+  authDomain: "ratchelor.firebaseapp.com",
+  projectId: "ratchelor",
+  databaseURL: "https://ratchelor-default-rtdb.firebaseio.com/",
+  storageBucket: "ratchelor.appspot.com",
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
 
 // Game Stages
 const INTRO = 0;
@@ -107,8 +126,13 @@ class RatchelorGame extends React.Component {
     }
   }
 
+  incrementTotalRatCount(ratName) {
+    this.database.ref('/').child(ratName).set(firebase.database.ServerValue.increment(1));
+  }
+
   componentDidMount() {
     this.interludeElement = document.getElementById("interlude");
+    this.database = firebase.database()
   }
 
   render() {
@@ -160,9 +184,11 @@ class RatchelorGame extends React.Component {
             // If that was the last round, advance to Anime
             if (newRoundNum === this.numRounds) {
               this.setState({gameStage: ANIME_ENDING});
+              this.incrementTotalRatCount(this.state.activeRatNames[0]);
             // Else, keep talking to rats
             } else {
-              this.setState({gameStage: TALKING_TO_RATS, roundNum: newRoundNum})
+              this.beginInterludeAndAdvanceState(`Round ${this.state.roundNum + 2}`, 2000, TALKING_TO_RATS);
+              this.setState({roundNum: newRoundNum})
             }
           }}
         />
