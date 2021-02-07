@@ -27,7 +27,6 @@ class TalkingToRats extends React.Component {
 
   componentDidMount() {
     this.sendRatIn();
-    
   }
 
   componentWillUnmount() {
