@@ -26,13 +26,9 @@ class TalkingToRats extends React.Component {
   }
 
   componentDidMount() {
-<<<<<<< HEAD
     window.setTimeout(() => {
       this.sendRatIn();
     }, this.props.startDelay)
-=======
-    this.sendRatIn();
->>>>>>> ebe9eb4858bd737be72ccaced649c5f985a0c77f
   }
 
   componentWillUnmount() {

@@ -127,7 +127,7 @@ class RatchelorGame extends React.Component {
           rats={ratsJson} 
           numRatsInGame={this.numRatsInGame} 
           advanceState={() => {
-            this.beginInterludeAndAdvanceState(`Round ${this.state.roundNum + 1}`, 3000, TALKING_TO_RATS);
+            this.beginInterludeAndAdvanceState(`Round ${this.state.roundNum + 1}`, 2000, TALKING_TO_RATS);
           }}
           setActiveRats={(selectedRats) => {
             this.setState({activeRatNames: selectedRats});
@@ -141,7 +141,7 @@ class RatchelorGame extends React.Component {
           getRatByName={this.getRatByName}
           round={this.state.roundNum}
           startDelay={5000}
-          goToRoseCeremony={() => this.beginInterludeAndAdvanceState(`Rose ceremony ${this.state.roundNum + 1}`, 3000, ROSE_CEREMONY)}
+          goToRoseCeremony={() => this.beginInterludeAndAdvanceState(`Rose ceremony ${this.state.roundNum + 1}`, 2000, ROSE_CEREMONY)}
           changeCurrentRatIdx={this.changeCurrentRatIdx}
         />
     } else if (this.state.gameStage === ROSE_CEREMONY) {
@@ -181,7 +181,7 @@ class RatchelorGame extends React.Component {
         <div id="game">
           <img id="frame" src="/ratchelor/img/frameSmaller.png" alt=""></img>
           <div id="interludeContainer">
-          <div id="interlude">
+          <div id="interlude" style={{bottom: this.state.interludeBottom}}>
             <div id="interludeText">{this.state.interludeText}</div>
           </div>
           {screen}
