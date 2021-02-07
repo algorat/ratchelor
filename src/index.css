@@ -183,8 +183,6 @@ button:focus {
   padding-top: 10px;
   font-weight: bold;
   position: relative;
-
-  /* display: flex; */
 }
 
 #ratSelectScreen .ratNameContainer {
@@ -244,6 +242,7 @@ button:focus {
   border-bottom: 2px solid rgb(232, 190, 27);
   width: 100%;
   text-align: center;
+  height: 70px;
 }
 
 #ratSelectScreen button {
