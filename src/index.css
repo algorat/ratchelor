@@ -130,7 +130,7 @@ button:focus {
   animation: fadeIn ease 3s;
   width: 900px;
   height: 100%;
-  background-color: rgb(109, 33, 21);
+  background-color: rgb(255, 177, 164);
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -239,6 +239,7 @@ button:focus {
 
 .stillRats .ratPic:hover {
   filter: grayscale(0) !important;
+
 }
 
 #ratSelectScreen .ratPic:hover {
@@ -352,7 +353,8 @@ button:focus {
 }
 
 #ratSelectScreen .ratPic {
-  filter: grayscale(1);
+  filter: grayscale(1) brightness(1.3) contrast(1);
+
 }
 
 .selectedRat .ratPic {
