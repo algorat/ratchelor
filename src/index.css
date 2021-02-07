@@ -89,7 +89,7 @@ button:focus {
   z-index: 1000;
   height: 675px;
   bottom: 900px;
-  background-image: url('img/Backgrounds/Intro3.png');
+  background-color: yellow;
   background-size: 100%;
   position: absolute;
   display: flex;
@@ -98,9 +98,9 @@ button:focus {
 
 #interludeText {
   font-family: 'Yusei Magic', sans-serif;
-  font-size: 150px;
+  font-size: 50px;
   margin-top: 180px;
-  text-shadow: 10px 10px white;
+  text-shadow: 3px 3px white;
   color: rgb(109, 33, 21);
 }
 
