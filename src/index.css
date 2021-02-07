@@ -303,15 +303,11 @@ button:focus {
   padding-top: 30px;
 }
 
-#roseCeremonyScreen .selectedRat {
-  /* color: red; */
-}
-
-.selectedRat {
-  /* filter: grayscale(1); */
+#ratSelectScreen .selectedRat {
   background-color: #c55f52 !important;
   border-radius: 200px;
 }
+
 #roseCeremonyScreen .ratList {
   cursor: pointer;
   margin: 0;
