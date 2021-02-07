@@ -1,7 +1,7 @@
 import React from "react";
 import responsesJson from '../responses.json';
 
-const OFF_LEFT = -450;
+const OFF_LEFT = -550;
 const OFF_BOTTOM = -400;
 class TalkingToRats extends React.Component {
   constructor(props) {
