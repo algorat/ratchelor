@@ -12,6 +12,9 @@ body {
   position: absolute;
   display: flex;
   justify-content: center;
+  background-image: url(./img/Backgrounds/background2.png);
+  background-size: 350px 285px;
+
 }
 
 #root {
@@ -130,7 +133,7 @@ button:focus {
   animation: fadeIn ease 3s;
   width: 900px;
   height: 100%;
-  background-color: rgb(255, 177, 164);
+  background-color: rgb(255, 197, 187);
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -138,7 +141,7 @@ button:focus {
 }
 
 #ratSelectScreen button {
-  background-color: #882e2e;
+  background-color: #a72121;
   padding-top: 5px;
   padding-bottom: 6px;
 }
