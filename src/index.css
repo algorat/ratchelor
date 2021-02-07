@@ -28,6 +28,15 @@ body {
 
 #game {
   position: relative;
+  background-color: black;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 #frame {
@@ -90,6 +99,7 @@ button:focus {
 
 /* RAT SELECT */
 #ratSelectScreen {
+  animation: fadeIn ease 3s;
   width: 900px;
   height: 100%;
   background-color: rgb(109, 33, 21);
@@ -101,7 +111,9 @@ button:focus {
 
 #ratSelectScreen .selectedRat {
   color: blue;
-  background-color: lightpink !important;
+}
+
+#ratSelectScreen .selectedRat .ratPic {
 }
 
 #ratSelectScreen #ratListContainer {
