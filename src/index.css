@@ -109,11 +109,22 @@ button:focus {
   align-items: center;
 }
 
+#ratSelectScreen button {
+  background-color: #882e2e;
+  padding-top: 5px;
+  padding-bottom: 6px;
+}
+
 #ratSelectScreen .selectedRat {
   color: blue;
 }
 
-#ratSelectScreen .selectedRat .ratPic {
+.ratHearts {
+  display: none;
+}
+
+#ratSelectScreen .selectedRat .ratHearts {
+  display: block;
 }
 
 #ratSelectScreen #ratListContainer {
@@ -126,11 +137,13 @@ button:focus {
 }
 
 #ratSelectScreen #ratContainer {
-  width: 125px;
+  width: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 #ratSelectScreen .ratListItem {
@@ -138,8 +151,10 @@ button:focus {
   height: 150px;
   width: 130px;
   padding-left: 0;
+  padding-top: 10px;
   font-weight: bold;
   position: relative;
+
   /* display: flex; */
 }
 
@@ -155,10 +170,10 @@ button:focus {
   position: absolute;
   border-radius: 12px;
   padding: 2px;
-  width: 135px;
+  width: 140px;
   left: 0;
   right: 0;
-  top: 135px;
+  top: 150px;
   display: none;
 }
 
@@ -169,9 +184,15 @@ button:focus {
   padding: 5px;
 }
 
-#ratSelectScreen .ratPic {
+#ratSelectScreen .ratFrame,
+.ratHearts {
   width: 100%;
   transform: scale(1.25);
+  position: absolute;
+}
+
+#ratSelectScreen .ratPic {
+  position: relative;
 }
 
 #ratSelectScreen .ratPic:hover + .ratNameContainer {
@@ -180,7 +201,7 @@ button:focus {
 
 #ratSelectScreen .ratPic:hover {
   animation: pulse ease-in 0.5s;
-  transform: scale(1.4);
+  transform: scale(1.3);
 }
 
 #ratSelectScreen #chooseText {
@@ -245,7 +266,7 @@ button:focus {
 }
 
 #talkingToRatsScreen button:hover {
-  background-color: #ecd9a5;
+  background-color: #eca5a5;
   color: #d58d00;
 }
 
@@ -284,9 +305,13 @@ button:focus {
 
 #roseCeremonyScreen .selectedRat {
   /* color: red; */
-  /* background-color: rgb(219, 187, 255) !important; */
 }
 
+.selectedRat {
+  /* filter: grayscale(1); */
+  background-color: #c55f52 !important;
+  border-radius: 200px;
+}
 #roseCeremonyScreen .ratList {
   cursor: pointer;
   margin: 0;
@@ -390,11 +415,11 @@ button:focus {
 
 @keyframes pulse {
   0% {
-    transform: scale(1.2);
+    transform: scale(1);
   }
 
   50% {
-    transform: scale(1.4);
+    transform: scale(1.3);
   }
 }
 
