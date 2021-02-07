@@ -22,7 +22,7 @@ class RoseCeremony extends React.Component {
     const element = document.getElementById(id);
 
     // If it's already chosen, deselect it
-    if (this.state.selectedRats.indexOf(ratName) != -1) {
+    if (this.state.selectedRats.indexOf(ratName) !== -1) {
       const index = this.state.selectedRats.indexOf(ratName);
       const newSelectedRats = this.state.selectedRats;
       newSelectedRats.splice(index, 1);
@@ -45,7 +45,7 @@ class RoseCeremony extends React.Component {
     // If that was the final rat, display the advance button
     if (this.state.selectedRats.length === this.numRoses) {
       let giveRosesButton;
-      if (this.numRoses == 1){
+      if (this.numRoses === 1){
         giveRosesButton = <button onClick={this.endRoseCeremony.bind(this)}>Choose Contestant</button>;
       }
       else{
@@ -76,14 +76,14 @@ class RoseCeremony extends React.Component {
             this.selectRat(this.activeRats[i].name, `rat${i}`);
           }}>
           {/* {`${this.activeRats[i].name}`} */}
-          <img className="ratPic" src={filename}/>
-          <img className="rosePic" src="/ratchelor/img/temprose.png"/>
+          <img className="ratPic" src={filename} alt="a rat waiting for you to make a decision"/>
+          <img className="rosePic" src="/ratchelor/img/temprose.png" alt="a rose" />
         </div>
       )
     }
     let roseContainer = []
     for (let i = 0; i < this.props.numRoses - this.state.selectedRats.length; i++) {
-      roseContainer.push(<img className="roseIcon" src="/ratchelor/img/temprose.png"></img>)
+      roseContainer.push(<img className="roseIcon" src="/ratchelor/img/temprose.png" alt="a rose"></img>)
     }
     return (
       <div id="roseCeremonyScreen" className="screen">

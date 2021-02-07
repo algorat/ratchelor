@@ -5,6 +5,7 @@ import RatSelect from "./components/RatSelect";
 import TalkingToRats from "./components/TalkingToRats";
 import RoseCeremony from "./components/RoseCeremony";
 import AnimeEnding from "./components/AnimeEnding";
+import MusicManager from "./components/MusicManager";
 
 import ratsJson from './rats.json';
 
@@ -33,8 +34,11 @@ class RatchelorGame extends React.Component {
       // String list of all rat names currently still in the game
       activeRatNames: [],
       // Text for interlude screens that fall down
-      interludeText: "Round 1"
+      interludeText: "Round 1",
+      //the rat that we r currently talking to
+      currentRatIdx: 0
     };
+    this.changeCurrentRatIdx = this.changeCurrentRatIdx.bind(this);
   }
 
   // Reset everything to restart the game
@@ -43,6 +47,12 @@ class RatchelorGame extends React.Component {
       gameStage: INTRO,
       roundNum: 0,
       activeRatNames: []
+    })
+  }
+
+  changeCurrentRatIdx(idx){
+    this.setState({
+      currentRatIdx: idx
     })
   }
 
@@ -79,6 +89,7 @@ class RatchelorGame extends React.Component {
           getRatByName={this.getRatByName}
           round={this.state.roundNum}
           goToRoseCeremony={() => this.setState({gameStage: ROSE_CEREMONY})}
+          changeCurrentRatIdx={this.changeCurrentRatIdx}
         />
     } else if (this.state.gameStage === ROSE_CEREMONY) {
       // Rose ceremony screen:
@@ -114,19 +125,23 @@ class RatchelorGame extends React.Component {
     }
     return (
       <div id="game">
-        <img id="frame" src="/ratchelor/img/frameSmaller.png"></img>
+        <img id="frame" src="/ratchelor/img/frameSmaller.png" alt=""></img>
         <div id="interludeContainer">
         <div id="interlude">
           <div id="interludeText">{this.state.interludeText}</div>
         </div>
         {screen}
         </div>
-
+        <MusicManager 
+          phase={this.state.gameStage} 
+          finalRat={this.getRatByName(this.state.activeRatNames[0])} 
+          currentRatIdx={this.state.currentRatIdx} 
+        />
        </div>
     )
   }
 }
 
 
-
+export {INTRO, RAT_SELECT, TALKING_TO_RATS, ROSE_CEREMONY, ANIME_ENDING, SPECIAL_ENDING};
 export default RatchelorGame;

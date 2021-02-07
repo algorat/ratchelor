@@ -91,8 +91,8 @@ class RatSelect extends React.Component {
             this.selectRat(this.props.rats[i].name, `rat${i}`);
           }}>
           <div className="ratPic">
-            <img className="ratFrame" src={filename}/>
-            <img className="ratHearts" src={filenameHearts}/>
+            <img className="ratFrame" src={filename} alt=""/>
+            <img className="ratHearts" src={filenameHearts} alt=""/>
           </div>
           <div className="ratNameContainer">
           <div className="ratName">{`${this.props.rats[i].name}`}</div>

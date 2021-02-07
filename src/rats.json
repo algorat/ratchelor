@@ -10,7 +10,8 @@
             "I've spent my whole life focused on building an empire, and I'd give it all away for you. My fortune, my place on the throne, my fancy diamonds… I just want you. I love you, and I want to be with you forever."
         ],
         "tagline": "I'm not here to make friends.",
-        "filename": "heighnesslaure"
+        "filename": "heighnesslaure",
+        "ending": "POP"
     },
     {
         "name": "Migg Mouse",
@@ -23,7 +24,8 @@
             "I'm not so good with words. But you need to know something: I truly love you with every muscle, tendon, and fiber in my body. I really do, and I will go on loving you forever. I want to start a family together, I want you to meet my mom. I'm all in."
         ],
         "tagline": "My ideal rat partner is like stuart little",
-        "filename": "miggmouse"
+        "filename": "miggmouse",
+        "ending": "CHEERFUL"
     },
     {
         "name": "L'Artiste",
@@ -36,7 +38,8 @@
             "I cherish the width of your eyes, the courage of your heart, the love entre your soul. Mon cherie, I love you et j'adore you foreverre. Let us never be apart again even for a single second or even a millisecond."
         ],
         "tagline": "Let's paint a beautiful future together, oui?",
-        "filename": "lartiste"
+        "filename": "lartiste",
+        "ending": "PARIS"
     },
     {
         "name": "Bora XIV",
@@ -49,7 +52,8 @@
            "Let's spend the rest of our lives together,.. On the moon! What a lovely idea, i bet everyone would look like ants from way up there. And we can get a cow and grow our own cheese, till the soil for some lovely berries"
         ],
         "tagline": "Sorry, I was distracted by the moon",
-        "filename": "boraxiv"
+        "filename": "boraxiv",
+        "ending": "ROMANTICSAD"
     },
     {
         "name": "Dr. Plagueus",
@@ -62,7 +66,8 @@
             "You could read all the books in the world about love, the poems, and the stories, but nothing can compare to the true feeling. It's not only a chemical reaction in my brain, it's much more than that, words cannot describe. My love, I am going to dedicate my black plague documentary to you!"
         ],
         "tagline": "You could say I'm sick... with love",
-        "filename": "dr"
+        "filename": "dr",
+        "ending": "ROMANTICSAD"
     },
     {
         "name": "ARealRat",
@@ -75,7 +80,8 @@
             "Now I'm finally ready. We're actually three geckos in a costume. We're so sorry we lied to you all this time, but we were afraid you would reject us. We're also sorry that we lied about our job, but we just wanted to impress you so much. But when we saw your picture, we just knew we had to meet you. We fell in love instantly. And after getting to know you more, we've fallen even more in love. We love you so much."
         ],
         "tagline": "Definitely a rat",
-        "filename": "arealrat"
+        "filename": "arealrat",
+        "ending": "CHEERFUL"
     },
     {
         "name": "Reggie-231",
@@ -88,7 +94,8 @@
             "Listen, I didn't know this cold heart could love the way it does when I see you. If you'd told me back in the lab that I'd meet a rat like you, well, I wouldn't have believed ya. I'll make you happy every day from now on, that's my promise."
         ],
         "tagline": "Just a robot looking to learn what love is",
-        "filename": "reggie231"
+        "filename": "reggie231",
+        "ending": "FUNKY"
     },
     {
         "name": "Vim",
@@ -101,7 +108,8 @@
             "I thought I already had enough family. Me and my kids, that's the only real family I've ever had. But then I met you and you changed everything. We can't wait to welcome you into our life forever."
         ],
         "tagline": "You just can't quit me",
-        "filename": "vim"
+        "filename": "vim",
+        "ending": "ROMANTICHAPPY"
     },
     {
         "name": "Bear",
@@ -114,7 +122,8 @@
             "When the doctors only told me I had 3 days to live due to my above average size, well, I figured I didn't have much to live for. But now, 3 years later, I'm glad I proved them all wrong because that experience led me to you. You're my forever."
         ],
         "tagline": "I'm a big rat with a big heart",
-        "filename": "bear"
+        "filename": "bear",
+        "ending": "CHEERFUL"
     },
     {
         "name": "EggSalad",
@@ -127,7 +136,8 @@
             "I hope this doesn't sound too cheesy but.. I wish I was a cat so I could spend all 9 of my lives with you. I love you. I want to be with you forever. I want to bake you endless cakes and pies forever. And I don't care who knows. I'll shout it from the rooftops! I love you!"
         ],
         "tagline": "Who, me?",
-        "filename": "eggsalad"
+        "filename": "eggsalad",
+        "ending": "ROMANTICHAPPY"
     },
     {
         "name": "Emacs",
@@ -140,7 +150,8 @@
             "Hey. When I first met you, I thought you were kind of annoying. But now, I see you for who you truly are, and I see that you see me. I think we'd make a really notorious duo. You get me like no one else ever has. I love you, I'm not afraid to say it. I want to be together forever."
         ],
         "tagline": "I'm complicated.",
-        "filename": "emacs"
+        "filename": "emacs",
+        "ending": "INTENSE"
     },
     {
         "name": "Jagadoo",
@@ -153,7 +164,8 @@
             "Listen sugar, I think you're sweet. Wha do you say we find ourselves an alcove out west and spend the rest of our lives bonnie and clyde style"
         ],
         "tagline": "I don't slow down for anybody",
-        "filename": "jagadoo"
+        "filename": "jagadoo",
+        "ending": "INTENSE"
     },
     {
         "name": "Slim Jim",
@@ -166,7 +178,8 @@
             "I knew it. Destiny had us in store for each other and with good reason *sloppy wet kiss*"
         ],
         "tagline": "Put a little sparkle in your life",
-        "filename": "slimjim"
+        "filename": "slimjim",
+        "ending": "PARIS"
     },
     {
         "name": "Hiberdean",
@@ -178,7 +191,8 @@
             "Mip meeeep eee eeep eeee eeee aaAEAEE bip moop mepo pippity"
         ],
         "tagline": "glib",
-        "filename": "hiberdean"
+        "filename": "hiberdean",
+        "ending": "ROMANTICSAD"
     },
     {
         "name": "Hottie Thespule",
@@ -191,7 +205,8 @@
             "I have to say, despite starting off on the wrong foot, you are deeply okay. I dont dislike you one bit. In fact, i think maybe, I can try this love thing out one last time. I love you. WIll you spend the rest of your life with me?"
         ],
         "tagline": "Every rose has its thorns",
-        "filename": "hottiethespule"
+        "filename": "hottiethespule",
+        "ending": "ROMANTICSAD"
     },
     {
         "name": "Egralo",
@@ -204,7 +219,8 @@
             "Lets weave ourselves an amazing life together. I love you so much I dont even know where to go with this metaphor. Your the fabric of my life and the love of my fabric… the love of my life. I love you! I love you."
         ],
         "tagline": "I'll be your stylist honey",
-        "filename": "egralo"
+        "filename": "egralo",
+        "ending": "PARIS"
     },
     {
         "name": "Manelo",
@@ -217,7 +233,8 @@
             "Wow… hey…. Sorry I cant stop staring at you…. Wow… how… this may take me a bit to comprehend… wow .. just look…. Your … eyes .. you … mee?? … wow… us … together… wow…. wow"
         ],
         "tagline": "Um yeah whatever",
-        "filename": "manelo"
+        "filename": "manelo",
+        "ending": "INTENSE"
     },
     {
         "name": "Gerott",
@@ -230,7 +247,8 @@
             "Oh wow! Look at your eyes oh wow!! *throws cheese into a corner* I need both paws to stroke your ears! Lets hug and never let go! I dont need cheese! I just needed you the whole time! This is life changing!"
         ],
         "tagline": "This is kinda cheesy",
-        "filename": "gerott"
+        "filename": "gerott",
+        "ending": "CHEERFUL"
     },
     {
         "name": "Hemptin",
@@ -243,7 +261,8 @@
             "What makes me special? Well I mean I dont think I'm any more special than anyone else in the world, but I also think that means no one is unimportant. I think we're all special in different ways but I know you're special to me"
         ],
         "tagline": "Blueberries are seasonal",
-        "filename": "hemptin"
+        "filename": "hemptin",
+        "ending": "CHEERFUL"
     },
     {
         "name": "One-Eared Jerio",
@@ -256,7 +275,8 @@
             "You believed in me! You inspire me to be better! I am going to start therapy so I can manage my a n x i e t y. I am also going to try to quit caffeine and switch to warm water. I cant wait to introduce you to my mom! She is going to love you! Oh! I love you!"
         ],
         "tagline": "Aaah! Help!",
-        "filename": "oneearedjerio"
+        "filename": "oneearedjerio",
+        "ending": "ROMANTICSAD"
     },
     {
         "name": "Largothon",
@@ -269,6 +289,7 @@
             "Listen. All I want is to keep you safe.  Ya know, cared for. I guess you could say, I love you – as much as one ole rat can love anyone, anyway. Let's protect each other. Forever."
         ],
         "filename": "largothon",
-        "tagline": "I like to think I'm reliable"
+        "tagline": "I like to think I'm reliable",
+        "ending": "POP"
     }
 ]

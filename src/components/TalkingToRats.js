@@ -88,6 +88,7 @@ class TalkingToRats extends React.Component {
       this.props.goToRoseCeremony();
     } else {
       this.setState ({ratIndex: newRatIndex})
+      this.props.changeCurrentRatIdx(newRatIndex);
     }
     this.sendRatIn();
   }
@@ -120,8 +121,10 @@ class TalkingToRats extends React.Component {
     return (
       <div id="talkingToRatsScreen" className="screen">
       <img id="playerRat" 
+      alt="you as a rat, on the couch"
       src={`/ratchelor/img/Couch/you.png`}></img>
       <img id="talkingRat" 
+      alt="a rat on the couch who is talking to you"
       style={{left: `${this.state.ratLeft}px`, top: `${this.state.ratTop}px`}}
       src={`/ratchelor/img/Couch/${this.activeRats[this.state.ratIndex].filename}.png`}></img>
       <div id="dialogueContainer" style={{bottom: `${this.state.dialogueBottom}px`}}>
