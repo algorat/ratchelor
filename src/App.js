@@ -6,6 +6,7 @@ import TalkingToRats from "./components/TalkingToRats";
 import RoseCeremony from "./components/RoseCeremony";
 import AnimeEnding from "./components/AnimeEnding";
 import MusicManager from "./components/MusicManager";
+import GameOptions from "./components/GameOptions";
 
 import ratsJson from './rats.json';
 
@@ -41,8 +42,10 @@ class RatchelorGame extends React.Component {
       currentRatIdx: 0,
       interludeBottom: INTERLUDE_OFFSET,
       incr: 5,
+      volume: 100
     };
     this.changeCurrentRatIdx = this.changeCurrentRatIdx.bind(this);
+    this.changeVolume = this.changeVolume.bind(this);
   }
 
   beginInterludeAndAdvanceState(text, delay, newGameStage) {
@@ -86,6 +89,12 @@ class RatchelorGame extends React.Component {
   changeCurrentRatIdx(idx){
     this.setState({
       currentRatIdx: idx
+    })
+  }
+
+  changeVolume(vol){
+    this.setState({
+      volume: vol
     })
   }
 
@@ -168,19 +177,23 @@ class RatchelorGame extends React.Component {
    
     }
     return (
-      <div id="game">
-        <img id="frame" src="/ratchelor/img/frameSmaller.png" alt=""></img>
-        <div id="interludeContainer">
-          <div id="interlude" style={{bottom: `${this.state.interludeBottom}px`}}>
+      <div id="game-container">
+        <div id="game">
+          <img id="frame" src="/ratchelor/img/frameSmaller.png" alt=""></img>
+          <div id="interludeContainer">
+          <div id="interlude">
             <div id="interludeText">{this.state.interludeText}</div>
           </div>
           {screen}
+          </div>
+          <MusicManager 
+            phase={this.state.gameStage} 
+            finalRat={this.getRatByName(this.state.activeRatNames[0])} 
+            currentRatIdx={this.state.currentRatIdx} 
+            volume={this.state.volume}
+          />
         </div>
-        <MusicManager 
-          phase={this.state.gameStage} 
-          finalRat={this.getRatByName(this.state.activeRatNames[0])} 
-          currentRatIdx={this.state.currentRatIdx} 
-        />
+        <GameOptions volume={this.state.volume} changeVolume={this.changeVolume}/>
        </div>
     )
   }

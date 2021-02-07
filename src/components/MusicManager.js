@@ -35,9 +35,7 @@ class MusicManager extends React.Component {
   }
 
   render() {
-
     let url;
-
     switch (this.props.phase){
       case RAT_SELECT:
         url = IntroScreen;
@@ -59,11 +57,11 @@ class MusicManager extends React.Component {
         <Sound
           url={url}
           playStatus={Sound.status.PLAYING}
-          playFromPosition={0}
           onLoading={this.handleSongLoading}
           onPlaying={this.handleSongPlaying}
           onFinishedPlaying={this.handleSongFinishedPlaying}
           loop={true}
+          volume={this.props.volume}
         />
       );
     } 
