@@ -16,6 +16,25 @@ class RatSelect extends React.Component {
     }
   }
 
+  noContestantsLeft() {
+    let selectRatsButton = <div id="chooseText"><button onClick={this.onClickSelectRats}>Continue</button></div>
+    this.setState({selectRatsButton});
+    document.getElementById("ratListContainer").classList.remove("stillRats");
+  }
+
+  oneContestantLeft() {
+    let selectRatsButton = <div id="chooseText">{`Select ${this.props.numRatsInGame - this.state.selectedRats.length} more contestant`}</div>
+    this.setState({selectRatsButton});
+    document.getElementById("ratListContainer").classList.add("stillRats");
+  }
+
+  multiContestantsLeft() {
+    let selectRatsButton = <div id="chooseText">{`Select ${this.props.numRatsInGame - this.state.selectedRats.length} more contestants`}</div>
+    this.setState({selectRatsButton});
+  }
+
+
+
   // When a rat is clicked
   selectRat(ratName, id) {
     // Get the element for the current rat button
@@ -29,11 +48,9 @@ class RatSelect extends React.Component {
       this.setState({selectedRats: newSelectedRats});
       element.classList.remove("selectedRat");
       if (this.state.selectedRats.length !== this.props.numRatsInGame - 1) {
-        let selectRatsButton = <div id="chooseText">{`Select ${this.props.numRatsInGame - this.state.selectedRats.length} more contestants`}</div>
-        this.setState({selectRatsButton});
+       this.multiContestantsLeft();
       } else {
-        let selectRatsButton = <div id="chooseText">{`Select ${this.props.numRatsInGame - this.state.selectedRats.length} more contestant`}</div>
-        this.setState({selectRatsButton});
+        this.oneContestantLeft();
       }
       return;
     }
@@ -50,14 +67,11 @@ class RatSelect extends React.Component {
 
     // If that was the final rat, display the advance button
     if (this.state.selectedRats.length === this.props.numRatsInGame) {
-      let selectRatsButton = <div id="chooseText"><button onClick={this.onClickSelectRats}>Continue</button></div>
-      this.setState({selectRatsButton});
+      this.noContestantsLeft();
     } else if (this.state.selectedRats.length !== this.props.numRatsInGame - 1) {
-      let selectRatsButton = <div id="chooseText">{`Select ${this.props.numRatsInGame - this.state.selectedRats.length} more contestants`}</div>
-      this.setState({selectRatsButton});
+      this.multiContestantsLeft();
     } else {
-      let selectRatsButton = <div id="chooseText">{`Select ${this.props.numRatsInGame - this.state.selectedRats.length} more contestant`}</div>
-      this.setState({selectRatsButton});
+      this.oneContestantLeft();
     }
 
     // Force a UI update for the rat list
@@ -92,7 +106,7 @@ class RatSelect extends React.Component {
     return (
       <div id="ratSelectScreen" className="screen">
                 {this.state.selectRatsButton}
-        <div id="ratListContainer">{ratsList}</div>
+        <div id="ratListContainer" className="stillRats">{ratsList}</div>
 
     </div>
     );

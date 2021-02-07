@@ -180,7 +180,8 @@ button:focus {
   height: 150px;
   width: 130px;
   padding-left: 0;
-  padding-top: 10px;
+  padding-top: 14px;
+  padding-bottom: 30px;
   font-weight: bold;
   position: relative;
 }
@@ -226,8 +227,12 @@ button:focus {
   display: block;
 }
 
+.stillRats .ratPic:hover {
+  filter: grayscale(0) !important;
+}
+
 #ratSelectScreen .ratPic:hover {
-  animation: pulse ease-in 0.5s;
+  animation: pulse ease-in 0.2s;
   transform: scale(1.3);
 }
 
@@ -332,8 +337,16 @@ button:focus {
 }
 
 #ratSelectScreen .selectedRat {
-  background-color: #c55f52 !important;
-  border-radius: 200px;
+  /* background-color: #c55f52 !important; */
+  border-radius: 20px;
+}
+
+#ratSelectScreen .ratPic {
+  filter: grayscale(1);
+}
+
+.selectedRat .ratPic {
+  filter: grayscale(0) !important;
 }
 
 #roseCeremonyScreen .ratList {
