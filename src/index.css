@@ -190,8 +190,8 @@ button:focus {
   padding-top: 15px;
   padding-bottom: 10px;
   color: rgb(59, 17, 11);
-  background-color: rgb(232, 190, 27);
-  border-bottom: 2px solid #cfab1c;
+  background-color: rgb(236, 217, 165);
+  border-bottom: 2px solid rgb(232, 190, 27);
   width: 100%;
   text-align: center;
 }
