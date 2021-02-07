@@ -44,8 +44,15 @@ class RoseCeremony extends React.Component {
 
     // If that was the final rat, display the advance button
     if (this.state.selectedRats.length === this.numRoses) {
-      let giveRosesButton = <button onClick={this.endRoseCeremony.bind(this)}>Choose Contestants</button>
-        this.setState({giveRosesButton})
+      let giveRosesButton;
+      if (this.numRoses == 1){
+        giveRosesButton = <button onClick={this.endRoseCeremony.bind(this)}>Choose Contestant</button>;
+      }
+      else{
+        giveRosesButton = <button onClick={this.endRoseCeremony.bind(this)}>Choose Contestants</button>;
+      }
+      this.setState({giveRosesButton});
+      
     } else {
       this.setState({giveRosesButton: ""});
     }
