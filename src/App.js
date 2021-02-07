@@ -32,6 +32,8 @@ class RatchelorGame extends React.Component {
       roundNum: 0,
       // String list of all rat names currently still in the game
       activeRatNames: [],
+      // Text for interlude screens that fall down
+      interludeText: "Round 1"
     };
   }
 
@@ -111,7 +113,16 @@ class RatchelorGame extends React.Component {
    
     }
     return (
-      <div id="game"><img id="frame" src="/ratchelor/img/frameSmaller.png"></img>{screen}</div>
+      <div id="game">
+        <img id="frame" src="/ratchelor/img/frameSmaller.png"></img>
+        <div id="interludeContainer">
+        <div id="interlude">
+          <div id="interludeText">{this.state.interludeText}</div>
+        </div>
+        {screen}
+        </div>
+
+       </div>
     )
   }
 }

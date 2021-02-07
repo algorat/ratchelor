@@ -28,7 +28,6 @@ body {
 
 #game {
   position: relative;
-  background-color: black;
 }
 @keyframes fadeOut {
   0% {
@@ -43,7 +42,6 @@ body {
   position: absolute;
   margin-left: -40px;
   margin-top: -52px;
-  z-index: -1;
 }
 
 * {
@@ -74,6 +72,36 @@ button:hover {
 
 button:focus {
   outline: 0;
+}
+
+/* INTERLUDE */
+
+#interludeContainer {
+  overflow: hidden;
+  width: 900px;
+  height: 675px;
+  position: absolute;
+  background-color: black;
+}
+
+#interlude {
+  width: 900px;
+  z-index: 1000;
+  height: 675px;
+  bottom: 900px;
+  background-image: url('img/Backgrounds/Intro3.png');
+  background-size: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+
+#interludeText {
+  font-family: 'Yusei Magic', sans-serif;
+  font-size: 150px;
+  margin-top: 180px;
+  text-shadow: 10px 10px white;
+  color: rgb(109, 33, 21);
 }
 
 /* INTRO */
@@ -134,6 +162,7 @@ button:focus {
   display: flex;
   justify-content: center;
   margin-top: 15px;
+  position: relative;
 }
 
 #ratSelectScreen #ratContainer {
@@ -159,7 +188,6 @@ button:focus {
 }
 
 #ratSelectScreen .ratNameContainer {
-  z-index: 999;
   font-family: 'Yusei Magic';
   font-size: 16px;
   text-align: center;
@@ -175,6 +203,7 @@ button:focus {
   right: 0;
   top: 150px;
   display: none;
+  z-index: 999;
 }
 
 #ratSelectScreen .ratTagline {
