@@ -29,6 +29,11 @@ const Endings = {
 
 class MusicManager extends React.Component {
 
+  constructor(props){
+    super(props);
+    window.soundManager.setup({debugMode: false});
+  }
+
   render() {
 
     let url;
