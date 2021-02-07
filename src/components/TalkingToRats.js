@@ -21,6 +21,7 @@ class TalkingToRats extends React.Component {
       ratLeft: OFF_LEFT,
       ratTop: 0,
       dialogueBottom: OFF_BOTTOM,
+      incr: 1
     }
   }
 
@@ -31,13 +32,15 @@ class TalkingToRats extends React.Component {
 
  sendRatIn() {
   this.getRandomResponses();
+  this.setState({incr: 25})
   window.clearInterval(this.ratMoveOutInterval);
     this.ratMoveInInterval = window.setInterval(() => {
       if (this.state.ratLeft < 0) {
-        this.setState({ratLeft: this.state.ratLeft + 4})
+        this.setState({ratLeft: this.state.ratLeft + this.state.incr})
         if (this.state.dialogueBottom < 0) {
-          let dialogueBottom = this.state.dialogueBottom + 5;
+          let dialogueBottom = this.state.dialogueBottom + this.state.incr;
           if (dialogueBottom > 0) dialogueBottom = 0;
+          this.setState({incr: this.state.incr * 0.95});
           this.setState({dialogueBottom})
         }
       } else {
@@ -49,14 +52,15 @@ class TalkingToRats extends React.Component {
 
   sendRatOut() {
     window.clearInterval(this.ratMoveInInterval);
-    this.setState({responses: ""})
+    this.setState({responses: "", incr: 1})
     this.ratMoveOutInterval = window.setInterval(() => {
       if (this.state.ratLeft > OFF_LEFT) {
-        this.setState({ratLeft: this.state.ratLeft - 4})
+        this.setState({ratLeft: this.state.ratLeft - this.state.incr})
         if (this.state.dialogueBottom > OFF_BOTTOM) {
-          let dialogueBottom = this.state.dialogueBottom - 3;
+          let dialogueBottom = this.state.dialogueBottom - this.state.incr;
           if (dialogueBottom < OFF_BOTTOM) dialogueBottom = OFF_BOTTOM;
           this.setState({dialogueBottom})
+          this.setState({incr: this.state.incr * 1.05});
         }
       } else {
         window.clearInterval(this.ratMoveOutInterval);
