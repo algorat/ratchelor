@@ -10,7 +10,7 @@ class IntroScreen extends React.Component {
 
   onClick() {
     this.fadeInterval = window.setInterval(() => {
-      let opacity = this.state.opacity - 0.02;
+      let opacity = this.state.opacity - 0.01;
       if (opacity <= 0) {
         this.props.onClick();
         window.clearInterval(this.fadeInterval);

@@ -120,9 +120,9 @@ button:focus {
   display: flex;
   flex-wrap: wrap;
   padding: 5px;
-  padding-left: 20px;
   display: flex;
   justify-content: center;
+  margin-top: 15px;
 }
 
 #ratSelectScreen #ratContainer {
@@ -170,8 +170,8 @@ button:focus {
 }
 
 #ratSelectScreen .ratPic {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  transform: scale(1.25);
 }
 
 #ratSelectScreen .ratPic:hover + .ratNameContainer {
@@ -180,15 +180,20 @@ button:focus {
 
 #ratSelectScreen .ratPic:hover {
   animation: pulse ease-in 0.5s;
-  transform: scale(1.2);
+  transform: scale(1.4);
 }
 
 #ratSelectScreen #chooseText {
   font-family: 'Yusei Magic';
-  font-size: 24px;
-  margin-bottom: 15px;
-  margin-top: 20px;
-  color: rgba(236, 217, 165, 0.85);
+  font-size: 28px;
+  margin-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  color: rgb(59, 17, 11);
+  background-color: rgb(232, 190, 27);
+  border-bottom: 2px solid #cfab1c;
+  width: 100%;
+  text-align: center;
 }
 
 #ratSelectScreen button {
@@ -385,11 +390,11 @@ button:focus {
 
 @keyframes pulse {
   0% {
-    transform: scale(1);
+    transform: scale(1.2);
   }
 
   50% {
-    transform: scale(1.2);
+    transform: scale(1.4);
   }
 }
 
