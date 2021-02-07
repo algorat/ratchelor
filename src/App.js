@@ -140,7 +140,7 @@ class RatchelorGame extends React.Component {
           activeRatNames={this.state.activeRatNames}
           getRatByName={this.getRatByName}
           round={this.state.roundNum}
-          startDelay={5000}
+          startDelay={3000}
           goToRoseCeremony={() => this.beginInterludeAndAdvanceState(`Rose ceremony ${this.state.roundNum + 1}`, 2000, ROSE_CEREMONY)}
           changeCurrentRatIdx={this.changeCurrentRatIdx}
         />
