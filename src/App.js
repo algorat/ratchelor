@@ -58,7 +58,7 @@ class RatchelorGame extends React.Component {
     if (this.state.gameStage === INTRO) {
       // Intro screen: advances to next stage when complete
       screen = <IntroScreen onClick={() => {this.setState({gameStage: RAT_SELECT})}}/> 
-      
+
     } else if (this.state.gameStage === RAT_SELECT) {
       // Rat select screen: 
       //    modifies the currently active rat names
@@ -108,6 +108,7 @@ class RatchelorGame extends React.Component {
           finalRat={this.getRatByName(this.state.activeRatNames[0])}
           restartGame={this.restartGame.bind(this)}
         />
+   
     }
     return (
       <div id="game"><img id="frame" src="/ratchelor/img/frameSmaller.png"></img>{screen}</div>

@@ -283,11 +283,70 @@ button:focus {
 
 /* ANIME ENDING */
 #animeEndingScreen {
-  width: 60%;
-  height: 100%;
-  margin: 20%;
-  font-size: 30px;
-  color: green;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+
+#animePic {
+  animation: fadeIn ease 10s;
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+#animeText {
+  font-family: 'Yusei Magic';
+  font-size: 20px;
+  position: absolute;
+  padding: 20px 40px;
+  animation: slideUp ease 7s;
+  background-color: rgba(236, 217, 165, 0.85);
+  color: #4b4015;
+  bottom: 0px;
+  width: 100%;
+}
+
+#restartButton {
+  position: absolute;
+  opacity: 1;
+  animation: fadeInDelay ease 9s;
+  right: 10px;
+  top: 10px;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDelay {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    bottom: -500px;
+  }
+  100% {
+    bottom: 0px;
+  }
 }
 
 .reaction-animation {

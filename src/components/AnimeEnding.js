@@ -9,10 +9,9 @@ class AnimeEnding extends React.Component {
   render() {
     return (
       <div id="animeEndingScreen" className="screen">
-        You chose {`${this.props.finalRat.name}`}:
-        <br/>
-        {this.props.finalRat.dialogue[this.props.finalRat.dialogue.length - 1]}
-        <button onClick={this.props.restartGame}>Restart Game</button>
+        <img id="animePic" src={`/ratchelor/img/Anime/${this.props.finalRat.filename}.jpg`}></img>
+        <div id="animeText"> {this.props.finalRat.dialogue[this.props.finalRat.dialogue.length - 1]}</div>
+        <button id="restartButton" onClick={this.props.restartGame}>Restart?</button>
     </div>
     );
   }
