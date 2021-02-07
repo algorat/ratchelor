@@ -7,7 +7,7 @@ class IntroScreen extends React.Component {
 
   render() {
     return (
-      <div id="introScreen">
+      <div id="introScreen" className="screen">
         <button onClick={this.props.onClick}>Embark</button>
         <div id="hideme"/>
     </div>

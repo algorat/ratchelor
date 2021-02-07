@@ -73,7 +73,7 @@ class RatSelect extends React.Component {
     }
     
     return (
-      <div id="ratSelectScreen">
+      <div id="ratSelectScreen" className="screen">
         <div id="chooseText">Choose your {`${this.props.numRatsInGame}`} lovely contestants:</div>
         <div id="ratListContainer">{ratsList}</div>
         {this.state.selectRatsButton}

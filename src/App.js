@@ -54,39 +54,35 @@ class RatchelorGame extends React.Component {
   }
 
   render() {
+    let screen = "";
     if (this.state.gameStage === INTRO) {
       // Intro screen: advances to next stage when complete
-      return (
-        <IntroScreen onClick={() => {this.setState({gameStage: RAT_SELECT})}}/> 
-      );
+      screen = <IntroScreen onClick={() => {this.setState({gameStage: RAT_SELECT})}}/> 
+      
     } else if (this.state.gameStage === RAT_SELECT) {
       // Rat select screen: 
       //    modifies the currently active rat names
       //    advances to the next stage when complete
-      return (
-        <RatSelect 
+      screen = <RatSelect 
           rats={ratsJson} 
           numRatsInGame={this.numRatsInGame} 
           advanceState={() => this.setState({gameStage: TALKING_TO_RATS})}
           setActiveRats={(selectedRats) => {this.setState({activeRatNames: selectedRats});}}
           />
-      )
     } else if (this.state.gameStage === TALKING_TO_RATS) {
       // Talking to rats screen:
       //    advances to the rose ceremony when done
-      return (
-        <TalkingToRats
+      screen = <TalkingToRats
           activeRatNames={this.state.activeRatNames}
           getRatByName={this.getRatByName}
           round={this.state.roundNum}
           goToRoseCeremony={() => this.setState({gameStage: ROSE_CEREMONY})}
         />
-      )
     } else if (this.state.gameStage === ROSE_CEREMONY) {
       // Rose ceremony screen:
       //    either advances to the next talking round, or advances to the anime ending
       //    modifies the currently active rat names
-      return (
+      screen = 
         <RoseCeremony
           activeRatNames={this.state.activeRatNames}
           getRatByName={this.getRatByName}
@@ -104,17 +100,18 @@ class RatchelorGame extends React.Component {
             }
           }}
         />
-      )
     } else if (this.state.gameStage === ANIME_ENDING) {
       // Anime ending screen:
       //    allows game to be restarted
-      return (
+      screen = 
         <AnimeEnding
           finalRat={this.getRatByName(this.state.activeRatNames[0])}
           restartGame={this.restartGame.bind(this)}
         />
-      )
     }
+    return (
+      <div id="game"><img id="frame" src="/ratchelor/img/frameSmaller.png"></img>{screen}</div>
+    )
   }
 }
 

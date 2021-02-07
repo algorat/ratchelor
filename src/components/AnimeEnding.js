@@ -8,7 +8,7 @@ class AnimeEnding extends React.Component {
 
   render() {
     return (
-      <div id="animeEndingScreen">
+      <div id="animeEndingScreen" className="screen">
         You chose {`${this.props.finalRat.name}`}:
         <br/>
         {this.props.finalRat.dialogue[this.props.finalRat.dialogue.length - 1]}

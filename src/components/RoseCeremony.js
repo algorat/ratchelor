@@ -79,7 +79,7 @@ class RoseCeremony extends React.Component {
       roseContainer.push(<img className="roseIcon" src="/ratchelor/img/temprose.png"></img>)
     }
     return (
-      <div id="roseCeremonyScreen">
+      <div id="roseCeremonyScreen" className="screen">
         <div id="roseContainer">{roseContainer}</div>
         <div id="ratListContainer"> {ratsList}</div>
         <div id="giveRosesButton"> {this.state.giveRosesButton}</div>

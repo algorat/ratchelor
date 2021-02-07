@@ -31,6 +31,7 @@ class TalkingToRats extends React.Component {
 
  sendRatIn() {
   this.getRandomResponses();
+  window.clearInterval(this.ratMoveOutInterval);
     this.ratMoveInInterval = window.setInterval(() => {
       if (this.state.ratLeft < 0) {
         this.setState({ratLeft: this.state.ratLeft + 4})
@@ -47,6 +48,7 @@ class TalkingToRats extends React.Component {
   }
 
   sendRatOut() {
+    window.clearInterval(this.ratMoveInInterval);
     this.setState({responses: ""})
     this.ratMoveOutInterval = window.setInterval(() => {
       if (this.state.ratLeft > OFF_LEFT) {
@@ -112,7 +114,7 @@ class TalkingToRats extends React.Component {
     let ratDialogue = this.activeRats[this.state.ratIndex].dialogue[this.props.round].substring(0, this.state.charsRevealed);
     if (ratDialogue.length === 0) ratDialogue = "...";
     return (
-      <div id="talkingToRatsScreen">
+      <div id="talkingToRatsScreen" className="screen">
       <img id="playerRat" 
       src={`/ratchelor/img/Couch/you.png`}></img>
       <img id="talkingRat" 

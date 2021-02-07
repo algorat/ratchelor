@@ -21,6 +21,22 @@ body {
   margin-top: 80px;
 }
 
+.screen {
+  width: 900px !important;
+  height: 675px !important;
+}
+
+#game {
+  position: relative;
+}
+
+#frame {
+  position: absolute;
+  margin-left: -40px;
+  margin-top: -52px;
+  z-index: -1;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -274,15 +290,14 @@ button:focus {
   color: green;
 }
 
-
-.reaction-animation{
+.reaction-animation {
   position: relative;
   height: 5px;
   width: 5px;
   animation: emote-container-up 700ms 0s forwards;
 }
 
-.reaction-emote{
+.reaction-emote {
   position: absolute;
   animation-timing-function: linear;
   animation-duration: 4s;
@@ -290,28 +305,32 @@ button:focus {
   animation-fill-mode: forwards;
 }
 
-.reaction-emote-1{
+.reaction-emote-1 {
   animation-name: emote-1;
 }
 
-.reaction-emote-2{
+.reaction-emote-2 {
   animation-name: emote-2;
 }
 
-.reaction-emote-3{
+.reaction-emote-3 {
   animation-name: emote-3;
 }
 
-.reaction-emote-4{
+.reaction-emote-4 {
   animation-name: emote-4;
 }
-.reaction-emote-5{
+.reaction-emote-5 {
   animation-name: emote-5;
 }
 
 @keyframes emote-container-up {
-  0% {transform: translate3d(0px, 0px, 0px) scale(1);}
-  100% {transform: translate3d(0px, -20px, 0px) scale(1.6); }
+  0% {
+    transform: translate3d(0px, 0px, 0px) scale(1);
+  }
+  100% {
+    transform: translate3d(0px, -20px, 0px) scale(1.6);
+  }
 }
 
 @keyframes emote-1 {
