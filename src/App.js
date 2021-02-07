@@ -20,11 +20,11 @@ class RatchelorGame extends React.Component {
   constructor() {
     super();
     // Num rats the person should select at the very beginning
-    this.numRatsInGame = 8;
+    this.numRatsInGame = 7;
     // How many rounds there are
     this.numRounds = 5;
     // How many roses get given out each round
-    this.rosesPerRound = [6, 4, 3, 2, 1];
+    this.rosesPerRound = [5, 4, 3, 2, 1];
     this.state = {
       // What phase of the game we're in
       gameStage: INTRO,

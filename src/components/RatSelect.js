@@ -58,14 +58,17 @@ class RatSelect extends React.Component {
     let ratsList = []
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.props.rats.length; i++) {
-      let filename = `/ratchelor/img/Characters/${this.props.rats[i].filename}.png`
+      let filename = `/ratchelor/img/Frames/cropped/${this.props.rats[i].filename}.PNG`
       ratsList.push(
         <div key={i} id="ratContainer">
           <div  id={`rat${i}`} className="ratListItem" onClick={() => {
             this.selectRat(this.props.rats[i].name, `rat${i}`);
           }}>
-          <div className="ratName">{`${this.props.rats[i].name}`}</div>
           <img className="ratPic" src={filename}/>
+          <div className="ratNameContainer">
+          <div className="ratName">{`${this.props.rats[i].name}`}</div>
+          <div className="ratTagline">{`"${this.props.rats[i].tagline}"`}</div>
+          </div>
         </div>
         </div>
       )
@@ -73,7 +76,7 @@ class RatSelect extends React.Component {
     
     return (
       <div id="ratSelectScreen" className="screen">
-        <div id="chooseText">Choose your {`${this.props.numRatsInGame}`} lovely contestants:</div>
+        <div id="chooseText">Select your {`${this.props.numRatsInGame}`} contestants:</div>
         <div id="ratListContainer">{ratsList}</div>
         {this.state.selectRatsButton}
     </div>
