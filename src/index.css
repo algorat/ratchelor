@@ -155,6 +155,16 @@ button:focus {
   display: block;
 }
 
+#ratSelectScreen button {
+  color: rgb(232, 190, 27);
+  border: 2px solid rgb(232, 190, 27);
+}
+
+#ratSelectScreen button:hover {
+  color: white;
+  border: 2px solid white;
+}
+
 #ratSelectScreen #ratListContainer {
   display: flex;
   flex-wrap: wrap;
@@ -242,7 +252,7 @@ button:focus {
   margin-bottom: 10px;
   padding-top: 15px;
   padding-bottom: 10px;
-  color: rgb(59, 17, 11);
+  color: rgb(146, 122, 56);
   background-color: rgb(236, 217, 165);
   border-bottom: 2px solid rgb(232, 190, 27);
   width: 100%;
