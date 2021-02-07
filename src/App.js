@@ -18,6 +18,8 @@ const ROSE_CEREMONY = 3;
 const ANIME_ENDING = 4;
 const SPECIAL_ENDING = 5;
 
+const INTERLUDE_OFFSET = 900;
+
 class RatchelorGame extends React.Component {
   constructor() {
     super();
@@ -38,10 +40,41 @@ class RatchelorGame extends React.Component {
       interludeText: "Round 1",
       //the rat that we r currently talking to
       currentRatIdx: 0,
+      interludeBottom: INTERLUDE_OFFSET,
+      incr: 5,
       volume: 100
     };
     this.changeCurrentRatIdx = this.changeCurrentRatIdx.bind(this);
     this.changeVolume = this.changeVolume.bind(this);
+  }
+
+  beginInterludeAndAdvanceState(text, delay, newGameStage) {
+    this.setState({interludeText: text});
+    this.startInterludeInterval = window.setInterval(() => {
+      let interludeBottom = this.state.interludeBottom - this.state.incr;
+      if (interludeBottom <= 0) {
+        interludeBottom = 0;
+        if (newGameStage) {
+          this.setState({gameStage: newGameStage});
+        }
+        window.clearInterval(this.startInterludeInterval);
+        window.setTimeout(() => {
+          this.endInterlude();
+        }, delay);
+      }
+      this.setState({interludeBottom});
+    }, 5)
+  }
+
+  endInterlude() {
+    this.endInterludeInterval = window.setInterval(() => {
+      let interludeBottom = this.state.interludeBottom + this.state.incr;
+      if (interludeBottom >= INTERLUDE_OFFSET) {
+        interludeBottom = INTERLUDE_OFFSET;
+        window.clearInterval(this.endInterludeInterval);
+      }
+      this.setState({interludeBottom});
+    }, 5)
   }
 
   // Reset everything to restart the game
@@ -74,11 +107,17 @@ class RatchelorGame extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.interludeElement = document.getElementById("interlude");
+  }
+
   render() {
     let screen = "";
     if (this.state.gameStage === INTRO) {
       // Intro screen: advances to next stage when complete
-      screen = <IntroScreen onClick={() => {this.setState({gameStage: RAT_SELECT})}}/> 
+      screen = <IntroScreen onClick={() => {
+        this.beginInterludeAndAdvanceState("meet your suitors", 2000, RAT_SELECT);
+      }}/> 
 
     } else if (this.state.gameStage === RAT_SELECT) {
       // Rat select screen: 
@@ -87,8 +126,12 @@ class RatchelorGame extends React.Component {
       screen = <RatSelect 
           rats={ratsJson} 
           numRatsInGame={this.numRatsInGame} 
-          advanceState={() => this.setState({gameStage: TALKING_TO_RATS})}
-          setActiveRats={(selectedRats) => {this.setState({activeRatNames: selectedRats});}}
+          advanceState={() => {
+            this.beginInterludeAndAdvanceState(`Round ${this.state.roundNum + 1}`, 2000, TALKING_TO_RATS);
+          }}
+          setActiveRats={(selectedRats) => {
+            this.setState({activeRatNames: selectedRats});
+          }}
           />
     } else if (this.state.gameStage === TALKING_TO_RATS) {
       // Talking to rats screen:
@@ -97,7 +140,8 @@ class RatchelorGame extends React.Component {
           activeRatNames={this.state.activeRatNames}
           getRatByName={this.getRatByName}
           round={this.state.roundNum}
-          goToRoseCeremony={() => this.setState({gameStage: ROSE_CEREMONY})}
+          startDelay={3000}
+          goToRoseCeremony={() => this.beginInterludeAndAdvanceState(`Rose ceremony ${this.state.roundNum + 1}`, 2000, ROSE_CEREMONY)}
           changeCurrentRatIdx={this.changeCurrentRatIdx}
         />
     } else if (this.state.gameStage === ROSE_CEREMONY) {
@@ -137,7 +181,7 @@ class RatchelorGame extends React.Component {
         <div id="game">
           <img id="frame" src="/ratchelor/img/frameSmaller.png" alt=""></img>
           <div id="interludeContainer">
-          <div id="interlude">
+          <div id="interlude" style={{bottom: this.state.interludeBottom}}>
             <div id="interludeText">{this.state.interludeText}</div>
           </div>
           {screen}
