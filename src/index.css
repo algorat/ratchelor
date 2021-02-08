@@ -4,11 +4,11 @@ html {
   height: 100%;
   position: relative;
 }
-img {
+/* img {
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
-}
+} */
 body {
   margin: 0;
   width: 100%;
