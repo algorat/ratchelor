@@ -69,8 +69,16 @@ body {
 
 #frame {
   position: absolute;
+  z-index: 1000;
   margin-left: -110px;
   margin-top: -113px;
+  pointer-events:none;
+  user-drag: none; 
+user-select: none;
+-moz-user-select: none;
+-webkit-user-drag: none;
+-webkit-user-select: none;
+-ms-user-select: none;
 }
 
 * {
@@ -108,16 +116,17 @@ button:focus {
 #interludeContainer {
   overflow: hidden;
   width: 900px;
-  height: 675px;
+  height: 732px;
   position: absolute;
   background-color: black;
 }
 
 #interlude {
   width: 900px;
-  z-index: 1000;
-  height: 675px;
-  bottom: 900px;
+  z-index: 900;
+  height: 750px;
+  bottom: 950px;
+  margin-top: 10px;
   /* background-color: yellow; */
   background-image: url('img/Backgrounds/curtains.png');
   background-position: 10px, 100px;
