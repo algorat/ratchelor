@@ -195,9 +195,12 @@ button:focus {
   flex-wrap: wrap;
   padding: 5px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   margin-top: 15px;
   position: relative;
+  width: 100%;
+  height: 100%;
+  align-items: center;
 }
 
 #ratSelectScreen #ratContainer {
@@ -313,11 +316,11 @@ button:focus {
 
 #talkingToRatsScreen #ratDialogue {
   font-family: 'Yusei Magic', sans-serif;
-  font-size: 20px;
+  font-size: 21px;
   padding: 15px 35px;
   background-color: #d6c581;
   width: 900px;
-  padding-bottom: 65px;
+  padding-bottom: 90px;
   border-top: 13px solid #ad8f18;
 }
 
@@ -360,7 +363,7 @@ button:focus {
 
 /* ROSE CEREMONY */
 #roseCeremonyScreen {
-  background-image: url('img/RoseCeremony/Background.png');
+  background-image: url('img/Backgrounds/garden2.png');
   background-repeat: no-repeat;
   background-size: 100%;
   width: 900px;
@@ -394,11 +397,20 @@ button:focus {
   position: relative;
 }
 
-.ratList .rosePic {
-  width: 40px;
+#roseCeremonyScreen #bouquet {
   position: absolute;
-  left: 50px;
-  top: 65px;
+  left: 0;
+  bottom: 0;
+  width: 800px;
+}
+
+.ratList .rosePic {
+  width: 60px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 10px;
   display: none;
 }
 
@@ -409,14 +421,33 @@ button:focus {
 #roseCeremonyScreen #ratListContainer {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
   position: absolute;
+  flex-direction: column;
   bottom: 80px;
 }
 
-#roseCeremonyScreen .ratPic {
-  width: 120px;
+#roseCeremonyScreen .notSelected {
+  /* filter: grayscale(1); */
+}
+
+#roseCeremonyScreen .selectedRat {
+  /* filter: grayscale(0) !important; */
+}
+
+#roseCeremonyScreen .large {
+  width: 310px;
+}
+
+#roseCeremonyScreen .med-large {
+  width: 170px;
+}
+
+#roseCeremonyScreen .medium {
+  max-height: 200px;
+}
+#roseCeremonyScreen .small {
+  width: 100px;
 }
 
 #roseCeremonyScreen .roseIcon {
@@ -424,6 +455,80 @@ button:focus {
 }
 
 #roseCeremonyScreen #roseContainer {
+}
+
+#roseCeremonyScreen .hoverText {
+  display: none;
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100px;
+  background-color: rgb(236, 217, 165);
+  color: rgb(59, 17, 11);
+  font-family: 'Yusei Magic', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  padding: 6px 0;
+  border-radius: 10px;
+  border: 4px solid rgb(232, 190, 27);
+  z-index: 99;
+}
+
+#roseCeremonyScreen button {
+  padding: 6px 20px;
+  background-color: rgb(46, 94, 116);
+  z-index: 990;
+}
+
+#roseCeremonyScreen button:hover {
+  padding: 6px 20px;
+  background-color: rgb(121, 171, 194);
+  color: white;
+  border: 2px solid white;
+}
+
+#roseCeremonyScreen .ratList:hover .hoverText {
+  display: block;
+}
+
+#roseCeremonyScreen .ratList:hover .ratPic {
+  animation: rosePulse 1s;
+  transform: scale(1.2);
+}
+
+#roseCeremonyScreen #backRow,
+#frontRow,
+.middleRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+}
+
+#roseCeremonyScreen #frontRow {
+  margin-bottom: 30px;
+  margin-top: -60px;
+  margin-left: 80px;
+}
+
+.middleRow {
+  margin-bottom: 150px;
+}
+
+#roseCeremonyScreen #instructions {
+  background-color: rgba(24, 56, 71, 1);
+  color: rgb(236, 217, 165);
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  font-family: 'Yusei Magic', sans-serif;
+  font-size: 26px;
 }
 
 /* ANIME ENDING */
@@ -482,6 +587,16 @@ button:focus {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes rosePulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
   }
 }
 
@@ -617,7 +732,7 @@ button:focus {
   cursor: pointer;
 }
 
-input[type=range] {
+input[type='range'] {
   -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
   width: 100%; /* Specific width is required for Firefox. */
   background: transparent; /* Otherwise white in Chrome */
@@ -626,25 +741,25 @@ input[type=range] {
   margin: 0px;
 }
 
-input[type=range]::-webkit-slider-thumb {
+input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
 }
 
-input[type=range]:focus {
+input[type='range']:focus {
   outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
 }
 
-input[type=range]::-ms-track {
+input[type='range']::-ms-track {
   width: 100%;
   cursor: pointer;
 
   /* Hides the slider so custom styles can be added */
-  background: transparent; 
+  background: transparent;
   border-color: transparent;
   color: transparent;
 }
 
-input[type=range]::-webkit-slider-thumb {
+input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 2px solid #977c40;
   height: 36px;
@@ -657,7 +772,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 /* All the same stuff for Firefox */
-input[type=range]::-moz-range-thumb {
+input[type='range']::-moz-range-thumb {
   border: 2px solid #977c40;
   height: 36px;
   width: 16px;
@@ -669,7 +784,7 @@ input[type=range]::-moz-range-thumb {
 }
 
 /* All the same stuff for IE */
-input[type=range]::-ms-thumb {
+input[type='range']::-ms-thumb {
   border: 2px solid #977c40;
   height: 36px;
   width: 16px;
@@ -680,19 +795,19 @@ input[type=range]::-ms-thumb {
   box-shadow: 1px 0px 0px #977c40; /* Add cool effects to your sliders! */
 }
 
-.sound-slider{
+.sound-slider {
   position: relative;
   width: 100px;
   height: 48px;
 }
 
-.sound-slider input{
+.sound-slider input {
   position: absolute;
   width: 100%;
   z-index: 1;
 }
 
-.sound-slider .behind-slider{
+.sound-slider .behind-slider {
   position: absolute;
   width: 100%;
   margin-top: 15px;
@@ -702,7 +817,7 @@ input[type=range]::-ms-thumb {
   border: 2px solid #977c40;
 }
 
-.player-img{
+.player-img {
   width: 180px;
   flex-grow: 0;
   position: relative;
@@ -710,7 +825,7 @@ input[type=range]::-ms-thumb {
   z-index: 0;
 }
 
-#custom-character{
+#custom-character {
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -719,7 +834,7 @@ input[type=range]::-ms-thumb {
   background: rgb(221, 235, 219);
 }
 
-#custom-character-row{
+#custom-character-row {
   display: flex;
   width: 100%;
   justify-content: space-evenly;
@@ -727,41 +842,42 @@ input[type=range]::-ms-thumb {
   margin-bottom: 24px;
 }
 
-#ratchelor-intro{
+#ratchelor-intro {
   width: 60%;
   text-align: center;
   font-family: 'Yusei Magic', sans-serif;
 }
 
-#ratchelor-intro-question{
+#ratchelor-intro-question {
   font-family: 'Yusei Magic', sans-serif;
   margin-top: 24px;
   font-style: italic;
   margin-bottom: 24px;
 }
 
-.player-img:hover{
+.player-img:hover {
   animation: wiggle 750ms linear 0s infinite forwards;
   filter: grayscale(0);
   transition: filter 500ms;
   cursor: pointer;
 }
 
-.player-img img{
+.player-img img {
   position: relative;
   width: 100%;
   z-index: 100;
 }
 
-.player-img.selected-img{
+.player-img.selected-img {
   filter: grayscale(0);
 }
 
-.selected-bg{
+.selected-bg {
   position: absolute;
   left: 0px;
   top: 0px;
-  box-shadow: 16px 16px 60px rgba(37, 77, 95, 0.3), 8px 8px 32px rgba(37, 77, 95, 0.5);
+  box-shadow: 16px 16px 60px rgba(37, 77, 95, 0.3),
+    8px 8px 32px rgba(37, 77, 95, 0.5);
   width: 90%;
   height: 90%;
   margin-top: 5%;
@@ -769,7 +885,7 @@ input[type=range]::-ms-thumb {
   z-index: 0;
 }
 
-#button-container{
+#button-container {
   height: 55px;
   width: 130px;
 }
@@ -778,13 +894,13 @@ input[type=range]::-ms-thumb {
   0% {
     transform: translate3d(0, 0, 0) rotateZ(0deg);
   }
-  25%{
+  25% {
     transform: translate3d(10px, 0, 0) rotateZ(3deg);
   }
-  50%{
+  50% {
     transform: translate3d(0px, 0, 0) rotateZ(0deg);
   }
-  75%{
+  75% {
     transform: translate3d(-10px, 0, 0) rotateZ(-3deg);
   }
   100% {

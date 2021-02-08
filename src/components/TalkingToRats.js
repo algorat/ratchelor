@@ -3,6 +3,7 @@ import responsesJson from '../responses.json';
 
 const OFF_LEFT = -550;
 const OFF_BOTTOM = -400;
+const ON_BOTTOM = 25;
 class TalkingToRats extends React.Component {
   constructor(props) {
     super(props);
@@ -145,7 +146,7 @@ class TalkingToRats extends React.Component {
         <div id="ratName">{this.activeRats[this.state.ratIndex].name}</div>
         <div id="ratDialogue">{ratDialogue}</div>
       </div>
-      <div id="responses" style={{bottom: `${this.state.dialogueBottom + 10}px`}}>{this.state.responses}</div>
+      <div id="responses" style={{bottom: `${this.state.dialogueBottom + ON_BOTTOM}px`}}>{this.state.responses}</div>
     </div>
     );
   }

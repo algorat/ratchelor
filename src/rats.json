@@ -11,6 +11,7 @@
         ],
         "tagline": "I'm not here to make friends.",
         "filename": "heighnesslaure",
+        "size": "medium",
         "ending": "POP"
     },
     {
@@ -25,6 +26,7 @@
         ],
         "tagline": "My ideal rat partner is like stuart little",
         "filename": "miggmouse",
+        "size": "small",
         "ending": "CHEERFUL"
     },
     {
@@ -39,6 +41,7 @@
         ],
         "tagline": "Let's paint a beautiful future together, oui?",
         "filename": "lartiste",
+        "size": "medium",
         "ending": "PARIS"
     },
     {
@@ -53,6 +56,7 @@
         ],
         "tagline": "Sorry, I was distracted by the moon",
         "filename": "boraxiv",
+        "size": "medium",
         "ending": "ROMANTICSAD"
     },
     {
@@ -67,6 +71,7 @@
         ],
         "tagline": "You could say I'm sick... with love",
         "filename": "dr",
+        "size": "medium",
         "ending": "ROMANTICSAD"
     },
     {
@@ -81,6 +86,7 @@
         ],
         "tagline": "Definitely a rat",
         "filename": "arealrat",
+        "size": "medium",
         "ending": "CHEERFUL"
     },
     {
@@ -95,6 +101,7 @@
         ],
         "tagline": "Just a robot looking to learn what love is",
         "filename": "reggie231",
+        "size": "medium",
         "ending": "FUNKY"
     },
     {
@@ -109,6 +116,7 @@
         ],
         "tagline": "You just can't quit me",
         "filename": "vim",
+        "size": "medium",
         "ending": "ROMANTICHAPPY"
     },
     {
@@ -123,6 +131,7 @@
         ],
         "tagline": "I'm a big rat with a big heart",
         "filename": "bear",
+        "size": "large",
         "ending": "CHEERFUL"
     },
     {
@@ -137,6 +146,7 @@
         ],
         "tagline": "Who, me?",
         "filename": "eggsalad",
+        "size": "medium",
         "ending": "ROMANTICHAPPY"
     },
     {
@@ -151,6 +161,7 @@
         ],
         "tagline": "I'm complicated.",
         "filename": "emacs",
+        "size": "medium",
         "ending": "INTENSE"
     },
     {
@@ -165,6 +176,7 @@
         ],
         "tagline": "I don't slow down for anybody",
         "filename": "jagadoo",
+        "size": "medium",
         "ending": "INTENSE"
     },
     {
@@ -179,6 +191,7 @@
         ],
         "tagline": "Put a little sparkle in your life",
         "filename": "slimjim",
+        "size": "medium",
         "ending": "PARIS"
     },
     {
@@ -192,6 +205,7 @@
         ],
         "tagline": "glib",
         "filename": "hiberdean",
+        "size": "medium",
         "ending": "ROMANTICSAD"
     },
     {
@@ -206,6 +220,7 @@
         ],
         "tagline": "Every rose has its thorns",
         "filename": "hottiethespule",
+        "size": "medium",
         "ending": "ROMANTICSAD"
     },
     {
@@ -220,6 +235,7 @@
         ],
         "tagline": "I'll be your stylist honey",
         "filename": "egralo",
+        "size": "medium",
         "ending": "PARIS"
     },
     {
@@ -234,6 +250,7 @@
         ],
         "tagline": "Um yeah whatever",
         "filename": "manelo",
+        "size": "medium",
         "ending": "INTENSE"
     },
     {
@@ -248,6 +265,7 @@
         ],
         "tagline": "This is kinda cheesy",
         "filename": "gerott",
+        "size": "medium",
         "ending": "CHEERFUL"
     },
     {
@@ -262,6 +280,7 @@
         ],
         "tagline": "Blueberries are seasonal",
         "filename": "hemptin",
+        "size": "medium",
         "ending": "CHEERFUL"
     },
     {
@@ -276,6 +295,7 @@
         ],
         "tagline": "Aaah! Help!",
         "filename": "oneearedjerio",
+        "size": "medium",
         "ending": "ROMANTICSAD"
     },
     {
@@ -290,6 +310,7 @@
         ],
         "filename": "largothon",
         "tagline": "I like to think I'm reliable",
+        "size": "med-large",
         "ending": "POP"
     }
 ]
