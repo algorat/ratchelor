@@ -4,7 +4,11 @@ html {
   height: 100%;
   position: relative;
 }
-
+img {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
 body {
   margin: 0;
   width: 100%;
@@ -20,7 +24,7 @@ body {
   position: relative;
   width: 900px;
   height: 675px;
-  margin-top: 80px;
+  margin-top: 120px;
 }
 
 .screen {
@@ -65,8 +69,8 @@ body {
 
 #frame {
   position: absolute;
-  margin-left: -40px;
-  margin-top: -52px;
+  margin-left: -110px;
+  margin-top: -113px;
 }
 
 * {
