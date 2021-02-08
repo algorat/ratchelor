@@ -118,11 +118,14 @@ button:focus {
   z-index: 1000;
   height: 675px;
   bottom: 900px;
-  background-color: yellow;
+  /* background-color: yellow; */
+  background-image: url('img/Backgrounds/curtains.png');
+  background-position: 10px, 100px;
   background-size: 100%;
   position: absolute;
   display: flex;
   justify-content: center;
+
 }
 
 #interludeText {
@@ -130,7 +133,7 @@ button:focus {
   font-size: 50px;
   margin-top: 180px;
   text-shadow: 3px 3px white;
-  color: rgb(109, 33, 21);
+  color: rgb(243, 183, 18);
 }
 
 /* INTRO */
