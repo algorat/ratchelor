@@ -607,4 +607,97 @@ button:focus {
   top: 10px;
   right: 10px;
   display: flex;
+  align-items: center;
+}
+
+.sound-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+  cursor: pointer;
+  height: 48px;
+  margin: 0px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent; 
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 2px solid #977c40;
+  height: 36px;
+  width: 16px;
+  border-radius: 8px;
+  background: #fffec6;
+  cursor: pointer;
+  margin-top: 0px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 0px 0px #977c40; /* Add cool effects to your sliders! */
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  border: 2px solid #977c40;
+  height: 36px;
+  width: 16px;
+  border-radius: 8px;
+  background: #fffec6;
+  cursor: pointer;
+  margin-top: 0px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 0px 0px #977c40; /* Add cool effects to your sliders! */
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+  border: 2px solid #977c40;
+  height: 36px;
+  width: 16px;
+  border-radius: 8px;
+  background: #fffec6;
+  cursor: pointer;
+  margin-top: 0px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 0px 0px #977c40; /* Add cool effects to your sliders! */
+}
+
+.sound-slider{
+  position: relative;
+  width: 100px;
+  height: 48px;
+}
+
+.sound-slider input{
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.sound-slider .behind-slider{
+  position: absolute;
+  width: 100%;
+  margin-top: 15px;
+  height: 20px;
+  z-index: 0;
+  border-radius: 4px;
+  border: 2px solid #977c40;
 }

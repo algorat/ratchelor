@@ -61,7 +61,7 @@ class RatchelorGame extends React.Component {
       currentRatIdx: 0,
       interludeBottom: INTERLUDE_OFFSET,
       incr: 5,
-      volume: 100
+      volume: 25
     };
     this.changeCurrentRatIdx = this.changeCurrentRatIdx.bind(this);
     this.changeVolume = this.changeVolume.bind(this);
@@ -184,7 +184,6 @@ class RatchelorGame extends React.Component {
             // If that was the last round, advance to Anime
             if (newRoundNum === this.numRounds) {
               this.setState({gameStage: ANIME_ENDING});
-              this.incrementTotalRatCount(this.state.activeRatNames[0]);
             // Else, keep talking to rats
             } else {
               this.beginInterludeAndAdvanceState(`Round ${this.state.roundNum + 2}`, 2000, TALKING_TO_RATS);
@@ -195,6 +194,8 @@ class RatchelorGame extends React.Component {
     } else if (this.state.gameStage === ANIME_ENDING) {
       // Anime ending screen:
       //    allows game to be restarted
+      this.incrementTotalRatCount(this.state.activeRatNames[0]);
+      console.log(this.state.activeRatNames);
       screen = 
         <AnimeEnding
           finalRat={this.getRatByName(this.state.activeRatNames[0])}
