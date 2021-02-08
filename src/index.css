@@ -127,9 +127,7 @@ button:focus {
   height: 750px;
   bottom: 950px;
   margin-top: 10px;
-  /* background-color: yellow; */
   background-image: url('img/Backgrounds/curtains.png');
-  background-position: 10px, 100px;
   background-size: 100%;
   position: absolute;
   display: flex;
