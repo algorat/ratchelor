@@ -61,7 +61,7 @@ class RatchelorGame extends React.Component {
       currentRatIdx: 0,
       interludeBottom: INTERLUDE_OFFSET,
       incr: 5,
-      volume: 100
+      volume: 25
     };
     this.changeCurrentRatIdx = this.changeCurrentRatIdx.bind(this);
     this.changeVolume = this.changeVolume.bind(this);
