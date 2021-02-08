@@ -14,7 +14,7 @@ import Talking1 from '../sounds/Talking_To_Rat_1.mp3'
 import Talking2 from '../sounds/Talking_To_Rat_2.mp3'
 import Talking3 from '../sounds/Talking_To_Rat_3.mp3'
 import Talking4 from '../sounds/Talking_To_Rat_4.mp3'
-import {RAT_SELECT, PLAYER_SELECT, TALKING_TO_RATS, ROSE_CEREMONY, ANIME_ENDING} from '../App'
+import {RAT_SELECT, TALKING_TO_RATS, ROSE_CEREMONY, ANIME_ENDING} from '../App'
 
 const TalkingMusic = [Talking1, Talking2, Talking3, Talking4];
 const Endings = {
@@ -40,9 +40,6 @@ class MusicManager extends React.Component {
       case RAT_SELECT:
         url = IntroScreen;
         break;
-      case PLAYER_SELECT:
-          url = IntroScreen;
-          break;
       case TALKING_TO_RATS:
         url = TalkingMusic[this.props.currentRatIdx % TalkingMusic.length];
         break;
