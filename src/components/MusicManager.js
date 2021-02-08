@@ -41,8 +41,8 @@ class MusicManager extends React.Component {
         url = IntroScreen;
         break;
       case PLAYER_SELECT:
-          url = IntroScreen;
-          break;
+        url = IntroScreen;
+        break;
       case TALKING_TO_RATS:
         url = TalkingMusic[this.props.currentRatIdx % TalkingMusic.length];
         break;

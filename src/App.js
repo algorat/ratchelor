@@ -2,13 +2,13 @@
 import "./App.css";
 import React from "react";
 import IntroScreen from "./components/IntroScreen";
-import CharacterSelect from "./components/CharacterSelect";
 import RatSelect from "./components/RatSelect";
 import TalkingToRats from "./components/TalkingToRats";
 import RoseCeremony from "./components/RoseCeremony";
 import AnimeEnding from "./components/AnimeEnding";
 import MusicManager from "./components/MusicManager";
 import GameOptions from "./components/GameOptions";
+import CharacterSelect from "./components/CharacterSelect";
 import ratsJson from './rats.json';
 import firebase from "firebase";
 
@@ -63,12 +63,12 @@ class RatchelorGame extends React.Component {
       currentRatIdx: 0,
       interludeBottom: INTERLUDE_OFFSET,
       incr: 5,
-      volume: 25,
+      volume: 15,
       playerIdx: -1
     };
     this.changeCurrentRatIdx = this.changeCurrentRatIdx.bind(this);
-    this.changePlayerIdx = this.changePlayerIdx.bind(this);
     this.changeVolume = this.changeVolume.bind(this);
+    this.changePlayerIdx = this.changePlayerIdx.bind(this);
   }
 
   beginInterludeAndAdvanceState(text, delay, newGameStage) {
@@ -152,11 +152,12 @@ class RatchelorGame extends React.Component {
       screen = <IntroScreen onClick={() => {
         this.beginInterludeAndAdvanceState("meet yourself", 2000, PLAYER_SELECT);
       }}/> 
+
     } else if (this.state.gameStage === PLAYER_SELECT) { 
       screen = <CharacterSelect 
         changePlayerIdx={this.changePlayerIdx} playerIdx={this.state.playerIdx}
         onClick={() => {this.beginInterludeAndAdvanceState("meet your suitors", 2000, RAT_SELECT);}}
-      />
+      /> 
     } else if (this.state.gameStage === RAT_SELECT) {
       // Rat select screen: 
       //    modifies the currently active rat names
@@ -249,7 +250,6 @@ class RatchelorGame extends React.Component {
     )
   }
 }
-
 
 export {INTRO, PLAYER_SELECT, RAT_SELECT, TALKING_TO_RATS, ROSE_CEREMONY, ANIME_ENDING, SPECIAL_ENDING};
 export default RatchelorGame;

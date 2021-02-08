@@ -4,7 +4,11 @@ html {
   height: 100%;
   position: relative;
 }
-
+/* img {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+} */
 body {
   margin: 0;
   width: 100%;
@@ -20,7 +24,7 @@ body {
   position: relative;
   width: 900px;
   height: 675px;
-  margin-top: 80px;
+  margin-top: 120px;
 }
 
 .screen {
@@ -65,8 +69,16 @@ body {
 
 #frame {
   position: absolute;
-  margin-left: -40px;
-  margin-top: -52px;
+  z-index: 1000;
+  margin-left: -110px;
+  margin-top: -113px;
+  pointer-events: none;
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 * {
@@ -104,17 +116,18 @@ button:focus {
 #interludeContainer {
   overflow: hidden;
   width: 900px;
-  height: 675px;
+  height: 732px;
   position: absolute;
   background-color: black;
 }
 
 #interlude {
   width: 900px;
-  z-index: 1000;
-  height: 675px;
-  bottom: 900px;
-  background-color: yellow;
+  z-index: 900;
+  height: 750px;
+  bottom: 950px;
+  margin-top: 10px;
+  background-image: url('img/Backgrounds/curtains.png');
   background-size: 100%;
   position: absolute;
   display: flex;
@@ -126,7 +139,7 @@ button:focus {
   font-size: 50px;
   margin-top: 180px;
   text-shadow: 3px 3px white;
-  color: rgb(109, 33, 21);
+  color: rgb(243, 183, 18);
 }
 
 /* INTRO */
@@ -719,7 +732,7 @@ button:focus {
 
 #game-options {
   position: absolute;
-  top: 6px;
+  top: 5px;
   left: 15px;
   display: flex;
   align-items: center;
@@ -865,7 +878,6 @@ input[type='range']::-ms-thumb {
 .player-img img {
   position: relative;
   width: 100%;
-  z-index: 100;
 }
 
 .player-img.selected-img {
@@ -873,16 +885,14 @@ input[type='range']::-ms-thumb {
 }
 
 .selected-bg {
-  position: absolute;
+  position: absolute !important;
   left: 0px;
   top: 0px;
-  box-shadow: 16px 16px 60px rgba(37, 77, 95, 0.3),
-    8px 8px 32px rgba(37, 77, 95, 0.5);
-  width: 90%;
-  height: 90%;
-  margin-top: 5%;
-  margin-left: 5%;
-  z-index: 0;
+  width: 150%;
+  height: 130%;
+  margin-top: -15%;
+  margin-left: -15%;
+  z-index: 2;
 }
 
 #button-container {
