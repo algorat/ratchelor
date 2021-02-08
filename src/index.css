@@ -20,6 +20,14 @@ body {
   background-size: 350px 285px;
 }
 
+img {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
 #root {
   position: relative;
   width: 900px;
