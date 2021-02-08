@@ -136,7 +136,7 @@ class TalkingToRats extends React.Component {
       <div id="talkingToRatsScreen" className="screen">
       <img id="playerRat" 
       alt="you as a rat, on the couch"
-      src={`/ratchelor/img/Couch/you.png`}></img>
+      src={this.props.playerRatUrl}></img>
       <img id="talkingRat" 
       alt="a rat on the couch who is talking to you"
       style={{left: `${this.state.ratLeft}px`, top: `${this.state.ratTop}px`}}
