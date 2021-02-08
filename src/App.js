@@ -8,6 +8,7 @@ import RoseCeremony from "./components/RoseCeremony";
 import AnimeEnding from "./components/AnimeEnding";
 import MusicManager from "./components/MusicManager";
 import GameOptions from "./components/GameOptions";
+import CharacterSelect from "./components/CharacterSelect";
 import ratsJson from './rats.json';
 import firebase from "firebase";
 
@@ -31,11 +32,12 @@ firebase.initializeApp(firebaseConfig);
 
 // Game Stages
 const INTRO = 0;
-const RAT_SELECT = 1;
-const TALKING_TO_RATS = 2;
-const ROSE_CEREMONY = 3;
-const ANIME_ENDING = 4;
-const SPECIAL_ENDING = 5;
+const PLAYER_SELECT = 1;
+const RAT_SELECT = 2;
+const TALKING_TO_RATS = 3;
+const ROSE_CEREMONY = 4;
+const ANIME_ENDING = 5;
+const SPECIAL_ENDING = 6;
 
 const INTERLUDE_OFFSET = 900;
 
@@ -66,6 +68,7 @@ class RatchelorGame extends React.Component {
     };
     this.changeCurrentRatIdx = this.changeCurrentRatIdx.bind(this);
     this.changeVolume = this.changeVolume.bind(this);
+    this.changePlayerIdx = this.changePlayerIdx.bind(this);
   }
 
   beginInterludeAndAdvanceState(text, delay, newGameStage) {
@@ -112,6 +115,12 @@ class RatchelorGame extends React.Component {
     })
   }
 
+  changePlayerIdx(idx){
+    this.setState({
+      playerIdx: idx
+    })
+  }
+
   changeVolume(vol){
     this.setState({
       volume: vol
@@ -141,9 +150,14 @@ class RatchelorGame extends React.Component {
     if (this.state.gameStage === INTRO) {
       // Intro screen: advances to next stage when complete
       screen = <IntroScreen onClick={() => {
-        this.beginInterludeAndAdvanceState("meet your suitors", 2000, RAT_SELECT);
+        this.beginInterludeAndAdvanceState("meet yourself", 2000, PLAYER_SELECT);
       }}/> 
 
+    } else if (this.state.gameStage === PLAYER_SELECT) { 
+      screen = <CharacterSelect 
+        changePlayerIdx={this.changePlayerIdx} playerIdx={this.state.playerIdx}
+        onClick={() => {this.beginInterludeAndAdvanceState("meet your suitors", 2000, RAT_SELECT);}}
+      /> 
     } else if (this.state.gameStage === RAT_SELECT) {
       // Rat select screen: 
       //    modifies the currently active rat names
@@ -166,6 +180,7 @@ class RatchelorGame extends React.Component {
           getRatByName={this.getRatByName}
           round={this.state.roundNum}
           startDelay={3000}
+          playerRatUrl={`/ratchelor/img/Player/${this.state.playerIdx}.png`}
           goToRoseCeremony={() => this.beginInterludeAndAdvanceState(`Rose ceremony ${this.state.roundNum + 1}`, 2000, ROSE_CEREMONY)}
           changeCurrentRatIdx={this.changeCurrentRatIdx}
         />
@@ -236,6 +251,5 @@ class RatchelorGame extends React.Component {
   }
 }
 
-
-export {INTRO, RAT_SELECT, TALKING_TO_RATS, ROSE_CEREMONY, ANIME_ENDING, SPECIAL_ENDING};
+export {INTRO, PLAYER_SELECT, RAT_SELECT, TALKING_TO_RATS, ROSE_CEREMONY, ANIME_ENDING, SPECIAL_ENDING};
 export default RatchelorGame;
