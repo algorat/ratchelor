@@ -14,7 +14,6 @@ body {
   justify-content: center;
   background-image: url(./img/Backgrounds/background2.png);
   background-size: 350px 285px;
-
 }
 
 #root {
@@ -39,6 +38,29 @@ body {
   100% {
     opacity: 0;
   }
+}
+
+#mobile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#mobile-message {
+  color: rgb(109, 33, 21);
+  background-color: rgb(255, 230, 226);
+  font-family: 'Yusei Magic', sans-serif;
+  width: 80%;
+  font-size: 18px;
+  text-align: center;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+#mobile-img {
+  width: 200px;
+  padding-top: 30px;
 }
 
 #frame {

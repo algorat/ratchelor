@@ -202,6 +202,15 @@ class RatchelorGame extends React.Component {
         />
    
     }
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      let randoRat = ratsJson[Math.floor(Math.random() * ratsJson.length)]
+      let randoRatFilename = randoRat.filename
+      return (
+      <div id="mobile-container">
+        <div id="mobile-message">{`To experience The Ratchelor, ${randoRat.name} wants you to access this website on a desktop computer!`}</div>
+        <img id="mobile-img" src={`/ratchelor/img/Characters/${randoRatFilename}.png`}></img>
+      </div>);
+    }
     return (
       <div id="game-container">
         <div id="game">
