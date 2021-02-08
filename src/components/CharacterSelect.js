@@ -7,8 +7,8 @@ class CharacterImg extends React.Component {
       <div onClick={this.props.onClick} 
         className={`player-img ${this.props.selected && "selected-img"}`}
       >
-        {this.props.selected && (<img src="/ratchelor/img/Frames/hearts7.PNG" className="selected-bg"/>)}
-        <img src={this.props.src} />
+        {this.props.selected && (<img alt="" src="/ratchelor/img/Frames/hearts7.PNG" className="selected-bg"/>)}
+        <img src={this.props.src} alt="one of the selectable characters"/>
       </div>
     );
   }
