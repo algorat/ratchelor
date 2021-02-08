@@ -604,8 +604,8 @@ button:focus {
 
 #game-options {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 6px;
+  left: 15px;
   display: flex;
   align-items: center;
 }
@@ -700,4 +700,94 @@ input[type=range]::-ms-thumb {
   z-index: 0;
   border-radius: 4px;
   border: 2px solid #977c40;
+}
+
+.player-img{
+  width: 180px;
+  flex-grow: 0;
+  position: relative;
+  filter: grayscale(1) brightness(1.2) contrast(0.8);
+  z-index: 0;
+}
+
+#custom-character{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgb(221, 235, 219);
+}
+
+#custom-character-row{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+#ratchelor-intro{
+  width: 60%;
+  text-align: center;
+  font-family: 'Yusei Magic', sans-serif;
+}
+
+#ratchelor-intro-question{
+  font-family: 'Yusei Magic', sans-serif;
+  margin-top: 24px;
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.player-img:hover{
+  animation: wiggle 750ms linear 0s infinite forwards;
+  filter: grayscale(0);
+  transition: filter 500ms;
+  cursor: pointer;
+}
+
+.player-img img{
+  position: relative;
+  width: 100%;
+  z-index: 100;
+}
+
+.player-img.selected-img{
+  filter: grayscale(0);
+}
+
+.selected-bg{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  box-shadow: 16px 16px 60px rgba(37, 77, 95, 0.3), 8px 8px 32px rgba(37, 77, 95, 0.5);
+  width: 90%;
+  height: 90%;
+  margin-top: 5%;
+  margin-left: 5%;
+  z-index: 0;
+}
+
+#button-container{
+  height: 55px;
+  width: 130px;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translate3d(0, 0, 0) rotateZ(0deg);
+  }
+  25%{
+    transform: translate3d(10px, 0, 0) rotateZ(3deg);
+  }
+  50%{
+    transform: translate3d(0px, 0, 0) rotateZ(0deg);
+  }
+  75%{
+    transform: translate3d(-10px, 0, 0) rotateZ(-3deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotateZ(0deg);
+  }
 }
