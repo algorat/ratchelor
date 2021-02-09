@@ -9,6 +9,8 @@ import AnimeEnding from "./components/AnimeEnding";
 import MusicManager from "./components/MusicManager";
 import GameOptions from "./components/GameOptions";
 import CharacterSelect from "./components/CharacterSelect";
+import Proposal from "./components/Proposal";
+
 import ratsJson from './rats.json';
 import firebase from "firebase";
 
@@ -38,6 +40,7 @@ const TALKING_TO_RATS = 3;
 const ROSE_CEREMONY = 4;
 const ANIME_ENDING = 5;
 const SPECIAL_ENDING = 6;
+const PROPOSAL = 7;
 
 const INTERLUDE_OFFSET = 900;
 const ANIM_START_INCR = 30;
@@ -67,6 +70,7 @@ class RatchelorGame extends React.Component {
       volume: 15,
       playerIdx: -1
     };
+    this.finalRat = ratsJson[3];
     this.changeCurrentRatIdx = this.changeCurrentRatIdx.bind(this);
     this.changeVolume = this.changeVolume.bind(this);
     this.changePlayerIdx = this.changePlayerIdx.bind(this);
@@ -108,11 +112,14 @@ class RatchelorGame extends React.Component {
 
   // Reset everything to restart the game
   restartGame() {
+    console.log("restarting")
     this.setState({
       gameStage: INTRO,
       roundNum: 0,
       activeRatNames: []
-    })
+    }, () => {
+      console.log("done!")
+    });
   }
 
   changeCurrentRatIdx(idx){
@@ -158,7 +165,6 @@ class RatchelorGame extends React.Component {
       screen = <IntroScreen onClick={() => {
         this.beginInterludeAndAdvanceState("meet yourself", 900, PLAYER_SELECT);
       }}/> 
-
     } else if (this.state.gameStage === PLAYER_SELECT) { 
       screen = <CharacterSelect 
         changePlayerIdx={this.changePlayerIdx} playerIdx={this.state.playerIdx}
@@ -205,7 +211,7 @@ class RatchelorGame extends React.Component {
             const newRoundNum = this.state.roundNum + 1;
             // If that was the last round, advance to Anime
             if (newRoundNum === this.numRounds) {
-              this.setState({gameStage: ANIME_ENDING});
+              this.setState({gameStage: PROPOSAL});
             // Else, keep talking to rats
             } else {
               this.beginInterludeAndAdvanceState(`chit chat`, 900, TALKING_TO_RATS);
@@ -213,15 +219,24 @@ class RatchelorGame extends React.Component {
             }
           }}
         />
+    } else if (this.state.gameStage === PROPOSAL){ 
+      this.finalRat = this.getRatByName(this.state.activeRatNames[0])
+      screen = <Proposal 
+        finalRat={this.finalRat}
+        playerRatUrl={`/ratchelor/img/Player/${this.state.playerIdx}_proposal.PNG`}
+        advanceState={() => {
+          this.setState({gameStage: ANIME_ENDING});
+        }}
+        />
     } else if (this.state.gameStage === ANIME_ENDING) {
       // Anime ending screen:
       //    allows game to be restarted
-      this.incrementTotalRatCount(this.state.activeRatNames[0]);
-      console.log(this.state.activeRatNames);
       screen = 
         <AnimeEnding
-          finalRat={this.getRatByName(this.state.activeRatNames[0])}
-          restartGame={this.restartGame.bind(this)}
+          winningRat={this.finalRat}
+          restartGame={() => {
+            this.restartGame();
+          }}
         />
    
     }
@@ -246,7 +261,7 @@ class RatchelorGame extends React.Component {
           </div>
           <MusicManager 
             phase={this.state.gameStage} 
-            finalRat={this.getRatByName(this.state.activeRatNames[0])} 
+            finalRat={this.finalRat} 
             currentRatIdx={this.state.currentRatIdx} 
             volume={this.state.volume}
           />
@@ -257,5 +272,5 @@ class RatchelorGame extends React.Component {
   }
 }
 
-export {INTRO, PLAYER_SELECT, RAT_SELECT, TALKING_TO_RATS, ROSE_CEREMONY, ANIME_ENDING, SPECIAL_ENDING};
+export {INTRO, PLAYER_SELECT, RAT_SELECT, TALKING_TO_RATS, ROSE_CEREMONY, ANIME_ENDING, SPECIAL_ENDING, PROPOSAL};
 export default RatchelorGame;
