@@ -204,8 +204,8 @@ class RoseCeremony extends React.Component {
 
     return (
       <div id="roseCeremonyScreen" className="screen">
+        <img id="bouquet" src={`/ratchelor/img/Bouquet/bouquet${bouquetNum}.png`}></img>
         <div id="instructions">{this.state.instructions}</div>
-         <img id="bouquet" src={`/ratchelor/img/Bouquet/bouquet${bouquetNum}.png`}></img>
         <div id="ratListContainer"> 
           <div id="backRow" className={`${this.state.middleRowClass}`}>{backRatsList}</div>
           <div id="frontRow">{frontRatsList}</div>

@@ -140,14 +140,14 @@ button:focus {
   position: absolute;
   display: flex;
   justify-content: center;
+  /* bottom: 0 !important; */
 }
 
 #interludeText {
   font-family: 'Yusei Magic', sans-serif;
-  font-size: 50px;
-  margin-top: 180px;
-  text-shadow: 3px 3px white;
-  color: rgb(243, 183, 18);
+  font-size: 60px;
+  margin-top: 290px;
+  color: white;
 }
 
 /* INTRO */
@@ -497,7 +497,6 @@ button:focus {
 #roseCeremonyScreen button {
   padding: 6px 20px;
   background-color: rgb(46, 94, 116);
-  z-index: 990;
 }
 
 #roseCeremonyScreen button:hover {
