@@ -165,10 +165,21 @@ button:focus {
 
 #introScreen button {
   justify-content: center;
-  margin-top: 230px;
-  font-size: 40px;
-  padding: 15px 30px;
+  margin-top: 180px;
+  font-size: 35px;
+  background-color: #f3bb1c;
+  padding: 8px 30px;
   border-width: 6px;
+  font-family: cursive;
+  border-radius: 30px;
+  
+}
+
+
+#introScreen button:hover {
+  background-color: white;
+  border-color:  #f3bb1c;
+  color:  #f3bb1c;
 }
 
 /* RAT SELECT */
