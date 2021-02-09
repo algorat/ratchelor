@@ -29,7 +29,7 @@ class Proposal extends React.Component {
   render() {
     return (
       <div id="proposalScreen" style={{opacity: this.state.opacity}} className="screen">
-        <img id="finalRat" className={`propose-${this.props.finalRat.size}`} src={`/ratchelor/img/characters/${this.props.finalRat.filename}.png`}></img>
+        <img id="finalRat" className={`propose-${this.props.finalRat.size}`} src={`/ratchelor/img/Characters/${this.props.finalRat.filename}.png`}></img>
         <img id="proposingRat" src={this.props.playerRatUrl}></img>
       </div>
       )
