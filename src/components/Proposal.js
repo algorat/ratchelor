@@ -13,13 +13,13 @@ class Proposal extends React.Component {
   componentDidMount() {
     window.setTimeout(() => 
     {
-      window.setInterval(() => {
+      this.opacityInterval = window.setInterval(() => {
         if (this.state.opacity <= 0) {
           this.props.advanceState();
+          window.clearInterval(this.opacityInterval);
         }
         else {
           let opacity = this.state.opacity - 0.01;
-          console.log(opacity);
           this.setState({opacity});
         }
       }, 10);
