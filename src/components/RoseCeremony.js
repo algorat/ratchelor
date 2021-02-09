@@ -16,7 +16,7 @@ class RoseCeremony extends React.Component {
       giveRosesButton: "",
       instructions: `Choose ${this.props.numRoses} contestants to continue`,
       middleRowClass: "",
-      notSelectedClass: ""
+      notSelectedClass: "",
     }
   }
 
@@ -146,6 +146,7 @@ class RoseCeremony extends React.Component {
     if (this.state.selectedRats.length === this.numRoses) {
       let giveRosesButton;
       if (this.numRoses === 1){
+        this.finalRat = this.props.getRatByName(this.state.selectedRats[0]);
         giveRosesButton = <button onClick={this.endRoseCeremony.bind(this)}>Propose to {this.state.selectedRats[0]}</button>;
       }
       else{

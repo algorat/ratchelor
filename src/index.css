@@ -445,8 +445,9 @@ button:focus {
   bottom: 80px;
 }
 
-#roseCeremonyScreen .notSelected {
-  /* filter: grayscale(1); */
+#roseCeremonyScreen .notSelected:hover {
+  animation: none !important;
+  transform: scale(1) !important;
 }
 
 #roseCeremonyScreen .selectedRat {
@@ -546,6 +547,46 @@ button:focus {
   top: 0;
   font-family: 'Yusei Magic', sans-serif;
   font-size: 26px;
+}
+
+/* PROPOSAL SCREEN */
+#proposalScreen {
+  animation: fadeIn ease 2.4s;
+  background-image: url('img/RoseCeremony/Background-old.png');
+  background-size: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.propose-large {
+  max-height: 600px;
+  max-width: 600px;
+  transform: scaleX(-1);
+}
+
+.propose-med-large {
+  max-height: 500px;
+  max-width: 500px;
+}
+
+.propose-medium {
+  max-height: 300px;
+}
+
+.propose-small {
+  max-width: 150px;
+  max-height: 150px;
+}
+
+#finalRat {
+  margin-right: 40px;
+}
+
+#proposalScreen #proposingRat {
+  max-width: 300px;
+  max-height: 300px;
+  margin-bottom: -200px;
 }
 
 /* ANIME ENDING */

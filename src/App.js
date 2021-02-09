@@ -9,6 +9,8 @@ import AnimeEnding from "./components/AnimeEnding";
 import MusicManager from "./components/MusicManager";
 import GameOptions from "./components/GameOptions";
 import CharacterSelect from "./components/CharacterSelect";
+import Proposal from "./components/Proposal";
+
 import ratsJson from './rats.json';
 import firebase from "firebase";
 
@@ -38,6 +40,7 @@ const TALKING_TO_RATS = 3;
 const ROSE_CEREMONY = 4;
 const ANIME_ENDING = 5;
 const SPECIAL_ENDING = 6;
+const PROPOSAL = 7;
 
 const INTERLUDE_OFFSET = 900;
 const ANIM_START_INCR = 30;
@@ -205,13 +208,21 @@ class RatchelorGame extends React.Component {
             const newRoundNum = this.state.roundNum + 1;
             // If that was the last round, advance to Anime
             if (newRoundNum === this.numRounds) {
-              this.setState({gameStage: ANIME_ENDING});
+              this.setState({gameStage: PROPOSAL});
             // Else, keep talking to rats
             } else {
               this.beginInterludeAndAdvanceState(`chit chat`, 900, TALKING_TO_RATS);
               this.setState({roundNum: newRoundNum})
             }
           }}
+        />
+    } else if (this.state.gameStage === PROPOSAL){ 
+      screen = <Proposal 
+        finalRat={this.getRatByName(this.state.activeRatNames[0])}
+        playerRatUrl={`/ratchelor/img/Player/${this.state.playerIdx}_proposal.PNG`}
+        advanceState={() => {
+          this.setState({gameStage: ANIME_ENDING});
+        }}
         />
     } else if (this.state.gameStage === ANIME_ENDING) {
       // Anime ending screen:
@@ -257,5 +268,5 @@ class RatchelorGame extends React.Component {
   }
 }
 
-export {INTRO, PLAYER_SELECT, RAT_SELECT, TALKING_TO_RATS, ROSE_CEREMONY, ANIME_ENDING, SPECIAL_ENDING};
+export {INTRO, PLAYER_SELECT, RAT_SELECT, TALKING_TO_RATS, ROSE_CEREMONY, ANIME_ENDING, SPECIAL_ENDING, PROPOSAL};
 export default RatchelorGame;
