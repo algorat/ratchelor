@@ -42,7 +42,7 @@ class MusicManager extends React.Component {
     this.props.setCallPlaySound(this.playSound);
     this.volume = 0.2;
     this.finalRat = null;
-    this.currentRatIdx = 0;
+    this.currentRatIdx = -1;
     this.musicStarted = false;
   }
 
