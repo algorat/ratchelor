@@ -630,6 +630,33 @@ button:focus {
   width: 100%;
 }
 
+/* SPECIAL ENDING */
+#specialEndingScreen {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+
+#specialPic {
+  animation: fadeIn ease 10s;
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+#specialText {
+  font-family: 'Yusei Magic';
+  font-size: 20px;
+  position: absolute;
+  padding: 20px 40px;
+  animation: slideUp ease 7s;
+  background-color: rgba(236, 217, 165, 0.85);
+  color: #4b4015;
+  bottom: 0px;
+  width: 100%;
+}
 #restartButton {
   position: absolute;
   opacity: 1;

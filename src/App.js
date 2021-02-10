@@ -6,6 +6,7 @@ import RatSelect from "./components/RatSelect";
 import TalkingToRats from "./components/TalkingToRats";
 import RoseCeremony from "./components/RoseCeremony";
 import AnimeEnding from "./components/AnimeEnding";
+import SpecialEnding from "./components/SpecialEnding";
 import MusicManager from "./components/MusicManager";
 import GameOptions from "./components/GameOptions";
 import CharacterSelect from "./components/CharacterSelect";
@@ -56,7 +57,7 @@ class RatchelorGame extends React.Component {
     this.rosesPerRound = [5, 4, 3, 2, 1];
     this.state = {
       // What phase of the game we're in
-      gameStage: INTRO,
+      gameStage: SPECIAL_ENDING, // TODO TAKE THISOUT SORRY IF ANYONE ELSE SEE S THISS
       // What round of the rose-talking loop we're on
       roundNum: 0,
       // String list of all rat names currently still in the game
@@ -230,13 +231,22 @@ class RatchelorGame extends React.Component {
         />
     } else if (this.state.gameStage === ANIME_ENDING) {
       // Anime ending screen:
-      //    allows game to be restarted
+      //    allows game to be restarted for now
       screen = 
         <AnimeEnding
           winningRat={this.finalRat}
           restartGame={() => {
             this.restartGame();
           }}
+        />
+   
+    }else if (this.state.gameStage === SPECIAL_ENDING) {
+      // special ending screen:
+      //    allows game to be restarted
+      screen = 
+        <SpecialEnding
+          finalRat={this.getRatByName(this.state.activeRatNames[0])}
+          restartGame={this.restartGame.bind(this)}
         />
    
     }
