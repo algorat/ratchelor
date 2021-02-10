@@ -1,5 +1,4 @@
 import React from "react";
-import Sound from 'react-sound';
 
 import Cheerful from '../sounds/Cheerful.mp3'
 import Funky from '../sounds/Funky.mp3'
@@ -31,12 +30,66 @@ class MusicManager extends React.Component {
 
   constructor(props){
     super(props);
-    window.soundManager.setup({debugMode: false});
+    this.selectURL = this.selectURL.bind(this);
+    this.url = this.selectURL(this.props.phase);
+    this.playSound = this.playSound.bind(this);
+    this.props.setCallPlaySound(this.playSound);
+    this.phase = this.props.phase;
+    this.volume = 0.2;
+    this.finalRat = null;
+    this.currentRatIdx = 0;
+    this.musicStarted = false;
   }
 
-  render() {
-    let url;
-    switch (this.props.phase){
+  shouldComponentUpdate(props){
+
+    let needToRender = false;
+
+    if(props.phase !== this.phase){
+      this.phase = props.phase;
+      needToRender = true;
+    }
+    if(this.volume !== props.volume){
+      this.volume = props.volume/100;
+      this.setVolume(this.volume);
+    }
+    if(this.finalRat !== props.finalRat){
+      this.finalRat = props.finalRat;
+      needToRender = true;
+    }
+    if(this.currentRatIdx !== props.currentRatIdx){
+      this.currentRatIdx = props.currentRatIdx;
+      needToRender = true;
+    }
+    console.log(this.musicStarted)
+    if(!this.musicStarted || needToRender){
+      this.playSound(this.phase);
+    }
+    
+    return false;
+  }
+
+  setVolume(vol){
+    if(this.rap) {
+      this.rap.volume = vol;
+    };
+  }
+
+  playSound(phase){
+    let url = this.selectURL(phase);
+    this.url = url;
+    if(!this.musicStarted 
+      || (url !== "" && this.rap && url !== this.url)) {
+      this.rap.src = url;
+      this.rap.volume = this.volume;
+      this.rap.play();
+      this.musicStarted = true;
+    };
+  }
+
+  selectURL(phase){
+    let url = IntroScreen;
+    switch (phase){
       case RAT_SELECT:
         url = IntroScreen;
         break;
@@ -44,34 +97,36 @@ class MusicManager extends React.Component {
         url = IntroScreen;
         break;
       case TALKING_TO_RATS:
-        url = TalkingMusic[this.props.currentRatIdx % TalkingMusic.length];
+        url = TalkingMusic[this.currentRatIdx % TalkingMusic.length];
         break;
       case ROSE_CEREMONY:
         url = RoseCeremony;
         break;
       case ANIME_ENDING:
-        url = Endings[this.props.finalRat.ending];
+        url = Endings[this.finalRat.ending];
         break;
       case PROPOSAL:
         url = Endings[this.props.finalRat.ending];
         break;
       default:
-        url = null;
+        url = IntroScreen;
     }
-    if(url){
-      return (
-        <Sound
-          url={url}
-          playStatus={Sound.status.PLAYING}
-          onLoading={this.handleSongLoading}
-          onPlaying={this.handleSongPlaying}
-          onFinishedPlaying={this.handleSongFinishedPlaying}
-          loop={true}
-          volume={this.props.volume}
-        />
-      );
-    } 
-    return (<></>)
+    return url;
+  }
+
+  render() {
+    this.url = this.selectURL(this.props.phase);
+    return (
+      <audio
+        src={this.url}
+        ref={(element) => { 
+            this.rap = element; 
+          }
+        }
+        loop
+        volume={this.volume}
+      />
+    );
   }
 }
 

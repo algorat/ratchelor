@@ -23,7 +23,12 @@ class IntroScreen extends React.Component {
   render() {
     return (
       <div id="introScreen" className="screen" style={{opacity: this.state.opacity}}>
-        <button onClick={this.onClick.bind(this)}>Embark</button>
+        <button ref={b => {if(b){b.addEventListener("click", () => {
+              this.props.playSound(); 
+              this.onClick();
+            })
+          }
+        } }>Embark</button>
         <div id="hideme"/>
     </div>
     );

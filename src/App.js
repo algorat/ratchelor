@@ -74,6 +74,7 @@ class RatchelorGame extends React.Component {
     this.changeCurrentRatIdx = this.changeCurrentRatIdx.bind(this);
     this.changeVolume = this.changeVolume.bind(this);
     this.changePlayerIdx = this.changePlayerIdx.bind(this);
+    this.setCallPlaySound = this.setCallPlaySound.bind(this);
   }
 
   beginInterludeAndAdvanceState(text, delay, newGameStage) {
@@ -108,6 +109,10 @@ class RatchelorGame extends React.Component {
       }
       this.setState({interludeBottom});
     }, 5)
+  }
+
+  setCallPlaySound(f){
+    this.callPlaySound = f;
   }
 
   // Reset everything to restart the game
@@ -163,7 +168,13 @@ class RatchelorGame extends React.Component {
     let screen = "";
     if (this.state.gameStage === INTRO) {
       // Intro screen: advances to next stage when complete
-      screen = <IntroScreen onClick={() => {
+      screen = <IntroScreen 
+      playSound={() => {
+        if(this.callPlaySound){
+          this.callPlaySound(this.state.gameStage + 1);
+        }
+      }}
+      onClick={() => {
         this.beginInterludeAndAdvanceState("meet yourself", 900, PLAYER_SELECT);
       }}/> 
     } else if (this.state.gameStage === PLAYER_SELECT) { 
@@ -260,7 +271,8 @@ class RatchelorGame extends React.Component {
           </div>
           {screen}
           </div>
-          <MusicManager 
+          <MusicManager
+            setCallPlaySound={this.setCallPlaySound} 
             phase={this.state.gameStage} 
             finalRat={this.finalRat} 
             currentRatIdx={this.state.currentRatIdx} 
