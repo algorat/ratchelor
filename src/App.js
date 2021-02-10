@@ -1,4 +1,3 @@
-
 import "./App.css";
 import React from "react";
 import IntroScreen from "./components/IntroScreen";
@@ -11,14 +10,12 @@ import GameOptions from "./components/GameOptions";
 import CharacterSelect from "./components/CharacterSelect";
 import Proposal from "./components/Proposal";
 
-import ratsJson from './rats.json';
+import ratsJson from "./rats.json";
 import firebase from "firebase";
 
 var firebaseConfig = {
-       
-        
   messagingSenderId: "993096202246",
-  appId: "1:993096202246:web:bf0ebeedc4c347640aeb87"
+  appId: "1:993096202246:web:bf0ebeedc4c347640aeb87",
 };
 var firebaseConfig = {
   apiKey: "AIzaSyDimK5PvHd3hBT8Xoyup_ogKaSPT3Chwzc",
@@ -30,7 +27,6 @@ var firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
 
 // Game Stages
 const INTRO = 0;
@@ -68,7 +64,7 @@ class RatchelorGame extends React.Component {
       interludeBottom: INTERLUDE_OFFSET,
       incr: ANIM_START_INCR,
       volume: 15,
-      playerIdx: -1
+      playerIdx: -1,
     };
     this.finalRat = ratsJson[3];
     this.changeCurrentRatIdx = this.changeCurrentRatIdx.bind(this);
@@ -78,23 +74,23 @@ class RatchelorGame extends React.Component {
   }
 
   beginInterludeAndAdvanceState(text, delay, newGameStage) {
-    this.setState({interludeText: text});
+    this.setState({ interludeText: text });
     this.startInterludeInterval = window.setInterval(() => {
       let interludeBottom = this.state.interludeBottom - this.state.incr;
       if (interludeBottom <= 0) {
         interludeBottom = 0;
         if (newGameStage) {
-          this.setState({gameStage: newGameStage});
+          this.setState({ gameStage: newGameStage });
         }
         window.clearInterval(this.startInterludeInterval);
         window.setTimeout(() => {
           this.endInterlude();
         }, delay);
       } else {
-        this.setState({incr: this.state.incr * 0.97});
+        this.setState({ incr: this.state.incr * 0.97 });
       }
-      this.setState({interludeBottom});
-    }, 5)
+      this.setState({ interludeBottom });
+    }, 5);
   }
 
   endInterlude() {
@@ -103,47 +99,50 @@ class RatchelorGame extends React.Component {
       if (interludeBottom >= INTERLUDE_OFFSET) {
         interludeBottom = INTERLUDE_OFFSET;
         window.clearInterval(this.endInterludeInterval);
-        this.setState({incr: ANIM_START_INCR});
+        this.setState({ incr: ANIM_START_INCR });
       } else {
-        this.setState({incr: this.state.incr * 1.03});
+        this.setState({ incr: this.state.incr * 1.03 });
       }
-      this.setState({interludeBottom});
-    }, 5)
+      this.setState({ interludeBottom });
+    }, 5);
   }
 
-  setCallPlaySound(f){
+  setCallPlaySound(f) {
     this.callPlaySound = f;
   }
 
   // Reset everything to restart the game
   restartGame() {
-    console.log("restarting")
+    console.log("restarting");
+    this.setState(
+      {
+        gameStage: INTRO,
+        roundNum: 0,
+        activeRatNames: [],
+        playerIdx: -1,
+      },
+      () => {
+        console.log("done!");
+      }
+    );
+  }
+
+  changeCurrentRatIdx(idx) {
     this.setState({
-      gameStage: INTRO,
-      roundNum: 0,
-      activeRatNames: [],
-      playerIdx: -1
-    }, () => {
-      console.log("done!")
+      currentRatIdx: idx,
     });
   }
 
-  changeCurrentRatIdx(idx){
+  changePlayerIdx(idx) {
     this.setState({
-      currentRatIdx: idx
-    })
+      playerIdx: idx,
+    });
   }
 
-  changePlayerIdx(idx){
+  changeVolume(vol) {
     this.setState({
-      playerIdx: idx
-    })
-  }
-
-  changeVolume(vol){
-    this.setState({
-      volume: vol
-    })
+      volume: vol,
+    });
   }
 
   // Takes a string rat name and returns the Json object with additional details
@@ -156,134 +155,196 @@ class RatchelorGame extends React.Component {
   }
 
   incrementTotalRatCount(ratName) {
-    this.database.ref('/').child(ratName).set(firebase.database.ServerValue.increment(1));
+    this.database
+      .ref("/")
+      .child(ratName)
+      .set(firebase.database.ServerValue.increment(1));
   }
 
   componentDidMount() {
     this.interludeElement = document.getElementById("interlude");
-    this.database = firebase.database()
+    this.database = firebase.database();
   }
 
   render() {
     let screen = "";
     if (this.state.gameStage === INTRO) {
       // Intro screen: advances to next stage when complete
-      screen = <IntroScreen 
-      playSound={() => {
-        if(this.callPlaySound){
-          this.callPlaySound(this.state.gameStage + 1);
-        }
-      }}
-      onClick={() => {
-        this.beginInterludeAndAdvanceState("meet yourself", 900, PLAYER_SELECT);
-      }}/> 
-    } else if (this.state.gameStage === PLAYER_SELECT) { 
-      screen = <CharacterSelect 
-        changePlayerIdx={this.changePlayerIdx} playerIdx={this.state.playerIdx}
-        onClick={() => {this.beginInterludeAndAdvanceState("meet your suitors", 900, RAT_SELECT);}}
-      /> 
+      screen = (
+        <IntroScreen
+          playSound={() => {
+            if (this.callPlaySound) {
+              this.callPlaySound(this.state.gameStage + 1);
+            }
+          }}
+          onClick={() => {
+            this.beginInterludeAndAdvanceState(
+              "meet yourself",
+              900,
+              PLAYER_SELECT
+            );
+          }}
+        />
+      );
+    } else if (this.state.gameStage === PLAYER_SELECT) {
+      screen = (
+        <CharacterSelect
+          changePlayerIdx={this.changePlayerIdx}
+          playerIdx={this.state.playerIdx}
+          onClick={() => {
+            this.beginInterludeAndAdvanceState(
+              "meet your suitors",
+              900,
+              RAT_SELECT
+            );
+          }}
+        />
+      );
     } else if (this.state.gameStage === RAT_SELECT) {
-      // Rat select screen: 
+      // Rat select screen:
       //    modifies the currently active rat names
       //    advances to the next stage when complete
-      screen = <RatSelect 
-          rats={ratsJson} 
-          numRatsInGame={this.numRatsInGame} 
+      screen = (
+        <RatSelect
+          rats={ratsJson}
+          numRatsInGame={this.numRatsInGame}
           advanceState={() => {
-            this.beginInterludeAndAdvanceState(`chit chat`, 900, TALKING_TO_RATS);
+            this.beginInterludeAndAdvanceState(
+              `chit chat`,
+              900,
+              TALKING_TO_RATS
+            );
           }}
           setActiveRats={(selectedRats) => {
-            this.setState({activeRatNames: selectedRats});
+            this.setState({ activeRatNames: selectedRats });
           }}
-          />
+        />
+      );
     } else if (this.state.gameStage === TALKING_TO_RATS) {
       // Talking to rats screen:
       //    advances to the rose ceremony when done
-      screen = <TalkingToRats
+      screen = (
+        <TalkingToRats
           activeRatNames={this.state.activeRatNames}
           getRatByName={this.getRatByName}
           round={this.state.roundNum}
           startDelay={1000}
           playerRatUrl={`/ratchelor/img/Player/${this.state.playerIdx}.png`}
-          goToRoseCeremony={() => this.beginInterludeAndAdvanceState(`who gets a rose?`, 900, ROSE_CEREMONY)}
+          goToRoseCeremony={() =>
+            this.beginInterludeAndAdvanceState(
+              `who gets a rose?`,
+              900,
+              ROSE_CEREMONY
+            )
+          }
           changeCurrentRatIdx={this.changeCurrentRatIdx}
         />
+      );
     } else if (this.state.gameStage === ROSE_CEREMONY) {
       // Rose ceremony screen:
       //    either advances to the next talking round, or advances to the anime ending
       //    modifies the currently active rat names
-      screen = 
+      screen = (
         <RoseCeremony
           activeRatNames={this.state.activeRatNames}
           getRatByName={this.getRatByName}
           numRoses={this.rosesPerRound[this.state.roundNum]}
-          setActiveRats={(selectedRats) => {this.setState({activeRatNames: selectedRats});}}
+          setActiveRats={(selectedRats) => {
+            this.setState({ activeRatNames: selectedRats });
+          }}
           advanceState={() => {
             // Update the current round number
             const newRoundNum = this.state.roundNum + 1;
             // If that was the last round, advance to Anime
             if (newRoundNum === this.numRounds) {
-              this.setState({gameStage: PROPOSAL});
-            // Else, keep talking to rats
+              this.setState({ gameStage: PROPOSAL });
+              // Else, keep talking to rats
             } else {
-              this.beginInterludeAndAdvanceState(`chit chat`, 900, TALKING_TO_RATS);
-              this.setState({roundNum: newRoundNum})
+              this.beginInterludeAndAdvanceState(
+                `chit chat`,
+                900,
+                TALKING_TO_RATS
+              );
+              this.setState({ roundNum: newRoundNum });
             }
           }}
         />
-    } else if (this.state.gameStage === PROPOSAL){ 
-      this.finalRat = this.getRatByName(this.state.activeRatNames[0])
-      screen = <Proposal 
-        finalRat={this.finalRat}
-        playerRatUrl={`/ratchelor/img/Player/${this.state.playerIdx}_proposal.PNG`}
-        advanceState={() => {
-          this.setState({gameStage: ANIME_ENDING});
-        }}
+      );
+    } else if (this.state.gameStage === PROPOSAL) {
+      this.finalRat = this.getRatByName(this.state.activeRatNames[0]);
+      screen = (
+        <Proposal
+          finalRat={this.finalRat}
+          playerRatUrl={`/ratchelor/img/Player/${this.state.playerIdx}_proposal.PNG`}
+          advanceState={() => {
+            this.setState({ gameStage: ANIME_ENDING });
+          }}
         />
+      );
     } else if (this.state.gameStage === ANIME_ENDING) {
       // Anime ending screen:
       //    allows game to be restarted
-      screen = 
+      screen = (
         <AnimeEnding
           winningRat={this.finalRat}
           restartGame={() => {
             this.restartGame();
           }}
         />
-   
+      );
     }
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-      let randoRat = ratsJson[Math.floor(Math.random() * ratsJson.length)]
-      let randoRatFilename = randoRat.filename
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      let randoRat = ratsJson[Math.floor(Math.random() * ratsJson.length)];
+      let randoRatFilename = randoRat.filename;
       return (
-      <div id="mobile-container">
-        <div id="mobile-message">{`To experience The Ratchelor, ${randoRat.name} wants you to access this website on a desktop computer!`}</div>
-        <img id="mobile-img" src={`/ratchelor/img/Characters/${randoRatFilename}.png`}></img>
-      </div>);
+        <div id="mobile-container">
+          <div id="mobile-message">{`To experience The Ratchelor, ${randoRat.name} wants you to access this website on a desktop computer!`}</div>
+          <img
+            id="mobile-img"
+            src={`/ratchelor/img/Characters/${randoRatFilename}.png`}
+          ></img>
+        </div>
+      );
     }
     return (
       <div id="game-container">
         <div id="game">
           <img id="frame" src="/ratchelor/img/frameSmaller.png" alt=""></img>
           <div id="interludeContainer">
-          <div id="interlude" style={{bottom: this.state.interludeBottom}}>
-            <div id="interludeText">{this.state.interludeText}</div>
-          </div>
-          {screen}
+            <div id="interlude" style={{ bottom: this.state.interludeBottom }}>
+              <div id="interludeText">{this.state.interludeText}</div>
+            </div>
+            {screen}
           </div>
           <MusicManager
-            setCallPlaySound={this.setCallPlaySound} 
-            phase={this.state.gameStage} 
-            finalRat={this.finalRat} 
-            currentRatIdx={this.state.currentRatIdx} 
+            setCallPlaySound={this.setCallPlaySound}
+            phase={this.state.gameStage}
+            finalRat={this.finalRat}
+            currentRatIdx={this.state.currentRatIdx}
             volume={this.state.volume}
           />
         </div>
-        <GameOptions volume={this.state.volume} changeVolume={this.changeVolume}/>
-       </div>
-    )
+        <GameOptions
+          volume={this.state.volume}
+          changeVolume={this.changeVolume}
+        />
+      </div>
+    );
   }
 }
 
-export {INTRO, PLAYER_SELECT, RAT_SELECT, TALKING_TO_RATS, ROSE_CEREMONY, ANIME_ENDING, SPECIAL_ENDING, PROPOSAL};
+export {
+  INTRO,
+  PLAYER_SELECT,
+  RAT_SELECT,
+  TALKING_TO_RATS,
+  ROSE_CEREMONY,
+  ANIME_ENDING,
+  SPECIAL_ENDING,
+  PROPOSAL,
+};
 export default RatchelorGame;

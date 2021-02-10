@@ -1,19 +1,26 @@
 import React from "react";
 
-import Cheerful from '../sounds/Cheerful.mp3'
-import Funky from '../sounds/Funky.mp3'
-import Intense from '../sounds/Intense.mp3'
-import IntroScreen from '../sounds/Intro_Screen.mp3'
-import Paris from '../sounds/Paris.mp3'
-import Pop from '../sounds/Pop.mp3'
-import RomanticHappy from '../sounds/Romantic_Happy.mp3'
-import RomanticSad from '../sounds/Romantic_Sad.mp3'
-import RoseCeremony from '../sounds/Rose_Ceremony.mp3'
-import Talking1 from '../sounds/Talking_To_Rat_1.mp3'
-import Talking2 from '../sounds/Talking_To_Rat_2.mp3'
-import Talking3 from '../sounds/Talking_To_Rat_3.mp3'
-import Talking4 from '../sounds/Talking_To_Rat_4.mp3'
-import {RAT_SELECT, PLAYER_SELECT, TALKING_TO_RATS, ROSE_CEREMONY, ANIME_ENDING, PROPOSAL} from '../App'
+import Cheerful from "../sounds/Cheerful.mp3";
+import Funky from "../sounds/Funky.mp3";
+import Intense from "../sounds/Intense.mp3";
+import IntroScreen from "../sounds/Intro_Screen.mp3";
+import Paris from "../sounds/Paris.mp3";
+import Pop from "../sounds/Pop.mp3";
+import RomanticHappy from "../sounds/Romantic_Happy.mp3";
+import RomanticSad from "../sounds/Romantic_Sad.mp3";
+import RoseCeremony from "../sounds/Rose_Ceremony.mp3";
+import Talking1 from "../sounds/Talking_To_Rat_1.mp3";
+import Talking2 from "../sounds/Talking_To_Rat_2.mp3";
+import Talking3 from "../sounds/Talking_To_Rat_3.mp3";
+import Talking4 from "../sounds/Talking_To_Rat_4.mp3";
+import {
+  RAT_SELECT,
+  PLAYER_SELECT,
+  TALKING_TO_RATS,
+  ROSE_CEREMONY,
+  ANIME_ENDING,
+  PROPOSAL,
+} from "../App";
 
 const TalkingMusic = [Talking1, Talking2, Talking3, Talking4];
 const Endings = {
@@ -23,73 +30,81 @@ const Endings = {
   PARIS: Paris,
   POP: Pop,
   ROMANTICHAPPY: RomanticHappy,
-  ROMANTICSAD: RomanticSad
-}
+  ROMANTICSAD: RomanticSad,
+};
 
 class MusicManager extends React.Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
     this.selectURL = this.selectURL.bind(this);
     this.url = this.selectURL(this.props.phase);
     this.playSound = this.playSound.bind(this);
     this.props.setCallPlaySound(this.playSound);
-    this.phase = this.props.phase;
     this.volume = 0.2;
     this.finalRat = null;
     this.currentRatIdx = 0;
     this.musicStarted = false;
   }
 
-  shouldComponentUpdate(props){
+  shouldComponentUpdate(props) {
+    if (this.props.phase < 1) {
+      return false;
+    }
 
     let needToRender = false;
+    let newurl = this.selectURL(props.phase);
 
-    if(props.phase !== this.phase){
-      this.phase = props.phase;
+    if (newurl !== this.url) {
+      this.url = newurl;
       needToRender = true;
     }
-    if(this.volume !== props.volume){
-      this.volume = props.volume/100;
+    if (this.volume !== props.volume) {
+      this.volume = props.volume / 100;
       this.setVolume(this.volume);
     }
-    if(this.finalRat !== props.finalRat){
+    if (this.finalRat !== props.finalRat) {
       this.finalRat = props.finalRat;
       needToRender = true;
     }
-    if(this.currentRatIdx !== props.currentRatIdx){
+    if (this.currentRatIdx !== props.currentRatIdx) {
       this.currentRatIdx = props.currentRatIdx;
       needToRender = true;
     }
-    console.log(this.musicStarted)
-    if(!this.musicStarted || needToRender){
+
+    if (!this.musicStarted || needToRender) {
       this.playSound(this.phase);
     }
-    
+
     return false;
   }
 
-  setVolume(vol){
-    if(this.rap) {
+  setVolume(vol) {
+    if (this.rap) {
       this.rap.volume = vol;
-    };
+    }
   }
 
-  playSound(phase){
-    let url = this.selectURL(phase);
-    this.url = url;
-    if(!this.musicStarted 
-      || (url !== "" && this.rap && url !== this.url)) {
-      this.rap.src = url;
+  playSound() {
+    if (
+      !this.musicStarted ||
+      (this.url !== "" && this.rap && this.rap.src.indexOf(this.url) < 0)
+    ) {
+      console.log("changing src", this.url, this.rap.src);
+      this.rap.src = this.url;
       this.rap.volume = this.volume;
-      this.rap.play();
+      console.log("play");
       this.musicStarted = true;
-    };
+      var playPromise = this.rap.play();
+
+      if (playPromise !== undefined) {
+        playPromise.then((_) => {});
+      }
+    }
   }
 
-  selectURL(phase){
+  selectURL(phase) {
     let url = IntroScreen;
-    switch (phase){
+    switch (phase) {
       case RAT_SELECT:
         url = IntroScreen;
         break;
@@ -119,16 +134,14 @@ class MusicManager extends React.Component {
     return (
       <audio
         src={this.url}
-        ref={(element) => { 
-            this.rap = element; 
-          }
-        }
+        ref={(element) => {
+          this.rap = element;
+        }}
         loop
-        volume={this.volume}
+        volume={this.props.phase < 2 ? 0 : this.volume}
       />
     );
   }
 }
 
 export default MusicManager;
-
