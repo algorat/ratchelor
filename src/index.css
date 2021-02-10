@@ -790,10 +790,12 @@ button:focus {
 
 #game-options {
   position: absolute;
-  top: 5px;
-  left: 15px;
+  top: 320px;
+  left: -205px;
   display: flex;
   align-items: center;
+  transform: rotateZ(-90deg);
+  z-index: 200;
 }
 
 .sound-icon {
@@ -868,7 +870,7 @@ input[type='range']::-ms-thumb {
 
 .sound-slider {
   position: relative;
-  width: 100px;
+  width: 230px;
   height: 48px;
 }
 
@@ -1027,4 +1029,12 @@ input[type='range']::-ms-thumb {
   100% {
     transform: translate3d(0, 0, 0) rotateZ(0deg);
   }
+}
+
+#game-container{
+  z-index: 0;
+}
+
+#game{
+  z-index: 0;
 }
