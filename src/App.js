@@ -116,7 +116,8 @@ class RatchelorGame extends React.Component {
     this.setState({
       gameStage: INTRO,
       roundNum: 0,
-      activeRatNames: []
+      activeRatNames: [],
+      playerIdx: -1
     }, () => {
       console.log("done!")
     });
