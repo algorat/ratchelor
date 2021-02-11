@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ratchelor/static/css/main.d75265f7.chunk.css",
+    "main.css": "/ratchelor/static/css/main.06ca7803.chunk.css",
     "main.js": "/ratchelor/static/js/main.26b6ba8a.chunk.js",
     "main.js.map": "/ratchelor/static/js/main.26b6ba8a.chunk.js.map",
     "runtime-main.js": "/ratchelor/static/js/runtime-main.b516d098.js",
@@ -8,7 +8,7 @@
     "static/js/2.03d903b7.chunk.js": "/ratchelor/static/js/2.03d903b7.chunk.js",
     "static/js/2.03d903b7.chunk.js.map": "/ratchelor/static/js/2.03d903b7.chunk.js.map",
     "index.html": "/ratchelor/index.html",
-    "static/css/main.d75265f7.chunk.css.map": "/ratchelor/static/css/main.d75265f7.chunk.css.map",
+    "static/css/main.06ca7803.chunk.css.map": "/ratchelor/static/css/main.06ca7803.chunk.css.map",
     "static/js/2.03d903b7.chunk.js.LICENSE.txt": "/ratchelor/static/js/2.03d903b7.chunk.js.LICENSE.txt",
     "static/media/index.css": "/ratchelor/static/media/preview.011da406.png",
     "static/media/Cheerful.d940b0ce.mp3": "/ratchelor/static/media/Cheerful.d940b0ce.mp3",
@@ -29,7 +29,7 @@
   "entrypoints": [
     "static/js/runtime-main.b516d098.js",
     "static/js/2.03d903b7.chunk.js",
-    "static/css/main.d75265f7.chunk.css",
+    "static/css/main.06ca7803.chunk.css",
     "static/js/main.26b6ba8a.chunk.js"
   ]
 }

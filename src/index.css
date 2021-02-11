@@ -479,6 +479,9 @@ button:focus {
 
 #roseCeremonyScreen .selectedRat .ratWithRosePic {
   display: inline;
+  -webkit-filter: drop-shadow(2px 2px 0px #574600)
+    drop-shadow(-2px -2px 0px #574600) !important;
+  filter: drop-shadow(2px 2px 0px #574600) drop-shadow(-2px -2px 0px #574600) !important;
 }
 
 #roseCeremonyScreen .large {
@@ -520,6 +523,10 @@ button:focus {
   border-radius: 10px;
   border: 4px solid rgb(232, 190, 27);
   z-index: 99;
+  height: fit-content;
+  width: fit-content;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #roseCeremonyScreen button {
