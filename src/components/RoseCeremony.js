@@ -137,6 +137,7 @@ class RoseCeremony extends React.Component {
       const index = this.state.selectedRats.indexOf(ratName);
       const newSelectedRats = this.state.selectedRats;
       newSelectedRats.splice(index, 1);
+      this.props.playTap();
       this.setState({ selectedRats: newSelectedRats });
       element.classList.remove("selectedRat");
       this.updateInstructions();
@@ -145,6 +146,7 @@ class RoseCeremony extends React.Component {
 
     // If you've already selected the max rats, you can't select another
     if (this.state.selectedRats.length === this.numRoses) {
+      this.props.playBadActionSound();
       return;
     }
 
@@ -152,6 +154,7 @@ class RoseCeremony extends React.Component {
     let newSelectedRats = this.state.selectedRats;
     newSelectedRats.push(ratName);
     element.classList.add("selectedRat");
+    this.props.playRoseSound();
 
     // If that was the final rat, display the advance button
     if (this.state.selectedRats.length === this.numRoses) {

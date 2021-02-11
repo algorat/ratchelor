@@ -131,7 +131,9 @@ class TalkingToRats extends React.Component {
     for (let i = 0; i < numResponses; i++) {
       let responseText = responsesJson[i];
       let responseDiv = (
-        <button onClick={this.submitResponse.bind(this)} key={i}>
+        <button onClick={
+          () => {this.submitResponse.bind(this)(); this.props.playSelectAnswer();}
+          } key={i}>
           {responseText}
         </button>
       );

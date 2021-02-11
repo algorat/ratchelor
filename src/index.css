@@ -790,8 +790,8 @@ button:focus {
 
 #game-options {
   position: absolute;
-  top: 320px;
-  left: -213px;
+  top: 316px;
+  left: -220px;
   display: flex;
   align-items: center;
   transform: rotateZ(-90deg);
@@ -799,9 +799,7 @@ button:focus {
 }
 
 .sound-icon {
-  width: 48px;
-  height: 48px;
-  margin-right: 4px;
+  margin-right: 6px;
   cursor: pointer;
 }
 
