@@ -16,7 +16,7 @@ class RoseCeremony extends React.Component {
       giveRosesButton: "",
       instructions: `Choose ${this.props.numRoses} contestants to continue`,
       middleRowClass: "",
-      notSelectedClass: "",
+      allRatsSelectedClass: "notAllRatsSelected",
     };
   }
 
@@ -118,7 +118,7 @@ class RoseCeremony extends React.Component {
   }
 
   updateInstructions() {
-    this.setState({ notSelectedClass: "" });
+    this.setState({ allRatsSelectedClass: "" });
     let ratsLeft = this.props.numRoses - this.state.selectedRats.length;
     if (ratsLeft > 1) {
       this.setState({ instructions: `Choose ${ratsLeft} more contestants` });
@@ -174,7 +174,7 @@ class RoseCeremony extends React.Component {
         );
       }
       this.setState({ instructions: giveRosesButton });
-      this.setState({ notSelectedClass: "notSelected" });
+      this.setState({ allRatsSelectedClass: "allRatsSelected" });
     } else {
       this.updateInstructions();
     }
@@ -193,7 +193,9 @@ class RoseCeremony extends React.Component {
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.backRowRats.length; i++) {
       let filename = `/ratchelor/img/Characters/${this.backRowRats[i].filename}.png`;
+      let roseFilename = `/ratchelor/img/Characters/roses/${this.backRowRats[i].filename}.png`;
       backRatsList.push(
+        
         <div
           key={i}
           id={`rat${i}`}
@@ -202,29 +204,35 @@ class RoseCeremony extends React.Component {
             this.selectRat(this.backRowRats[i].name, `rat${i}`);
           }}
         >
+          <div className={`${this.state.allRatsSelectedClass}`}>
           {/* {`${this.backRowRats[i].name}`} */}
           <img
-            className={`ratPic ${this.state.notSelectedClass} ${this.backRowRats[i].size}`}
+            className={`ratPic  ${this.backRowRats[i].size}`}
             src={filename}
             alt="a rat waiting for you to make a decision"
           />
-          <img className="rosePic" src="/ratchelor/img/rose.png" alt="a rose" />
+           <img
+            className={`ratPic ratWithRosePic  ${this.backRowRats[i].size}`}
+            src={roseFilename}
+            alt="a rat waiting for you to make a decision"
+          />
           <div className="hoverText" alt="info about the rat">
             {this.backRowRats[i].name}
-          </div>
+          </div></div>
         </div>
       );
     }
-
     let frontRatsList = [];
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.frontRowRats.length; i++) {
       let filename = `/ratchelor/img/Characters/${this.frontRowRats[i].filename}.png`;
+      let roseFilename = `/ratchelor/img/Characters/roses/${this.frontRowRats[i].filename}.png`;
+
       frontRatsList.push(
         <div
           key={i}
           id={`rat${this.backRowRats.length + i}`}
-          className="ratList"
+          className={`ratList`}
           onClick={() => {
             this.selectRat(
               this.frontRowRats[i].name,
@@ -232,15 +240,21 @@ class RoseCeremony extends React.Component {
             );
           }}
         >
+           <div className={`${this.state.allRatsSelectedClass}`}>
           {/* {`${this.frontRowRats[i].name}`} */}
           <img
-            className={`ratPic ${this.state.notSelectedClass} ${this.frontRowRats[i].size}`}
+            className={`ratPic ${this.frontRowRats[i].size}`}
             src={filename}
             alt="a rat waiting for you to make a decision"
           />
-          <img className="rosePic" src="/ratchelor/img/rose.png" alt="a rose" />
+          <img
+            className={`ratPic ratWithRosePic ${this.frontRowRats[i].size}`}
+            src={roseFilename}
+            alt="a rat waiting for you to make a decision"
+          />
           <div className="hoverText" alt="info about the rat">
             {this.frontRowRats[i].name}
+          </div>
           </div>
         </div>
       );
