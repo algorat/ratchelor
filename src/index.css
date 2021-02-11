@@ -796,7 +796,7 @@ button:focus {
 @keyframes emote-3 {
   from {
     opacity: 1;
-    transform: translate3d(10px, 5px, 0px);
+    transform: translate3d(10px, -5px, 0px);
   }
   to {
     opacity: 0;

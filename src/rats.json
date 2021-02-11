@@ -13,7 +13,7 @@
         "filename": "heighnesslaure",
         "size": "medium",
         "ending": "POP",
-        "reaction_pos": [0.21, 0.12]
+        "reaction_pos": [0.22, 0.12]
     },
     {
         "name": "Migg Mouse",
@@ -29,7 +29,7 @@
         "filename": "miggmouse",
         "size": "small",
         "ending": "CHEERFUL",
-        "reaction_pos": [0.22, 0.29]
+        "reaction_pos": [0.23, 0.29]
     },
     {
         "name": "L'Artiste",
@@ -45,7 +45,7 @@
         "filename": "lartiste",
         "size": "medium",
         "ending": "PARIS",
-        "reaction_pos": [0.1475, 0.134]
+        "reaction_pos": [0.16, 0.134]
     },
     {
         "name": "Bora XIV",
@@ -61,7 +61,7 @@
         "filename": "boraxiv",
         "size": "medium",
         "ending": "ROMANTICSAD",
-        "reaction_pos": [0.19, 0.155]
+        "reaction_pos": [0.35, 0.155]
     },
     {
         "name": "Dr. Plagueus",
@@ -77,7 +77,7 @@
         "filename": "dr",
         "size": "medium",
         "ending": "ROMANTICSAD",
-        "reaction_pos":[0.256, 0.105]
+        "reaction_pos":[0.285, 0.105]
     },
     {
         "name": "ARealRat",
@@ -173,7 +173,7 @@
         "filename": "emacs",
         "size": "medium",
         "ending": "INTENSE",
-        "reaction_pos":[0.23167, 0.1358]
+        "reaction_pos":[0.25, 0.1358]
     },
     {
         "name": "Jagadoo",
@@ -252,7 +252,7 @@
         "filename": "egralo",
         "size": "medium",
         "ending": "PARIS",
-        "reaction_pos":[0.275, 0.1325]
+        "reaction_pos":[0.29, 0.1325]
     },
     {
         "name": "Manelo",
@@ -332,6 +332,6 @@
         "tagline": "I like to think I'm reliable",
         "size": "med-large",
         "ending": "POP",
-        "reaction_pos":[0.250, 0.0967]
+        "reaction_pos":[0.250, 0.015]
     }
 ]
