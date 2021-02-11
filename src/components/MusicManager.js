@@ -59,7 +59,7 @@ class MusicManager extends React.Component {
       needToRender = true;
     }
     if (this.volume !== props.volume) {
-      this.volume = props.volume / 100 - 0.05;
+      this.volume = props.volume / 100 - 0.08;
       this.volume = this.volume < 0 ? 0 : this.volume;
       this.setVolume(this.volume);
     }

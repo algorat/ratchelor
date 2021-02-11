@@ -1,10 +1,10 @@
 import React from "react";
 
-import assignRose from "../sounds/rose2.wav";
+import assignRose from "../sounds/rose3.wav";
 import badAction from "../sounds/bad_action_sfx.wav";
 import newRound from "../sounds/assign_rose_sfx.wav";
 import selectAnswer from "../sounds/select_answer_sfx.wav";
-import tap from "../sounds/tap_sfx.wav";
+import tap from "../sounds/louder_tap.mp3";
 
 class SoundEffectController extends React.Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class SoundEffectController extends React.Component {
     this.props.setPlayTap(this.playTap);
     this.props.setPlaySelectAnswer(this.playSelectAnswer);
     this.props.setPlayNewRoundSound(this.playNewRoundSound);
-    this.volume = this.props.volume/100 + 0.1;
+    this.volume = this.props.volume/100 + 0.15;
     this.finalRat = null;
     this.currentRatIdx = -1;
     this.musicStarted = false;
@@ -32,7 +32,7 @@ class SoundEffectController extends React.Component {
       if(props.volume === 0){
         this.volume = 0;
       } else {
-        this.volume = props.volume / 100 + 0.1;
+        this.volume = props.volume / 100 + 0.15;
         this.volume = this.volume > 1 ? 1 : this.volume;
       }
       this.setVolume(this.volume);
