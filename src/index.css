@@ -323,7 +323,7 @@ button:focus {
 /* TALKING TO RATS */
 #talkingToRatsScreen {
   overflow: hidden;
-  background-image: url('img/Backgrounds/couch_nobox.png');
+  background-image: url('img/Backgrounds/couchslower.gif');
   background-repeat: no-repeat;
   background-size: 100%;
   width: 900px;
@@ -487,9 +487,9 @@ button:focus {
 
 #roseCeremonyScreen .selectedRat .ratWithRosePic {
   display: inline;
-  -webkit-filter: drop-shadow(2px 2px 0px #574600)
+  /* -webkit-filter: drop-shadow(2px 2px 0px #574600)
     drop-shadow(-2px -2px 0px #574600) !important;
-  filter: drop-shadow(2px 2px 0px #574600) drop-shadow(-2px -2px 0px #574600) !important;
+  filter: drop-shadow(2px 2px 0px #574600) drop-shadow(-2px -2px 0px #574600) !important; */
 }
 
 #roseCeremonyScreen .large {
