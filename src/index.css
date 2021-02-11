@@ -639,12 +639,22 @@ button:focus {
   background-color: black;
 }
 
-#specialPic {
+#specialBg {
   animation: fadeIn ease 10s;
   flex-shrink: 0;
   min-width: 100%;
   min-height: 100%;
 }
+
+#specialRatPic0{
+  width: 150px;
+  height: 80px;
+  position: absolute;
+  right: 200px;
+  top: 220px;
+  transform: skewY(-50deg) ;
+}
+
 
 #specialText {
   font-family: 'Yusei Magic';

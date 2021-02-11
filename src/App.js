@@ -55,11 +55,14 @@ class RatchelorGame extends React.Component {
     this.numRounds = 5;
     // How many roses get given out each round
     this.rosesPerRound = [5, 4, 3, 2, 1];
+    //this.beginningRats;
     this.state = {
       // What phase of the game we're in
-      gameStage: SPECIAL_ENDING, // TODO TAKE THISOUT SORRY IF ANYONE ELSE SEE S THISS
+      gameStage: RAT_SELECT, // TODO TAKE THISOUT SORRY IF ANYONE ELSE SEE S THISS
       // What round of the rose-talking loop we're on
       roundNum: 0,
+      //beginning rat pool for the special end
+      beginningRatPool:[],
       // String list of all rat names currently still in the game
       activeRatNames: [],
       // Text for interlude screens that fall down
@@ -179,10 +182,11 @@ class RatchelorGame extends React.Component {
           rats={ratsJson} 
           numRatsInGame={this.numRatsInGame} 
           advanceState={() => {
-            this.beginInterludeAndAdvanceState(`chit chat`, 900, TALKING_TO_RATS);
+            this.beginInterludeAndAdvanceState(`chit chat`, 900, SPECIAL_ENDING);
           }}
           setActiveRats={(selectedRats) => {
             this.setState({activeRatNames: selectedRats});
+            this.setState({beginningRatPool: selectedRats});
           }}
           />
     } else if (this.state.gameStage === TALKING_TO_RATS) {
@@ -243,10 +247,14 @@ class RatchelorGame extends React.Component {
     }else if (this.state.gameStage === SPECIAL_ENDING) {
       // special ending screen:
       //    allows game to be restarted
+
       screen = 
         <SpecialEnding
-          finalRat={this.getRatByName(this.state.activeRatNames[0])}
+          // finalRat={this.getRatByName(this.state.activeRatNames[0])}
+        finalRat={"Slim Jim"}
+          
           restartGame={this.restartGame.bind(this)}
+          beginningRatPool={[this.state.beginningRatPool]}
         />
    
     }
