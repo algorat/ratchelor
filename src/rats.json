@@ -13,7 +13,7 @@
         "filename": "heighnesslaure",
         "size": "medium",
         "ending": "POP",
-        "reaction_pos": [0.2, 0.12]
+        "reaction_pos": [0.21, 0.12]
     },
     {
         "name": "Migg Mouse",
@@ -29,7 +29,7 @@
         "filename": "miggmouse",
         "size": "small",
         "ending": "CHEERFUL",
-        "reaction_pos": [0.21, 0.29]
+        "reaction_pos": [0.22, 0.29]
     },
     {
         "name": "L'Artiste",
@@ -45,7 +45,7 @@
         "filename": "lartiste",
         "size": "medium",
         "ending": "PARIS",
-        "reaction_pos": [0.1375, 0.134]
+        "reaction_pos": [0.1475, 0.134]
     },
     {
         "name": "Bora XIV",
@@ -61,7 +61,7 @@
         "filename": "boraxiv",
         "size": "medium",
         "ending": "ROMANTICSAD",
-        "reaction_pos": [0.18, 0.155]
+        "reaction_pos": [0.19, 0.155]
     },
     {
         "name": "Dr. Plagueus",
@@ -77,7 +77,7 @@
         "filename": "dr",
         "size": "medium",
         "ending": "ROMANTICSAD",
-        "reaction_pos":[0.246, 0.105]
+        "reaction_pos":[0.256, 0.105]
     },
     {
         "name": "ARealRat",
@@ -93,7 +93,7 @@
         "filename": "arealrat",
         "size": "medium",
         "ending": "CHEERFUL",
-        "reaction_pos":[0.185, 0.1]
+        "reaction_pos":[0.2, 0.1]
     },
     {
         "name": "Reggie-231",
@@ -109,7 +109,7 @@
         "filename": "reggie231",
         "size": "medium",
         "ending": "FUNKY",
-        "reaction_pos":[0.204, 0.13]
+        "reaction_pos":[0.214, 0.13]
     },
     {
         "name": "Vim",
@@ -125,7 +125,7 @@
         "filename": "vim",
         "size": "medium",
         "ending": "ROMANTICHAPPY",
-        "reaction_pos":[0.204, 0.13]
+        "reaction_pos":[0.214, 0.13]
     },
     {
         "name": "Bear",
@@ -141,7 +141,7 @@
         "filename": "bear",
         "size": "large",
         "ending": "CHEERFUL",
-        "reaction_pos":[0.275, 0.1167]
+        "reaction_pos":[0.285, 0.1167]
     },
     {
         "name": "EggSalad",
@@ -157,7 +157,7 @@
         "filename": "eggsalad",
         "size": "medium",
         "ending": "ROMANTICHAPPY",
-        "reaction_pos":[0.3167, 0.172]
+        "reaction_pos":[0.3267, 0.172]
     },
     {
         "name": "Emacs",
@@ -173,7 +173,7 @@
         "filename": "emacs",
         "size": "medium",
         "ending": "INTENSE",
-        "reaction_pos":[0.22167, 0.1358]
+        "reaction_pos":[0.23167, 0.1358]
     },
     {
         "name": "Jagadoo",
@@ -189,7 +189,7 @@
         "filename": "jagadoo",
         "size": "medium",
         "ending": "INTENSE",
-        "reaction_pos":[0.329, 0.1367]
+        "reaction_pos":[0.34, 0.1367]
     },
     {
         "name": "Slim Jim",
@@ -205,7 +205,7 @@
         "filename": "slimjim",
         "size": "medium",
         "ending": "PARIS",
-        "reaction_pos":[0.2458, 0.0925]
+        "reaction_pos":[0.26, 0.0925]
     },
     {
         "name": "Hiberdean",
@@ -220,7 +220,7 @@
         "filename": "hiberdean",
         "size": "medium",
         "ending": "ROMANTICSAD",
-        "reaction_pos":[0.228, 0.13]
+        "reaction_pos":[0.24, 0.13]
     },
     {
         "name": "Hottie Thespule",
@@ -236,7 +236,7 @@
         "filename": "hottiethespule",
         "size": "medium",
         "ending": "ROMANTICSAD",
-        "reaction_pos":[0.2233, 0.11667]
+        "reaction_pos":[0.24, 0.11667]
     },
     {
         "name": "Egralo",
@@ -252,7 +252,7 @@
         "filename": "egralo",
         "size": "medium",
         "ending": "PARIS",
-        "reaction_pos":[0.265, 0.1325]
+        "reaction_pos":[0.275, 0.1325]
     },
     {
         "name": "Manelo",
@@ -268,7 +268,7 @@
         "filename": "manelo",
         "size": "medium",
         "ending": "INTENSE",
-        "reaction_pos":[0.305, 0.1]
+        "reaction_pos":[0.315, 0.1]
     },
     {
         "name": "Gerott",
@@ -284,7 +284,7 @@
         "filename": "gerott",
         "size": "medium",
         "ending": "CHEERFUL",
-        "reaction_pos":[0.244, 0.1133]
+        "reaction_pos":[0.254, 0.1133]
     },
     {
         "name": "Hemptin",
@@ -300,7 +300,7 @@
         "filename": "hemptin",
         "size": "medium",
         "ending": "CHEERFUL",
-        "reaction_pos":[0.2233, 0.1258]
+        "reaction_pos":[0.2333, 0.1258]
     },
     {
         "name": "One-Eared Jerio",
@@ -316,7 +316,7 @@
         "filename": "oneearedjerio",
         "size": "medium",
         "ending": "ROMANTICSAD",
-        "reaction_pos":[0.2833, 0.14]
+        "reaction_pos":[0.3, 0.14]
     },
     {
         "name": "Largothon",
@@ -332,6 +332,6 @@
         "tagline": "I like to think I'm reliable",
         "size": "med-large",
         "ending": "POP",
-        "reaction_pos":[0.240, 0.0967]
+        "reaction_pos":[0.250, 0.0967]
     }
 ]
