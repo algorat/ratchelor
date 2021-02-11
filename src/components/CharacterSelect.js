@@ -43,7 +43,11 @@ class CharacterSelect extends React.Component {
       buttonArea = (
         <div id="button-container">
           <button
-            onClick={this.props.onClick}
+            onClick={( )=>{
+              this.props.onClick(); 
+              //this.props.playSelectAnswer();
+            }
+          }
             style={{ display: this.props.playerIdx >= 0 ? "block" : "none" }}
           >
             Onwards!
@@ -64,7 +68,7 @@ class CharacterSelect extends React.Component {
           ></img>
           <div id="ratchelor-intro-title">You are The Ratchelor,</div>
           <div id="ratchelor-intro">
-            A single rat looking for love. You will meet many rats and slowly
+            A single rat looking for love. You will meet many rats and
             choose who to keep, round after round, until you find true love.
           </div>
         </div>
@@ -77,6 +81,7 @@ class CharacterSelect extends React.Component {
                 onClick={() => {
                   this.props.changePlayerIdx(idx + 1);
                   this.setState({ ratSelected: true });
+                  this.props.playTap();
                 }}
                 key={`char${idx}`}
                 src={`/ratchelor/img/Player/${idx + 1}_intro.png`}

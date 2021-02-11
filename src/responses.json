@@ -1,27 +1,101 @@
 [
-    "Wow you're so different",
-    "Oh wow",
-    "Wow!",
-    "Okay",
-    "That's nice",
-    "Interesting",
-    "Very interesting",
-    "Cool",
-    "I'm so sorry to hear that",
-    "You've been through so much",
-    "I can't imagine what that's like",
-    "Ok",
-    "Neat",
-    "Thanks for sharing",
-    "I appreciate your vulnerability",
-    "I appreciate you sharing",
-    "I value you",
-    "I'm so glad you're here",
-    "Uh...",
-    "What?",
-    "Is that all?",
-    "Don't look at me like that",
-    "Yuck",
-    "Care for some juice?",
-    "Hmm!"
+    { 
+        "response": "Wow you're so different",
+        "reaction": "LOVE"
+    },
+    { 
+        "response": "Oh wow"
+    },
+    { 
+        "response": "Wow!"
+    },
+    {
+        "response": "Okay",
+        "reaction": "NEUTRAL"
+    },
+    {
+        "response": "That's nice"
+    },
+    {
+        "response": "Interesting"
+    },
+    {
+        "response": "Very interesting",
+        "reaction": "LOVE"
+    },
+    {
+        "response": "Cool"
+    },
+    {
+        "response": "I'm so sorry to hear that"
+    },
+    {
+        "response": "You've been through so much",
+        "reaction": "LOVE"
+    },
+    {
+        "response": "I can't imagine what that's like"
+    },
+    {
+        "response": "Ok",
+        "reaction": "NEUTRAL"
+    },
+    {
+        "response": "Neat"
+    },
+    {
+        "response": "Thanks for sharing",
+        "reaction": "LOVE"
+    },
+    {
+        "response": "I appreciate your vulnerability",
+        "reaction": "LOVE"
+    },
+    {
+        "response": "I appreciate you sharing",
+        "reaction": "LOVE"
+    },
+    {
+        "response": "I value you",
+        "reaction": "LOVE"
+    },
+    {
+        "response": "I'm so glad you're here",
+        "reaction": "LOVE"
+    },
+    {
+        "response": "Uh...",
+        "reaction": "NEUTRAL"
+    },
+    {
+        "response": "What?"
+    },
+    {
+        "response": "Is that all?",
+        "reaction": "SAD"
+    },
+    {
+        "response": "Don't look at me like that",
+        "reaction": "SAD"
+    },
+    {
+        "response": "Yuck",
+        "reaction": "SAD"
+    },
+    {
+        "response": "Yikes",
+        "reaction": "SAD"
+    },
+    {
+        "response": "You talk a lot",
+        "reaction": "SAD"
+    },
+    {
+        "response": "Care for some juice?",
+        "reaction": "LOVE"
+    },
+    {
+        "response": "Hmm!",
+        "reaction": "NEUTRAL"
+    }
 ]

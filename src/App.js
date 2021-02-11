@@ -6,6 +6,7 @@ import TalkingToRats from "./components/TalkingToRats";
 import RoseCeremony from "./components/RoseCeremony";
 import AnimeEnding from "./components/AnimeEnding";
 import MusicManager from "./components/MusicManager";
+import SoundEffectController from "./components/SoundEffectController";
 import GameOptions from "./components/GameOptions";
 import CharacterSelect from "./components/CharacterSelect";
 import Proposal from "./components/Proposal";
@@ -71,6 +72,11 @@ class RatchelorGame extends React.Component {
     this.changeVolume = this.changeVolume.bind(this);
     this.changePlayerIdx = this.changePlayerIdx.bind(this);
     this.setCallPlaySound = this.setCallPlaySound.bind(this);
+    this.setPlayRoseSound = this.setPlayRoseSound.bind(this);
+    this.setPlayBadActionSound = this.setPlayBadActionSound.bind(this);
+    this.setPlayNewRoundSound = this.setPlayNewRoundSound.bind(this);
+    this.setPlaySelectAnswer = this.setPlaySelectAnswer.bind(this);
+    this.setPlayTap = this.setPlayTap.bind(this);
   }
 
   beginInterludeAndAdvanceState(text, delay, newGameStage) {
@@ -109,6 +115,26 @@ class RatchelorGame extends React.Component {
 
   setCallPlaySound(f) {
     this.callPlaySound = f;
+  }
+
+  setPlayRoseSound(f){
+    this.playRoseSound = f;
+  }
+
+  setPlayBadActionSound(f){
+    this.playBadActionSound = f;
+  }
+
+  setPlayNewRoundSound(f){
+    this.playNewRoundSound = f;
+  }
+
+  setPlaySelectAnswer(f){
+    this.playSelectAnswer = f;
+  }
+
+  setPlayTap(f){
+    this.playTap = f;
   }
 
   // Reset everything to restart the game
@@ -176,6 +202,9 @@ class RatchelorGame extends React.Component {
             if (this.callPlaySound) {
               this.callPlaySound(this.state.gameStage + 1);
             }
+            if(this.playNewRoundSound){
+              this.playNewRoundSound()
+            }
           }}
           onClick={() => {
             this.beginInterludeAndAdvanceState(
@@ -191,12 +220,17 @@ class RatchelorGame extends React.Component {
         <CharacterSelect
           changePlayerIdx={this.changePlayerIdx}
           playerIdx={this.state.playerIdx}
+          playSelectAnswer={this.playSelectAnswer}
+          playTap={this.playTap}
           onClick={() => {
             this.beginInterludeAndAdvanceState(
               "meet your suitors",
               900,
               RAT_SELECT
             );
+            if(this.playNewRoundSound){
+              this.playNewRoundSound()
+            }
           }}
         />
       );
@@ -208,12 +242,18 @@ class RatchelorGame extends React.Component {
         <RatSelect
           rats={ratsJson}
           numRatsInGame={this.numRatsInGame}
+          playTap={this.playTap}
+          playSelectAnswer={this.playSelectAnswer}
+          playBadActionSound={this.playBadActionSound}
           advanceState={() => {
             this.beginInterludeAndAdvanceState(
               `chit chat`,
               900,
               TALKING_TO_RATS
             );
+            if(this.playNewRoundSound){
+              this.playNewRoundSound()
+            }
           }}
           setActiveRats={(selectedRats) => {
             this.setState({ activeRatNames: selectedRats });
@@ -229,13 +269,19 @@ class RatchelorGame extends React.Component {
           getRatByName={this.getRatByName}
           round={this.state.roundNum}
           startDelay={1000}
+          playSelectAnswer={this.playSelectAnswer}
           playerRatUrl={`/ratchelor/img/Player/${this.state.playerIdx}.png`}
           goToRoseCeremony={() =>
-            this.beginInterludeAndAdvanceState(
+            {this.beginInterludeAndAdvanceState(
               `who gets a rose?`,
               900,
               ROSE_CEREMONY
             )
+            if(this.playNewRoundSound){
+              this.playNewRoundSound()
+            }
+          }
+            
           }
           changeCurrentRatIdx={this.changeCurrentRatIdx}
         />
@@ -248,6 +294,10 @@ class RatchelorGame extends React.Component {
         <RoseCeremony
           activeRatNames={this.state.activeRatNames}
           getRatByName={this.getRatByName}
+          playRoseSound={this.playRoseSound}
+          playTap={this.playTap}
+          playSelectAnswer={this.playSelectAnswer}
+          playBadActionSound={this.playBadActionSound}
           numRoses={this.rosesPerRound[this.state.roundNum]}
           setActiveRats={(selectedRats) => {
             this.setState({ activeRatNames: selectedRats });
@@ -265,6 +315,9 @@ class RatchelorGame extends React.Component {
                 900,
                 TALKING_TO_RATS
               );
+              if(this.playNewRoundSound){
+                this.playNewRoundSound()
+              }
               this.setState({ roundNum: newRoundNum });
             }
           }}
@@ -326,6 +379,14 @@ class RatchelorGame extends React.Component {
             finalRat={this.finalRat}
             currentRatIdx={this.state.currentRatIdx}
             volume={this.state.volume}
+          />
+          <SoundEffectController
+           volume={this.state.volume}
+          setPlayRoseSound={this.setPlayRoseSound}
+          setPlayBadActionSound={this.setPlayBadActionSound}
+          setPlayNewRoundSound={this.setPlayNewRoundSound}
+          setPlaySelectAnswer={this.setPlaySelectAnswer}
+          setPlayTap={this.setPlayTap}
           />
         </div>
         <GameOptions

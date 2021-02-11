@@ -19,7 +19,7 @@ class RatSelect extends React.Component {
   noContestantsLeft() {
     let selectRatsButton = (
       <div id="chooseText">
-        <button onClick={this.onClickSelectRats}>Continue</button>
+        <button onClick={() => {this.onClickSelectRats();}}>Continue</button>
       </div>
     );
     this.setState({ selectRatsButton });
@@ -52,6 +52,7 @@ class RatSelect extends React.Component {
 
     // If it's already chosen, deselect it
     if (this.state.selectedRats.indexOf(ratName) !== -1) {
+      this.props.playTap();
       const index = this.state.selectedRats.indexOf(ratName);
       const newSelectedRats = this.state.selectedRats;
       newSelectedRats.splice(index, 1);
@@ -67,6 +68,7 @@ class RatSelect extends React.Component {
 
     // If you've already selected the max rats, you can't select another
     if (this.state.selectedRats.length === this.props.numRatsInGame) {
+      this.props.playBadActionSound();
       return;
     }
 
@@ -74,6 +76,8 @@ class RatSelect extends React.Component {
     let newSelectedRats = this.state.selectedRats;
     newSelectedRats.push(ratName);
     element.classList.add("selectedRat");
+
+    this.props.playTap();
 
     // If that was the final rat, display the advance button
     if (this.state.selectedRats.length === this.props.numRatsInGame) {

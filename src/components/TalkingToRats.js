@@ -1,4 +1,5 @@
 import React from "react";
+import ReactionAnimation from './ReactionAnimation'
 import responsesJson from "../responses.json";
 
 const OFF_LEFT = -550;
@@ -27,6 +28,8 @@ class TalkingToRats extends React.Component {
       ratTop: 0,
       dialogueBottom: OFF_BOTTOM,
       incr: 1,
+      reacting: false,
+      lastActiveRat: -1
     };
   }
 
@@ -46,11 +49,21 @@ class TalkingToRats extends React.Component {
     if (this.textInterval !== null) {
       window.clearInterval(this.textInterval);
     }
+
+    if (this.reactionTimeout !== null) {
+      window.clearTimeout(this.reactionTimeout);
+    }
+  }
+
+  startReaction(){
+    this.setState({ responses: "", incr: 1, reacting: true, lastActiveRat: this.state.ratIndex });
+    this.reactionTimeout = window.setTimeout(() => this.sendRatOut(), 1500)
   }
 
   sendRatIn() {
     this.getRandomResponses();
     this.setState({ incr: 25 });
+    window.clearTimeout(this.reactionTimeout);
     window.clearInterval(this.ratMoveOutInterval);
     this.ratMoveInInterval = window.setInterval(() => {
       if (this.state.ratLeft < 0) {
@@ -70,7 +83,7 @@ class TalkingToRats extends React.Component {
 
   sendRatOut() {
     window.clearInterval(this.ratMoveInInterval);
-    this.setState({ responses: "", incr: 1 });
+    window.clearTimeout(this.reactionTimeout);
     this.ratMoveOutInterval = window.setInterval(() => {
       if (this.state.ratLeft > OFF_LEFT) {
         this.setState({ ratLeft: this.state.ratLeft - this.state.incr });
@@ -82,6 +95,7 @@ class TalkingToRats extends React.Component {
         }
       } else {
         window.clearInterval(this.ratMoveOutInterval);
+        this.setState({ reacting: false });
         this.setState({ charsRevealed: 0 });
         this.setNextRat();
       }
@@ -118,7 +132,7 @@ class TalkingToRats extends React.Component {
   // After you submit your response, choose a new rat
   submitResponse() {
     window.clearInterval(this.textInterval);
-    this.sendRatOut();
+    this.startReaction();
   }
 
   getRandomResponses() {
@@ -129,9 +143,11 @@ class TalkingToRats extends React.Component {
     let responses = [];
     // Choose the first n
     for (let i = 0; i < numResponses; i++) {
-      let responseText = responsesJson[i];
+      let responseText = responsesJson[i].response;
       let responseDiv = (
-        <button onClick={this.submitResponse.bind(this)} key={i}>
+        <button onClick={
+          () => {this.submitResponse.bind(this)(); this.props.playSelectAnswer();}
+          } key={i}>
           {responseText}
         </button>
       );
@@ -153,6 +169,7 @@ class TalkingToRats extends React.Component {
           alt="you as a rat, on the couch"
           src={this.props.playerRatUrl}
         ></img>
+        <div id="talkingRatContainer">
         <img
           id="talkingRat"
           alt="a rat on the couch who is talking to you"
@@ -164,6 +181,13 @@ class TalkingToRats extends React.Component {
             this.activeRats[this.state.ratIndex].filename
           }.png`}
         ></img>
+        { this.state.reacting && 
+          <ReactionAnimation 
+            emote={<img src={"/ratchelor/img/Reactions/reax/bad1.PNG"}/>}
+            left={this.activeRats[this.state.lastActiveRat].reaction_pos[0] * 100}
+            top={this.activeRats[this.state.lastActiveRat].reaction_pos[1] * 100}
+          />}
+        </div>
         <div
           id="dialogueContainer"
           style={{ bottom: `${this.state.dialogueBottom}px` }}
