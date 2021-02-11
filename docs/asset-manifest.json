@@ -1,14 +1,8 @@
 {
   "files": {
-<<<<<<< Updated upstream
-    "main.css": "/ratchelor/static/css/main.61192f88.chunk.css",
-    "main.js": "/ratchelor/static/js/main.9526feed.chunk.js",
-    "main.js.map": "/ratchelor/static/js/main.9526feed.chunk.js.map",
-=======
     "main.css": "/ratchelor/static/css/main.c8a1e698.chunk.css",
-    "main.js": "/ratchelor/static/js/main.95cf0dbe.chunk.js",
-    "main.js.map": "/ratchelor/static/js/main.95cf0dbe.chunk.js.map",
->>>>>>> Stashed changes
+    "main.js": "/ratchelor/static/js/main.7a8ca78d.chunk.js",
+    "main.js.map": "/ratchelor/static/js/main.7a8ca78d.chunk.js.map",
     "runtime-main.js": "/ratchelor/static/js/runtime-main.b516d098.js",
     "runtime-main.js.map": "/ratchelor/static/js/runtime-main.b516d098.js.map",
     "static/js/2.88722167.chunk.js": "/ratchelor/static/js/2.88722167.chunk.js",
@@ -38,14 +32,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.b516d098.js",
-<<<<<<< Updated upstream
-    "static/js/2.7511e895.chunk.js",
-    "static/css/main.61192f88.chunk.css",
-    "static/js/main.9526feed.chunk.js"
-=======
     "static/js/2.88722167.chunk.js",
     "static/css/main.c8a1e698.chunk.css",
-    "static/js/main.95cf0dbe.chunk.js"
->>>>>>> Stashed changes
+    "static/js/main.7a8ca78d.chunk.js"
   ]
 }
