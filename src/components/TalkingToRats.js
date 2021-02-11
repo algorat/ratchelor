@@ -129,7 +129,7 @@ class TalkingToRats extends React.Component {
     let responses = [];
     // Choose the first n
     for (let i = 0; i < numResponses; i++) {
-      let responseText = responsesJson[i];
+      let responseText = responsesJson[i].response;
       let responseDiv = (
         <button onClick={
           () => {this.submitResponse.bind(this)(); this.props.playSelectAnswer();}
