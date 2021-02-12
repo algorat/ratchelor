@@ -126,7 +126,11 @@ button:focus {
   width: 900px;
   height: 732px;
   position: absolute;
-  /* background-color: black; */
+  background-color: black;
+}
+
+.preloading-true #interludeContainer {
+  background-color: #ffdadc;
 }
 
 #interlude {

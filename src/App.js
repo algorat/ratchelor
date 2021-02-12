@@ -300,6 +300,7 @@ class RatchelorGame extends React.Component {
 
   render() {
     let screen = "";
+    let isPreloading = !(this.state.srcImgsLoaded && this.state.publicImgsLoaded && this.state.soundsLoaded)
     if (this.state.gameStage === INTRO) {
       // Intro screen: advances to next stage when complete
       screen = (
@@ -312,7 +313,7 @@ class RatchelorGame extends React.Component {
               this.playNewRoundSound()
             }
           }}
-          isPreloading={!(this.state.srcImgsLoaded && this.state.publicImgsLoaded && this.state.soundsLoaded)}
+          isPreloading={isPreloading}
           onClick={() => {
             this.beginInterludeAndAdvanceState(
               "meet yourself",
@@ -474,10 +475,10 @@ class RatchelorGame extends React.Component {
       );
     }
     return (
-      <div id="game-container">
+      <div id={`game-container`} className={`preloading-${isPreloading}`}>
         <div id="game">
           <img id="frame" src="/ratchelor/img/frameSmaller.png" alt=""></img>
-          <div id="interludeContainer">
+          <div id="interludeContainer" >
             <div id="interlude" style={{ bottom: this.state.interludeBottom }}>
               <div id="interludeText">{this.state.interludeText}</div>
             </div>
