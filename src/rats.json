@@ -12,7 +12,8 @@
         "tagline": "I'm not here to make friends.",
         "filename": "heighnesslaure",
         "size": "medium",
-        "ending": "POP"
+        "ending": "POP",
+        "reaction_pos": [0.22, 0.12]
     },
     {
         "name": "Migg Mouse",
@@ -27,7 +28,8 @@
         "tagline": "My ideal rat partner is like stuart little",
         "filename": "miggmouse",
         "size": "small",
-        "ending": "CHEERFUL"
+        "ending": "CHEERFUL",
+        "reaction_pos": [0.23, 0.29]
     },
     {
         "name": "L'Artiste",
@@ -42,7 +44,8 @@
         "tagline": "Let's paint a beautiful future together, oui?",
         "filename": "lartiste",
         "size": "medium",
-        "ending": "PARIS"
+        "ending": "PARIS",
+        "reaction_pos": [0.16, 0.134]
     },
     {
         "name": "Bora XIV",
@@ -57,7 +60,8 @@
         "tagline": "Sorry, I was distracted by the moon",
         "filename": "boraxiv",
         "size": "medium",
-        "ending": "ROMANTICSAD"
+        "ending": "ROMANTICSAD",
+        "reaction_pos": [0.23, 0.14]
     },
     {
         "name": "Dr. Plagueus",
@@ -72,7 +76,8 @@
         "tagline": "You could say I'm sick... with love",
         "filename": "dr",
         "size": "medium",
-        "ending": "ROMANTICSAD"
+        "ending": "ROMANTICSAD",
+        "reaction_pos":[0.285, 0.105]
     },
     {
         "name": "ARealRat",
@@ -87,7 +92,8 @@
         "tagline": "Definitely a rat",
         "filename": "arealrat",
         "size": "medium",
-        "ending": "CHEERFUL"
+        "ending": "CHEERFUL",
+        "reaction_pos":[0.2, 0.1]
     },
     {
         "name": "Reggie-231",
@@ -102,7 +108,8 @@
         "tagline": "Just a robot looking to learn what love is",
         "filename": "reggie231",
         "size": "medium",
-        "ending": "FUNKY"
+        "ending": "FUNKY",
+        "reaction_pos":[0.214, 0.13]
     },
     {
         "name": "Vim",
@@ -117,7 +124,8 @@
         "tagline": "You just can't quit me",
         "filename": "vim",
         "size": "medium",
-        "ending": "ROMANTICHAPPY"
+        "ending": "ROMANTICHAPPY",
+        "reaction_pos":[0.214, 0.13]
     },
     {
         "name": "Bear",
@@ -132,7 +140,8 @@
         "tagline": "I'm a big rat with a big heart",
         "filename": "bear",
         "size": "large",
-        "ending": "CHEERFUL"
+        "ending": "CHEERFUL",
+        "reaction_pos":[0.285, 0.1167]
     },
     {
         "name": "EggSalad",
@@ -147,7 +156,8 @@
         "tagline": "Who, me?",
         "filename": "eggsalad",
         "size": "medium",
-        "ending": "ROMANTICHAPPY"
+        "ending": "ROMANTICHAPPY",
+        "reaction_pos":[0.3267, 0.172]
     },
     {
         "name": "Emacs",
@@ -162,7 +172,8 @@
         "tagline": "I'm complicated.",
         "filename": "emacs",
         "size": "medium",
-        "ending": "INTENSE"
+        "ending": "INTENSE",
+        "reaction_pos":[0.25, 0.1358]
     },
     {
         "name": "Jagadoo",
@@ -177,7 +188,8 @@
         "tagline": "I don't slow down for anybody",
         "filename": "jagadoo",
         "size": "medium",
-        "ending": "INTENSE"
+        "ending": "INTENSE",
+        "reaction_pos":[0.34, 0.1367]
     },
     {
         "name": "Slim Jim",
@@ -192,7 +204,8 @@
         "tagline": "Put a little sparkle in your life",
         "filename": "slimjim",
         "size": "medium",
-        "ending": "PARIS"
+        "ending": "PARIS",
+        "reaction_pos":[0.26, 0.0925]
     },
     {
         "name": "Hiberdean",
@@ -206,7 +219,8 @@
         "tagline": "glib",
         "filename": "hiberdean",
         "size": "medium",
-        "ending": "ROMANTICSAD"
+        "ending": "ROMANTICSAD",
+        "reaction_pos":[0.24, 0.13]
     },
     {
         "name": "Hottie Thespule",
@@ -221,7 +235,8 @@
         "tagline": "Every rose has its thorns",
         "filename": "hottiethespule",
         "size": "medium",
-        "ending": "ROMANTICSAD"
+        "ending": "ROMANTICSAD",
+        "reaction_pos":[0.24, 0.11667]
     },
     {
         "name": "Egralo",
@@ -236,7 +251,8 @@
         "tagline": "I'll be your stylist honey",
         "filename": "egralo",
         "size": "medium",
-        "ending": "PARIS"
+        "ending": "PARIS",
+        "reaction_pos":[0.29, 0.1325]
     },
     {
         "name": "Manelo",
@@ -251,7 +267,8 @@
         "tagline": "Um yeah whatever",
         "filename": "manelo",
         "size": "medium",
-        "ending": "INTENSE"
+        "ending": "INTENSE",
+        "reaction_pos":[0.315, 0.1]
     },
     {
         "name": "Gerott",
@@ -266,7 +283,8 @@
         "tagline": "This is kinda cheesy",
         "filename": "gerott",
         "size": "medium",
-        "ending": "CHEERFUL"
+        "ending": "CHEERFUL",
+        "reaction_pos":[0.254, 0.1133]
     },
     {
         "name": "Hemptin",
@@ -281,7 +299,8 @@
         "tagline": "Blueberries are seasonal",
         "filename": "hemptin",
         "size": "medium",
-        "ending": "CHEERFUL"
+        "ending": "CHEERFUL",
+        "reaction_pos":[0.2333, 0.1258]
     },
     {
         "name": "One-Eared Jerio",
@@ -296,7 +315,8 @@
         "tagline": "Aaah! Help!",
         "filename": "oneearedjerio",
         "size": "medium",
-        "ending": "ROMANTICSAD"
+        "ending": "ROMANTICSAD",
+        "reaction_pos":[0.3, 0.14]
     },
     {
         "name": "Largothon",
@@ -311,6 +331,7 @@
         "filename": "largothon",
         "tagline": "I like to think I'm reliable",
         "size": "med-large",
-        "ending": "POP"
+        "ending": "POP",
+        "reaction_pos":[0.250, 0.015]
     }
 ]

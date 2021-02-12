@@ -3,7 +3,7 @@ import React from "react";
 import assignRose from "../sounds/rose3.wav";
 import badAction from "../sounds/bad_action_sfx.wav";
 import newRound from "../sounds/assign_rose_sfx.wav";
-import selectAnswer from "../sounds/select_answer_sfx.wav";
+import selectAnswer from "../sounds/louder_tap.mp3";
 import tap from "../sounds/louder_tap.mp3";
 
 class SoundEffectController extends React.Component {
