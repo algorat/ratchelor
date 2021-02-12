@@ -5,8 +5,28 @@ class IntroScreen extends React.Component {
     super(props);
     this.state = {
       opacity: 1,
+      isPreloading: true,
+      loadingText: "Loading"
     };
     this.onClick = this.onClick.bind(this);
+  }
+
+  componentDidMount() {
+    this.loadingInterval = window.setInterval(() => {
+      let loadingText = this.state.loadingText;
+      if (loadingText.length < 10) {
+        loadingText += "."
+      } else {
+        loadingText = "Loading"
+      }
+      this.setState({loadingText})
+    }, 500)
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.isPreloading !== prevProps.isPreloading) {    
+      this.setState({ isPreloading: false });
+    }
   }
 
   onClick() {
@@ -22,24 +42,28 @@ class IntroScreen extends React.Component {
   }
 
   render() {
+    let button = <button
+      ref={(b) => {
+        if (b) {
+          b.addEventListener("click", () => {
+            this.props.playSound();
+          });
+        }
+      }}
+      onClick={this.onClick}
+    >
+      Embark
+    </button>
+
+    let loader = <div id="loadingText">{this.state.loadingText}</div>
+
     return (
       <div
         id="introScreen"
-        className="screen"
+        className={`screen loading-${this.state.isPreloading}`}
         style={{ opacity: this.state.opacity }}
       >
-        <button
-          ref={(b) => {
-            if (b) {
-              b.addEventListener("click", () => {
-                this.props.playSound();
-              });
-            }
-          }}
-          onClick={this.onClick}
-        >
-          Embark
-        </button>
+        {this.state.isPreloading ? loader : button}
         <div id="hideme" />
       </div>
     );

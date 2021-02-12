@@ -13,6 +13,41 @@ import Proposal from "./components/Proposal";
 
 import ratsJson from "./rats.json";
 import firebase from "firebase";
+import allPublicImagesForPreload from "./allPublicImages.json";
+
+/* background img files for preload -- sry for the tech debt but its 1am */
+import bg0 from "./img/Backgrounds/background2.png";
+import bg1 from "./img/Backgrounds/curtains.png";
+import bg2 from "./img/Backgrounds/Intro2.png";
+import bg3 from "./img/Backgrounds/couchslower.gif";
+import bg4 from "./img/Backgrounds/garden2.png";
+import bg5 from "./img/RoseCeremony/Background-old.png";
+
+/* sound files for preload -- sry for the tech debt but its 1am */
+import s0 from "./sounds/rose3.wav";
+import s1 from "./sounds/bad_action_sfx.wav";
+import s2 from "./sounds/curtains.mp3";
+import s3 from "./sounds/louder_tap.mp3";
+import s4 from "./sounds/louder_tap.mp3";
+import s5 from "./sounds/crickets.mp3";
+import s6 from "./sounds/harp.mp3";
+import s7 from "./sounds/trombone.mp3";
+import s8 from "./sounds/Cheerful.mp3";
+import s9 from "./sounds/Funky.mp3";
+import s10 from "./sounds/Intense.mp3";
+import s11 from "./sounds/Intro_Screen.mp3";
+import s12 from "./sounds/Paris.mp3";
+import s13 from "./sounds/Pop.mp3";
+import s14 from "./sounds/Romantic_Happy.mp3";
+import s15 from "./sounds/Romantic_Sad.mp3";
+import s16 from "./sounds/Rose_Ceremony.mp3";
+import s17 from "./sounds/Talking_To_Rat_1.mp3";
+import s18 from "./sounds/Talking_To_Rat_2.mp3";
+import s19 from "./sounds/Talking_To_Rat_3.mp3";
+import s20 from "./sounds/Talking_To_Rat_4.mp3";
+
+const backgroundSrc = [bg0, bg1, bg2, bg3, bg4, bg5];
+const soundSrc = [s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18, s19, s20];
 
 var firebaseConfig = {
   messagingSenderId: "993096202246",
@@ -66,6 +101,9 @@ class RatchelorGame extends React.Component {
       incr: ANIM_START_INCR,
       volume: 15,
       playerIdx: -1,
+      publicImgsLoaded: false,
+      srcImgsLoaded: false,
+      soundsLoaded: false,
     };
     this.finalRat = ratsJson[3];
     this.changeCurrentRatIdx = this.changeCurrentRatIdx.bind(this);
@@ -80,6 +118,56 @@ class RatchelorGame extends React.Component {
     this.setPlayNewRoundSound = this.setPlayNewRoundSound.bind(this);
     this.setPlaySelectAnswer = this.setPlaySelectAnswer.bind(this);
     this.setPlayTap = this.setPlayTap.bind(this);
+  }
+
+  preload() {
+    let publicImgLoadedCounter = 0;
+    let soundLoadedCounter = 0;
+    let srcLoadedCounter = 0;
+   
+    // PUBLIC IMAGES
+    allPublicImagesForPreload.forEach(filename => {
+      var img = new Image();
+      if (filename.indexOf("public") !== -1) {
+        filename = filename.slice(7);
+        filename = "/ratchelor/" + filename;
+      }
+      // Load image
+      img.src = filename;
+      img.onload = () => {
+        publicImgLoadedCounter++;
+        if (publicImgLoadedCounter === allPublicImagesForPreload.length) {
+          console.log("all " + publicImgLoadedCounter + " public images loaded");
+          this.setState({publicImgsLoaded: true});
+        }
+      }
+    });
+    // PUBLIC SOUNDS
+    soundSrc.forEach(filename => {
+      // Load sound
+      var audio = new Audio(filename);
+      audio.addEventListener("canplaythrough", () => {
+        soundLoadedCounter++;
+        if (soundLoadedCounter === soundSrc.length) {
+          console.log("all " + soundLoadedCounter + " src sounds loaded");
+          this.setState({soundsLoaded: true});
+        }
+      });
+      audio.load();
+    })
+
+    // SRC BACKGROUNDS
+    backgroundSrc.forEach(filename => {
+      var img = new Image();
+      img.src = filename;
+      img.onload = () => {
+        srcLoadedCounter++;
+        if (srcLoadedCounter === backgroundSrc.length) {
+          console.log("all " + srcLoadedCounter + " src background images loaded");
+          this.setState({srcImgsLoaded: true});
+        }
+      }
+    })
   }
 
   beginInterludeAndAdvanceState(text, delay, newGameStage) {
@@ -202,7 +290,10 @@ class RatchelorGame extends React.Component {
       .set(firebase.database.ServerValue.increment(1));
   }
 
+  
+
   componentDidMount() {
+    this.preload();
     this.interludeElement = document.getElementById("interlude");
     this.database = firebase.database();
   }
@@ -221,6 +312,7 @@ class RatchelorGame extends React.Component {
               this.playNewRoundSound()
             }
           }}
+          isPreloading={!(this.state.srcImgsLoaded && this.state.publicImgsLoaded && this.state.soundsLoaded)}
           onClick={() => {
             this.beginInterludeAndAdvanceState(
               "meet yourself",

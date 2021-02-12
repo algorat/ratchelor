@@ -126,7 +126,7 @@ button:focus {
   width: 900px;
   height: 732px;
   position: absolute;
-  background-color: black;
+  /* background-color: black; */
 }
 
 #interlude {
@@ -161,6 +161,24 @@ button:focus {
   background-image: url('img/Backgrounds/Intro2.png');
   background-repeat: no-repeat;
   background-size: 100%;
+  position: relative;
+}
+
+#introScreen.loading-true {
+  background-color: #ffdadc;
+}
+
+#introScreen.loading-false {
+  background-color: black;
+}
+
+#introScreen #loadingText {
+  font-family: 'Yusei Magic', sans-serif;
+  font-size: 48px;
+  left: 420px;
+  bottom: 240px;
+  position: absolute;
+  color: #86141a;
 }
 
 #introScreen button {
