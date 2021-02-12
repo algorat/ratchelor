@@ -9,7 +9,7 @@
     },
     { 
         "response": "Wow!",
-        "reaction": ""
+        "reaction": "LOVE"
     },
     {
         "response": "Okay",
@@ -21,15 +21,15 @@
     },
     {
         "response": "Interesting",
-        "reaction": ""
+        "reaction": "LOVE"
     },
     {
         "response": "Very interesting",
         "reaction": "LOVE"
     },
     {
-        "response": "Cool",
-        "reaction": ""
+        "response": "Cool I guess",
+        "reaction": "NEUTRAL"
     },
     {
         "response": "I'm so sorry to hear that",
@@ -38,6 +38,14 @@
     {
         "response": "You've been through so much",
         "reaction": "LOVE"
+    },
+    {
+        "response": "You're so brave",
+        "reaction": "LOVE"
+    },
+    {
+        "response": "*Yawn*",
+        "reaction": "NEUTRAL"
     },
     {
         "response": "I can't imagine what that's like",
@@ -49,7 +57,7 @@
     },
     {
         "response": "Neat",
-        "reaction": ""
+        "reaction": "NEUTRAL"
     },
     {
         "response": "Thanks for sharing",
@@ -81,7 +89,7 @@
     },
     {
         "response": "What?",
-        "reaction": ""
+        "reaction": "NEUTRAL"
     },
     {
         "response": "Is that all?",
