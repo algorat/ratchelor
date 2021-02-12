@@ -116,7 +116,8 @@ class TalkingToRats extends React.Component {
   }
 
   // After you submit your response, choose a new rat
-  submitResponse() {
+  submitResponse(reaction) {
+    // console.log(reaction);
     window.clearInterval(this.textInterval);
     this.sendRatOut();
   }
@@ -130,9 +131,10 @@ class TalkingToRats extends React.Component {
     // Choose the first n
     for (let i = 0; i < numResponses; i++) {
       let responseText = responsesJson[i].response;
+      let reaction = responsesJson[i].reaction;
       let responseDiv = (
         <button onClick={
-          () => {this.submitResponse.bind(this)(); this.props.playSelectAnswer();}
+          () => {this.submitResponse.bind(this)(reaction); this.props.playSelectAnswer();}
           } key={i}>
           {responseText}
         </button>
