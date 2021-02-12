@@ -645,16 +645,18 @@ button:focus {
   min-width: 100%;
   min-height: 100%;
 }
-
-#specialRatPic0{
-  width: 150px;
-  height: 80px;
+#specialPicsOnTableContainer {
   position: absolute;
-  right: 200px;
-  top: 220px;
-  transform: skewY(-50deg) ;
+  /* transform: rotate(50deg); */
+  right: -30%;
+  top: 30%;
 }
-
+#specialRatPic{
+  width: 20%;
+  height: 10%;
+  position: relative;
+  /* transform: skewY(-50deg) ; */
+}
 
 #specialText {
   font-family: 'Yusei Magic';

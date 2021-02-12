@@ -25,12 +25,11 @@ class SpecialEnding extends React.Component {
 
   constructor(props) {
     super(props);
-   
+
+    this.offLimitRats = [props.finalRat]
+   this.beginningRatPool= props.beginningRatPool
     this.state = {
-      opacity: 1,
-      beginningRatPool: props.beginningRatPool,
-      photos: [],
-      offLimitRats:[props.finalRat] // rats that shouldnt be in ending
+      opacity: 1 
     }
 
   }
@@ -39,25 +38,31 @@ class SpecialEnding extends React.Component {
     for (let i = 0; i < specialEndingRats.length; i++) {
       if (specialEndingRats[i].name === name) {
         var numEndings = specialEndingRats[i].files.length
-        var idx = Math.floor(Math.random() * numEndings)
-        var coRat = this.state.offLimitRats[0]
+        var idx = 0 //Math.floor(Math.random() * numEndings)
+        var coRat = this.offLimitRats[0]
+        // add this rat
         // just set it to something that will start the while loop
         var j = 0
-        while(this.state.offLimitRats.indexOf(coRat) >= 0 && j < numEndings)
+        while(this.offLimitRats.indexOf(coRat) >= 0 && j < numEndings){
           retVal = specialEndingRats[i].files[idx]
           coRat = specialEndingRats[i].coRats[idx]
           idx = (idx + 1)%numEndings
-          // get the other rat involved, or empty string for self
+      
+          // get the other rat involved
           j++
+        }
       }
     }
+    this.offLimitRats[this.offLimitRats.length] = name
+    if(name != coRat){
+      this.offLimitRats[this.offLimitRats.length] = coRat
+    }
+    return retVal;
   }
   onClick(){
-    console.log("fadeeeee")
     this.fadeInterval = window.setInterval(() => {
       let opacity = this.state.opacity - 0.01;
       if (opacity <= 0) {
-        console.log("done fading")
         //this.props.onClick();
         window.clearInterval(this.fadeInterval);
       } else {
@@ -68,17 +73,33 @@ class SpecialEnding extends React.Component {
   }
 
   render() {
-    for(let i = 0 ; i < this.state.beginningRatPool.length ; i ++){
-      this.state.photos[i] = this.getRatEndingFilename[this.state.beginningRatPool[i]]
+    let photos = []
+    let picElements = []
+    for(let i = 0 ; i < this.beginningRatPool.length ; i ++){
+      var f = this.getRatEndingFilename(this.beginningRatPool[i]);
+      if (f != undefined){
+        photos[photos.length] = f
+      }
     }
-    console.log(this.state.photos)
+    for(let j = 0 ; j < photos.length ; j ++){
+      picElements.push(
+        <img id="specialRatPic" key={j} 
+        style={{
+           top:(70* Math.random()) ,
+           right: j*(20* Math.random()) + j*80,
+           transform: "rotate("+Math.random()*15 + "deg)"
+          }}
+          src={"/ratchelor/img/Photos/"+photos[j]} alt="images on a table!"></img>         
+      )
+    }
+
     return (
       <div id="specialEndingScreen" className="screen" style={{opacity: this.state.opacity}}>
          <img id="specialBg" src={`/ratchelor/img/Photos/background.png`} alt="images on a table!"></img> 
         {/* <div id="animeText"> {this.props.finalRat.dialogue[this.props.finalRat.dialogue.length - 1]}</div> */}
-        <img id="specialRatPic0" src={"/ratchelor/img/Photos/"+this.state.photos[0]} alt="images on a table!"></img>         
-        <button id="restartButton" onClick={this.onClick.bind(this)}>fade</button>
-        <button onClick={this.onClick.bind(this)}>fade</button>
+        <div id="specialPicsOnTableContainer" >{picElements}</div>       
+        <button id="restartButton" onClick={this.onClick.bind(this)}>RESTART</button>
+        {/* <button onClick={this.onClick.bind(this)}>fade</button> */}
     </div>
     );
   }
