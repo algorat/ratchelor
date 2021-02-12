@@ -2,9 +2,13 @@ import React from "react";
 
 import assignRose from "../sounds/rose3.wav";
 import badAction from "../sounds/bad_action_sfx.wav";
-import newRound from "../sounds/assign_rose_sfx.wav";
+import newRound from "../sounds/curtains.mp3";
 import selectAnswer from "../sounds/louder_tap.mp3";
 import tap from "../sounds/louder_tap.mp3";
+import crickets from "../sounds/crickets.mp3";
+import harp from "../sounds/harp.mp3";
+import trombone from "../sounds/trombone.mp3";
+
 
 class SoundEffectController extends React.Component {
   constructor(props) {
@@ -14,10 +18,16 @@ class SoundEffectController extends React.Component {
     this.playBadActionSound = this.playBadActionSound.bind(this);
     this.playNewRoundSound = this.playNewRoundSound.bind(this);
     this.playSelectAnswer = this.playSelectAnswer.bind(this);
+    this.playCricketsSound = this.playCricketsSound.bind(this);
+    this.playHarpSound = this.playHarpSound.bind(this);
+    this.playTromboneSound = this.playTromboneSound.bind(this);
     this.playTap = this.playTap.bind(this);
     this.props.setPlayRoseSound(this.playRoseSound);
     this.props.setPlayBadActionSound(this.playBadActionSound);
     this.props.setPlayTap(this.playTap);
+    this.props.setPlayCricketsSound(this.playCricketsSound);
+    this.props.setPlayHarpSound(this.playHarpSound);
+    this.props.setPlayTromboneSound(this.playTromboneSound);
     this.props.setPlaySelectAnswer(this.playSelectAnswer);
     this.props.setPlayNewRoundSound(this.playNewRoundSound);
     this.volume = this.props.volume/100 + 0.15;
@@ -38,6 +48,18 @@ class SoundEffectController extends React.Component {
       this.setVolume(this.volume);
     }
     return false;
+  }
+
+  playCricketsSound(){
+    this.playSound(crickets);
+  }
+
+  playTromboneSound(){
+    this.playSound(trombone);
+  }
+
+  playHarpSound(){
+    this.playSound(harp);
   }
 
   playRoseSound(){
@@ -70,7 +92,6 @@ class SoundEffectController extends React.Component {
     if ( this.rap ) {
       this.rap.src = url;
       this.rap.volume = this.volume;
-      console.log("play SFX");
       var playPromise = this.rap.play();
       if (playPromise !== undefined) {
         playPromise.then((_) => {});

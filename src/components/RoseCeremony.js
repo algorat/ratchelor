@@ -154,7 +154,7 @@ class RoseCeremony extends React.Component {
     let newSelectedRats = this.state.selectedRats;
     newSelectedRats.push(ratName);
     element.classList.add("selectedRat");
-    this.props.playRoseSound();
+    this.props.playTap();
 
     // If that was the final rat, display the advance button
     if (this.state.selectedRats.length === this.numRoses) {

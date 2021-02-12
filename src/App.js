@@ -73,6 +73,9 @@ class RatchelorGame extends React.Component {
     this.changePlayerIdx = this.changePlayerIdx.bind(this);
     this.setCallPlaySound = this.setCallPlaySound.bind(this);
     this.setPlayRoseSound = this.setPlayRoseSound.bind(this);
+    this.setPlayCricketsSound = this.setPlayCricketsSound.bind(this);
+    this.setPlayHarpSound = this.setPlayHarpSound.bind(this);
+    this.setPlayTromboneSound = this.setPlayTromboneSound.bind(this);
     this.setPlayBadActionSound = this.setPlayBadActionSound.bind(this);
     this.setPlayNewRoundSound = this.setPlayNewRoundSound.bind(this);
     this.setPlaySelectAnswer = this.setPlaySelectAnswer.bind(this);
@@ -119,6 +122,18 @@ class RatchelorGame extends React.Component {
 
   setPlayRoseSound(f){
     this.playRoseSound = f;
+  }
+
+  setPlayCricketsSound(f){
+    this.playCricketsSound = f;
+  }
+
+  setPlayTromboneSound(f){
+    this.playTromboneSound = f;
+  }
+
+  setPlayHarpSound(f){
+    this.playHarpSound = f;
   }
 
   setPlayBadActionSound(f){
@@ -270,6 +285,9 @@ class RatchelorGame extends React.Component {
           round={this.state.roundNum}
           startDelay={1000}
           playSelectAnswer={this.playSelectAnswer}
+          playCricketsSound={this.playCricketsSound}
+          playTromboneSound={this.playTromboneSound}
+          playHarpSound={this.playHarpSound}
           playerRatUrl={`/ratchelor/img/Player/${this.state.playerIdx}.png`}
           goToRoseCeremony={() =>
             {this.beginInterludeAndAdvanceState(
@@ -383,9 +401,12 @@ class RatchelorGame extends React.Component {
           <SoundEffectController
            volume={this.state.volume}
           setPlayRoseSound={this.setPlayRoseSound}
+          setPlayCricketsSound={this.setPlayCricketsSound}
           setPlayBadActionSound={this.setPlayBadActionSound}
           setPlayNewRoundSound={this.setPlayNewRoundSound}
           setPlaySelectAnswer={this.setPlaySelectAnswer}
+          setPlayHarpSound={this.setPlayHarpSound}
+          setPlayTromboneSound={this.setPlayTromboneSound}
           setPlayTap={this.setPlayTap}
           />
         </div>
