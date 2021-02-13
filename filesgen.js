@@ -21,7 +21,7 @@ function recFindByExt(base,ext,files,result)
                 if ( file.substr(-1*(ext.length+1)) == '.' + ext )
                 {
                     result.push(newbase)
-                    if (ext === 'png' || ext === 'PNG' || ext === 'jpg') allPublicImages.push(newbase)
+                    if (ext === 'png' || ext === 'PNG' || ext === 'jpg' || ext === 'gif') allPublicImages.push(newbase)
                     else allPublicSounds.push(newbase);
                 } 
             }
@@ -33,6 +33,7 @@ function recFindByExt(base,ext,files,result)
 recFindByExt('./public/img/','png')
 recFindByExt('./public/img/','PNG')
 recFindByExt('./public/img/','jpg')
+recFindByExt('./public/img/','gif')
 
 
 allPublicImages = JSON.stringify(allPublicImages);

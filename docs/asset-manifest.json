@@ -1,8 +1,14 @@
 {
   "files": {
+<<<<<<< HEAD
     "main.css": "/ratchelor/static/css/main.37408fa4.chunk.css",
     "main.js": "/ratchelor/static/js/main.20c116f7.chunk.js",
     "main.js.map": "/ratchelor/static/js/main.20c116f7.chunk.js.map",
+=======
+    "main.css": "/ratchelor/static/css/main.d7a376d9.chunk.css",
+    "main.js": "/ratchelor/static/js/main.62e6cf5d.chunk.js",
+    "main.js.map": "/ratchelor/static/js/main.62e6cf5d.chunk.js.map",
+>>>>>>> 222fedfcaa3a63f0a9557c2c2d84a959996df04d
     "runtime-main.js": "/ratchelor/static/js/runtime-main.b516d098.js",
     "runtime-main.js.map": "/ratchelor/static/js/runtime-main.b516d098.js.map",
     "static/js/2.4eb3f673.chunk.js": "/ratchelor/static/js/2.4eb3f673.chunk.js",
@@ -36,7 +42,12 @@
   "entrypoints": [
     "static/js/runtime-main.b516d098.js",
     "static/js/2.4eb3f673.chunk.js",
+<<<<<<< HEAD
     "static/css/main.37408fa4.chunk.css",
     "static/js/main.20c116f7.chunk.js"
+=======
+    "static/css/main.d7a376d9.chunk.css",
+    "static/js/main.62e6cf5d.chunk.js"
+>>>>>>> 222fedfcaa3a63f0a9557c2c2d84a959996df04d
   ]
 }
