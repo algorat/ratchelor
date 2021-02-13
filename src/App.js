@@ -28,7 +28,6 @@ import bg6 from "./img/Backgrounds/couchslower.gif";
 
 
 /* sound files for preload -- sry for the tech debt but its 1am */
-import s0 from "./sounds/rose3.wav";
 import s1 from "./sounds/bad_action_sfx.wav";
 import s2 from "./sounds/curtains.mp3";
 import s3 from "./sounds/louder_tap.mp3";
@@ -51,6 +50,7 @@ import s20 from "./sounds/Talking_To_Rat_4.mp3";
 
 const backgroundSrc = [bg0, bg1, bg2, bg3, bg4, bg5, bg6];
 const soundsToPreload = [s2, s3, s5, s6, s7, s11, s1];
+const soundsToAsyncLoad = [s17, s18, s19, s20, s16, s8, s9, s10, s12, s13, s14, s15];
 
 var firebaseConfig = {
   apiKey: "AIzaSyDimK5PvHd3hBT8Xoyup_ogKaSPT3Chwzc",
@@ -94,6 +94,7 @@ class RatchelorGame extends React.Component {
     this.allPublicImagesForPreload = allPublicImagesForPreload;
     this.backgroundSrc = backgroundSrc;
     this.soundsToPreload = soundsToPreload;
+    this.soundsToAsyncLoad = soundsToAsyncLoad;
 
     this.state = {
       // What phase of the game we're in
@@ -110,9 +111,7 @@ class RatchelorGame extends React.Component {
       incr: ANIM_START_INCR,
       volume: 15,
       playerIdx: -1,
-      publicImgsLoaded: false,
-      srcImgsLoaded: false,
-      soundsLoaded: false,
+      isPreloading: true,
       percentLoaded: 0.0
     };
     this.finalRat = ratsJson[3];
@@ -128,9 +127,23 @@ class RatchelorGame extends React.Component {
     this.setPlayNewRoundSound = this.setPlayNewRoundSound.bind(this);
     this.setPlaySelectAnswer = this.setPlaySelectAnswer.bind(this);
     this.setPlayTap = this.setPlayTap.bind(this);
+    this.donePreloading = this.donePreloading.bind(this);
+
+    this.publicImgsLoaded= false;
+    this.srcImgsLoaded= false;
+    this.soundsLoaded= false;
+  }
+
+  donePreloading(){
+    if(this.preloadTimeout){
+      window.clearTimeout(this.preloadTimeout);
+    }
+    this.setState({isPreloading: false});
+    this.asyncLoadSounds();
   }
 
   preload() {
+    //TODO - make restart button work
     let loadIncr = 1 / (this.allPublicImagesForPreload.length + this.backgroundSrc.length + this.soundsToPreload.length);
     // 30s total timeout
     const timeoutTime = 30000;
@@ -145,26 +158,18 @@ class RatchelorGame extends React.Component {
       }
       // Load image
       img.src = filename;
-      window.setTimeout(() => {
-        let fileIdx = this.allPublicImagesForPreload.indexOf(fullFilename);
-        if (fileIdx !== -1) {
-          this.allPublicImagesForPreload.splice(fileIdx, 1);
-          this.setState({percentLoaded: this.state.percentLoaded + loadIncr});
-        }
-        if (this.allPublicImagesForPreload.length === 0 && !this.state.publicImgsLoaded) {
-          console.log("all public images loaded");
-          this.setState({publicImgsLoaded: true});
-        }
-      }, timeoutTime)
       img.onload = () => {
         let fileIdx = this.allPublicImagesForPreload.indexOf(fullFilename);
         if (fileIdx !== -1) {
           this.allPublicImagesForPreload.splice(fileIdx, 1);
           this.setState({percentLoaded: this.state.percentLoaded + loadIncr});
         }
-        if (this.allPublicImagesForPreload.length === 0) {
-          console.log("all public images loaded");
-          this.setState({publicImgsLoaded: true});
+        if (this.allPublicImagesForPreload.length === 0 && !this.state.publicImgsLoaded) {
+          console.log("all images loaded");
+          this.publicImgsLoaded = true;
+          if(this.srcImgsLoaded && this.soundsLoaded && this.publicImgsLoaded){
+            this.donePreloading();
+          }
         }
       }
     });
@@ -173,18 +178,6 @@ class RatchelorGame extends React.Component {
     this.soundsToPreload.forEach(filename => {
       // Load sound
       var audio = new Audio(filename);
-
-      window.setTimeout(() => {
-        let fileIdx = this.soundsToPreload.indexOf(filename);
-        if (fileIdx !== -1) {
-          this.soundsToPreload.splice(fileIdx, 1);
-          this.setState({percentLoaded: this.state.percentLoaded + loadIncr});
-        }
-        if (this.soundsToPreload.length === 0 && !this.state.soundsLoaded) {
-          console.log("all sounds loaded");
-          this.setState({soundsLoaded: true});
-        }
-      }, timeoutTime)
       
       audio.addEventListener("canplaythrough", () => {
         let fileIdx = this.soundsToPreload.indexOf(filename);
@@ -194,7 +187,10 @@ class RatchelorGame extends React.Component {
         }
         if (this.soundsToPreload.length === 0) {
           console.log("all sounds loaded");
-          this.setState({soundsLoaded: true});
+          this.soundsLoaded = true;
+          if(this.srcImgsLoaded && this.soundsLoaded && this.publicImgsLoaded){
+            this.donePreloading();
+          }
         }
       });
       audio.load();
@@ -205,17 +201,6 @@ class RatchelorGame extends React.Component {
       var img = new Image();
       img.src = filename;
 
-      window.setTimeout(() => {
-        let fileIdx = this.backgroundSrc.indexOf(filename);
-        if (fileIdx !== -1) {
-          this.backgroundSrc.splice(fileIdx, 1);
-          this.setState({percentLoaded: this.state.percentLoaded + loadIncr});
-        }
-        if (this.backgroundSrc.length === 0 && !this.state.srcImgsLoaded) {
-          console.log("all src images loaded");
-          this.setState({srcImgsLoaded: true});
-        }
-      }, timeoutTime)
       img.onload = () => {
         let fileIdx = this.backgroundSrc.indexOf(filename);
         if (fileIdx !== -1) {
@@ -224,13 +209,29 @@ class RatchelorGame extends React.Component {
         }
         if (this.backgroundSrc.length === 0) {
           console.log("all src images loaded");
-          this.setState({srcImgsLoaded: true});
+          this.srcImgsLoaded = true;
+          if(this.srcImgsLoaded && this.soundsLoaded && this.publicImgsLoaded){
+            this.donePreloading();
+          }
         }
       }
+    })
+
+    this.preloadTimeout = window.setTimeout(() => {
+      console.log("preloading timed out! continuing..");
+      this.setState({isPreloading: false});
+    }, timeoutTime);
+
+  }
+
+  asyncLoadSounds(){
+    this.soundsToAsyncLoad.forEach(fullFilename => {
+      new Audio(fullFilename);
     })
   }
 
   beginInterludeAndAdvanceState(text, delay, newGameStage) {
+    //console.log("beginning interval")
     this.setState({ interludeText: text });
     this.startInterludeInterval = window.setInterval(() => {
       let interludeBottom = this.state.interludeBottom - this.state.incr;
@@ -361,7 +362,10 @@ class RatchelorGame extends React.Component {
 
   render() {
     let screen = "";
-    let isPreloading = !(this.state.srcImgsLoaded && this.state.publicImgsLoaded && this.state.soundsLoaded)
+    let isPreloading = this.state.isPreloading;
+
+    //console.log(isPreloading)
+    
     if (this.state.gameStage === INTRO) {
       // Intro screen: advances to next stage when complete
       screen = (

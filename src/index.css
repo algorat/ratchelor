@@ -7,8 +7,8 @@ html {
 /* img {
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
-} */
+  image-rendering: crisp-edges; */
+/* } */
 body {
   margin: 0;
   width: 100%;
@@ -351,6 +351,13 @@ button:focus {
   width: 900px;
   height: 100%;
   position: relative;
+}
+
+#talkingToRatsScreen img{
+  
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 #talkingToRatsScreen #ratName {
