@@ -78,9 +78,7 @@ class RatSelect extends React.Component {
       this.ratsList = ratsList;
     }
 
-    ratsList = ratsList.sort(function (a, b) {
-      return 0.5 - Math.random();
-    });
+ 
     return ratsList;
   }
 
