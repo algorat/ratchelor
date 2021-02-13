@@ -6,7 +6,8 @@ class IntroScreen extends React.Component {
     this.state = {
       opacity: 1,
       isPreloading: true,
-      loadingText: "Loading"
+      loadingText: "Loading",
+      percentLoaded: 0
     };
     this.onClick = this.onClick.bind(this);
   }
@@ -26,6 +27,9 @@ class IntroScreen extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.isPreloading !== prevProps.isPreloading) {    
       this.setState({ isPreloading: false });
+    }
+    if (this.props.percentLoaded > prevProps.percentLoaded) {
+      this.setState({percentLoaded: this.props.percentLoaded})
     }
   }
 
@@ -56,7 +60,8 @@ class IntroScreen extends React.Component {
     </button>
 
     let loader = <div id="loadingText">{this.state.loadingText}</div>
-
+    let percentLoadedText = Math.floor(this.state.percentLoaded * 100);
+    loader = <div id="loadingText">Loading {percentLoadedText}%</div>
     return (
       <div
         id="introScreen"
