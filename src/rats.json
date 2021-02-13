@@ -6,7 +6,7 @@
             "Dear I can't say that I recall you mentioning it, but how did you say you'd scored on the SATs? I got a 1570, which is quite good, if you didn't know.",
             "Darling, I have to tell you, I just can't stand it when my date takes out their wallet to pay after a night out. You really think I took you to Le Mergereuse Restaurante Martine expecting you to spend $17,500? I know the chef, dear, they're an old friend. Plus, the money is nothing to me. Really.",
             "My lashes? I simply dip them in a bowl of antique charcoal each morning to get the color, and then twist them into a tip with olive oil to get the density. An old trick in my social circles.",
-            "Im only used to looking through people, but when I look at you I feel like I'm looking right at you. It makes me feel like maybe… you wouldn't use me? Not like everyone else does…",
+            "Im only used to looking through people, but when I look at you I feel like I'm looking right at you. It makes me feel like maybe… you wouldn't use me?",
             "I've spent my whole life focused on building an empire, and I'd give anything to share it with you. My fortune, my place on the throne, my fancy diamonds… I just want you, and I want all those things as well. I love you, and I want to be with you forever."
         ],
         "tagline": "I'm not here to make friends.",
@@ -64,7 +64,7 @@
         "reaction_pos": [0.23, 0.14]
     },
     {
-        "name": "Dr. Plagueus",
+        "name": "Dr Plagueus",
         "dialogue": [
             "Hullo, I'm Dr. Plageus, PhD. I studied rat history in the basements of the University of Bingham. In my spare time, I consult on human films that feature rats, such as Ratatouille and the Secret of Nimh. I also like to read about major historical rat events… like those in the Victorian era. But I'll get to that later.",
             "You wanted to hear more about my interests? Well, I don't usually tell people this unless they're my close friends, but my great-great-uncle actually single-handedly brought the plague from France to Italy. That's why I love learning about the Plague so much. I've actually been putting together a documentary about it that I could show you later.",
