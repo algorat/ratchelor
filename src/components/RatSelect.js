@@ -45,6 +45,45 @@ class RatSelect extends React.Component {
     this.setState({ selectRatsButton });
   }
 
+  componentDidMount() {
+    this.generateRatList();
+  }
+
+  generateRatList() {
+    let ratsList = [];
+    // Create a clickable div for every rat in the game
+    for (let i = 0; i < this.props.rats.length; i++) {
+      let filename = `/ratchelor/img/Frames/${this.props.rats[i].filename}.PNG`;
+      let filenameHearts = `/ratchelor/img/Frames/hearts${(i % 9) + 1}.PNG`;
+      ratsList.push(
+        <div key={i} id="ratContainer">
+          <div
+            id={`rat${i}`}
+            className="ratListItem"
+            onClick={() => {
+              this.selectRat(this.props.rats[i].name, `rat${i}`);
+            }}
+          >
+            <div className="ratPic">
+              <img className="ratFrame" src={filename} alt="" />
+              <img className="ratHearts" src={filenameHearts} alt="" />
+            </div>
+            <div className="ratNameContainer">
+              <div className="ratName">{`${this.props.rats[i].name}`}</div>
+              <div className="ratTagline">{`"${this.props.rats[i].tagline}"`}</div>
+            </div>
+          </div>
+        </div>
+      );
+      this.ratsList = ratsList;
+    }
+
+    ratsList = ratsList.sort(function (a, b) {
+      return 0.5 - Math.random();
+    });
+    return ratsList;
+  }
+
   // When a rat is clicked
   selectRat(ratName, id) {
     // Get the element for the current rat button
@@ -97,38 +136,13 @@ class RatSelect extends React.Component {
   }
 
   render() {
-    let ratsList = [];
-    // Create a clickable div for every rat in the game
-    for (let i = 0; i < this.props.rats.length; i++) {
-      let filename = `/ratchelor/img/Frames/${this.props.rats[i].filename}.PNG`;
-      let filenameHearts = `/ratchelor/img/Frames/hearts${(i % 9) + 1}.PNG`;
-      ratsList.push(
-        <div key={i} id="ratContainer">
-          <div
-            id={`rat${i}`}
-            className="ratListItem"
-            onClick={() => {
-              this.selectRat(this.props.rats[i].name, `rat${i}`);
-            }}
-          >
-            <div className="ratPic">
-              <img className="ratFrame" src={filename} alt="" />
-              <img className="ratHearts" src={filenameHearts} alt="" />
-            </div>
-            <div className="ratNameContainer">
-              <div className="ratName">{`${this.props.rats[i].name}`}</div>
-              <div className="ratTagline">{`"${this.props.rats[i].tagline}"`}</div>
-            </div>
-          </div>
-        </div>
-      );
-    }
+    
 
     return (
       <div id="ratSelectScreen" className="screen">
         {this.state.selectRatsButton}
         <div id="ratListContainer" className="stillRats">
-          {ratsList}
+          {this.ratsList}
         </div>
       </div>
     );

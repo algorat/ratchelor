@@ -353,8 +353,7 @@ button:focus {
   position: relative;
 }
 
-#talkingToRatsScreen img{
-  
+#talkingToRatsScreen img {
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
@@ -442,6 +441,10 @@ button:focus {
   display: flex;
   justify-content: center;
   padding-top: 30px;
+}
+
+#roseCeremonyScreen.lastRound {
+  background-image: url('img/Backgrounds/garden1.png');
 }
 
 #ratSelectScreen .selectedRat {
@@ -624,6 +627,10 @@ button:focus {
   top: 0;
   font-family: 'Yusei Magic', sans-serif;
   font-size: 30px;
+}
+
+#roseCeremonyScreen.lastRound #instructions {
+  background-color: rgba(0, 0, 0, 0);
 }
 
 /* PROPOSAL SCREEN */
