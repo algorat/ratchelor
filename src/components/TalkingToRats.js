@@ -18,6 +18,7 @@ class TalkingToRats extends React.Component {
     );
     // Store all of your canned responses in an array
     this.responses = responsesJson;
+    console.log(this.props)
     this.charSpeed = 30;
     this.ratMoveSpeed = 10;
     this.state = {
@@ -29,7 +30,8 @@ class TalkingToRats extends React.Component {
       dialogueBottom: OFF_BOTTOM,
       incr: 1,
       reacting: false,
-      lastActiveRat: -1
+      lastActiveRat: -1,
+      currReaction: null,
     };
   }
 
@@ -55,8 +57,25 @@ class TalkingToRats extends React.Component {
     }
   }
 
-  startReaction(){
-    this.setState({ responses: "", incr: 1, reacting: true, lastActiveRat: this.state.ratIndex });
+  startReaction(reaction){
+    let currReaction = null;
+    if (reaction === "LOVE") {
+      currReaction = "love2";
+      this.props.playHarpSound();
+    }
+    if (reaction === "SAD") {
+      this.props.playTromboneSound();
+      currReaction = "bad1";
+    }
+    if (reaction === "NEUTRAL") {
+      currReaction = "neutra1";
+      this.props.playCricketsSound();
+    }
+    if (!currReaction) {
+      this.sendRatOut();
+      return;
+    }
+    this.setState({ responses: "", incr: 1, reacting: true, currReaction: currReaction, lastActiveRat: this.state.ratIndex });
     this.reactionTimeout = window.setTimeout(() => this.sendRatOut(), 1500)
   }
 
@@ -119,6 +138,7 @@ class TalkingToRats extends React.Component {
 
   setNextRat() {
     let newRatIndex = this.state.ratIndex + 1;
+    this.setState({currReaction: null});
     // If that was the last rat, advance to the rose ceremony
     if (newRatIndex === this.ratNames.length) {
       this.props.goToRoseCeremony();
@@ -130,9 +150,10 @@ class TalkingToRats extends React.Component {
   }
 
   // After you submit your response, choose a new rat
-  submitResponse() {
+  submitResponse(reaction) {
+    // console.log(reaction);
     window.clearInterval(this.textInterval);
-    this.startReaction();
+    this.startReaction(reaction);
   }
 
   getRandomResponses() {
@@ -144,9 +165,10 @@ class TalkingToRats extends React.Component {
     // Choose the first n
     for (let i = 0; i < numResponses; i++) {
       let responseText = responsesJson[i].response;
+      let reaction = responsesJson[i].reaction;
       let responseDiv = (
         <button onClick={
-          () => {this.submitResponse.bind(this)(); this.props.playSelectAnswer();}
+          () => {this.submitResponse.bind(this)(reaction);}
           } key={i}>
           {responseText}
         </button>
@@ -161,6 +183,9 @@ class TalkingToRats extends React.Component {
     let ratDialogue = this.activeRats[this.state.ratIndex].dialogue[
       this.props.round
     ].substring(0, this.state.charsRevealed);
+    if (this.state.currReaction) {
+      ratDialogue = <img id="dialogueImg" src={`/ratchelor/img/Reactions/reax/${this.state.currReaction}.PNG`}></img>
+    }
     if (ratDialogue.length === 0) ratDialogue = "...";
     return (
       <div id="talkingToRatsScreen" className="screen">
@@ -181,9 +206,9 @@ class TalkingToRats extends React.Component {
             this.activeRats[this.state.ratIndex].filename
           }.png`}
         ></img>
-        { this.state.reacting && 
+        { this.state.reacting && this.state.currReaction &&
           <ReactionAnimation 
-            emote={<img src={"/ratchelor/img/Reactions/reax/bad1.PNG"}/>}
+            emote={<img src={`/ratchelor/img/Reactions/reax/${this.state.currReaction}.PNG`}/>}
             left={this.activeRats[this.state.lastActiveRat].reaction_pos[0] * 100}
             top={this.activeRats[this.state.lastActiveRat].reaction_pos[1] * 100}
           />}

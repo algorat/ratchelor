@@ -16,6 +16,7 @@ body {
   position: absolute;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-image: url(./img/Backgrounds/background2.png);
   background-size: 350px 285px;
 }
@@ -32,7 +33,6 @@ img {
   position: relative;
   width: 900px;
   height: 675px;
-  margin-top: 120px;
 }
 
 .screen {
@@ -129,6 +129,10 @@ button:focus {
   background-color: black;
 }
 
+.preloading-true #interludeContainer {
+  background-color: #ffdadc;
+}
+
 #interlude {
   width: 900px;
   z-index: 900;
@@ -161,6 +165,24 @@ button:focus {
   background-image: url('img/Backgrounds/Intro2.png');
   background-repeat: no-repeat;
   background-size: 100%;
+  position: relative;
+}
+
+#introScreen.loading-true {
+  background-color: #ffdadc;
+}
+
+#introScreen.loading-false {
+  background-color: black;
+}
+
+#introScreen #loadingText {
+  font-family: 'Yusei Magic', sans-serif;
+  font-size: 48px;
+  left: 420px;
+  bottom: 240px;
+  position: absolute;
+  color: #86141a;
 }
 
 #introScreen button {
@@ -350,6 +372,10 @@ button:focus {
   border-radius: 10px 10px 0 0;
 }
 
+#talkingToRatsScreen #dialogueImg {
+  animation: fadeIn ease 2s;
+}
+
 #talkingToRatsScreen #ratDialogue {
   font-family: 'Yusei Magic', sans-serif;
   font-size: 21px;
@@ -392,7 +418,7 @@ button:focus {
   position: absolute;
 }
 
-#talkingRatContainer{
+#talkingRatContainer {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -734,7 +760,7 @@ button:focus {
   top: 20%;
   height: 5px;
   width: 5px;
-  animation: emote-container-up 700ms 0s forwards;
+  animation: emote-container-up 1000ms 0s forwards;
 }
 
 .reaction-emote {
@@ -743,10 +769,10 @@ button:focus {
   animation-duration: 2s;
   /* animation-delay: 150ms; */
   animation-fill-mode: forwards;
-  width: 20px;
+  width: 30px;
 }
 
-.reaction-emote img{
+.reaction-emote img {
   width: 100%;
 }
 
@@ -779,55 +805,70 @@ button:focus {
 }
 
 @keyframes emote-1 {
-  from {
+  0% {
     opacity: 1;
     transform: translate3d(-10px, 0px, 0px);
   }
-  to {
+  50% {
+    opacity: 1;
+  }
+  100% {
     opacity: 0;
     transform: translate3d(-20px, -40px, 0px);
   }
 }
 
 @keyframes emote-2 {
-  from {
+  0% {
     opacity: 1;
     transform: translate3d(-18px, 2px, 0px);
   }
-  to {
+  50% {
+    opacity: 1;
+  }
+  100% {
     opacity: 0;
     transform: translate3d(-50px, -80px, 0px);
   }
 }
 
 @keyframes emote-3 {
-  from {
+  0% {
     opacity: 1;
     transform: translate3d(10px, -5px, 0px);
   }
-  to {
+  50% {
+    opacity: 1;
+  }
+  100% {
     opacity: 0;
     transform: translate3d(70px, -65px, 0px);
   }
 }
 
 @keyframes emote-4 {
-  from {
+  0% {
     opacity: 1;
     transform: translate3d(-6px, 0px, 0px);
   }
-  to {
+  50% {
+    opacity: 1;
+  }
+  100% {
     opacity: 0;
     transform: translate3d(-60px, -45px, 0px);
   }
 }
 
 @keyframes emote-5 {
-  from {
+  0% {
     opacity: 1;
     transform: translate3d(0px, 0px, 0px);
   }
-  to {
+  50% {
+    opacity: 1;
+  }
+  100% {
     opacity: 0;
     transform: translate3d(5px, -80px, 0px);
   }

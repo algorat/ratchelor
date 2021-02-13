@@ -12,22 +12,58 @@ import CharacterSelect from "./components/CharacterSelect";
 import Proposal from "./components/Proposal";
 
 import ratsJson from "./rats.json";
-import firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/analytics";
+import "firebase/database";
+import allPublicImagesForPreload from "./allPublicImages.json";
 
-var firebaseConfig = {
-  messagingSenderId: "993096202246",
-  appId: "1:993096202246:web:bf0ebeedc4c347640aeb87",
-};
+/* background img files for preload -- sry for the tech debt but its 1am */
+import bg0 from "./img/Backgrounds/background2.png";
+import bg1 from "./img/Backgrounds/curtains.png";
+import bg2 from "./img/Backgrounds/Intro2.png";
+import bg3 from "./img/Backgrounds/couchslower.gif";
+import bg4 from "./img/Backgrounds/garden2.png";
+import bg5 from "./img/RoseCeremony/Background-old.png";
+
+/* sound files for preload -- sry for the tech debt but its 1am */
+import s0 from "./sounds/rose3.wav";
+import s1 from "./sounds/bad_action_sfx.wav";
+import s2 from "./sounds/curtains.mp3";
+import s3 from "./sounds/louder_tap.mp3";
+import s5 from "./sounds/crickets.mp3";
+import s6 from "./sounds/harp.mp3";
+import s7 from "./sounds/trombone.mp3";
+import s8 from "./sounds/Cheerful.mp3";
+import s9 from "./sounds/Funky.mp3";
+import s10 from "./sounds/Intense.mp3";
+import s11 from "./sounds/Intro_Screen.mp3";
+import s12 from "./sounds/Paris.mp3";
+import s13 from "./sounds/Pop.mp3";
+import s14 from "./sounds/Romantic_Happy.mp3";
+import s15 from "./sounds/Romantic_Sad.mp3";
+import s16 from "./sounds/Rose_Ceremony.mp3";
+import s17 from "./sounds/Talking_To_Rat_1.mp3";
+import s18 from "./sounds/Talking_To_Rat_2.mp3";
+import s19 from "./sounds/Talking_To_Rat_3.mp3";
+import s20 from "./sounds/Talking_To_Rat_4.mp3";
+
+const backgroundSrc = [bg0, bg1, bg2, bg3, bg4, bg5];
+const soundsToPreload = [s2, s3, s5, s6, s7, s11, s1];
+
 var firebaseConfig = {
   apiKey: "AIzaSyDimK5PvHd3hBT8Xoyup_ogKaSPT3Chwzc",
   authDomain: "ratchelor.firebaseapp.com",
+  databaseURL: "https://ratchelor-default-rtdb.firebaseio.com",
   projectId: "ratchelor",
-  databaseURL: "https://ratchelor-default-rtdb.firebaseio.com/",
   storageBucket: "ratchelor.appspot.com",
+  messagingSenderId: "993096202246",
+  appId: "1:993096202246:web:bf0ebeedc4c347640aeb87",
+  measurementId: "G-LV5NLFXL03"
 };
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
 // Game Stages
 const INTRO = 0;
@@ -49,8 +85,14 @@ class RatchelorGame extends React.Component {
     this.numRatsInGame = 7;
     // How many rounds there are
     this.numRounds = 5;
+    this.setProposedInDatabase = false;
     // How many roses get given out each round
     this.rosesPerRound = [5, 4, 3, 2, 1];
+
+    this.allPublicImagesForPreload = allPublicImagesForPreload;
+    this.backgroundSrc = backgroundSrc;
+    this.soundsToPreload = soundsToPreload;
+
     this.state = {
       // What phase of the game we're in
       gameStage: INTRO,
@@ -66,6 +108,10 @@ class RatchelorGame extends React.Component {
       incr: ANIM_START_INCR,
       volume: 15,
       playerIdx: -1,
+      publicImgsLoaded: false,
+      srcImgsLoaded: false,
+      soundsLoaded: false,
+      percentLoaded: 0.0
     };
     this.finalRat = ratsJson[3];
     this.changeCurrentRatIdx = this.changeCurrentRatIdx.bind(this);
@@ -73,10 +119,113 @@ class RatchelorGame extends React.Component {
     this.changePlayerIdx = this.changePlayerIdx.bind(this);
     this.setCallPlaySound = this.setCallPlaySound.bind(this);
     this.setPlayRoseSound = this.setPlayRoseSound.bind(this);
+    this.setPlayCricketsSound = this.setPlayCricketsSound.bind(this);
+    this.setPlayHarpSound = this.setPlayHarpSound.bind(this);
+    this.setPlayTromboneSound = this.setPlayTromboneSound.bind(this);
     this.setPlayBadActionSound = this.setPlayBadActionSound.bind(this);
     this.setPlayNewRoundSound = this.setPlayNewRoundSound.bind(this);
     this.setPlaySelectAnswer = this.setPlaySelectAnswer.bind(this);
     this.setPlayTap = this.setPlayTap.bind(this);
+  }
+
+  preload() {
+    let loadIncr = 1 / (this.allPublicImagesForPreload.length + this.backgroundSrc.length + this.soundsToPreload.length);
+    // 30s total timeout
+    const timeoutTime = 30000;
+
+    // PUBLIC IMAGES
+    this.allPublicImagesForPreload.forEach(fullFilename => {
+      var img = new Image();
+      let filename = "";
+      if (fullFilename.indexOf("public") !== -1) {
+        filename = fullFilename.slice(7);
+        filename = "/ratchelor/" + filename;
+      }
+      // Load image
+      img.src = filename;
+      window.setTimeout(() => {
+        let fileIdx = this.allPublicImagesForPreload.indexOf(fullFilename);
+        if (fileIdx !== -1) {
+          this.allPublicImagesForPreload.splice(fileIdx, 1);
+          this.setState({percentLoaded: this.state.percentLoaded + loadIncr});
+        }
+        if (this.allPublicImagesForPreload.length === 0 && !this.state.publicImgsLoaded) {
+          console.log("all public images loaded");
+          this.setState({publicImgsLoaded: true});
+        }
+      }, timeoutTime)
+      img.onload = () => {
+        let fileIdx = this.allPublicImagesForPreload.indexOf(fullFilename);
+        if (fileIdx !== -1) {
+          this.allPublicImagesForPreload.splice(fileIdx, 1);
+          this.setState({percentLoaded: this.state.percentLoaded + loadIncr});
+        }
+        if (this.allPublicImagesForPreload.length === 0) {
+          console.log("all public images loaded");
+          this.setState({publicImgsLoaded: true});
+        }
+      }
+    });
+
+    // PRELOADED SOUNDS
+    this.soundsToPreload.forEach(filename => {
+      // Load sound
+      var audio = new Audio(filename);
+
+      window.setTimeout(() => {
+        let fileIdx = this.soundsToPreload.indexOf(filename);
+        if (fileIdx !== -1) {
+          this.soundsToPreload.splice(fileIdx, 1);
+          this.setState({percentLoaded: this.state.percentLoaded + loadIncr});
+        }
+        if (this.soundsToPreload.length === 0 && !this.state.soundsLoaded) {
+          console.log("all sounds loaded");
+          this.setState({soundsLoaded: true});
+        }
+      }, timeoutTime)
+      
+      audio.addEventListener("canplaythrough", () => {
+        let fileIdx = this.soundsToPreload.indexOf(filename);
+        if (fileIdx !== -1) {
+          this.soundsToPreload.splice(fileIdx, 1);
+          this.setState({percentLoaded: this.state.percentLoaded + loadIncr});
+        }
+        if (this.soundsToPreload.length === 0) {
+          console.log("all sounds loaded");
+          this.setState({soundsLoaded: true});
+        }
+      });
+      audio.load();
+    })
+
+    // SRC BACKGROUNDS
+    backgroundSrc.forEach(filename => {
+      var img = new Image();
+      img.src = filename;
+
+      window.setTimeout(() => {
+        let fileIdx = this.backgroundSrc.indexOf(filename);
+        if (fileIdx !== -1) {
+          this.backgroundSrc.splice(fileIdx, 1);
+          this.setState({percentLoaded: this.state.percentLoaded + loadIncr});
+        }
+        if (this.backgroundSrc.length === 0 && !this.state.srcImgsLoaded) {
+          console.log("all src images loaded");
+          this.setState({srcImgsLoaded: true});
+        }
+      }, timeoutTime)
+      img.onload = () => {
+        let fileIdx = this.backgroundSrc.indexOf(filename);
+        if (fileIdx !== -1) {
+          this.backgroundSrc.splice(fileIdx, 1);
+          this.setState({percentLoaded: this.state.percentLoaded + loadIncr});
+        }
+        if (this.backgroundSrc.length === 0) {
+          console.log("all src images loaded");
+          this.setState({srcImgsLoaded: true});
+        }
+      }
+    })
   }
 
   beginInterludeAndAdvanceState(text, delay, newGameStage) {
@@ -121,6 +270,18 @@ class RatchelorGame extends React.Component {
     this.playRoseSound = f;
   }
 
+  setPlayCricketsSound(f){
+    this.playCricketsSound = f;
+  }
+
+  setPlayTromboneSound(f){
+    this.playTromboneSound = f;
+  }
+
+  setPlayHarpSound(f){
+    this.playHarpSound = f;
+  }
+
   setPlayBadActionSound(f){
     this.playBadActionSound = f;
   }
@@ -140,6 +301,7 @@ class RatchelorGame extends React.Component {
   // Reset everything to restart the game
   restartGame() {
     console.log("restarting");
+    this.setProposedInDatabase = false;
     this.setState(
       {
         gameStage: INTRO,
@@ -187,13 +349,17 @@ class RatchelorGame extends React.Component {
       .set(firebase.database.ServerValue.increment(1));
   }
 
+  
+
   componentDidMount() {
+    this.preload();
     this.interludeElement = document.getElementById("interlude");
     this.database = firebase.database();
   }
 
   render() {
     let screen = "";
+    let isPreloading = !(this.state.srcImgsLoaded && this.state.publicImgsLoaded && this.state.soundsLoaded)
     if (this.state.gameStage === INTRO) {
       // Intro screen: advances to next stage when complete
       screen = (
@@ -206,6 +372,8 @@ class RatchelorGame extends React.Component {
               this.playNewRoundSound()
             }
           }}
+          isPreloading={isPreloading}
+          percentLoaded={this.state.percentLoaded}
           onClick={() => {
             this.beginInterludeAndAdvanceState(
               "meet yourself",
@@ -270,6 +438,9 @@ class RatchelorGame extends React.Component {
           round={this.state.roundNum}
           startDelay={1000}
           playSelectAnswer={this.playSelectAnswer}
+          playCricketsSound={this.playCricketsSound}
+          playTromboneSound={this.playTromboneSound}
+          playHarpSound={this.playHarpSound}
           playerRatUrl={`/ratchelor/img/Player/${this.state.playerIdx}.png`}
           goToRoseCeremony={() =>
             {this.beginInterludeAndAdvanceState(
@@ -325,6 +496,10 @@ class RatchelorGame extends React.Component {
       );
     } else if (this.state.gameStage === PROPOSAL) {
       this.finalRat = this.getRatByName(this.state.activeRatNames[0]);
+      if(!this.setProposedInDatabase){
+        this.setProposedInDatabase = true;
+        this.incrementTotalRatCount(this.state.activeRatNames[0]);
+      }
       screen = (
         <Proposal
           finalRat={this.finalRat}
@@ -358,16 +533,17 @@ class RatchelorGame extends React.Component {
           <div id="mobile-message">{`To experience The Ratchelor, ${randoRat.name} wants you to access this website on a desktop computer!`}</div>
           <img
             id="mobile-img"
+            alt="a rat who loves you"
             src={`/ratchelor/img/Characters/${randoRatFilename}.png`}
           ></img>
         </div>
       );
     }
     return (
-      <div id="game-container">
+      <div id={`game-container`} className={`preloading-${isPreloading}`}>
         <div id="game">
           <img id="frame" src="/ratchelor/img/frameSmaller.png" alt=""></img>
-          <div id="interludeContainer">
+          <div id="interludeContainer" >
             <div id="interlude" style={{ bottom: this.state.interludeBottom }}>
               <div id="interludeText">{this.state.interludeText}</div>
             </div>
@@ -383,9 +559,12 @@ class RatchelorGame extends React.Component {
           <SoundEffectController
            volume={this.state.volume}
           setPlayRoseSound={this.setPlayRoseSound}
+          setPlayCricketsSound={this.setPlayCricketsSound}
           setPlayBadActionSound={this.setPlayBadActionSound}
           setPlayNewRoundSound={this.setPlayNewRoundSound}
           setPlaySelectAnswer={this.setPlaySelectAnswer}
+          setPlayHarpSound={this.setPlayHarpSound}
+          setPlayTromboneSound={this.setPlayTromboneSound}
           setPlayTap={this.setPlayTap}
           />
         </div>

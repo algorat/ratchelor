@@ -4,44 +4,60 @@
         "reaction": "LOVE"
     },
     { 
-        "response": "Oh wow"
+        "response": "Oh wow",
+        "reaction": ""
     },
     { 
-        "response": "Wow!"
+        "response": "Wow!",
+        "reaction": "LOVE"
     },
     {
         "response": "Okay",
         "reaction": "NEUTRAL"
     },
     {
-        "response": "That's nice"
+        "response": "That's nice",
+        "reaction": ""
     },
     {
-        "response": "Interesting"
+        "response": "Interesting",
+        "reaction": "LOVE"
     },
     {
         "response": "Very interesting",
         "reaction": "LOVE"
     },
     {
-        "response": "Cool"
+        "response": "Cool I guess",
+        "reaction": "NEUTRAL"
     },
     {
-        "response": "I'm so sorry to hear that"
+        "response": "I'm so sorry to hear that",
+        "reaction": ""
     },
     {
         "response": "You've been through so much",
         "reaction": "LOVE"
     },
     {
-        "response": "I can't imagine what that's like"
+        "response": "You're so brave",
+        "reaction": "LOVE"
+    },
+    {
+        "response": "*Yawn*",
+        "reaction": "NEUTRAL"
+    },
+    {
+        "response": "I can't imagine what that's like",
+        "reaction": ""
     },
     {
         "response": "Ok",
         "reaction": "NEUTRAL"
     },
     {
-        "response": "Neat"
+        "response": "Neat",
+        "reaction": "NEUTRAL"
     },
     {
         "response": "Thanks for sharing",
@@ -49,6 +65,10 @@
     },
     {
         "response": "I appreciate your vulnerability",
+        "reaction": "LOVE"
+    },
+    {
+        "response": "Wow you're cool",
         "reaction": "LOVE"
     },
     {
@@ -68,7 +88,8 @@
         "reaction": "NEUTRAL"
     },
     {
-        "response": "What?"
+        "response": "What?",
+        "reaction": "NEUTRAL"
     },
     {
         "response": "Is that all?",
