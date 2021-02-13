@@ -5,32 +5,9 @@ class IntroScreen extends React.Component {
     super(props);
     this.state = {
       opacity: 1,
-      isPreloading: true,
       loadingText: "Loading",
-      percentLoaded: 0
     };
     this.onClick = this.onClick.bind(this);
-  }
-
-  componentDidMount() {
-    this.loadingInterval = window.setInterval(() => {
-      let loadingText = this.state.loadingText;
-      if (loadingText.length < 10) {
-        loadingText += "."
-      } else {
-        loadingText = "Loading"
-      }
-      this.setState({loadingText})
-    }, 500)
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.isPreloading !== prevProps.isPreloading) {    
-      this.setState({ isPreloading: false });
-    }
-    if (this.props.percentLoaded > prevProps.percentLoaded) {
-      this.setState({percentLoaded: this.props.percentLoaded})
-    }
   }
 
   onClick() {
@@ -60,15 +37,16 @@ class IntroScreen extends React.Component {
     </button>
 
     let loader = <div id="loadingText">{this.state.loadingText}</div>
-    let percentLoadedText = Math.floor(this.state.percentLoaded * 100);
+    let percentLoadedText = Math.floor(this.props.percentLoaded * 100);
     loader = <div id="loadingText">Loading {percentLoadedText}%</div>
+
     return (
       <div
         id="introScreen"
-        className={`screen loading-${this.state.isPreloading}`}
+        className={`screen loading-${this.props.isPreloading}`}
         style={{ opacity: this.state.opacity }}
       >
-        {this.state.isPreloading ? loader : button}
+        {this.props.isPreloading ? loader : button}
         <div id="hideme" />
       </div>
     );
