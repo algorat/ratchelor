@@ -16,6 +16,7 @@ body {
   position: absolute;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-image: url(./img/Backgrounds/background2.png);
   background-size: 350px 285px;
 }
@@ -32,7 +33,6 @@ img {
   position: relative;
   width: 900px;
   height: 675px;
-  margin-top: 120px;
 }
 
 .screen {
