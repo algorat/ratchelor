@@ -40,7 +40,8 @@ class MusicManager extends React.Component {
     this.url = this.selectURL(this.props.phase);
     this.playSound = this.playSound.bind(this);
     this.props.setCallPlaySound(this.playSound);
-    this.volume = 0.2;
+    this.volume = props.volume / 100 - 0.08;
+    this.volume = this.volume < 0 ? 0 : this.volume;
     this.finalRat = null;
     this.currentRatIdx = -1;
     this.musicStarted = false;
@@ -90,16 +91,15 @@ class MusicManager extends React.Component {
       !this.musicStarted ||
       (this.url !== "" && this.rap && this.rap.src.indexOf(this.url) < 0)
     ) {
-      console.log("changing src", this.url, this.rap.src);
       this.rap.src = this.url;
       this.rap.volume = this.volume;
-      console.log("play");
-      this.musicStarted = true;
-      var playPromise = this.rap.play();
-
-      if (playPromise !== undefined) {
-        playPromise.then((_) => {});
-      }
+      this.rap.addEventListener('canplaythrough', () => {
+        var playPromise = this.rap.play();
+        this.musicStarted = true;
+        if (playPromise !== undefined) {
+          playPromise.then((_) => {}).catch((e)=>{console.log("error caught", e)});
+        }
+      })   
     }
   }
 

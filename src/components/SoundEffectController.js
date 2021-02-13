@@ -37,7 +37,7 @@ class SoundEffectController extends React.Component {
   }
 
   shouldComponentUpdate(props) {
-    if(this.props.volume != this.volume){
+    if(this.props.volume !== this.volume){
       
       if(props.volume === 0){
         this.volume = 0;
@@ -92,10 +92,12 @@ class SoundEffectController extends React.Component {
     if ( this.rap ) {
       this.rap.src = url;
       this.rap.volume = this.volume;
-      var playPromise = this.rap.play();
-      if (playPromise !== undefined) {
-        playPromise.then((_) => {});
-      }
+      this.rap.addEventListener('canplaythrough', () => {
+        var playPromise = this.rap.play();
+        if (playPromise !== undefined) {
+          playPromise.then((_) => {}).catch((e)=>{console.log("error caught", e)});
+        }
+      })  
     }
   }
 
