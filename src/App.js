@@ -24,6 +24,8 @@ import bg2 from "./img/Backgrounds/Intro2.png";
 import bg3 from "./img/Backgrounds/couchslower.gif";
 import bg4 from "./img/Backgrounds/garden2.png";
 import bg5 from "./img/RoseCeremony/Background-old.png";
+import bg6 from "./img/Backgrounds/couchslower.gif";
+
 
 /* sound files for preload -- sry for the tech debt but its 1am */
 import s0 from "./sounds/rose3.wav";
@@ -47,7 +49,7 @@ import s18 from "./sounds/Talking_To_Rat_2.mp3";
 import s19 from "./sounds/Talking_To_Rat_3.mp3";
 import s20 from "./sounds/Talking_To_Rat_4.mp3";
 
-const backgroundSrc = [bg0, bg1, bg2, bg3, bg4, bg5];
+const backgroundSrc = [bg0, bg1, bg2, bg3, bg4, bg5, bg6];
 const soundsToPreload = [s2, s3, s5, s6, s7, s11, s1];
 
 var firebaseConfig = {
