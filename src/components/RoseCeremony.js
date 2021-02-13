@@ -266,6 +266,7 @@ class RoseCeremony extends React.Component {
     return (
       <div id="roseCeremonyScreen" className="screen">
         <img
+          alt="a rose bouquet"
           id="bouquet"
           src={`/ratchelor/img/Bouquet/bouquet${bouquetNum}.png`}
         ></img>

@@ -184,7 +184,7 @@ class TalkingToRats extends React.Component {
       this.props.round
     ].substring(0, this.state.charsRevealed);
     if (this.state.currReaction) {
-      ratDialogue = <img id="dialogueImg" src={`/ratchelor/img/Reactions/reax/${this.state.currReaction}.PNG`}></img>
+      ratDialogue = <img id="dialogueImg" alt="dialogue emoji" src={`/ratchelor/img/Reactions/reax/${this.state.currReaction}.PNG`}></img>
     }
     if (ratDialogue.length === 0) ratDialogue = "...";
     return (
@@ -208,7 +208,7 @@ class TalkingToRats extends React.Component {
         ></img>
         { this.state.reacting && this.state.currReaction &&
           <ReactionAnimation 
-            emote={<img src={`/ratchelor/img/Reactions/reax/${this.state.currReaction}.PNG`}/>}
+            emote={<img alt="" src={`/ratchelor/img/Reactions/reax/${this.state.currReaction}.PNG`}/>}
             left={this.activeRats[this.state.lastActiveRat].reaction_pos[0] * 100}
             top={this.activeRats[this.state.lastActiveRat].reaction_pos[1] * 100}
           />}

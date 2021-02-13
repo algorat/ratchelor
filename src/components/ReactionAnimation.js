@@ -1,9 +1,6 @@
 import React from "react";
 
 class ReactionAnimation extends React.Component {
-  constructor() {
-    super();
-  }
 
   render() {
     return (
@@ -12,7 +9,7 @@ class ReactionAnimation extends React.Component {
           .fill(this.props.emote)
           .map((val, idx) => (
             <div key={"reaction-emote-" + (idx + 1)} 
-            className={"reaction-emote " + "reaction-emote-" + (idx + 1)}>
+            className={"reaction-emote reaction-emote-" + (idx + 1)}>
               {val}
             </div>
           ))}

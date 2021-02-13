@@ -30,23 +30,27 @@ class SoundEffectController extends React.Component {
     this.props.setPlayTromboneSound(this.playTromboneSound);
     this.props.setPlaySelectAnswer(this.playSelectAnswer);
     this.props.setPlayNewRoundSound(this.playNewRoundSound);
-    this.volume = this.props.volume/100 + 0.15;
+    this.volume = props.volume/100 + 0.15;
     this.finalRat = null;
     this.currentRatIdx = -1;
     this.musicStarted = false;
   }
 
   shouldComponentUpdate(props) {
-    if(this.props.volume !== this.volume){
-      
-      if(props.volume === 0){
-        this.volume = 0;
-      } else {
-        this.volume = props.volume / 100 + 0.15;
-        this.volume = this.volume > 1 ? 1 : this.volume;
-      }
+    if(props.volume === 0){
+      this.volume = 0;
+      this.setVolume(this.volume);
+      return false;
+    }
+
+    let newvolume = props.volume / 100 + 0.15;
+    newvolume = newvolume > 1 ? 1 : newvolume;
+
+    if(newvolume !== this.volume){
+      this.volume = newvolume;
       this.setVolume(this.volume);
     }
+
     return false;
   }
 
@@ -83,7 +87,9 @@ class SoundEffectController extends React.Component {
   }
 
   setVolume(vol) {
-    if (this.rap) {
+    
+    if (this.rap && this.rap.volume !== vol) {
+      console.log("changed sfx volume", vol);
       this.rap.volume = vol;
     }
   }
