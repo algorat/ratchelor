@@ -50,19 +50,20 @@ const backgroundSrc = [bg0, bg1, bg2, bg3, bg4, bg5];
 const soundSrc = [s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18, s19, s20];
 
 var firebaseConfig = {
-  messagingSenderId: "993096202246",
-  appId: "1:993096202246:web:bf0ebeedc4c347640aeb87",
-};
-var firebaseConfig = {
   apiKey: "AIzaSyDimK5PvHd3hBT8Xoyup_ogKaSPT3Chwzc",
   authDomain: "ratchelor.firebaseapp.com",
+  databaseURL: "https://ratchelor-default-rtdb.firebaseio.com",
   projectId: "ratchelor",
-  databaseURL: "https://ratchelor-default-rtdb.firebaseio.com/",
   storageBucket: "ratchelor.appspot.com",
+  messagingSenderId: "993096202246",
+  appId: "1:993096202246:web:bf0ebeedc4c347640aeb87",
+  measurementId: "G-LV5NLFXL03"
 };
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+console.log("hello world im doing analytics");
+firebase.analytics();
 
 // Game Stages
 const INTRO = 0;
