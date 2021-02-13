@@ -12,7 +12,9 @@ import CharacterSelect from "./components/CharacterSelect";
 import Proposal from "./components/Proposal";
 
 import ratsJson from "./rats.json";
-import firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/analytics";
+import "firebase/database";
 import allPublicImagesForPreload from "./allPublicImages.json";
 
 /* background img files for preload -- sry for the tech debt but its 1am */
@@ -49,19 +51,19 @@ const backgroundSrc = [bg0, bg1, bg2, bg3, bg4, bg5];
 const soundsToPreload = [s2, s3, s5, s6, s7, s11, s1];
 
 var firebaseConfig = {
-  messagingSenderId: "993096202246",
-  appId: "1:993096202246:web:bf0ebeedc4c347640aeb87",
-};
-var firebaseConfig = {
   apiKey: "AIzaSyDimK5PvHd3hBT8Xoyup_ogKaSPT3Chwzc",
   authDomain: "ratchelor.firebaseapp.com",
+  databaseURL: "https://ratchelor-default-rtdb.firebaseio.com",
   projectId: "ratchelor",
-  databaseURL: "https://ratchelor-default-rtdb.firebaseio.com/",
   storageBucket: "ratchelor.appspot.com",
+  messagingSenderId: "993096202246",
+  appId: "1:993096202246:web:bf0ebeedc4c347640aeb87",
+  measurementId: "G-LV5NLFXL03"
 };
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
 // Game Stages
 const INTRO = 0;
@@ -83,6 +85,7 @@ class RatchelorGame extends React.Component {
     this.numRatsInGame = 7;
     // How many rounds there are
     this.numRounds = 5;
+    this.setProposedInDatabase = false;
     // How many roses get given out each round
     this.rosesPerRound = [5, 4, 3, 2, 1];
 
@@ -298,6 +301,7 @@ class RatchelorGame extends React.Component {
   // Reset everything to restart the game
   restartGame() {
     console.log("restarting");
+    this.setProposedInDatabase = false;
     this.setState(
       {
         gameStage: INTRO,
@@ -492,6 +496,10 @@ class RatchelorGame extends React.Component {
       );
     } else if (this.state.gameStage === PROPOSAL) {
       this.finalRat = this.getRatByName(this.state.activeRatNames[0]);
+      if(!this.setProposedInDatabase){
+        this.setProposedInDatabase = true;
+        this.incrementTotalRatCount(this.state.activeRatNames[0]);
+      }
       screen = (
         <Proposal
           finalRat={this.finalRat}
@@ -525,6 +533,7 @@ class RatchelorGame extends React.Component {
           <div id="mobile-message">{`To experience The Ratchelor, ${randoRat.name} wants you to access this website on a desktop computer!`}</div>
           <img
             id="mobile-img"
+            alt="a rat who loves you"
             src={`/ratchelor/img/Characters/${randoRatFilename}.png`}
           ></img>
         </div>
