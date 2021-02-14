@@ -2,7 +2,7 @@ import React from "react";
 import photosRats from '../photosRats.json';
 import ratsJson from "../rats.json";
 
-class RatSelect extends React.Component {
+class SpecialEnding extends React.Component {
   constructor(props) {
     super(props);
     this.text  = []
@@ -85,7 +85,9 @@ class RatSelect extends React.Component {
               noViableEnding = this.offLimitRats.indexOf(corats[corats.length-1]) >=0  
               // console.log("noViableEnding: " + noViableEnding)
               break;
-          
+            default:
+              //do nothing
+              break;
             }
           // break while loop
           if(j > numEndings){
@@ -149,13 +151,13 @@ class RatSelect extends React.Component {
   render() {
     //console.log(this.photos)
     // console.log(photos)
-    let ratsList = [<img id="specialBg" onClick={this.deselect.bind(this)} src={`/ratchelor/img/Photos/background.png`} alt="images on a table!"></img> ]
+    let ratsList = [<img key={"bgimg"} id="specialBg" onClick={this.deselect.bind(this)} src={`/ratchelor/img/Photos/background.png`} alt="images on a table!"></img> ]
 
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.photos.length; i++) {
       if(this.text[i] === undefined){continue;}
       ratsList.push(
-        <div key={i} id="ratContainer">
+        <div key={"ratslist" + i} id="ratContainer">
           <div  id={`rat${i}`} className="ratListItem">
           <div className="ratPic">
             <img className="ratFrame"
@@ -176,7 +178,7 @@ class RatSelect extends React.Component {
       )
     }
     ratsList.push(
-    <div style={{paddingTop:20}}> 
+    <div key={"restartbutton"} style={{paddingTop:20}}> 
       <button id="restartButton" onClick={this.props.restartGame}>Restart?</button>
       </div>
     )
@@ -190,5 +192,5 @@ class RatSelect extends React.Component {
   }
 }
 
-export default RatSelect;
+export default SpecialEnding;
 
