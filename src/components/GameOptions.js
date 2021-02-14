@@ -23,7 +23,7 @@ class GameOptions extends React.Component {
 
     const toggleSound = () => {
       if (this.props.volume === 0) {
-        this.props.changeVolume(25);
+        this.props.changeVolume(18);
       } else {
         this.props.changeVolume(0);
       }
