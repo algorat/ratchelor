@@ -91,16 +91,12 @@ class RatchelorGame extends React.Component {
     this.setProposedInDatabase = false;
     // How many roses get given out each round
     this.rosesPerRound = [5, 4, 3, 2, 1];
-<<<<<<< HEAD
-    //this.beginningRats;
-=======
 
     this.allPublicImagesForPreload = allPublicImagesForPreload;
     this.backgroundSrc = backgroundSrc;
     this.soundsToPreload = soundsToPreload;
     this.soundsToAsyncLoad = soundsToAsyncLoad;
 
->>>>>>> main
     this.state = {
       // What phase of the game we're in
       gameStage: SPECIAL_ENDING, // TODO TAKE THISOUT SORRY IF ANYONE ELSE SEE S THISS
@@ -578,7 +574,7 @@ class RatchelorGame extends React.Component {
             this.restartGame();
           }}
         />);
-        
+
     }else if (this.state.gameStage === SPECIAL_ENDING) {
       // special ending screen:
       //    allows game to be restarted
