@@ -1292,22 +1292,39 @@ input[type='range']::-ms-thumb {
   z-index: 0;
 }
 
-#credits{
+#credits {
   position: absolute;
-  bottom: 12px;
-  width: 220px;
+  top: 12px;
+  width: auto;
   right: 12px;
   padding: 4px 12px;
   border-radius: 12px;
   line-height: 105%;
-  background-color: #FEDCDD;
+  background-color: rgba(254, 220, 221, 1);
   font-family: Yusei Magic;
   text-align: center;
   color: rgb(114, 63, 65);
   font-size: 14px;
+  cursor: pointer;
 }
 
-#sound-credit{
+#credits #algorats-credit {
+  display: none;
+}
+
+#credits #sound-credit {
+  display: none;
+}
+
+#credits:hover #algorats-credit {
+  display: block;
+}
+
+#credits:hover #sound-credit {
+  display: block;
+}
+
+#sound-credit {
   font-size: 11px;
   font-style: italic;
 }
