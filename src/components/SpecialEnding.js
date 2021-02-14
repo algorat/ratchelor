@@ -45,7 +45,7 @@ class RatSelect extends React.Component {
       
         var numEndings = photosRats[i].photos.length
        
-        var idx = 0 //Math.floor(Math.random() * numEndings)
+        var idx = Math.floor(Math.random() * numEndings)
         //var coRat = [this.offLimitRats[0]]
         // add this rat
         // just set it to something that will start the while loop
