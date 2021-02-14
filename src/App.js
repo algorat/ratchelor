@@ -99,7 +99,7 @@ class RatchelorGame extends React.Component {
 
     this.state = {
       // What phase of the game we're in
-      gameStage: SPECIAL_ENDING, // TODO TAKE THISOUT SORRY IF ANYONE ELSE SEE S THISS
+      gameStage: SPECIAL_ENDING,
       // What round of the rose-talking loop we're on
       roundNum: 0,
       //beginning rat pool for the special end
@@ -570,8 +570,8 @@ class RatchelorGame extends React.Component {
       screen = (
         <AnimeEnding
           winningRat={this.finalRat}
-          restartGame={() => {
-            this.restartGame();
+          epilogue={() => {
+            this.setState({ gameStage: ANIME_ENDING });
           }}
         />);
 
@@ -581,10 +581,13 @@ class RatchelorGame extends React.Component {
 
       screen = 
         <SpecialEnding
-          // finalRat={this.getRatByName(this.state.activeRatNames[0])}
+          finalRat={this.getRatByName(this.state.activeRatNames[0])}
           finalRat={"Slim Jim"}
-          restartGame={() => {
-            this.restartGame();
+          // restartGame={() => {
+          //   this.restartGame();
+          // }}
+          getRatByName={(n) =>{
+            this.getRatByName(n);
           }}
          
           beginningRatPool={[ "Heighness Laure", "Hottie Thesputle","Migg Mouse", "Bora XIV", "Dr. Plagueus", "ARealRat", "Reggie-231"]}

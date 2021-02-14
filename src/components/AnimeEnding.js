@@ -17,8 +17,8 @@ class AnimeEnding extends React.Component {
             ]
           }
         </div>
-        <button id="restartButton" onClick={this.props.restartGame}>
-          Restart?
+        <button id="restartButton" onClick={this.props.epilogue}>
+        Epilogue
         </button>
       </div>
     );

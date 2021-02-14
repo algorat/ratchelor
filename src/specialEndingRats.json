@@ -1,296 +1,474 @@
 [
     {
-        "name": "Heighness Laure",
-        "files": [
-            "Slim_Jim_Highness_Laure.png",
-            "Hottie_Thespule_Highness_Laure.png"
-        ],
-        "coRats":[
-        "Slim Jim", "Hottie Thesputle"
-        ],
-        "text": [
-            "slimjim and highness Laure get together! Wow!", 
-            "Hottie Thesputle and Highness Laure get together! Cool!"
-        ]
+
+        "rat": "heighnesslaure",
+        "photos":[{
+            "filename": "highnessbora.PNG",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "heighnesslaure",
+            "Rat2": "boraxiv"
+          },{
+            "filename": "Hottie_Thespule_Highness_Laure.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "heighnesslaure",
+            "Rat2": "hottiethespule"
+          },{
+            "filename": "Slim_Jim_Highness_Laure.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "slimjim",
+            "Rat2": "heighnesslaure"
+          }]
+
     },
     {
-        "name": "Migg Mouse",
-        "files": [
-            "Slim_Jim_Highness_Laure.png",
-            "Hottie_Thespule_Highness_Laure.png"
-        ],
-        "coRats":[
-        "Slim Jim", "Hottie Thesputle"
-        ],
-        "text": [
-            "slimjim and highness Laure get together! Wow!", 
-            "Hottie Thesputle and Highness Laure get together! Cool!"
-        ]
+
+        "rat": "miggmouse",
+        "photos":[{
+            "filename": "Bear_migg_mouse.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "bear",
+            "Rat2": "miggmouse"
+          },{
+            "filename": "BORA_MIGG.PNG",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "boraxiv",
+            "Rat2": "miggmouse"
+          },{
+            "filename": "miggelly.PNG",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "egralo",
+            "Rat2": "miggmouse"
+          },{
+            "filename": "migg.PNG",
+            "text": "filler",
+            "numRats": 1,
+            "Rat1": "miggmouse"
+          },{
+            "filename": "Slim_Jim_Migg_Mouse.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "slimjim",
+            "Rat2": "miggmouse"
+          },{
+            "filename": "Slim_Jim_One-Eared_Jerio.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "slimjim",
+            "Rat2": "oneearedjerio"
+          }]
+
     },
     {
-        "name": "L'Artiste",
-        "files": [
-            "Slim_Jim_Highness_Laure.png",
-            "Hottie_Thespule_Highness_Laure.png"
-        ],
-        "coRats":[
-        "Slim Jim", "Hottie Thesputle"
-        ],
-        "text": [
-            "slimjim and highness Laure get together! Wow!", 
-            "Hottie Thesputle and Highness Laure get together! Cool!"
-        ]
+
+        "rat": "lartiste",
+        "photos":[{
+            "filename": "Bear_lartiste.PNG",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "bear",
+            "Rat2": "lartiste"
+          },{
+            "filename": "Hempleton_Lartiste.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "hemptin",
+            "Rat2": "lartiste"
+          }]
+
     },
     {
-        "name": "Bora XIV",
-        "files": [
-            "Slim_Jim_Highness_Laure.png",
-            "Hottie_Thespule_Highness_Laure.png"
-        ],
-        "coRats":[
-        "Slim Jim", "Hottie Thesputle"
-        ],
-        "text": [
-            "slimjim and highness Laure get together! Wow!", 
-            "Hottie Thesputle and Highness Laure get together! Cool!"
-        ]
+
+        "rat": "boraxiv",
+        "photos":[{
+            "filename": "Largathon_Bora_XIV.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "boraxiv",
+            "Rat2": "largothon"
+          },{
+            "filename": "BORA_MIGG.PNG",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "boraxiv",
+            "Rat2": "miggmouse"
+          },{
+            "filename": "nora_jerio.PNG",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "boraxiv",
+            "Rat2": "oneearedjerio"
+          },{
+            "filename": "Bora.png",
+            "text": "filler",
+            "numRats": 1,
+            "Rat1": "boraxiv"
+          },{
+            "filename": "highnessbora.PNG",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "heighnesslaure",
+            "Rat2": "boraxiv"
+          }]
+
     },
     {
-        "name": "Dr. Plagueus",
-        "files": [
-            "Slim_Jim_Highness_Laure.png",
-            "Hottie_Thespule_Highness_Laure.png"
-        ],
-        "coRats":[
-        "Slim Jim", "Hottie Thesputle"
-        ],
-        "text": [
-            "slimjim and highness Laure get together! Wow!", 
-            "Hottie Thesputle and Highness Laure get together! Cool!"
-        ]
+
+        "rat": "dr",
+        "photos":[{
+            "filename": "Egg_Salad_Dr.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "eggsalad",
+            "Rat2": "dr"
+          }]
+
     },
     {
-        "name": "ARealRat",
-        "files": [
-            "Slim_Jim_Highness_Laure.png",
-            "Hottie_Thespule_Highness_Laure.png"
-        ],
-        "coRats":[
-        "Slim Jim", "Hottie Thesputle"
-        ],
-        "text": [
-            "slimjim and highness Laure get together! Wow!", 
-            "Hottie Thesputle and Highness Laure get together! Cool!"
-        ]
+
+        "rat": "arealrat",
+        "photos":[
+            {
+                "filename": "arealrat.PNG",
+                "text": "filler",
+                "numRats": 1,
+                "Rat1": "arealrat"
+              },{
+                "filename": "reggie_arealrat.PNG",
+                "text": "filler",
+                "numRats": 2,
+                "Rat1": "reggie231",
+                "Rat2": "arealrat"
+              },{
+                "filename": "One-Eared_Jerio_Reggie-231.png",
+                "text": "filler",
+                "numRats": 2,
+                "Rat1": "reggie231",
+                "Rat2": "oneearedjerio"
+              },{
+                "filename": "Vim_Arealrat.png",
+                "text": "filler",
+                "numRats": 2,
+                "Rat1": "vim",
+                "Rat2": "arealrat"
+              }
+            ]
     },
     {
-        "name": "Reggie-231",
-        "files": [
-            "Slim_Jim_Highness_Laure.png",
-            "Hottie_Thespule_Highness_Laure.png"
-        ],
-        "coRats":[
-        "Slim Jim", "Hottie Thesputle"
-        ],
-        "text": [
-            "slimjim and highness Laure get together! Wow!", 
-            "Hottie Thesputle and Highness Laure get together! Cool!"
-        ]
+
+        "rat": "reggie231",
+        "photos":[{
+            "filename": "hottiehighnesscyborg.PNG",
+            "text": "filler",
+            "numRats": 3,
+            "Rat1": "heighnesslaure",
+            "Rat2": "hottiethespule",
+            "Rat3": "reggie231"
+          },{
+            "filename": "Hottie_Thespule_Highness_Laure.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "heighnesslaure",
+            "Rat2": "hottiethespule"
+          },{
+            "filename": "reggie_arealrat.PNG",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "reggie231",
+            "Rat2": "arealrat"
+          }]
+
     },
     {
-        "name": "Vim",
-        "files": [
-            "Slim_Jim_Highness_Laure.png",
-            "Hottie_Thespule_Highness_Laure.png"
-        ],
-        "coRats":[
-        "Slim Jim", "Hottie Thesputle"
-        ],
-        "text": [
-            "slimjim and highness Laure get together! Wow!", 
-            "Hottie Thesputle and Highness Laure get together! Cool!"
-        ]
+
+        "rat": "vim",
+        "photos":[{
+            "filename": "Vim_Arealrat.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "vim",
+            "Rat2": "arealrat"
+          },{
+            "filename": "vim.PNG",
+            "text": "filler",
+            "numRats": 1,
+            "Rat1": "vim"
+          }]
+
     },
     {
-        "name": "Bear",
-        "files": [
-            "Slim_Jim_Highness_Laure.png",
-            "Hottie_Thespule_Highness_Laure.png"
-        ],
-        "coRats":[
-        "Slim Jim", "Hottie Thesputle"
-        ],
-        "text": [
-            "slimjim and highness Laure get together! Wow!", 
-            "Hottie Thesputle and Highness Laure get together! Cool!"
-        ]
+
+        "rat": "bear",
+        "photos":[{
+            "filename": "Bear_lartiste.PNG",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "bear",
+            "Rat2": "lartiste"
+          },{
+            "filename": "Bear_Largathon.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "bear",
+            "Rat2": "largothon"
+          },{
+            "filename": "Bear_migg_mouse.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "bear",
+            "Rat2": "miggmouse"
+          }]
+
     },
     {
-        "name": "EggSalad",
-        "files": [
-            "Slim_Jim_Highness_Laure.png",
-            "Hottie_Thespule_Highness_Laure.png"
-        ],
-        "coRats":[
-        "Slim Jim", "Hottie Thesputle"
-        ],
-        "text": [
-            "slimjim and highness Laure get together! Wow!", 
-            "Hottie Thesputle and Highness Laure get together! Cool!"
-        ]
+
+        "rat": "eggsalad",
+        "photos":[{
+            "filename": "Egg_Salad_Dr.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "eggsalad",
+            "Rat2": "dr"
+          },{
+            "filename": "Emacs_EggSalad.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "eggsalad",
+            "Rat2": "emacs"
+          }]
+
     },
     {
-        "name": "Emacs",
-        "files": [
-            "Slim_Jim_Highness_Laure.png",
-            "Hottie_Thespule_Highness_Laure.png"
-        ],
-        "coRats":[
-        "Slim Jim", "Hottie Thesputle"
-        ],
-        "text": [
-            "slimjim and highness Laure get together! Wow!", 
-            "Hottie Thesputle and Highness Laure get together! Cool!"
-        ]
+
+        "rat": "emacs",
+        "photos":[{
+            "filename": "Emacs_EggSalad.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "eggsalad",
+            "Rat2": "emacs"
+          },{
+            "filename": "emacs_egralo.PNG",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "egralo",
+            "Rat2": "emacs"
+          }]
+
     },
     {
-        "name": "Jagadoo",
-        "files": [
-            "Slim_Jim_Highness_Laure.png",
-            "Hottie_Thespule_Highness_Laure.png"
-        ],
-        "coRats":[
-        "Slim Jim", "Hottie Thesputle"
-        ],
-        "text": [
-            "slimjim and highness Laure get together! Wow!", 
-            "Hottie Thesputle and Highness Laure get together! Cool!"
-        ]
+
+        "rat": "jagadoo",
+        "photos":[{
+            "filename": "Ragadoo.png",
+            "text": "filler",
+            "numRats": 1,
+            "Rat1": "jagadoo"
+          }]
     },
     {
-        "name": "Slim Jim",
-        "files": [
-            "Slim_Jim_Highness_Laure.png",
-            "Hottie_Thespule_Highness_Laure.png"
-        ],
-        "coRats":[
-        "Slim Jim", "Hottie Thesputle"
-        ],
-        "text": [
-            "slimjim and highness Laure get together! Wow!", 
-            "Hottie Thesputle and Highness Laure get together! Cool!"
-        ]
+
+        "rat": "slimjim",
+        "photos":[{
+            "filename": "Slim_Jim_Highness_Laure.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "slimjim",
+            "Rat2": "heighnesslaure"
+          },{
+            "filename": "Slim_Jim_Largathon.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "slimjim",
+            "Rat2": "largothon"
+          },{
+            "filename": "Slim_Jim_Migg_Mouse.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "slimjim",
+            "Rat2": "miggmouse"
+          },{
+            "filename": "slimjim.PNG",
+            "text": "filler",
+            "numRats": 1,
+            "Rat1": "slimjim"
+          }]
     },
     {
-        "name": "Hiberdean",
-        "files": [
-            "Slim_Jim_Highness_Laure.png",
-            "Hottie_Thespule_Highness_Laure.png"
-        ],
-        "coRats":[
-        "Slim Jim", "Hottie Thesputle"
-        ],
-        "text": [
-            "slimjim and highness Laure get together! Wow!", 
-            "Hottie Thesputle and Highness Laure get together! Cool!"
-        ]
+
+        "rat": "hiberdean",
+        "photos":[ {
+            "filename": "Hiberdean_Midgeon.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "hiberdean",
+            "Rat2": "manelo"
+          },{
+            "filename": "Hiberdean.png",
+            "text": "filler",
+            "numRats": 1,
+            "Rat1": "hiberdean"
+          }]
     },
     {
-        "name": "Hottie Thespule",
-        "files": [
-            "Slim_Jim_Highness_Laure.png",
-            "Hottie_Thespule_Highness_Laure.png"
-        ],
-        "coRats":[
-        "Slim Jim", "Hottie Thesputle"
-        ],
-        "text": [
-            "slimjim and highness Laure get together! Wow!", 
-            "Hottie Thesputle and Highness Laure get together! Cool!"
-        ]
+
+        "rat": "hottiethespule",
+        "photos":[{
+            "filename": "hottiehighnesscyborg.PNG",
+            "text": "filler",
+            "numRats": 3,
+            "Rat1": "heighnesslaure",
+            "Rat2": "hottiethespule",
+            "Rat3": "reggie231"
+          },{
+            "filename": "Hottie_Thespule_Highness_Laure.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "heighnesslaure",
+            "Rat2": "hottiethespule"
+          },{
+            "filename": "highness_laure.PNG",
+            "text": "filler",
+            "numRats": 1,
+            "Rat1": "heighnesslaure"
+          },{
+            "filename": "Hottie_Thespule_Midgeon.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "hottiethespule",
+            "Rat2": "manelo"
+          }]
     },
     {
-        "name": "Egralo",
-        "files": [
-            "Slim_Jim_Highness_Laure.png",
-            "Hottie_Thespule_Highness_Laure.png"
-        ],
-        "coRats":[
-        "Slim Jim", "Hottie Thesputle"
-        ],
-        "text": [
-            "slimjim and highness Laure get together! Wow!", 
-            "Hottie Thesputle and Highness Laure get together! Cool!"
-        ]
+
+        "rat": "egralo",
+        "photos":[{
+            "filename": "emacs_egralo.PNG",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "egralo",
+            "Rat2": "emacs"
+          },{
+            "filename": "miggelly.PNG",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "egralo",
+            "Rat2": "miggmouse"
+          },{
+            "filename": "elagro.PNG",
+            "text": "filler",
+            "numRats": 1,
+            "Rat1": "egralo"
+          }]
     },
     {
-        "name": "Manelo",
-        "files": [
-            "Slim_Jim_Highness_Laure.png",
-            "Hottie_Thespule_Highness_Laure.png"
-        ],
-        "coRats":[
-        "Slim Jim", "Hottie Thesputle"
-        ],
-        "text": [
-            "slimjim and highness Laure get together! Wow!", 
-            "Hottie Thesputle and Highness Laure get together! Cool!"
-        ]
+
+        "rat": "manelo",
+        "photos":[ {
+            "filename": "Hiberdean_Midgeon.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "hiberdean",
+            "Rat2": "manelo"
+          },{
+            "filename": "Hottie_Thespule_Midgeon.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "hottiethespule",
+            "Rat2": "manelo"
+          },{
+            "filename": "Manelo.PNG",
+            "text": "filler",
+            "numRats": 1,
+            "Rat1": "manelo"
+          }]
+
     },
     {
-        "name": "Gerott",
-        "files": [
-            "Slim_Jim_Highness_Laure.png",
-            "Hottie_Thespule_Highness_Laure.png"
-        ],
-        "coRats":[
-        "Slim Jim", "Hottie Thesputle"
-        ],
-        "text": [
-            "slimjim and highness Laure get together! Wow!", 
-            "Hottie Thesputle and Highness Laure get together! Cool!"
-        ]
+
+        "rat": "gerott",
+        "photos":[{
+            "filename": "Gerrot.png",
+            "text": "filler",
+            "numRats": 1,
+            "Rat1": "gerott"
+          }]
+
     },
     {
-        "name": "Hemptin",
-        "files": [
-            "Slim_Jim_Highness_Laure.png",
-            "Hottie_Thespule_Highness_Laure.png"
-        ],
-        "coRats":[
-        "Slim Jim", "Hottie Thesputle"
-        ],
-        "text": [
-            "slimjim and highness Laure get together! Wow!", 
-            "Hottie Thesputle and Highness Laure get together! Cool!"
-        ]
+
+        "rat": "hemptin",
+        "photos":[{
+            "filename": "Hempleton_Dr.png",
+            "text": "filler",
+            "numRats": 1,
+            "Rat1": "hemptin",
+            "Rat2": "dr"
+          },{
+            "filename": "Hempleton_Lartiste.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "hemptin",
+            "Rat2": "lartiste"
+          },{
+            "filename": "hempleton.PNG",
+            "text": "filler",
+            "numRats": 1,
+            "Rat1": "hemptin"
+          }]
+
     },
     {
-        "name": "One-Eared Jerio",
-        "files": [
-            "Slim_Jim_Highness_Laure.png",
-            "Hottie_Thespule_Highness_Laure.png"
-        ],
-        "coRats":[
-        "Slim Jim", "Hottie Thesputle"
-        ],
-        "text": [
-            "slimjim and highness Laure get together! Wow!", 
-            "Hottie Thesputle and Highness Laure get together! Cool!"
-        ]
+
+        "rat": "oneearedjerio",
+        "photos":[{
+            "filename": "nora_jerio.PNG",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "boraxiv",
+            "Rat2": "oneearedjerio"
+          },{
+            "filename": "One-Eared_Jerio_Reggie-231.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "reggie231",
+            "Rat2": "oneearedjerio"
+          },{
+            "filename": "Slim_Jim_One-Eared_Jerio.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "slimjim",
+            "Rat2": "oneearedjerio"
+          }]
+
     },
     {
-        "name": "Largothon",
-        "files": [
-            "Slim_Jim_Highness_Laure.png",
-            "Hottie_Thespule_Highness_Laure.png"
-        ],
-        "coRats":[
-        "Slim Jim", "Hottie Thesputle"
-        ],
-        "text": [
-            "slimjim and highness Laure get together! Wow!", 
-            "Hottie Thesputle and Highness Laure get together! Cool!"
-        ]
+
+        "rat": "largothon",
+        "photos":[{
+            "filename": "Bear_Largathon.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "bear",
+            "Rat2": "largothon"
+          },{
+            "filename": "Largathon_Bora_XIV.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "boraxiv",
+            "Rat2": "largothon"
+          },{
+            "filename": "Slim_Jim_Largathon.png",
+            "text": "filler",
+            "numRats": 2,
+            "Rat1": "slimjim",
+            "Rat2": "largothon"
+          }]
+
     }
 ]
