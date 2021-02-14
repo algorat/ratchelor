@@ -804,24 +804,24 @@
     ],
     "4": [
       {
-        "response": "Oh wow",
-        "reaction": "smile"
-      },
-      {
         "response": "Yuck",
-        "reaction": "tear"
+        "reaction": "cry"
       },
       {
         "response": "Yikes",
-        "reaction": "tear"
+        "reaction": "cry"
       },
       {
         "response": "You talk a lot",
-        "reaction": "big_frown"
+        "reaction": "cry"
       },
       {
         "response": "Care for some juice?",
-        "reaction": "smile"
+        "reaction": "heyes"
+      },
+      {
+        "response": "Yes",
+        "reaction": "heyes"
       }
     ],
     "5": [
@@ -1077,23 +1077,23 @@
     "4": [
       {
         "response": "Wow!",
-        "reaction": "big_smile"
+        "reaction": "heart_eyes_three"
       },
       {
         "response": "Okay",
-        "reaction": "heyes"
+        "reaction": "heart_eyes_three"
       },
       {
-        "response": "I'm so sorry to hear that",
-        "reaction": "big_frown"
+        "response": "Care for some juice?",
+        "reaction": "smile_six"
       },
       {
         "response": "I appreciate your vulnerability",
-        "reaction": "heart"
+        "reaction": "heart_eyes_three"
       },
       {
         "response": "I value you",
-        "reaction": "heart"
+        "reaction": "heart_eyes_three"
       },
       {
         "response": "Uh...",
@@ -1101,11 +1101,15 @@
       },
       {
         "response": "Yuck",
-        "reaction": "big_frown"
+        "reaction": "cry_three"
+      },
+      {
+        "response": "Don't even look at me",
+        "reaction": "cry_three"
       },
       {
         "response": "Yikes",
-        "reaction": "big_frown"
+        "reaction": "cry_three"
       }
     ],
     "5": [
@@ -2817,7 +2821,7 @@
       },
       {
         "response": "Yuck",
-        "reaction": "tear"
+        "reaction": "cry"
       },
       {
         "response": "Yikes",
@@ -2829,14 +2833,29 @@
       },
       {
         "response": "Care for some juice?",
-        "reaction": "smile"
+        "reaction": "heyes"
       },
       {
         "response": "Hmm!",
         "reaction": "smile"
       }
     ],
-    "5": [
+    "5": [      {
+      "response": "You talk a lot",
+      "reaction": "neutral"
+    },
+    {
+      "response": "Care for some juice?",
+      "reaction": "smile"
+    },
+    {
+      "response": "Hmm!",
+      "reaction": "smile"
+    }
+    ]
+  },
+  "hottiethespule": {
+    "0": [
       {
         "response": "Wow you're so different",
         "reaction": "neutral"
@@ -2893,10 +2912,8 @@
         "response": "Yuck",
         "reaction": "mad"
       }
-    ]
-  },
-  "hottiethespule": {
-    "0": [
+    ],
+    "1": [
       {
         "response": "Wow you're so different",
         "reaction": "neutral"
@@ -2926,7 +2943,7 @@
         "reaction": "mad"
       }
     ],
-    "1": [
+    "2": [
       {
         "response": "Wow you're so different",
         "reaction": "neutral"
@@ -2948,7 +2965,7 @@
         "reaction": "mad"
       }
     ],
-    "2": [
+    "3": [
       {
         "response": "I'm so sorry to hear that",
         "reaction": "bemused"
@@ -2970,7 +2987,7 @@
         "reaction": "mad"
       }
     ],
-    "3": [
+    "4": [
       {
         "response": "Okay",
         "reaction": "smile"
@@ -2988,7 +3005,7 @@
         "reaction": "mad"
       }
     ],
-    "4": [
+    "5": [
       {
         "response": "Oh wow",
         "reaction": "heyes"
@@ -3017,12 +3034,6 @@
         "response": "You talk a lot",
         "reaction": "mad"
       }
-    ],
-    "5": [
-      {
-        "response": "Wow you're so different",
-        "reaction": "smile"
-      }
     ]
   },
   "egralo": {
@@ -3030,14 +3041,27 @@
       {
         "response": "Wow you're so different",
         "reaction": "smile"
-      },
-      {
-        "response": "Yuck",
-        "reaction": "big_frown"
-      },
-      {
-        "response": "Yikes",
-        "reaction": "big_frown"
+      },      {
+        "response": "Wow!",
+        "reaction": "smile"
+      },      {
+        "response": "I think outfits are ugly",
+        "reaction": "frown"
+      },      {
+        "response": "What?",
+        "reaction": "smile"
+      },      {
+        "response": "Wow!",
+        "reaction": "smile"
+      },      {
+        "response": "oh wow",
+        "reaction": "smile"
+      },      {
+        "response": "Would you like some juice?",
+        "reaction": "smile"
+      },      {
+        "response": "yikes!",
+        "reaction": "tear"
       }
     ],
     "1": [
@@ -3046,21 +3070,19 @@
         "reaction": "smile"
       },
       {
-        "response": "Wow!",
-        "reaction": "big_smile"
-      },
-      {
-        "response": "Interesting",
-        "reaction": "smile"
-      },
-      {
         "response": "Yuck",
-        "reaction": "tear"
+        "reaction": "big_frown"
       },
       {
         "response": "Yikes",
-        "reaction": "tear"
-      }
+        "reaction": "big_frown"
+      },      {
+        "response": "Wow!",
+        "reaction": "smile"
+      },      {
+        "response": "oh wow",
+        "reaction": "smile"
+      } 
     ],
     "2": [
       {
@@ -3068,8 +3090,8 @@
         "reaction": "smile"
       },
       {
-        "response": "That's nice",
-        "reaction": "smile"
+        "response": "Wow!",
+        "reaction": "big_smile"
       },
       {
         "response": "Interesting",
@@ -3094,6 +3116,28 @@
         "reaction": "smile"
       },
       {
+        "response": "Interesting",
+        "reaction": "smile"
+      },
+      {
+        "response": "Yuck",
+        "reaction": "tear"
+      },
+      {
+        "response": "Yikes",
+        "reaction": "tear"
+      }
+    ],
+    "4": [
+      {
+        "response": "Wow you're so different",
+        "reaction": "smile"
+      },
+      {
+        "response": "That's nice",
+        "reaction": "smile"
+      },
+      {
         "response": "I can't imagine what that's like",
         "reaction": "heyes"
       },
@@ -3106,7 +3150,7 @@
         "reaction": "tear"
       }
     ],
-    "4": [
+    "5": [
       {
         "response": "Wow you're so different",
         "reaction": "smile"
@@ -3142,32 +3186,6 @@
       {
         "response": "Care for some juice?",
         "reaction": "heyes"
-      }
-    ],
-    "5": [
-      {
-        "response": "Oh wow",
-        "reaction": "smile"
-      },
-      {
-        "response": "Wow!",
-        "reaction": "smile"
-      },
-      {
-        "response": "Interesting",
-        "reaction": "smile"
-      },
-      {
-        "response": "I'm so glad you're here",
-        "reaction": "heart"
-      },
-      {
-        "response": "Yuck",
-        "reaction": "bemused"
-      },
-      {
-        "response": "Yikes",
-        "reaction": "bemused"
       }
     ]
   },
@@ -3264,6 +3282,32 @@
         "reaction": "smile"
       },
       {
+        "response": "I'm so glad you're here",
+        "reaction": "heart"
+      },
+      {
+        "response": "Yuck",
+        "reaction": "bemused"
+      },
+      {
+        "response": "Yikes",
+        "reaction": "bemused"
+      }
+    ],
+    "4": [
+      {
+        "response": "Oh wow",
+        "reaction": "smile"
+      },
+      {
+        "response": "Wow!",
+        "reaction": "smile"
+      },
+      {
+        "response": "Interesting",
+        "reaction": "smile"
+      },
+      {
         "response": "I value you",
         "reaction": "smile"
       },
@@ -3280,7 +3324,23 @@
         "reaction": "bemused"
       }
     ],
-    "4": [
+    "5": [
+      {
+        "response": "I can't imagine what that's like",
+        "reaction": "smile"
+      },
+      {
+        "response": "I value you",
+        "reaction": "heyes"
+      },
+      {
+        "response": "Yuck",
+        "reaction": "frown"
+      }
+    ]
+  },
+  "gerott": {
+    "0": [
       {
         "response": "Oh wow",
         "reaction": "smile"
@@ -3310,23 +3370,7 @@
         "reaction": "big_frown"
       }
     ],
-    "5": [
-      {
-        "response": "I can't imagine what that's like",
-        "reaction": "smile"
-      },
-      {
-        "response": "I value you",
-        "reaction": "heyes"
-      },
-      {
-        "response": "Yuck",
-        "reaction": "frown"
-      }
-    ]
-  },
-  "gerott": {
-    "0": [
+    "1": [
       {
         "response": "I can't imagine what that's like",
         "reaction": "confused"
@@ -3340,7 +3384,7 @@
         "reaction": "frown"
       }
     ],
-    "1": [
+    "2": [
       {
         "response": "I can't imagine what that's like",
         "reaction": "wow"
@@ -3358,7 +3402,7 @@
         "reaction": "tear"
       }
     ],
-    "2": [
+    "3": [
       {
         "response": "Oh wow",
         "reaction": "heart"
@@ -3396,7 +3440,7 @@
         "reaction": "frown"
       }
     ],
-    "3": [
+    "4": [
       {
         "response": "Oh wow",
         "reaction": "heart"
@@ -3418,7 +3462,7 @@
         "reaction": "tear"
       }
     ],
-    "4": [
+    "5": [
       {
         "response": "Oh wow",
         "reaction": "heart"
@@ -3455,24 +3499,6 @@
         "response": "Yikes",
         "reaction": "confused"
       }
-    ],
-    "5": [
-      {
-        "response": "I appreciate you sharing",
-        "reaction": "smile"
-      },
-      {
-        "response": "I value you",
-        "reaction": "smile"
-      },
-      {
-        "response": "I'm so glad you're here",
-        "reaction": "smile"
-      },
-      {
-        "response": "Yuck",
-        "reaction": "frown"
-      }
     ]
   },
   "hemptin": {
@@ -3491,7 +3517,7 @@
       },
       {
         "response": "Yuck",
-        "reaction": "confused"
+        "reaction": "frown"
       }
     ],
     "1": [
@@ -3509,7 +3535,7 @@
       },
       {
         "response": "Yuck",
-        "reaction": "bemused"
+        "reaction": "confused"
       }
     ],
     "2": [
@@ -3527,7 +3553,7 @@
       },
       {
         "response": "Yuck",
-        "reaction": "tear"
+        "reaction": "bemused"
       }
     ],
     "3": [
@@ -3545,11 +3571,7 @@
       },
       {
         "response": "Yuck",
-        "reaction": "angry"
-      },
-      {
-        "response": "Yikes",
-        "reaction": "frown"
+        "reaction": "tear"
       }
     ],
     "4": [
@@ -3576,10 +3598,6 @@
     ],
     "5": [
       {
-        "response": "Thanks for sharing",
-        "reaction": "smile"
-      },
-      {
         "response": "I appreciate you sharing",
         "reaction": "smile"
       },
@@ -3593,6 +3611,10 @@
       },
       {
         "response": "Yuck",
+        "reaction": "angry"
+      },
+      {
+        "response": "Yikes",
         "reaction": "frown"
       }
     ]
@@ -3601,6 +3623,10 @@
     "0": [
       {
         "response": "Thanks for sharing",
+        "reaction": "smile"
+      },
+      {
+        "response": "I appreciate you sharing",
         "reaction": "smile"
       },
       {
@@ -3628,9 +3654,27 @@
       {
         "response": "I'm so glad you're here",
         "reaction": "smile"
+      },
+      {
+        "response": "Yuck",
+        "reaction": "frown"
       }
     ],
     "2": [
+      {
+        "response": "Thanks for sharing",
+        "reaction": "smile"
+      },
+      {
+        "response": "I value you",
+        "reaction": "smile"
+      },
+      {
+        "response": "I'm so glad you're here",
+        "reaction": "smile"
+      }
+    ],
+    "3": [
       {
         "response": "Thanks for sharing",
         "reaction": "heyes"
@@ -3648,7 +3692,7 @@
         "reaction": "cry"
       }
     ],
-    "3": [
+    "4": [
       {
         "response": "I'm so sorry to hear that",
         "reaction": "confused"
@@ -3674,7 +3718,7 @@
         "reaction": "tear"
       }
     ],
-    "4": [
+    "5": [
       {
         "response": "Cool",
         "reaction": "smile"
@@ -3719,8 +3763,10 @@
         "response": "I'm so glad you're here",
         "reaction": "heyes"
       }
-    ],
-    "5": [
+    ]
+  },
+  "largothon": {
+    "0": [
       {
         "response": "Wow you're so different",
         "reaction": "smile"
@@ -3749,10 +3795,8 @@
         "response": "Hmm!",
         "reaction": "smile"
       }
-    ]
-  },
-  "largothon": {
-    "0": [
+    ],
+    "1": [
       {
         "response": "Okay",
         "reaction": "smile"
@@ -3778,7 +3822,7 @@
         "reaction": "smile"
       }
     ],
-    "1": [
+    "2": [
       {
         "response": "Interesting",
         "reaction": "smile"
@@ -3808,7 +3852,7 @@
         "reaction": "smile"
       }
     ],
-    "2": [
+    "3": [
       {
         "response": "I'm so sorry to hear that",
         "reaction": "frown"
@@ -3834,7 +3878,7 @@
         "reaction": "smile"
       }
     ],
-    "3": [
+    "4": [
       {
         "response": "Okay",
         "reaction": "smile"
@@ -3860,7 +3904,7 @@
         "reaction": "smile"
       }
     ],
-    "4": [
+    "5": [
       {
         "response": "Oh wow",
         "reaction": "smile"
@@ -3888,8 +3932,6 @@
       {
         "response": "Care for some juice?",
         "reaction": "smile"
-      }
-    ],
-    "5": []
+      }]
   }
 }
