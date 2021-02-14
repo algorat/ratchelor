@@ -173,7 +173,7 @@
     "0": [
       {
         "response": "Wow!",
-        "reaction": "heart eyes"
+        "reaction": "heyes"
       },
       {
         "response": "Thanks for sharing",
@@ -1159,11 +1159,11 @@
       },
       {
         "response": "Yuck",
-        "reaction": "big frown"
+        "reaction": "big_frown"
       },
       {
         "response": "Yikes",
-        "reaction": "big frown"
+        "reaction": "big_frown"
       }
     ],
     "1": [
@@ -1185,11 +1185,11 @@
       },
       {
         "response": "Yuck",
-        "reaction": "big frown"
+        "reaction": "big_frown"
       },
       {
         "response": "Yikes",
-        "reaction": "big frown"
+        "reaction": "big_frown"
       }
     ],
     "2": [
@@ -1207,11 +1207,11 @@
       },
       {
         "response": "Yuck",
-        "reaction": "big frown"
+        "reaction": "big_frown"
       },
       {
         "response": "Yikes",
-        "reaction": "big frown"
+        "reaction": "big_frown"
       }
     ],
     "3": [
@@ -1225,11 +1225,11 @@
       },
       {
         "response": "Yuck",
-        "reaction": "big frown"
+        "reaction": "big_frown"
       },
       {
         "response": "Yikes",
-        "reaction": "big frown"
+        "reaction": "big_frown"
       }
     ],
     "4": [
@@ -1243,11 +1243,11 @@
       },
       {
         "response": "Yuck",
-        "reaction": "big frown"
+        "reaction": "big_frown"
       },
       {
         "response": "Yikes",
-        "reaction": "big frown"
+        "reaction": "big_frown"
       }
     ],
     "5": [
@@ -1261,11 +1261,11 @@
       },
       {
         "response": "Yuck",
-        "reaction": "big frown"
+        "reaction": "big_frown"
       },
       {
         "response": "Yikes",
-        "reaction": "big frown"
+        "reaction": "big_frown"
       }
     ]
   },
