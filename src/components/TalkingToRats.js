@@ -137,22 +137,23 @@ class TalkingToRats extends React.Component {
 
   getRandomResponses() {
 
-    // this.activeRats[this.state.ratIndex].dialogue[this.props.round
-    // Make sure we get random, different responses  //filem
+    // Make sure we get random, different responses 
     const numResponses = 3;
-    // Shuffle all responses
-    //this active rats get state::: get rat index
-    //this.get
+  
+    //gets index of rat
     let currentRat = this.activeRats[this.state.ratIndex]
+    //gets rat filename
     let currentRatFilename = currentRat["filename"]
+    //grabs dialogue index
     let currentIndex = this.props.round
-    //responses for all indexes of rat talk
+
+    //all reaction/response couples for all rounds of chit-chat
     let currentRatResponses = responsesJson[currentRatFilename]
+
     //responses for current spoken dialogue only
     let currentRatResponseOptions = currentRatResponses[currentIndex]
-    console.log(currentRatResponseOptions)
 
-    //currentRatResponseOptions.sort(() => 0.5 - Math.random());
+    currentRatResponseOptions.sort(() => 0.5 - Math.random());
     // console.log(currentRatResponseOptions)
 
     let responses = [];
@@ -161,8 +162,11 @@ class TalkingToRats extends React.Component {
       let responseText = currentRatResponseOptions[i].response;
       let responseDiv = (
         <button onClick={
-          () => {this.submitResponse.bind(this)(); this.props.playSelectAnswer();}
+          () => {this.submitResponse.bind(this)(); 
+                  this.props.playSelectAnswer();
+                console.log(this)}
           } key={i}>
+
           {responseText}
         </button>
       );
@@ -176,6 +180,9 @@ class TalkingToRats extends React.Component {
     let ratDialogue = this.activeRats[this.state.ratIndex].dialogue[
       this.props.round
     ].substring(0, this.state.charsRevealed);
+    if (this.state.currReaction) {
+      ratDialogue = <img id="dialogueImg" alt="dialogue emoji" src={`/ratchelor/img/Reactions/reax/${this.state.currReaction}.PNG`}></img>
+    }
     if (ratDialogue.length === 0) ratDialogue = "...";
     return (
       <div id="talkingToRatsScreen" className="screen">
@@ -198,7 +205,11 @@ class TalkingToRats extends React.Component {
         ></img>
         { this.state.reacting && 
           <ReactionAnimation 
-            emote={<img src={"/ratchelor/img/Reactions/reax/bad1.PNG"}/>}
+
+          
+            emote={<img alt="" src={`/ratchelor/img/Reactions/reax/${this.state.currReaction}.PNG`}/>}
+
+
             left={this.activeRats[this.state.lastActiveRat].reaction_pos[0] * 100}
             top={this.activeRats[this.state.lastActiveRat].reaction_pos[1] * 100}
           />}
