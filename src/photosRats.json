@@ -4,21 +4,27 @@
         "rat": "heighnesslaure",
         "photos":[{
             "filename": "highnessbora.PNG",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Off to the moon they go!",
+            "numRats": 2,
             "Rat1": "heighnesslaure",
             "Rat2": "boraxiv"
           },{
             "filename": "Hottie_Thespule_Highness_Laure.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Hottie Thespule and Heighness Laure really hit it off.",
+            "numRats": 2,
             "Rat1": "heighnesslaure",
             "Rat2": "hottiethespule"
           },{
             "filename": "Slim_Jim_Highness_Laure.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Slim Jim and Heighness Laure become an enigmatic power couple.",
+            "numRats": 2,
             "Rat1": "slimjim",
+            "Rat2": "heighnesslaure"
+          },{
+            "filename": "lartistehighness.PNG",
+            "text": "The dynamic duo takes the art world by storm.",
+            "numRats": 2,
+            "Rat1": "lartiste",
             "Rat2": "heighnesslaure"
           }]
 
@@ -28,37 +34,37 @@
         "rat": "miggmouse",
         "photos":[{
             "filename": "Bear_migg_mouse.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Opposites in size, but equals in heart.",
+            "numRats": 2,
             "Rat1": "bear",
             "Rat2": "miggmouse"
           },{
             "filename": "BORA_MIGG.PNG",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Bora and Migg Mouse become star crossed lovers, helping eachother achieve their dreams.",
+            "numRats": 2,
             "Rat1": "boraxiv",
             "Rat2": "miggmouse"
           },{
             "filename": "miggelly.PNG",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Migg mouse refuses to wear any clothes that Ode makes for them, but they're in love anyways.",
+            "numRats": 2,
             "Rat1": "egralo",
             "Rat2": "miggmouse"
           },{
             "filename": "migg.PNG",
-            "text": "filler",
-            "numRats": "1",
+            "text": "Migg took their physical fitness routine to the next level.",
+            "numRats": 1,
             "Rat1": "miggmouse"
           },{
             "filename": "Slim_Jim_Migg_Mouse.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Slim Jim is blinded by Migg Mouse's muscles.",
+            "numRats": 2,
             "Rat1": "slimjim",
             "Rat2": "miggmouse"
           },{
             "filename": "Slim_Jim_One-Eared_Jerio.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "One-Eared Jerio finds comfort in Slim Jim's arms.",
+            "numRats": 2,
             "Rat1": "slimjim",
             "Rat2": "oneearedjerio"
           }]
@@ -69,16 +75,22 @@
         "rat": "lartiste",
         "photos":[{
             "filename": "Bear_lartiste.PNG",
-            "text": "filler",
-            "numRats": "2",
+            "text": "L'Artiste finds artistic inspiration in Bear, and the two fall in love.",
+            "numRats": 2,
             "Rat1": "bear",
             "Rat2": "lartiste"
           },{
             "filename": "Hempleton_Lartiste.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Hempleton and L'Artiste travel the world together.",
+            "numRats": 2,
             "Rat1": "hemptin",
             "Rat2": "lartiste"
+          },{
+            "filename": "lartistehighness.PNG",
+            "text": "The dynamic duo takes the art world by storm.",
+            "numRats": 2,
+            "Rat1": "lartiste",
+            "Rat2": "heighnesslaure"
           }]
 
     },
@@ -87,31 +99,31 @@
         "rat": "boraxiv",
         "photos":[{
             "filename": "Largathon_Bora_XIV.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Love blossoms between two old friends.",
+            "numRats": 2,
             "Rat1": "boraxiv",
             "Rat2": "largothon"
           },{
             "filename": "BORA_MIGG.PNG",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Bora and Migg Mouse become star crossed lovers, helping eachother achieve their dreams.",
+            "numRats": 2,
             "Rat1": "boraxiv",
             "Rat2": "miggmouse"
           },{
             "filename": "nora_jerio.PNG",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Jerio and Bora steal a kiss during their first date.",
+            "numRats": 2,
             "Rat1": "boraxiv",
             "Rat2": "oneearedjerio"
           },{
             "filename": "Bora.png",
-            "text": "filler",
-            "numRats": "1",
+            "text": "Bora fulfills their dream of becoming one with the ocean. Each night she watches the full moon in the sky.",
+            "numRats": 1,
             "Rat1": "boraxiv"
           },{
             "filename": "highnessbora.PNG",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Off to the moon they go!",
+            "numRats": 2,
             "Rat1": "heighnesslaure",
             "Rat2": "boraxiv"
           }]
@@ -122,8 +134,8 @@
         "rat": "dr",
         "photos":[{
             "filename": "Egg_Salad_Dr.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "EggSalad finds Dr. Plagueus's knowledge impressive and is willing to listen to them ramble for hours.",
+            "numRats": 2,
             "Rat1": "eggsalad",
             "Rat2": "dr"
           }]
@@ -135,25 +147,25 @@
         "photos":[
             {
                 "filename": "arealrat.PNG",
-                "text": "filler",
-                "numRats": "1",
+                "text": "ARealRat hangs up their rat clothing for the day, and reveals themselves as three geckos.",
+                "numRats": 1,
                 "Rat1": "arealrat"
               },{
                 "filename": "reggie_arealrat.PNG",
-                "text": "filler",
-                "numRats": "2",
+                "text": "They are both not rats.",
+                "numRats": 2,
                 "Rat1": "reggie231",
                 "Rat2": "arealrat"
               },{
                 "filename": "One-Eared_Jerio_Reggie-231.png",
-                "text": "filler",
-                "numRats": "2",
+                "text": "Jerio and Reggie-231 heal their hearts with a sunset piggy-back ride",
+                "numRats": 2,
                 "Rat1": "reggie231",
                 "Rat2": "oneearedjerio"
               },{
                 "filename": "Vim_Arealrat.png",
-                "text": "filler",
-                "numRats": "2",
+                "text": "New friends realize how much they have in common",
+                "numRats": 2,
                 "Rat1": "vim",
                 "Rat2": "arealrat"
               }
@@ -164,21 +176,21 @@
         "rat": "reggie231",
         "photos":[{
             "filename": "hottiehighnesscyborg.PNG",
-            "text": "filler",
-            "numRats": "3",
+            "text": "An unlikely trio learns to love again.",
+            "numRats": 3,
             "Rat1": "heighnesslaure",
             "Rat2": "hottiethespule",
             "Rat3": "reggie231"
           },{
             "filename": "Hottie_Thespule_Highness_Laure.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Hottie Thespule and Heighness Laure really hit it off.",
+            "numRats": 2,
             "Rat1": "heighnesslaure",
             "Rat2": "hottiethespule"
           },{
             "filename": "reggie_arealrat.PNG",
-            "text": "filler",
-            "numRats": "2",
+            "text": "They are both not rats.",
+            "numRats": 2,
             "Rat1": "reggie231",
             "Rat2": "arealrat"
           }]
@@ -189,14 +201,14 @@
         "rat": "vim",
         "photos":[{
             "filename": "Vim_Arealrat.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "New friends realize how much they have in common",
+            "numRats": 2,
             "Rat1": "vim",
             "Rat2": "arealrat"
           },{
             "filename": "vim.PNG",
-            "text": "filler",
-            "numRats": "1",
+            "text": "Vim and the kids enjoy a day of fun.",
+            "numRats": 1,
             "Rat1": "vim"
           }]
 
@@ -206,20 +218,20 @@
         "rat": "bear",
         "photos":[{
             "filename": "Bear_lartiste.PNG",
-            "text": "filler",
-            "numRats": "2",
+            "text": "L'Artiste finds artistic inspiration in Bear, and the two fall in love.",
+            "numRats": 2,
             "Rat1": "bear",
             "Rat2": "lartiste"
           },{
             "filename": "Bear_Largathon.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Bear and Largothon go on a nature hike to look for bees and and find love instead.",
+            "numRats": 2,
             "Rat1": "bear",
             "Rat2": "largothon"
           },{
             "filename": "Bear_migg_mouse.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Opposites in size, but equals in heart.",
+            "numRats": 2,
             "Rat1": "bear",
             "Rat2": "miggmouse"
           }]
@@ -230,16 +242,21 @@
         "rat": "eggsalad",
         "photos":[{
             "filename": "Egg_Salad_Dr.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "EggSalad finds Dr. Plagueus's knowledge impressive and is willing to listen to them ramble for hours.",
+            "numRats": 2,
             "Rat1": "eggsalad",
             "Rat2": "dr"
           },{
             "filename": "Emacs_EggSalad.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Emacs and EggSalad bring out the best in eachother.",
+            "numRats": 2,
             "Rat1": "eggsalad",
             "Rat2": "emacs"
+          },{
+            "filename": "Eggsalad.png",
+            "text": "EggSalad fullfills their dream of opening a bakery.",
+            "numRats": 1,
+            "Rat1": "eggsalad"
           }]
 
     },
@@ -248,14 +265,14 @@
         "rat": "emacs",
         "photos":[{
             "filename": "Emacs_EggSalad.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Emacs and EggSalad bring out the best in eachother.",
+            "numRats": 2,
             "Rat1": "eggsalad",
             "Rat2": "emacs"
           },{
             "filename": "emacs_egralo.PNG",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Ode makes Emacs a killer outfit, and Emacs is pleased.",
+            "numRats": 2,
             "Rat1": "egralo",
             "Rat2": "emacs"
           }]
@@ -266,8 +283,8 @@
         "rat": "jagadoo",
         "photos":[{
             "filename": "Ragadoo.png",
-            "text": "filler",
-            "numRats": "1",
+            "text": "Jagadoo took off and hasn't been seen in a while.",
+            "numRats": 1,
             "Rat1": "jagadoo"
           }]
     },
@@ -276,26 +293,26 @@
         "rat": "slimjim",
         "photos":[{
             "filename": "Slim_Jim_Highness_Laure.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Slim Jim and Heighness Laure become an enigmatic power couple.",
+            "numRats": 2,
             "Rat1": "slimjim",
             "Rat2": "heighnesslaure"
           },{
             "filename": "Slim_Jim_Largathon.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Largothon is blinded by Slim Jim's beauty.",
+            "numRats": 2,
             "Rat1": "slimjim",
             "Rat2": "largothon"
           },{
             "filename": "Slim_Jim_Migg_Mouse.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Slim Jim is blinded by Migg Mouse's muscles.",
+            "numRats": 2,
             "Rat1": "slimjim",
             "Rat2": "miggmouse"
           },{
             "filename": "slimjim.PNG",
-            "text": "filler",
-            "numRats": "1",
+            "text": "Slim Jim stars in Stuart Little 5 and achieves fame.",
+            "numRats": 1,
             "Rat1": "slimjim"
           }]
     },
@@ -304,14 +321,14 @@
         "rat": "hiberdean",
         "photos":[ {
             "filename": "Hiberdean_Midgeon.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Hiberdean and Manelo share tender moments as they watch over the forest together.",
+            "numRats": 2,
             "Rat1": "hiberdean",
             "Rat2": "manelo"
           },{
             "filename": "Hiberdean.png",
-            "text": "filler",
-            "numRats": "1",
+            "text": "Hiberdean returns to assume their rightful spot on the throne.",
+            "numRats": 1,
             "Rat1": "hiberdean"
           }]
     },
@@ -320,26 +337,26 @@
         "rat": "hottiethespule",
         "photos":[{
             "filename": "hottiehighnesscyborg.PNG",
-            "text": "filler",
-            "numRats": "3",
+            "text": "An unlikely trio learns to love again.",
+            "numRats": 3,
             "Rat1": "heighnesslaure",
             "Rat2": "hottiethespule",
             "Rat3": "reggie231"
           },{
             "filename": "Hottie_Thespule_Highness_Laure.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Hottie Thespule and Heighness Laure really hit it off.",
+            "numRats": 2,
             "Rat1": "heighnesslaure",
             "Rat2": "hottiethespule"
           },{
             "filename": "highness_laure.PNG",
-            "text": "filler",
-            "numRats": "1",
+            "text": "Heighness Laure takes a well-deserved bath.",
+            "numRats": 1,
             "Rat1": "heighnesslaure"
           },{
             "filename": "Hottie_Thespule_Midgeon.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Manelo and Hottie Thespule bring out each other's strengths.",
+            "numRats": 2,
             "Rat1": "hottiethespule",
             "Rat2": "manelo"
           }]
@@ -349,20 +366,20 @@
         "rat": "egralo",
         "photos":[{
             "filename": "emacs_egralo.PNG",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Ode makes Emacs a killer outfit, and Emacs is pleased.",
+            "numRats": 2,
             "Rat1": "egralo",
             "Rat2": "emacs"
           },{
             "filename": "miggelly.PNG",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Migg mouse refuses to wear any clothes that Ode makes for them, but they're in love anyways.",
+            "numRats": 2,
             "Rat1": "egralo",
             "Rat2": "miggmouse"
           },{
             "filename": "elagro.PNG",
-            "text": "filler",
-            "numRats": "1",
+            "text": "Odé opens a successful clothing store and many rats start wearing clothing, confusing some humans.",
+            "numRats": 1,
             "Rat1": "egralo"
           }]
     },
@@ -371,20 +388,20 @@
         "rat": "manelo",
         "photos":[ {
             "filename": "Hiberdean_Midgeon.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Hiberdean and Manelo share tender moments as they watch over the forest together.",
+            "numRats": 2,
             "Rat1": "hiberdean",
             "Rat2": "manelo"
           },{
             "filename": "Hottie_Thespule_Midgeon.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Manelo and Hottie Thespule bring out each other's strengths.",
+            "numRats": 2,
             "Rat1": "hottiethespule",
             "Rat2": "manelo"
           },{
             "filename": "Manelo.PNG",
-            "text": "filler",
-            "numRats": "1",
+            "text": "Manelo finds peace in the great outdoors.",
+            "numRats": 1,
             "Rat1": "manelo"
           }]
 
@@ -394,8 +411,8 @@
         "rat": "gerott",
         "photos":[{
             "filename": "Gerrot.png",
-            "text": "filler",
-            "numRats": "1",
+            "text": "Gerrot makes history by making a house that is also breakfast, lunch and dinner.",
+            "numRats": 1,
             "Rat1": "gerott"
           }]
 
@@ -405,20 +422,20 @@
         "rat": "hemptin",
         "photos":[{
             "filename": "Hempleton_Dr.png",
-            "text": "filler",
-            "numRats": "1",
+            "text": "Hempleton and Dr Plagueus enjoy life together.",
+            "numRats": 2,
             "Rat1": "hemptin",
             "Rat2": "dr"
           },{
             "filename": "Hempleton_Lartiste.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Hempleton and L'Artiste travel the world together.",
+            "numRats": 2,
             "Rat1": "hemptin",
             "Rat2": "lartiste"
           },{
             "filename": "hempleton.PNG",
-            "text": "filler",
-            "numRats": "1",
+            "text": "Hempleton tells their best friend Ladybug about all of their amazing adventures.",
+            "numRats": 1,
             "Rat1": "hemptin"
           }]
 
@@ -428,20 +445,20 @@
         "rat": "oneearedjerio",
         "photos":[{
             "filename": "nora_jerio.PNG",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Jerio and Bora steal a kiss during their first date.",
+            "numRats": 2,
             "Rat1": "boraxiv",
             "Rat2": "oneearedjerio"
           },{
             "filename": "One-Eared_Jerio_Reggie-231.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Jerio and Reggie-231 heal their hearts with a sunset piggy-back ride",
+            "numRats": 2,
             "Rat1": "reggie231",
             "Rat2": "oneearedjerio"
           },{
             "filename": "Slim_Jim_One-Eared_Jerio.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "One-Eared Jerio finds comfort in Slim Jim's arms.",
+            "numRats": 2,
             "Rat1": "slimjim",
             "Rat2": "oneearedjerio"
           }]
@@ -452,20 +469,20 @@
         "rat": "largothon",
         "photos":[{
             "filename": "Bear_Largathon.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Bear and Largothon go on a nature hike to look for bees and and find love instead.",
+            "numRats": 2,
             "Rat1": "bear",
             "Rat2": "largothon"
           },{
             "filename": "Largathon_Bora_XIV.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Love blossoms between two old friends.",
+            "numRats": 2,
             "Rat1": "boraxiv",
             "Rat2": "largothon"
           },{
             "filename": "Slim_Jim_Largathon.png",
-            "text": "filler",
-            "numRats": "2",
+            "text": "Largothon is blinded by Slim Jim's beauty.",
+            "numRats": 2,
             "Rat1": "slimjim",
             "Rat2": "largothon"
           }]

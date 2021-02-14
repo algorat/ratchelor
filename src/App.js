@@ -24,6 +24,7 @@ import bg1 from "./img/Backgrounds/curtains.png";
 import bg2 from "./img/Backgrounds/Intro2.png";
 import bg3 from "./img/Backgrounds/couchslower.gif";
 import bg4 from "./img/Backgrounds/garden2.png";
+import bg7 from "./img/Backgrounds/garden1.png";
 import bg5 from "./img/RoseCeremony/Background-old.png";
 import bg6 from "./img/Backgrounds/couchslower.gif";
 
@@ -48,9 +49,14 @@ import s17 from "./sounds/Talking_To_Rat_1.mp3";
 import s18 from "./sounds/Talking_To_Rat_2.mp3";
 import s19 from "./sounds/Talking_To_Rat_3.mp3";
 import s20 from "./sounds/Talking_To_Rat_4.mp3";
+import s21 from "./sounds/chimes.mp3";
+import s22 from "./sounds/tada.mp3";
+import s23 from "./sounds/wobble.mp3";
+import s24 from "./sounds/chaching.mp3";
+import s25 from "./sounds/metal.mp3";
 
-const backgroundSrc = [bg0, bg1, bg2, bg3, bg4, bg5, bg6];
-const soundsToPreload = [s2, s3, s5, s6, s7, s11, s1];
+const backgroundSrc = [bg0, bg1, bg2, bg3, bg4, bg5, bg6, bg7];
+const soundsToPreload = [s2, s3, s5, s6, s7, s11, s1, s21, s22, s23, s24, s25];
 const soundsToAsyncLoad = [s17, s18, s19, s20, s16, s8, s9, s10, s12, s13, s14, s15];
 
 var firebaseConfig = {
