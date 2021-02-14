@@ -18,15 +18,13 @@ import "firebase/database";
 import allPublicImagesForPreload from "./allPublicImages.json";
 
 /* background img files for preload -- sry for the tech debt but its 1am */
-import bg0 from "./img/Backgrounds/background2.png";
-import bg1 from "./img/Backgrounds/curtains.png";
-import bg2 from "./img/Backgrounds/Intro2.png";
-import bg3 from "./img/Backgrounds/couchslower.gif";
-import bg4 from "./img/Backgrounds/garden2.png";
-import bg7 from "./img/Backgrounds/garden1.png";
-import bg5 from "./img/RoseCeremony/Background-old.png";
-import bg6 from "./img/Backgrounds/couchslower.gif";
-
+import bg0 from "./img/Backgrounds/beach.png";
+import bg1 from "./img/Backgrounds/couch.gif";
+import bg2 from "./img/Backgrounds/curtains.png";
+import bg3 from "./img/Backgrounds/garden.png";
+import bg4 from "./img/Backgrounds/intro.gif";
+import bg7 from "./img/Backgrounds/rose_ceremony.png";
+import bg5 from "./img/Backgrounds/wallpaper.png";
 
 /* sound files for preload -- sry for the tech debt but its 1am */
 import s1 from "./sounds/bad_action_sfx.wav";
@@ -54,7 +52,7 @@ import s23 from "./sounds/wobble.mp3";
 import s24 from "./sounds/chaching.mp3";
 import s25 from "./sounds/metal.mp3";
 
-const backgroundSrc = [bg0, bg1, bg2, bg3, bg4, bg5, bg6, bg7];
+const backgroundSrc = [bg0, bg1, bg2, bg3, bg4, bg5];
 const soundsToPreload = [s2, s3, s5, s6, s7, s11, s1, s21, s22, s23, s24, s25];
 const soundsToAsyncLoad = [s17, s18, s19, s20, s16, s8, s9, s10, s12, s13, s14, s15];
 
