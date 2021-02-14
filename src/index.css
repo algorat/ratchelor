@@ -742,14 +742,12 @@ button:focus {
   top: 20%;
   left: 35%;
   z-index: 10000;
-  width: 240px;
+  width: 280px;
 }
 #SpecialEndingScreen .selectedRat .ratPic {
   z-index: 100;
-  width: 240px;
-  position: fixed; /* or absolute */
-  top: 40%;
-  left: 40%;
+  width: 300px;
+  padding: 40px;
   pointer-events: none;
 }
 
@@ -814,12 +812,17 @@ button:focus {
   position: absolute;
   border-radius: 12px;
   padding: 2px;
-  width: 140px;
-  left: 0;
+  width: 250px;
+  left: -80px;
   right: 0;
-  top: 150px;
+  margin: auto;
+  top: -90px;
   display: none;
   z-index: 999;
+}
+
+#SpecialEndingScreen .ratListItem:hover .ratNameContainer {
+  display: block;
 }
 
 #SpecialEndingScreen .ratTagline {

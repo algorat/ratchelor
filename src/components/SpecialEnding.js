@@ -151,9 +151,7 @@ class RatSelect extends React.Component {
 
       ratsList.push(
         <div key={i} id="ratContainer">
-          <div  id={`rat${i}`} className="ratListItem" onClick={() => {
-            this.selectRat( `rat${i}`);
-          }}>
+          <div  id={`rat${i}`} className="ratListItem">
           <div className="ratPic">
             <img className="ratFrame"
             style={{
