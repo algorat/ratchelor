@@ -585,7 +585,7 @@ class RatchelorGame extends React.Component {
 
       screen = 
         <SpecialEnding
-          finalRat={this.getRatByName(this.state.activeRatNames[0])}
+          finalRat={this.finalRat}
           restartGame={() => {
             this.restartGame();
           }}
