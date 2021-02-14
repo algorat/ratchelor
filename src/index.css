@@ -1324,6 +1324,10 @@ input[type='range']::-ms-thumb {
   display: block;
 }
 
+#credits a {
+  color: rgb(187, 18, 54);
+}
+
 #sound-credit {
   font-size: 11px;
   font-style: italic;
