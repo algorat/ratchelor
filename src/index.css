@@ -713,7 +713,9 @@ button:focus {
   margin: 0;
   display: flex;
   flex-direction: column;
+  position: relative;
   align-items: center;
+  overflow: hidden;
 }
 
 #SpecialEndingScreen button {
@@ -743,22 +745,21 @@ button:focus {
   width: 240px;
 }
 #SpecialEndingScreen .selectedRat .ratPic {
-  z-index:100;
+  z-index: 100;
   width: 240px;
   position: fixed; /* or absolute */
   top: 40%;
   left: 40%;
   pointer-events: none;
-
 }
 
 #SpecialEndingScreen .selectedRat .ratPic:hover {
-  transform: scale(1.);
+  transform: scale(1);
   z-index: 1000;
 }
 
-#specialBg{
-  position:absolute;
+#specialBg {
+  position: absolute;
 }
 
 #SpecialEndingScreen button:hover {
@@ -778,7 +779,7 @@ button:focus {
 }
 
 #SpecialEndingScreen #ratContainer {
-  width:240px;
+  width: 240px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -828,7 +829,6 @@ button:focus {
   padding: 5px;
 }
 
-
 #SpecialEndingScreen .ratPic {
   position: relative;
 }
@@ -836,7 +836,6 @@ button:focus {
 #SpecialEndingScreen .ratPic:hover + .ratNameContainer {
   display: block;
 } */
-
 
 #SpecialEndingScreen .ratPic:hover {
   /* animation: pulse ease-in 0.2s; */
