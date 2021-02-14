@@ -7,8 +7,8 @@ html {
 /* img {
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
-} */
+  image-rendering: crisp-edges; */
+/* } */
 body {
   margin: 0;
   width: 100%;
@@ -16,6 +16,7 @@ body {
   position: absolute;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-image: url(./img/Backgrounds/background2.png);
   background-size: 350px 285px;
 }
@@ -32,7 +33,6 @@ img {
   position: relative;
   width: 900px;
   height: 675px;
-  margin-top: 120px;
 }
 
 .screen {
@@ -129,6 +129,10 @@ button:focus {
   background-color: black;
 }
 
+.preloading-true #interludeContainer {
+  background-color: #ffdadc;
+}
+
 #interlude {
   width: 900px;
   z-index: 900;
@@ -161,6 +165,24 @@ button:focus {
   background-image: url('img/Backgrounds/Intro2.png');
   background-repeat: no-repeat;
   background-size: 100%;
+  position: relative;
+}
+
+#introScreen.loading-true {
+  background-color: #ffdadc;
+}
+
+#introScreen.loading-false {
+  background-color: black;
+}
+
+#introScreen #loadingText {
+  font-family: 'Yusei Magic', sans-serif;
+  font-size: 48px;
+  left: 420px;
+  bottom: 240px;
+  position: absolute;
+  color: #86141a;
 }
 
 #introScreen button {
@@ -323,12 +345,18 @@ button:focus {
 /* TALKING TO RATS */
 #talkingToRatsScreen {
   overflow: hidden;
-  background-image: url('img/Backgrounds/couch_nobox.png');
+  background-image: url('img/Backgrounds/couchslower.gif');
   background-repeat: no-repeat;
   background-size: 100%;
   width: 900px;
   height: 100%;
   position: relative;
+}
+
+#talkingToRatsScreen img {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 #talkingToRatsScreen #ratName {
@@ -341,6 +369,11 @@ button:focus {
   padding: 5px 20px;
   margin-left: 20px;
   border-radius: 10px 10px 0 0;
+}
+
+#talkingToRatsScreen #dialogueImg {
+  animation: fadeIn ease 2s;
+  width: 120px;
 }
 
 #talkingToRatsScreen #ratDialogue {
@@ -385,6 +418,14 @@ button:focus {
   position: absolute;
 }
 
+#talkingRatContainer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+}
+
 #talkingToRatsScreen #playerRat {
   left: 0;
   top: 0;
@@ -401,6 +442,14 @@ button:focus {
   display: flex;
   justify-content: center;
   padding-top: 30px;
+}
+
+#roseCeremonyScreen.lastRose {
+  background-image: url('img/Backgrounds/garden1.png');
+}
+
+#roseCeremonyScreen.lastRose #instructions {
+  background-color: rgba(0, 0, 0, 0) !important;
 }
 
 #ratSelectScreen .selectedRat {
@@ -456,13 +505,32 @@ button:focus {
   bottom: 80px;
 }
 
-#roseCeremonyScreen .notSelected:hover {
+#roseCeremonyScreen .allRatsSelected:hover .ratPic {
   animation: none !important;
   transform: scale(1) !important;
 }
 
 #roseCeremonyScreen .selectedRat {
   /* filter: grayscale(0) !important; */
+}
+
+#roseCeremonyScreen .ratPic {
+  display: inline;
+}
+
+#roseCeremonyScreen .selectedRat .ratPic {
+  display: none;
+}
+
+#roseCeremonyScreen .ratWithRosePic {
+  display: none;
+}
+
+#roseCeremonyScreen .selectedRat .ratWithRosePic {
+  display: inline;
+  /* -webkit-filter: drop-shadow(2px 2px 0px #574600)
+    drop-shadow(-2px -2px 0px #574600) !important;
+  filter: drop-shadow(2px 2px 0px #574600) drop-shadow(-2px -2px 0px #574600) !important; */
 }
 
 #roseCeremonyScreen .large {
@@ -504,6 +572,10 @@ button:focus {
   border-radius: 10px;
   border: 4px solid rgb(232, 190, 27);
   z-index: 99;
+  height: fit-content;
+  width: fit-content;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #roseCeremonyScreen button {
@@ -850,18 +922,25 @@ button:focus {
 }
 
 .reaction-animation {
-  position: relative;
+  position: absolute;
+  left: 20%;
+  top: 20%;
   height: 5px;
   width: 5px;
-  animation: emote-container-up 700ms 0s forwards;
+  animation: emote-container-up 1000ms 0s forwards;
 }
 
 .reaction-emote {
   position: absolute;
-  animation-timing-function: linear;
-  animation-duration: 4s;
-  animation-delay: 150ms;
+  animation-timing-function: ease-in;
+  animation-duration: 2s;
+  /* animation-delay: 150ms; */
   animation-fill-mode: forwards;
+  width: 30px;
+}
+
+.reaction-emote img {
+  width: 100%;
 }
 
 .reaction-emote-1 {
@@ -888,60 +967,75 @@ button:focus {
     transform: translate3d(0px, 0px, 0px) scale(1);
   }
   100% {
-    transform: translate3d(0px, -20px, 0px) scale(1.6);
+    transform: translate3d(0px, -20px, 0px) scale(1.8);
   }
 }
 
 @keyframes emote-1 {
-  from {
+  0% {
     opacity: 1;
-    transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(-10px, 0px, 0px);
   }
-  to {
+  50% {
+    opacity: 1;
+  }
+  100% {
     opacity: 0;
-    transform: translate3d(-10px, -40px, 0px);
+    transform: translate3d(-20px, -40px, 0px);
   }
 }
 
 @keyframes emote-2 {
-  from {
+  0% {
     opacity: 1;
-    transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(-18px, 2px, 0px);
   }
-  to {
+  50% {
+    opacity: 1;
+  }
+  100% {
     opacity: 0;
-    transform: translate3d(-50px, -70px, 0px);
+    transform: translate3d(-50px, -80px, 0px);
   }
 }
 
 @keyframes emote-3 {
-  from {
+  0% {
     opacity: 1;
-    transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(10px, -5px, 0px);
   }
-  to {
+  50% {
+    opacity: 1;
+  }
+  100% {
     opacity: 0;
     transform: translate3d(70px, -65px, 0px);
   }
 }
 
 @keyframes emote-4 {
-  from {
+  0% {
     opacity: 1;
-    transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(-6px, 0px, 0px);
   }
-  to {
+  50% {
+    opacity: 1;
+  }
+  100% {
     opacity: 0;
     transform: translate3d(-60px, -45px, 0px);
   }
 }
 
 @keyframes emote-5 {
-  from {
+  0% {
     opacity: 1;
     transform: translate3d(0px, 0px, 0px);
   }
-  to {
+  50% {
+    opacity: 1;
+  }
+  100% {
     opacity: 0;
     transform: translate3d(5px, -80px, 0px);
   }
@@ -949,16 +1043,16 @@ button:focus {
 
 #game-options {
   position: absolute;
-  top: 5px;
-  left: 15px;
+  top: 316px;
+  left: -220px;
   display: flex;
   align-items: center;
+  transform: rotateZ(-90deg);
+  z-index: 200;
 }
 
 .sound-icon {
-  width: 30px;
-  height: 30px;
-  margin-right: 4px;
+  margin-right: 6px;
   cursor: pointer;
 }
 
@@ -1027,7 +1121,7 @@ input[type='range']::-ms-thumb {
 
 .sound-slider {
   position: relative;
-  width: 100px;
+  width: 230px;
   height: 48px;
 }
 
@@ -1186,4 +1280,12 @@ input[type='range']::-ms-thumb {
   100% {
     transform: translate3d(0, 0, 0) rotateZ(0deg);
   }
+}
+
+#game-container {
+  z-index: 0;
+}
+
+#game {
+  z-index: 0;
 }

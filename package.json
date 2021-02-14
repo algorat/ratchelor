@@ -12,12 +12,12 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
-    "react-sound": "^1.2.0",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && rm -rf docs && mv build docs",
+    "files": "node ./filesgen.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
