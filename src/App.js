@@ -603,6 +603,12 @@ class RatchelorGame extends React.Component {
           setPlayHarpSound={this.setPlayHarpSound}
           setPlayTromboneSound={this.setPlayTromboneSound}
           setPlayTap={this.setPlayTap}
+          setPlayChachingSound={this.setPlayChachingSound}
+          setPlayDingSound={this.setPlayDingSound}
+          setPlayMetalSound={this.setPlayMetalSound}
+          setPlayTadaSound={this.setPlayTadaSound}
+          setPlayChimesSound={this.setPlayChimesSound}
+          setPlayWobbleSound={this.setPlayWobbleSound}
           />
         </div>
         <GameOptions
