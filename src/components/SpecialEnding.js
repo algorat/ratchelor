@@ -6,7 +6,7 @@ class RatSelect extends React.Component {
   constructor(props) {
     super(props);
     this.text  = []
-    this.offLimitRats = [this.getRatByName(props.finalRat)]
+    this.offLimitRats = [props.finalRat]
     this.beginningRatPool= props.beginningRatPool
     this.photos =[]
     for(let i = 0 ; i < this.beginningRatPool.length ; i ++){
