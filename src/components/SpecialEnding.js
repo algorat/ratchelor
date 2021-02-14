@@ -11,7 +11,7 @@ class RatSelect extends React.Component {
     this.photos =[]
     for(let i = 0 ; i < this.beginningRatPool.length ; i ++){
       var f = this.getRatEndingFilename(this.beginningRatPool[i]);
-      if (f != undefined){
+      if (f !== undefined){
         this.photos[this.photos.length] = f[0]
         this.text[this.text.length] = f[1]
 
@@ -113,17 +113,17 @@ class RatSelect extends React.Component {
   // When a rat is clicked
   selectRat(id) {
     // Get the element for the current rat button
-    if(this.selecctedID == id && this.selected == true){
+    if(this.selecctedID === id && this.selected === true){
       this.deselect();
       return;
     }
     
-    if(this.selecctedID != null){
+    if(this.selecctedID !== null){
     this.deselect();
     }
 
     const element = document.getElementById(id);
-    if (element == null){
+    if (element === null){
       return;
     }
     element.classList.add("selectedRat");
@@ -136,7 +136,7 @@ class RatSelect extends React.Component {
   deselect(){
     const element = document.getElementById(this.selecctedID);
     this.selected = false;
-    if (element == null){
+    if (element === null){
       return;
     }
     element.classList.remove("selectedRat");
@@ -153,7 +153,7 @@ class RatSelect extends React.Component {
 
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.photos.length; i++) {
-      if(this.text[i] == undefined){continue;}
+      if(this.text[i] === undefined){continue;}
       ratsList.push(
         <div key={i} id="ratContainer">
           <div  id={`rat${i}`} className="ratListItem">

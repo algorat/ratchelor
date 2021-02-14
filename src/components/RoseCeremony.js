@@ -54,7 +54,7 @@ class RoseCeremony extends React.Component {
     // Find our special sized rats
     let bearIndex = this.ratNames.indexOf("Bear");
     let miggIndex = this.ratNames.indexOf("Migg Mouse");
-    let largoIndex = this.ratNames.indexOf("Largothon");
+    let largoIndex = this.ratNames.indexOf("Largathon");
 
     // Put bear first
     if (bearIndex !== -1) {
@@ -68,9 +68,9 @@ class RoseCeremony extends React.Component {
     // Put largo next
     if (largoIndex !== -1) {
       if (backRowSize > 0) {
-        backRowNames.push("Largothon");
+        backRowNames.push("Largathon");
       } else {
-        frontRowNames.push("Largothon");
+        frontRowNames.push("Largathon");
       }
     }
 
@@ -89,7 +89,7 @@ class RoseCeremony extends React.Component {
       if (
         !(
           currName === "Migg Mouse" ||
-          currName === "Largothon" ||
+          currName === "Largathon" ||
           currName === "Bear"
         )
       ) {
