@@ -1,10 +1,10 @@
 {
     "crickets": ["neutral", "side_eye", "bemused", "sunglass_neutral"],
     "chaching": ["money", "cash"],
-    "harp": ["love", "heyes", "heart_eyes_three", "stars_hearts", "stars_heart"],
+    "harp": ["big_smile", "great","heyes_smile", "love", "heyes", "heart_eyes_three", "stars_hearts", "stars_heart"],
     "metal": ["mad", "sunglass_mad", "angry"],
     "womp": ["cry_three", "sad", "broken_heart", "mild_frown", "big_frown", "tear", "frown", "cry", "heyes_frown", "heyes_cry", "sunglass_frown", "stars_frown"],
-    "chimes": ["smile_sunglasses", "stars_smile", "sunglass_smile", "heyes_smile", "smile_six", "big_smile", "great", "smile", "laure", "wink"],
+    "chimes": ["smile_sunglasses", "stars_smile", "sunglass_smile",  "smile_six", "smile", "laure", "wink"],
     "tada": ["wow"],
     "ding": [],
     "wobble": ["stars_confuse", "confused"]

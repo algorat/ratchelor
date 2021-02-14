@@ -197,6 +197,8 @@ class TalkingToRats extends React.Component {
                     this.props.playChimesSound();
                   } else if (this.rxnSound === "womp") {
                     this.props.playTromboneSound();
+                  } else if (this.rxnSound === "tada") {
+                    this.props.playTadaSound();
                   }
                 }
           } key={i}>
