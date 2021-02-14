@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ratchelor/static/css/main.d5e16eeb.chunk.css",
-    "main.js": "/ratchelor/static/js/main.a6a23ecb.chunk.js",
-    "main.js.map": "/ratchelor/static/js/main.a6a23ecb.chunk.js.map",
+    "main.js": "/ratchelor/static/js/main.d87bf20e.chunk.js",
+    "main.js.map": "/ratchelor/static/js/main.d87bf20e.chunk.js.map",
     "runtime-main.js": "/ratchelor/static/js/runtime-main.b516d098.js",
     "runtime-main.js.map": "/ratchelor/static/js/runtime-main.b516d098.js.map",
-    "static/js/2.1c225616.chunk.js": "/ratchelor/static/js/2.1c225616.chunk.js",
-    "static/js/2.1c225616.chunk.js.map": "/ratchelor/static/js/2.1c225616.chunk.js.map",
+    "static/js/2.b6225717.chunk.js": "/ratchelor/static/js/2.b6225717.chunk.js",
+    "static/js/2.b6225717.chunk.js.map": "/ratchelor/static/js/2.b6225717.chunk.js.map",
     "index.html": "/ratchelor/index.html",
     "static/css/main.d5e16eeb.chunk.css.map": "/ratchelor/static/css/main.d5e16eeb.chunk.css.map",
-    "static/js/2.1c225616.chunk.js.LICENSE.txt": "/ratchelor/static/js/2.1c225616.chunk.js.LICENSE.txt",
+    "static/js/2.b6225717.chunk.js.LICENSE.txt": "/ratchelor/static/js/2.b6225717.chunk.js.LICENSE.txt",
     "static/media/index.css": "/ratchelor/static/media/preview.011da406.png",
     "static/media/Cheerful.d940b0ce.mp3": "/ratchelor/static/media/Cheerful.d940b0ce.mp3",
     "static/media/Funky.a0bb99de.mp3": "/ratchelor/static/media/Funky.a0bb99de.mp3",
@@ -41,8 +41,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.b516d098.js",
-    "static/js/2.1c225616.chunk.js",
+    "static/js/2.b6225717.chunk.js",
     "static/css/main.d5e16eeb.chunk.css",
-    "static/js/main.a6a23ecb.chunk.js"
+    "static/js/main.d87bf20e.chunk.js"
   ]
 }

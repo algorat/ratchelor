@@ -478,6 +478,12 @@ class RatchelorGame extends React.Component {
           playCricketsSound={this.playCricketsSound}
           playTromboneSound={this.playTromboneSound}
           playHarpSound={this.playHarpSound}
+          playChachingSound={this.playChachingSound}
+          playDingSound={this.playDingSound}
+          playMetalSound={this.playMetalSound}
+          playTadaSound={this.playTadaSound}
+          playChimesSound={this.playChimesSound}
+          playWobbleSound={this.playWobbleSound}
           playerRatUrl={`/ratchelor/img/Player/${this.state.playerIdx}.png`}
           goToRoseCeremony={() =>
             {this.beginInterludeAndAdvanceState(
