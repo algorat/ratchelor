@@ -11,7 +11,6 @@ class RatSelect extends React.Component {
     this.photos =[]
     for(let i = 0 ; i < this.beginningRatPool.length ; i ++){
       var f = this.getRatEndingFilename(this.beginningRatPool[i]);
-      console.log("hello")
       if (f != undefined){
         this.photos[this.photos.length] = f
 
@@ -41,15 +40,9 @@ class RatSelect extends React.Component {
     for (let i = 0; i < photosRats.length; i++) {
 
       if (photosRats[i].rat === name) {
-        if(name == "miggmouse"){
-          console.log("MIGD")
-          
-        }
+      
         var numEndings = photosRats[i].photos.length
-        if(name == "miggmouse"){
-          console.log("numendings: ")
-          console.log(numEndings)
-        }
+       
         var idx = 0 //Math.floor(Math.random() * numEndings)
         //var coRat = [this.offLimitRats[0]]
         // add this rat
@@ -103,16 +96,10 @@ class RatSelect extends React.Component {
           // get the other rat involved
           j++
         }
-        console.log(this.props.beginningRatPool)
-        console.log("offlinint"+ this.offLimitRats)
-        // console.log()
-        // break;
+        
         
       }
     }
-    if(name == "miggmouse"){
-      debugger
-      }
     if(noFileFound){
       return undefined;
     }
