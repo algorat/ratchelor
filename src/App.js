@@ -126,6 +126,13 @@ class RatchelorGame extends React.Component {
     this.setPlayBadActionSound = this.setPlayBadActionSound.bind(this);
     this.setPlayNewRoundSound = this.setPlayNewRoundSound.bind(this);
     this.setPlaySelectAnswer = this.setPlaySelectAnswer.bind(this);
+    this.setPlayChachingSound = this.setPlayChachingSound.bind(this);
+    this.setPlayDingSound = this.setPlayDingSound.bind(this);
+    this.setPlayMetalSound = this.setPlayMetalSound.bind(this);
+    this.setPlayTadaSound = this.setPlayTadaSound.bind(this);
+    this.setPlayChimesSound = this.setPlayChimesSound.bind(this);
+    this.setPlayWobbleSound = this.setPlayWobbleSound.bind(this);
+
     this.setPlayTap = this.setPlayTap.bind(this);
     this.donePreloading = this.donePreloading.bind(this);
 
@@ -271,6 +278,30 @@ class RatchelorGame extends React.Component {
 
   setPlayRoseSound(f){
     this.playRoseSound = f;
+  }
+
+  setPlayChachingSound(f){
+    this.playChachingSound = f;
+  }
+
+  setPlayDingSound(f){
+    this.playDingSound = f;
+  }
+
+  setPlayMetalSound(f){
+    this.playMetalSound = f;
+  }
+
+  setPlayTadaSound(f){
+    this.playTadaSound = f;
+  }
+
+  setPlayChimesSound(f){
+    this.playChimesSound = f;
+  }
+
+  setPlayWobbleSound(f){
+    this.playWobbleSound = f;
   }
 
   setPlayCricketsSound(f){
