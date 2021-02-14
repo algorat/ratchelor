@@ -17,12 +17,13 @@ class RoseCeremony extends React.Component {
       instructions: `Choose ${this.props.numRoses} contestants to continue`,
       middleRowClass: "",
       allRatsSelectedClass: "notAllRatsSelected",
+      lastRoseClass: ""
     };
   }
 
   componentDidMount() {
     if (this.props.numRoses === 1) {
-      this.setState({ instructions: `Choose your soulmate` });
+      this.setState({ instructions: `Choose your soulmate` , lastRoseClass: "lastRose"});
     }
     // Randomly shuffle the rats for this round
     this.ratNames = this.props.activeRatNames.sort(function (a, b) {
@@ -264,7 +265,7 @@ class RoseCeremony extends React.Component {
     if (!bouquetNum || bouquetNum < 0 || bouquetNum > 5) bouquetNum = 0;
 
     return (
-      <div id="roseCeremonyScreen" className="screen">
+      <div id="roseCeremonyScreen" className={`screen ${this.state.lastRoseClass}`}>
         <img
           id="bouquet"
           src={`/ratchelor/img/Bouquet/bouquet${bouquetNum}.png`}

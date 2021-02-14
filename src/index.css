@@ -444,6 +444,14 @@ button:focus {
   padding-top: 30px;
 }
 
+#roseCeremonyScreen.lastRose {
+  background-image: url('img/Backgrounds/garden1.png');
+}
+
+#roseCeremonyScreen.lastRose #instructions {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
 #ratSelectScreen .selectedRat {
   /* background-color: #c55f52 !important; */
   border-radius: 20px;

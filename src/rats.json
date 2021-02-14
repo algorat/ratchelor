@@ -128,38 +128,6 @@
         "reaction_pos":[0.214, 0.13]
     },
     {
-        "name": "Bear",
-        "dialogue": [
-            "Oh, wow, I can, uh, barely see you. But I really like how the top of your head looks.",
-            "Do you like music too?? You should meet the bandmates at some point.",
-            "I used to be a lab rat, they were experimenting on me with growth serum… until one day I had a growth spurt and got bigger than my cage so they kinda just let me go wherever I wanted",
-            "Sometimes I like to go to the autoshop and watch them work on cars - once I drove there but my car was too small and they almost stepped on it, thought it was a Hot Wheels, its not tho, it runs on renewable energy",
-            "Picked this up for you!! It's a sandwich from my aunts bakery down near the Promenade. Cheese and more cheese, with a bit of tomato and a single leaf special just for you",
-            "When the doctors only told me I had 3 days to live due to my above average size, well, I figured I didn't have much to live for. But now, 3 years after that misnomer, and 2 years after I joined my band, I'm glad I proved them all wrong because that experience led me to you. You're my forever."
-        ],
-        "tagline": "I'm a big rat with a big heart",
-        "filename": "bear",
-        "size": "large",
-        "ending": "CHEERFUL",
-        "reaction_pos":[0.285, 0.1167]
-    },
-    {
-        "name": "EggSalad",
-        "dialogue": [
-            "Um, hi… sorry, I'm a little nervous, I've never done anything like this before! It's just… I saw your profile and thought you were so cute… that I had to come compete. I hope that's not too embarrassing!",
-            "Hi again! I really enjoyed talking to you last time and I was thinking… I was hoping… maybe we could keep talking? Maybe that sounds too obvious, I don't know. I just really love – I mean like! – the sound of your voice… ",
-            "So last month, I was volunteering with this local youth organization, and one of the kids taught me how to crochet! And ever since I haven't been able to stop crocheting. So, I'm working on crocheting a special hat for you, I hope you don't mind!",
-            "Honestly, as much as I enjoy being here on The Ratchelor, I can't wait to get back home so I can keep teaching my baking class at the local youth center! The kids are so sweet, next up I'm teaching them all to bake cheesecake. I hope you come with me… I could bake you a cheesecake, the kids would love you...",
-            "You're so funny! Honestly, you make me feel like I haven't felt before. There's something about you that just makes me feel recharged, at peace. Maybe even... in love.",
-            "I hope this doesn't sound too cheesy but.. I wish I was a cat so I could spend all 9 of my lives with you. I love you. I want to be with you forever. I want to bake you endless cakes and pies forever. And I don't care who knows. I'll shout it from the rooftops! I love you!"
-        ],
-        "tagline": "Who, me?",
-        "filename": "eggsalad",
-        "size": "medium",
-        "ending": "ROMANTICHAPPY",
-        "reaction_pos":[0.3267, 0.172]
-    },
-    {
         "name": "Emacs",
         "dialogue": [
             "Uh, hey? Why are you talking to me. I'm Emacs, if it matters. I like to do my own thing.",
@@ -190,6 +158,22 @@
         "size": "medium",
         "ending": "INTENSE",
         "reaction_pos":[0.34, 0.1367]
+    },
+    {
+        "name": "Odé",
+        "dialogue": [
+            "I used to live by the Westfield Center with my brothers but we always stuck in the community garden over the fence. One day we all got pretty bored and decided to wander over and see what all the fuss was about. shops! clothes! A whole new world right in front of me.",
+            "Anyways yeah so after I went into the main showroom I said wow! After a couple times visiting I found a toy store and they had some pretty cool tiny clothes that fit. Taught myself to sew after that though. So many styles! Fabrics to feel, things to try on. Lovely. Every outfit an adventure.",
+            "I brought you this!! Its a pair of gloves for my love (you!) Sewed it from a swatch of fabric I got from Dolly Parton's mansion. It will grant you amazing singing abilities when you wear them.",
+            "Oh I sewed us matching overcoats!! Cant wait for the newest winter storm to come in and blow us away. You blow me away every day with your wonderful heart and welcoming soul.",
+            "I think fabric is a great metaphor for love. A lot of small strands woven together into something that lasts forever. When I think of what I want out of a relationship, I always think of my favorite sweater - something worn in that fits me perfectly and is always comfortable.",
+            "Lets weave ourselves an amazing life together. I love you so much I dont even know where to go with this metaphor. You're the fabric of my life and the love of my fabric… the love of my life. I love you! I love you."
+        ],
+        "tagline": "Never underestimate the importance of a joyful overcoat",
+        "filename": "egralo",
+        "size": "medium",
+        "ending": "PARIS",
+        "reaction_pos":[0.29, 0.1325]
     },
     {
         "name": "Slim Jim",
@@ -223,6 +207,22 @@
         "reaction_pos":[0.24, 0.13]
     },
     {
+        "name": "Hempleton",
+        "dialogue": [
+            "I Mean I think All things are nice . My best friend is a Ladybug and I always bring him raspberries from the store.",
+            "I've worked at the grocers for a while, I like seeing all the regulars and helping them get their favorite berries; Gerott always asks for my cheese recommendations since I know a lot about what's in stock.",
+            "When I was a kid me and my brothers and sisters used to jump the fence and tend to our neighbor's garden before she got home each day. She won biggest Cucumber at the county fair and we were so proud",
+            "I was making a fruit salad the other day and I found the loveliest strawberry, it had a flower attached to it and it smelled so sweet,... it reminded me of you actually. I brought you some",
+            "I brought you some raspberries and strawberries - I know the catering here is great but I think there's nothing better then a sweet small berry",
+            "What makes me special? Well I mean I dont think I'm any more special than anyone else in the world, but I also think that means no one is unimportant. I think we're all special in different ways but I know you're special to me"
+        ],
+        "tagline": "Blueberries are seasonal! But I eat them every day :)",
+        "filename": "hemptin",
+        "size": "medium",
+        "ending": "CHEERFUL",
+        "reaction_pos":[0.2333, 0.1258]
+    },
+    {
         "name": "Hottie Thespule",
         "dialogue": [
             "Get oUT of my way I am nOt here to make friends. Oh! It's you, sorry I thought you were one of the.. Actually no I stand by my words I am not here to make friends please get out of my way.",
@@ -238,21 +238,38 @@
         "ending": "ROMANTICSAD",
         "reaction_pos":[0.24, 0.11667]
     },
+
     {
-        "name": "Odé",
+        "name": "Bear",
         "dialogue": [
-            "I used to live by the Westfield Center with my brothers but we always stuck in the community garden over the fence. One day we all got pretty bored and decided to wander over and see what all the fuss was about. shops! clothes! A whole new world right in front of me.",
-            "Anyways yeah so after I went into the main showroom I said wow! After a couple times visiting I found a toy store and they had some pretty cool tiny clothes that fit. Taught myself to sew after that though. So many styles! Fabrics to feel, things to try on. Lovely. Every outfit an adventure.",
-            "I brought you this!! Its a pair of gloves for my love (you!) Sewed it from a swatch of fabric I got from Dolly Parton's mansion. It will grant you amazing singing abilities when you wear them.",
-            "Oh I sewed us matching overcoats!! Cant wait for the newest winter storm to come in and blow us away. You blow me away every day with your wonderful heart and welcoming soul.",
-            "I think fabric is a great metaphor for love. A lot of small strands woven together into something that lasts forever. When I think of what I want out of a relationship, I always think of my favorite sweater - something worn in that fits me perfectly and is always comfortable.",
-            "Lets weave ourselves an amazing life together. I love you so much I dont even know where to go with this metaphor. You're the fabric of my life and the love of my fabric… the love of my life. I love you! I love you."
+            "Oh, wow, I can, uh, barely see you. But I really like how the top of your head looks.",
+            "Do you like music too?? You should meet the bandmates at some point.",
+            "I used to be a lab rat, they were experimenting on me with growth serum… until one day I had a growth spurt and got bigger than my cage so they kinda just let me go wherever I wanted",
+            "Sometimes I like to go to the autoshop and watch them work on cars - once I drove there but my car was too small and they almost stepped on it, thought it was a Hot Wheels, its not tho, it runs on renewable energy",
+            "Picked this up for you!! It's a sandwich from my aunts bakery down near the Promenade. Cheese and more cheese, with a bit of tomato and a single leaf special just for you",
+            "When the doctors only told me I had 3 days to live due to my above average size, well, I figured I didn't have much to live for. But now, 3 years after that misnomer, and 2 years after I joined my band, I'm glad I proved them all wrong because that experience led me to you. You're my forever."
         ],
-        "tagline": "Never underestimate the importance of a joyful overcoat",
-        "filename": "egralo",
+        "tagline": "I'm a big rat with a big heart",
+        "filename": "bear",
+        "size": "large",
+        "ending": "CHEERFUL",
+        "reaction_pos":[0.285, 0.1167]
+    },
+    {
+        "name": "EggSalad",
+        "dialogue": [
+            "Um, hi… sorry, I'm a little nervous, I've never done anything like this before! It's just… I saw your profile and thought you were so cute… that I had to come compete. I hope that's not too embarrassing!",
+            "Hi again! I really enjoyed talking to you last time and I was thinking… I was hoping… maybe we could keep talking? Maybe that sounds too obvious, I don't know. I just really love – I mean like! – the sound of your voice… ",
+            "So last month, I was volunteering with this local youth organization, and one of the kids taught me how to crochet! And ever since I haven't been able to stop crocheting. So, I'm working on crocheting a special hat for you, I hope you don't mind!",
+            "Honestly, as much as I enjoy being here on The Ratchelor, I can't wait to get back home so I can keep teaching my baking class at the local youth center! The kids are so sweet, next up I'm teaching them all to bake cheesecake. I hope you come with me… I could bake you a cheesecake, the kids would love you...",
+            "You're so funny! Honestly, you make me feel like I haven't felt before. There's something about you that just makes me feel recharged, at peace. Maybe even... in love.",
+            "I hope this doesn't sound too cheesy but.. I wish I was a cat so I could spend all 9 of my lives with you. I love you. I want to be with you forever. I want to bake you endless cakes and pies forever. And I don't care who knows. I'll shout it from the rooftops! I love you!"
+        ],
+        "tagline": "Who, me?",
+        "filename": "eggsalad",
         "size": "medium",
-        "ending": "PARIS",
-        "reaction_pos":[0.29, 0.1325]
+        "ending": "ROMANTICHAPPY",
+        "reaction_pos":[0.3267, 0.172]
     },
     {
         "name": "Manelo",
@@ -286,22 +303,7 @@
         "ending": "CHEERFUL",
         "reaction_pos":[0.254, 0.1133]
     },
-    {
-        "name": "Hempleton",
-        "dialogue": [
-            "I Mean I think All things are nice . My best friend is a Ladybug and I always bring him raspberries from the store.",
-            "I've worked at the grocers for a while, I like seeing all the regulars and helping them get their favorite berries; Gerott always asks for my cheese recommendations since I know a lot about what's in stock.",
-            "When I was a kid me and my brothers and sisters used to jump the fence and tend to our neighbor's garden before she got home each day. She won biggest Cucumber at the county fair and we were so proud",
-            "I was making a fruit salad the other day and I found the loveliest strawberry, it had a flower attached to it and it smelled so sweet,... it reminded me of you actually. I brought you some",
-            "I brought you some raspberries and strawberries - I know the catering here is great but I think there's nothing better then a sweet small berry",
-            "What makes me special? Well I mean I dont think I'm any more special than anyone else in the world, but I also think that means no one is unimportant. I think we're all special in different ways but I know you're special to me"
-        ],
-        "tagline": "Blueberries are seasonal! But I eat them every day :)",
-        "filename": "hemptin",
-        "size": "medium",
-        "ending": "CHEERFUL",
-        "reaction_pos":[0.2333, 0.1258]
-    },
+
     {
         "name": "One-Eared Jerio",
         "dialogue": [
