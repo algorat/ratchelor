@@ -123,7 +123,9 @@ class RatSelect extends React.Component {
     }
 
     const element = document.getElementById(id);
-
+    if (element == null){
+      return;
+    }
     element.classList.add("selectedRat");
     this.selecctedID = id
     this.selected = true;
@@ -134,6 +136,9 @@ class RatSelect extends React.Component {
   deselect(){
     const element = document.getElementById(this.selecctedID);
     this.selected = false;
+    if (element == null){
+      return;
+    }
     element.classList.remove("selectedRat");
 
   }
@@ -148,7 +153,7 @@ class RatSelect extends React.Component {
 
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.photos.length; i++) {
-
+      if(this.text[i] == undefined){continue;}
       ratsList.push(
         <div key={i} id="ratContainer">
           <div  id={`rat${i}`} className="ratListItem">
