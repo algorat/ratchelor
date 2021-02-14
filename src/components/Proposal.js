@@ -1,6 +1,6 @@
 import React from "react";
 
-const FADE_DELAY = 4500;
+const FADE_DELAY = 4000;
 
 class Proposal extends React.Component {
   constructor(props) {

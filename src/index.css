@@ -866,7 +866,7 @@ button:focus {
 #restartButton {
   position: absolute;
   opacity: 1;
-  animation: fadeInDelay ease 12s;
+  animation: fadeInDelay ease 10s;
   right: 20px;
   top: 30px;
 }
