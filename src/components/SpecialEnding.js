@@ -161,8 +161,8 @@ class RatSelect extends React.Component {
             <img className="ratFrame"
             style={{
           width: "100%",
-          "padding-top":(30* this.random(i-991))+"px" ,
-          "padding-right": (30* this.random(i+123)) +"px",
+          paddingTop:(30* this.random(i-991))+"px" ,
+          paddingRight: (30* this.random(i+123)) +"px",
           transform: "rotate("+(this.random(i+22)*30) + "deg) scale(2.24) ",
          
          }} src={"/ratchelor/img/Photos/"+this.photos[i]} alt=""/>
@@ -176,7 +176,7 @@ class RatSelect extends React.Component {
       )
     }
     ratsList.push(
-    <div style={{"top-padding":20}}> 
+    <div style={{paddingTop:20}}> 
       <button id="restartButton" onClick={this.props.restartGame}>Restart?</button>
       </div>
     )
