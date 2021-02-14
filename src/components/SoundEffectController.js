@@ -8,6 +8,12 @@ import tap from "../sounds/louder_tap.mp3";
 import crickets from "../sounds/crickets.mp3";
 import harp from "../sounds/harp.mp3";
 import trombone from "../sounds/trombone.mp3";
+import chaching from "../sounds/chaching.mp3";
+import ding from "../sounds/ding.mp3";
+import metal from "../sounds/metal.mp3";
+import tada from "../sounds/tada.mp3";
+import chimes from "../sounds/chimes.mp3";
+import wobble from "../sounds/wobble.mp3";
 
 
 class SoundEffectController extends React.Component {
@@ -22,6 +28,13 @@ class SoundEffectController extends React.Component {
     this.playHarpSound = this.playHarpSound.bind(this);
     this.playTromboneSound = this.playTromboneSound.bind(this);
     this.playTap = this.playTap.bind(this);
+    this.playChachingSound = this.playChachingSound.bind(this);
+    this.playDingSound = this.playDingSound.bind(this);
+    this.playMetalSound = this.playMetalSound.bind(this);
+    this.playTadaSound = this.playTadaSound.bind(this);
+    this.playChimesSound = this.playChimesSound.bind(this);
+    this.playWobbleSound = this.playWobbleSound.bind(this);
+
     this.props.setPlayRoseSound(this.playRoseSound);
     this.props.setPlayBadActionSound(this.playBadActionSound);
     this.props.setPlayTap(this.playTap);
@@ -30,6 +43,13 @@ class SoundEffectController extends React.Component {
     this.props.setPlayTromboneSound(this.playTromboneSound);
     this.props.setPlaySelectAnswer(this.playSelectAnswer);
     this.props.setPlayNewRoundSound(this.playNewRoundSound);
+    this.props.setPlayChachingSound(this.playChachingSound);
+    this.props.setPlayDingSound(this.playDingSound);
+    this.props.setPlayMetalSound(this.playMetalSound);
+    this.props.setPlayTadaSound(this.playTadaSound);
+    this.props.setPlayChimesSound(this.playChimesSound);
+    this.props.setPlayWobbleSound(this.playWobbleSound);
+
     this.volume = this.props.volume/100 + 0.15;
     this.finalRat = null;
     this.currentRatIdx = -1;
@@ -48,6 +68,30 @@ class SoundEffectController extends React.Component {
       this.setVolume(this.volume);
     }
     return false;
+  }
+
+  playWobbleSound(){
+    this.playSound(wobble);
+  }
+
+  playChimesSound(){
+    this.playSound(chimes);
+  }
+
+  playTadaSound(){
+    this.playSound(tada);
+  }
+
+  playMetalSound(){
+    this.playSound(metal);
+  }
+
+  playDingSound(){
+    this.playSound(ding);
+  }
+
+  playChachingSound(){
+    this.playSound(chaching);
   }
 
   playCricketsSound(){
