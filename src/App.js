@@ -403,6 +403,7 @@ class RatchelorGame extends React.Component {
     this.preload();
     this.interludeElement = document.getElementById("interlude");
     this.database = firebase.database();
+    this.randoRat = ratsJson[Math.floor(Math.random() * ratsJson.length)];
   }
 
   render() {
@@ -611,11 +612,15 @@ class RatchelorGame extends React.Component {
         navigator.userAgent
       )
     ) {
-      let randoRat = ratsJson[Math.floor(Math.random() * ratsJson.length)];
-      let randoRatFilename = randoRat.filename;
+      let randoRatFilename = "";
+      let randoRatName = "";
+      if (this.randoRat) {
+        randoRatFilename = this.randoRat.filename;
+        randoRatName = this.randoRat.name;
+      }
       return (
         <div id="mobile-container">
-          <div id="mobile-message">{`To experience The Ratchelor, ${randoRat.name} wants you to access this website on a desktop computer!`}</div>
+          <div id="mobile-message">{`To experience The Ratchelor, ${randoRatName} wants you to access this website on a desktop computer!`}</div>
           <img
             id="mobile-img"
             alt="a rat who loves you"
@@ -627,6 +632,7 @@ class RatchelorGame extends React.Component {
     return (
       <div id={`game-container`} className={`preloading-${isPreloading}`}>
         <div id="game">
+          
           <img id="frame" src="/ratchelor/img/frameSmaller.png" alt=""></img>
           <div id="interludeContainer" >
             <div id="interlude" style={{ bottom: this.state.interludeBottom }}>
