@@ -6,10 +6,6 @@ import soundLogo2 from "../img/icons/volume_2.png";
 import soundLogo3 from "../img/icons/volume_3.png";
 
 class GameOptions extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const prog = this.props.volume;
     let soundurl;

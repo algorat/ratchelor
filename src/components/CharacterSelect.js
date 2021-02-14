@@ -63,6 +63,7 @@ class CharacterSelect extends React.Component {
       <div id="custom-character" className="screen">
         <div id="ratchelor-intro-container">
           <img
+            alt=""
             id="hearts-header"
             src="/ratchelor/img/Player/playerselecthearts.png"
           ></img>

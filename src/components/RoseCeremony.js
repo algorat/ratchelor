@@ -268,6 +268,7 @@ class RoseCeremony extends React.Component {
       <div id="roseCeremonyScreen" className={`screen ${this.state.lastRoseClass}`}>
         <img
           id="bouquet"
+          alt="a rose bouquet"
           src={`/ratchelor/img/Bouquet/bouquet${bouquetNum}.png`}
         ></img>
         <div id="instructions">{this.state.instructions}</div>

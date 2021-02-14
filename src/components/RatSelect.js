@@ -103,7 +103,7 @@ class RatSelect extends React.Component {
       let filename = `/ratchelor/img/Frames/${this.props.rats[i].filename}.PNG`;
       let filenameHearts = `/ratchelor/img/Frames/hearts${(i % 9) + 1}.PNG`;
       ratsList.push(
-        <div key={i} id="ratContainer">
+        <div key={"rats" + i} id="ratContainer">
           <div
             id={`rat${i}`}
             className="ratListItem"

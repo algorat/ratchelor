@@ -36,7 +36,7 @@ class RatSelect extends React.Component {
     var name = this.getRatByName(fullName)
     var retVal;
     var retText;
-    var ti = this.text.length
+    //var ti = this.text.length
     var corats = []
     var noFileFound = false;
     for (let i = 0; i < photosRats.length; i++) {

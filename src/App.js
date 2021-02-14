@@ -24,7 +24,7 @@ import bg1 from "./img/Backgrounds/couch.gif";
 import bg2 from "./img/Backgrounds/curtains.png";
 import bg3 from "./img/Backgrounds/garden.png";
 import bg4 from "./img/Backgrounds/intro.gif";
-import bg7 from "./img/Backgrounds/rose_ceremony.png";
+//import bg7 from "./img/Backgrounds/rose_ceremony.png";
 import bg5 from "./img/Backgrounds/wallpaper.png";
 
 /* sound files for preload -- sry for the tech debt but its 1am */

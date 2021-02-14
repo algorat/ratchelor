@@ -48,7 +48,8 @@ class MusicManager extends React.Component {
   }
 
   shouldComponentUpdate(props) {
-    if (this.props.phase < 1) {
+
+    if (this.props.phase < 1 && !this.musicStarted) {
       return false;
     }
 
@@ -59,9 +60,12 @@ class MusicManager extends React.Component {
       this.url = newurl;
       needToRender = true;
     }
-    if (this.volume !== props.volume) {
-      this.volume = props.volume / 100 - 0.08;
-      this.volume = this.volume < 0 ? 0 : this.volume;
+
+    let newvolume = props.volume / 100 - 0.08;
+    newvolume = newvolume < 0 ? 0 : newvolume;
+
+    if (this.volume !== newvolume) {
+      this.volume = newvolume;
       this.setVolume(this.volume);
     }
     if (this.finalRat !== props.finalRat) {

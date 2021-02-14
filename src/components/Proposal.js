@@ -33,10 +33,11 @@ class Proposal extends React.Component {
       >
         <img
           id="finalRat"
+          alt="the rat that you're proposing to"
           className={`propose-${this.props.finalRat.size}`}
           src={`/ratchelor/img/Characters/${this.props.finalRat.filename}.png`}
         ></img>
-        <img id="proposingRat" src={this.props.playerRatUrl}></img>
+        <img id="proposingRat" alt="you are on one knee proposing" src={this.props.playerRatUrl}></img>
       </div>
     );
   }
