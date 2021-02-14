@@ -201,7 +201,7 @@
         "rat": "vim",
         "photos":[{
             "filename": "Vim_Arealrat.png",
-            "text": "New friends realize how much they have in common",
+            "text": "New friends realize how much they have in common.",
             "numRats": 2,
             "Rat1": "vim",
             "Rat2": "arealrat"
@@ -366,7 +366,7 @@
         "rat": "egralo",
         "photos":[{
             "filename": "emacs_egralo.PNG",
-            "text": "Ode makes Emacs a killer outfit, and Emacs is pleased.",
+            "text": "Odé makes Emacs a killer outfit, and Emacs is pleased.",
             "numRats": 2,
             "Rat1": "egralo",
             "Rat2": "emacs"

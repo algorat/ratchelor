@@ -706,7 +706,7 @@ button:focus {
 
 #SpecialEndingScreen {
   /* background: url(./img/Photos/background.png) no-repeat center center fixed; */
-  animation: fadeIn ease 3s;
+  animation: fadeIn ease 6s;
   width: 900px;
   height: 100%;
   background-color: #ffe5e5;
@@ -866,7 +866,7 @@ button:focus {
 #restartButton {
   position: absolute;
   opacity: 1;
-  animation: fadeInDelay ease 9s;
+  animation: fadeInDelay ease 12s;
   right: 20px;
   top: 30px;
 }

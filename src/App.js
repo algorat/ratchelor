@@ -575,7 +575,14 @@ class RatchelorGame extends React.Component {
         <AnimeEnding
           winningRat={this.finalRat}
           epilogue={() => {
-            this.setState({ gameStage: SPECIAL_ENDING });
+            this.beginInterludeAndAdvanceState(
+              `where are they now?`,
+              900,
+              SPECIAL_ENDING
+            );
+            if(this.playNewRoundSound){
+              this.playNewRoundSound()
+            }
           }}
         />);
 
