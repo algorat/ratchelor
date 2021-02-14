@@ -17,7 +17,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(./img/Backgrounds/background2.png);
+  background-image: url(./img/Backgrounds/wallpaper.png);
   background-size: 350px 285px;
 }
 
@@ -162,7 +162,7 @@ button:focus {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: url('img/Backgrounds/Intro2.png');
+  background-image: url('img/Backgrounds/intro.gif');
   background-repeat: no-repeat;
   background-size: 100%;
   position: relative;
@@ -345,7 +345,7 @@ button:focus {
 /* TALKING TO RATS */
 #talkingToRatsScreen {
   overflow: hidden;
-  background-image: url('img/Backgrounds/couchslower.gif');
+  background-image: url('img/Backgrounds/couch.gif');
   background-repeat: no-repeat;
   background-size: 100%;
   width: 900px;
@@ -433,7 +433,7 @@ button:focus {
 
 /* ROSE CEREMONY */
 #roseCeremonyScreen {
-  background-image: url('img/Backgrounds/garden2.png');
+  background-image: url('img/Backgrounds/rose_ceremony.png');
   background-repeat: no-repeat;
   background-size: 100%;
   width: 900px;
@@ -445,7 +445,7 @@ button:focus {
 }
 
 #roseCeremonyScreen.lastRose {
-  background-image: url('img/Backgrounds/garden1.png');
+  background-image: url('img/Backgrounds/garden.png');
 }
 
 #roseCeremonyScreen.lastRose #instructions {
@@ -637,7 +637,7 @@ button:focus {
 /* PROPOSAL SCREEN */
 #proposalScreen {
   animation: fadeIn ease 2.4s;
-  background-image: url('img/RoseCeremony/Background-old.png');
+  background-image: url('img/Backgrounds/beach.png');
   background-size: 100%;
   display: flex;
   align-items: center;
