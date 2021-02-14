@@ -1291,3 +1291,23 @@ input[type='range']::-ms-thumb {
 #game {
   z-index: 0;
 }
+
+#credits{
+  position: absolute;
+  bottom: 12px;
+  width: 220px;
+  right: 12px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  line-height: 105%;
+  background-color: #FEDCDD;
+  font-family: Yusei Magic;
+  text-align: center;
+  color: rgb(114, 63, 65);
+  font-size: 14px;
+}
+
+#sound-credit{
+  font-size: 11px;
+  font-style: italic;
+}
