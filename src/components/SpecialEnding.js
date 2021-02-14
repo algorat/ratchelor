@@ -12,7 +12,8 @@ class RatSelect extends React.Component {
     for(let i = 0 ; i < this.beginningRatPool.length ; i ++){
       var f = this.getRatEndingFilename(this.beginningRatPool[i]);
       if (f != undefined){
-        this.photos[this.photos.length] = f
+        this.photos[this.photos.length] = f[0]
+        this.text[this.text.length] = f[1]
 
       }
     }
@@ -34,6 +35,7 @@ class RatSelect extends React.Component {
     //from beginning pool
     var name = this.getRatByName(fullName)
     var retVal;
+    var retText;
     var ti = this.text.length
     var corats = []
     var noFileFound = false;
@@ -49,38 +51,39 @@ class RatSelect extends React.Component {
         // just set it to something that will start the while loop
         var j = 0
         var noViableEnding = true;
-        console.log(this.offLimitRats)
+        // console.log(this.offLimitRats)
         while(noViableEnding){
           
           retVal = photosRats[i].photos[idx].filename;
+          retText = photosRats[i].photos[idx].text
+
           corats = []
-          console.log(retVal)
+          // console.log(retVal)
           switch(photosRats[i].photos[idx].numRats){
             case 3:
               corats[corats.length] = photosRats[i].photos[idx].Rat1
               noViableEnding = this.offLimitRats.indexOf(corats[corats.length-1]) >=0 
               corats[corats.length] = photosRats[i].photos[idx].Rat2
               noViableEnding = noViableEnding || this.offLimitRats.indexOf(corats[corats.length-1]) >=0  
-
               corats[corats.length] = photosRats[i].photos[idx].Rat3
-              console.log("case3");
+              // console.log("case3");
               noViableEnding = noViableEnding || this.offLimitRats.indexOf(corats[corats.length-1]) >= 0
-              console.log("noViableEnding: " + noViableEnding)
+              // console.log("noViableEnding: " + noViableEnding)
               break
             case 2:
-              console.log("case2")
+              // console.log("case2")
               corats[corats.length] = photosRats[i].photos[idx].Rat1
               noViableEnding = this.offLimitRats.indexOf(corats[corats.length-1]) >=0 
               corats[corats.length] = photosRats[i].photos[idx].Rat2
               noViableEnding = noViableEnding || this.offLimitRats.indexOf(corats[corats.length-1]) >=0  
-              console.log("noViableEnding: " + noViableEnding)
+              // console.log("noViableEnding: " + noViableEnding)
               break;
             
             case 1:
-              console.log("case1")
+              // console.log("case1")
               corats[corats.length] = photosRats[i].photos[idx].Rat1
               noViableEnding = this.offLimitRats.indexOf(corats[corats.length-1]) >=0  
-              console.log("noViableEnding: " + noViableEnding)
+              // console.log("noViableEnding: " + noViableEnding)
               break;
           
             }
@@ -88,16 +91,13 @@ class RatSelect extends React.Component {
           if(j > numEndings){
             noViableEnding = false
             noFileFound= true;
-            console.log()
+            // console.log()
           }
           idx = (idx + 1)%numEndings
           
-          this.text[ti] = photosRats[i].photos[idx].text
           // get the other rat involved
           j++
         }
-        
-        
       }
     }
     if(noFileFound){
@@ -106,9 +106,9 @@ class RatSelect extends React.Component {
     for (var i = 0 ; i < corats.length; i++){
       this.offLimitRats[this.offLimitRats.length] = corats[i];
     }
-    // debugger;
+   
 
-    return retVal;
+    return [retVal, retText];
   }
   // When a rat is clicked
   selectRat(id) {
