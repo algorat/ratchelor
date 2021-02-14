@@ -631,50 +631,170 @@ button:focus {
 }
 
 /* SPECIAL ENDING */
-#specialEndingScreen {
-  position: relative;
-  overflow: hidden;
+
+#SpecialEndingScreen {
+  /* background: url(./img/Photos/background.png) no-repeat center center fixed; */
+  animation: fadeIn ease 3s;
+  width: 900px;
+  height: 100%;
+  background-color: #ffe5e5;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#SpecialEndingScreen button {
+  background-color: #ffffff;
+  /* border: 3px solid #fe97b0; */
+  color: #dd8d9d;
+  padding-top: 6px;
+  font-size: 24px;
+  padding-bottom: 8px;
+  border: none;
+}
+
+#SpecialEndingScreen .selectedRat {
+  color: blue;
+}
+
+.ratHearts {
+  display: none;
+}
+
+#SpecialEndingScreen .selectedRat .ratNameContainer {
+  display: block;
+  position: fixed; /* or absolute */
+  top: 20%;
+  left: 35%;
+  z-index: 10000;
+  width: 240px;
+}
+#SpecialEndingScreen .selectedRat .ratPic {
+  z-index:100;
+  width: 240px;
+  position: fixed; /* or absolute */
+  top: 40%;
+  left: 40%;
+  pointer-events: none;
+
+}
+
+#SpecialEndingScreen .selectedRat .ratPic:hover {
+  transform: scale(1.);
+  z-index: 1000;
+}
+
+#specialBg{
+  position:absolute;
+}
+
+#SpecialEndingScreen button:hover {
+  color: #ffffff;
+  background-color: #eda9b7;
+  border: none;
+}
+
+#SpecialEndingScreen #ratListContainer {
+  display: flex;
+  flex-wrap: wrap;
+  /* padding: 5px; */
   display: flex;
   justify-content: center;
-  background-color: black;
-}
-
-#specialBg {
-  animation: fadeIn ease 10s;
-  flex-shrink: 0;
-  min-width: 100%;
-  min-height: 100%;
-}
-#specialPicsOnTableContainer {
-  position: absolute;
-  /* transform: rotate(50deg); */
-  right: -30%;
-  top: 30%;
-}
-#specialRatPic{
-  width: 20%;
-  height: 10%;
+  /* margin-top: 15px; */
   position: relative;
-  /* transform: skewY(-50deg) ; */
 }
 
-#specialText {
-  font-family: 'Yusei Magic';
-  font-size: 20px;
-  position: absolute;
-  padding: 20px 40px;
-  animation: slideUp ease 7s;
-  background-color: rgba(236, 217, 165, 0.85);
-  color: #4b4015;
-  bottom: 0px;
-  width: 100%;
+#SpecialEndingScreen #ratContainer {
+  width:240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 2px;
+  margin-top: 130px;
 }
+
+#SpecialEndingScreen .ratListItem {
+  cursor: pointer;
+  height: 150px;
+  width: 130px;
+  padding-left: 0;
+  padding-top: 14px;
+  padding-bottom: 30px;
+  font-weight: bold;
+  position: relative;
+}
+
+#SpecialEndingScreen .ratNameContainer {
+  font-family: 'Yusei Magic';
+  font-size: 16px;
+  text-align: center;
+  padding-bottom: 10px;
+  background-color: white;
+  color: #a5596a;
+  border: 6px solid #eda9b7;
+  color: rgb(59, 17, 11);
+  border: 6px solid rgb(232, 190, 27);
+  background-color: rgb(255, 241, 203);
+  position: absolute;
+  border-radius: 12px;
+  padding: 2px;
+  width: 140px;
+  left: 0;
+  right: 0;
+  top: 150px;
+  display: none;
+  z-index: 999;
+}
+
+#SpecialEndingScreen .ratTagline {
+  font-size: 15px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 600;
+  padding: 5px;
+}
+
+
+#SpecialEndingScreen .ratPic {
+  position: relative;
+}
+/* 
+#SpecialEndingScreen .ratPic:hover + .ratNameContainer {
+  display: block;
+} */
+
+
+#SpecialEndingScreen .ratPic:hover {
+  /* animation: pulse ease-in 0.2s; */
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+#SpecialEndingScreen #chooseText {
+  font-family: 'Yusei Magic';
+  font-size: 30px;
+  margin-bottom: 0px;
+  padding-top: 18px;
+  color: #ffeeee;
+  background-color: #ca5e77;
+  border-bottom: 8px solid #eda9b7;
+  width: 100%;
+  text-align: center;
+  height: 85px;
+}
+
+#SpecialEndingScreen button {
+  margin-top: -15px;
+}
+
 #restartButton {
   position: absolute;
   opacity: 1;
   animation: fadeInDelay ease 9s;
-  right: 10px;
-  top: 10px;
+  right: 20px;
+  top: 30px;
 }
 
 /* ANIMATIONS */

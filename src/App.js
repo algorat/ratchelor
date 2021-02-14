@@ -252,8 +252,10 @@ class RatchelorGame extends React.Component {
         <SpecialEnding
           // finalRat={this.getRatByName(this.state.activeRatNames[0])}
           finalRat={"Slim Jim"}
-          
-          restartGame={this.restartGame.bind(this)}
+          restartGame={() => {
+            this.restartGame();
+          }}
+         
           beginningRatPool={[ "Heighness Laure", "Hottie Thesputle","Migg Mouse", "Bora XIV", "Dr. Plagueus", "ARealRat", "Reggie-231"]}
 
           // beginningRatPool={this.state.beginningRatPool}
