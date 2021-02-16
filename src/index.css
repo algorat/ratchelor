@@ -74,12 +74,13 @@ img {
 
 #safari-button {
   margin-left: 20px;
-  background-color: rgb(206, 165, 29);
+  background-color: rgb(223, 197, 52);
+  color: #744d21;
   border-radius: 15px;
   width: 20px;
   height: 20px;
   line-height: 0.75;
-  margin-top: 5px;
+  margin-top: 4px;
   cursor: pointer;
 }
 
