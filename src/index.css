@@ -54,33 +54,38 @@ img {
 
 #safari-container {
   z-index: 9999999;
-  color: rgb(94, 76, 19);
+  color: rgb(116, 94, 30);
+  color: white;
+  font-size: 19px;
+  padding-bottom: 3px;
+  padding-top: 2px;
   font-family: 'Yusei Magic';
   position: absolute;
-  top: -28px;
+  top: -31px;
   left: 0;
   right: 0;
   margin: auto;
   width: 900px;
+  background-color: #744d21;
   text-align: center;
   display: flex;
   justify-content: center;
 }
 
 #safari-button {
-  margin-left: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
+  margin-left: 20px;
+  background-color: rgb(206, 165, 29);
   border-radius: 15px;
   width: 20px;
   height: 20px;
-  line-height: 1;
-  margin-top: 2px;
+  line-height: 0.75;
+  margin-top: 5px;
   cursor: pointer;
 }
 
 #safari-button:hover {
-  background-color: rgba(117, 97, 30, 0.4);
-  color: white;
+  color: rgb(206, 165, 29);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 #mobile-container {
