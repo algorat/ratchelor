@@ -119,7 +119,8 @@ class RatchelorGame extends React.Component {
       volume: 15,
       playerIdx: -1,
       isPreloading: true,
-      percentLoaded: 0.0
+      percentLoaded: 0.0,
+      isShowingSafariMsg: false
     };
     this.finalRat = ratsJson[3];
     this.changeCurrentRatIdx = this.changeCurrentRatIdx.bind(this);
@@ -402,6 +403,8 @@ class RatchelorGame extends React.Component {
   componentDidMount() {
     this.preload();
     this.interludeElement = document.getElementById("interlude");
+    var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
+    this.setState({isShowingSafariMsg: isSafari});
     this.database = firebase.database();
     this.randoRat = ratsJson[Math.floor(Math.random() * ratsJson.length)];
   }
@@ -607,6 +610,9 @@ class RatchelorGame extends React.Component {
    
 
     }
+
+    let safariMsg = this.state.isShowingSafariMsg ? <div id="safari-container"><div id="safari-msg">This game doesn't run as well in Safari, we recommend using Chrome or Firefox!</div><div id="safari-button" onClick={()=>{this.setState({isShowingSafariMsg: false})}}>x</div></div> : "";
+    
     if (
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
         navigator.userAgent
@@ -631,15 +637,18 @@ class RatchelorGame extends React.Component {
     }
     return (
       <div id={`game-container`} className={`preloading-${isPreloading}`}>
+
         <div id="game">
-          
           <img id="frame" src="/ratchelor/img/frameSmaller.png" alt=""></img>
+          {safariMsg}
+
           <div id="interludeContainer" >
             <div id="interlude" style={{ bottom: this.state.interludeBottom }}>
               <div id="interludeText">{this.state.interludeText}</div>
             </div>
             {screen}
           </div>
+
           <MusicManager
             setCallPlaySound={this.setCallPlaySound}
             phase={this.state.gameStage}
@@ -669,6 +678,7 @@ class RatchelorGame extends React.Component {
           volume={this.state.volume}
           changeVolume={this.changeVolume}
         />
+        
       </div>
     );
   }

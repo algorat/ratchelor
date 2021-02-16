@@ -52,6 +52,37 @@ img {
   }
 }
 
+#safari-container {
+  z-index: 9999999;
+  color: rgb(94, 76, 19);
+  font-family: 'Yusei Magic';
+  position: absolute;
+  top: -28px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 900px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+#safari-button {
+  margin-left: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  width: 20px;
+  height: 20px;
+  line-height: 1;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+#safari-button:hover {
+  background-color: rgba(117, 97, 30, 0.4);
+  color: white;
+}
+
 #mobile-container {
   display: flex;
   justify-content: center;
