@@ -617,7 +617,7 @@ class RatchelorGame extends React.Component {
 
     }
 
-    let safariMsg = this.state.isShowingSafariMsg ? <div id="safari-container"><div id="safari-msg">This game has some minor issues in Safari, we recommend using Chrome or Firefox!</div><div id="safari-button" onClick={()=>{this.setState({isShowingSafariMsg: false})}}>x</div></div> : "";
+    let safariMsg = this.state.isShowingSafariMsg ? <div id="safari-container"><div id="safari-msg">This game has some issues in Safari, we recommend using Chrome or Firefox!</div><div id="safari-button" onClick={()=>{this.setState({isShowingSafariMsg: false})}}>x</div></div> : "";
     
     if ( this.state.isOnMobile )
      {

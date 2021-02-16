@@ -139,9 +139,8 @@ class TalkingToRats extends React.Component {
     if (newRatIndex === this.ratNames.length) {
       this.props.goToRoseCeremony();
     } else {
-      this.setState({ ratIndex: newRatIndex });
+      this.setState({ ratIndex: newRatIndex }, () => this.sendRatIn());
       this.props.changeCurrentRatIdx(newRatIndex);
-      this.sendRatIn();
     }
   }
 
