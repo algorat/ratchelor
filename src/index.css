@@ -1329,12 +1329,38 @@ input[type='range']::-ms-thumb {
   z-index: 0;
 }
 
+#stickers {
+  position: absolute;
+  top: 14px;
+  width: auto;
+  right: 108px;
+  color: rgb(114, 63, 65);
+  font-family: 'Yusei Magic', sans-serif;
+  background-color: rgba(254, 220, 221, 1);
+  padding: 10px 10px;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 12px;
+}
+
+#stickers:hover {
+  background-color: #f8796a;
+  color: rgba(254, 220, 221, 1);
+}
+
+#credit-title {
+  margin-block-end: 0;
+  margin-block-start: 0;
+  padding: 13px 3px;
+  margin: 0;
+}
+
 #credits {
   position: absolute;
-  top: 12px;
+  top: 14px;
   width: auto;
   right: 12px;
-  padding: 4px 12px;
+  padding: 0 12px;
   border-radius: 12px;
   line-height: 105%;
   background-color: rgba(254, 220, 221, 1);
@@ -1343,6 +1369,7 @@ input[type='range']::-ms-thumb {
   color: rgb(114, 63, 65);
   font-size: 18px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 #credits #credit-title {

@@ -120,7 +120,8 @@ class RatchelorGame extends React.Component {
       playerIdx: -1,
       isPreloading: true,
       percentLoaded: 0.0,
-      isShowingSafariMsg: false
+      isShowingSafariMsg: false,
+      isOnMobile: false
     };
     this.finalRat = ratsJson[3];
     this.changeCurrentRatIdx = this.changeCurrentRatIdx.bind(this);
@@ -405,6 +406,11 @@ class RatchelorGame extends React.Component {
     this.interludeElement = document.getElementById("interlude");
     var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
     this.setState({isShowingSafariMsg: isSafari});
+    var isOnMobile =  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    this.setState({isOnMobile});
+    if (isOnMobile) {
+      document.getElementById("not-on-mobile").style.display = "none";
+    }
     this.database = firebase.database();
     this.randoRat = ratsJson[Math.floor(Math.random() * ratsJson.length)];
   }
@@ -613,11 +619,8 @@ class RatchelorGame extends React.Component {
 
     let safariMsg = this.state.isShowingSafariMsg ? <div id="safari-container"><div id="safari-msg">This game has some minor issues in Safari, we recommend using Chrome or Firefox!</div><div id="safari-button" onClick={()=>{this.setState({isShowingSafariMsg: false})}}>x</div></div> : "";
     
-    if (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      )
-    ) {
+    if ( this.state.isOnMobile )
+     {
       let randoRatFilename = "";
       let randoRatName = "";
       if (this.randoRat) {
