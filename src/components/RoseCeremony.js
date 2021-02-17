@@ -185,8 +185,7 @@ class RoseCeremony extends React.Component {
   }
 
   endRoseCeremony() {
-    this.props.setActiveRats(this.state.selectedRats);
-    this.props.advanceState();
+    this.props.setActiveRatsAndAdvanceState(this.state.selectedRats);
   }
 
   render() {

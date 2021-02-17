@@ -31,7 +31,8 @@ class TalkingToRats extends React.Component {
       dialogueBottom: OFF_BOTTOM,
       incr: 1,
       reacting: false,
-      lastActiveRat: -1
+      lastActiveRat: -1,
+      ratDialogue: "",
     };
   }
 
@@ -98,6 +99,7 @@ class TalkingToRats extends React.Component {
   }
 
   sendRatOut() {
+    if (this.textInterval) window.clearInterval(this.textInterval);
     window.clearInterval(this.ratMoveInInterval);
     window.clearTimeout(this.reactionTimeout);
     this.ratMoveOutInterval = window.setInterval(() => {
@@ -111,26 +113,33 @@ class TalkingToRats extends React.Component {
         }
       } else {
         window.clearInterval(this.ratMoveOutInterval);
-        this.setState({ reacting: false });
-        this.setState({ charsRevealed: 0 });
-        this.setNextRat();
+        this.setState({ reacting: false, charsRevealed: 0, ratDialogue: "..." }, 
+          () => this.setNextRat()
+        );
+        
       }
     }, this.ratMoveSpeed);
   }
 
   startTextMoving() {
-    this.setState({ charsRevealed: 0 });
-    this.textInterval = window.setInterval(() => {
-      let charsRevealed = this.state.charsRevealed + 1;
-      if (
-        charsRevealed >
-        this.activeRats[this.state.ratIndex].dialogue[this.props.round].length
-      ) {
-        window.clearInterval(this.textInterval);
-      } else {
-        this.setState({ charsRevealed });
-      }
-    }, this.charSpeed);
+   
+      this.textInterval = window.setInterval(() => {
+        let ratDialogue = this.activeRats[this.state.ratIndex].dialogue[
+          this.props.round
+        ].substring(0, this.state.charsRevealed);
+        this.setState({ratDialogue});
+        let charsRevealed = this.state.charsRevealed + 1;
+        if (
+          charsRevealed >
+          this.activeRats[this.state.ratIndex].dialogue[this.props.round].length
+        ) {
+          window.clearInterval(this.textInterval);
+        } else {
+          this.setState({ charsRevealed });
+        }
+      }, this.charSpeed);
+  
+    
   }
 
   setNextRat() {
@@ -212,9 +221,7 @@ class TalkingToRats extends React.Component {
 
   // You get a random rat, they talk to you, you can respond, after you respond another rat shows up
   render() {
-    let ratDialogue = this.activeRats[this.state.ratIndex].dialogue[
-      this.props.round
-    ].substring(0, this.state.charsRevealed);
+    let ratDialogue = this.state.ratDialogue;
     if (this.state.currReaction) {
       ratDialogue = <img id="dialogueImg" alt="dialogue emoji" src={`/ratchelor/img/Reactions/${this.state.currReaction}.PNG`}></img>
     }

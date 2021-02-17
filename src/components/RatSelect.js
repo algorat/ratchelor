@@ -6,8 +6,7 @@ class RatSelect extends React.Component {
 
     // Once you've select the rats, advance to the next stage
     this.onClickSelectRats = () => {
-      this.props.setActiveRats(this.state.selectedRats);
-      this.props.advanceState();
+      this.props.setActiveRatsAndAdvanceState(this.state.selectedRats);
     };
 
     this.state = {
