@@ -58,14 +58,13 @@ const soundsToPreload = [s2, s3, s5, s6, s7, s11, s1, s21, s22, s23, s24, s25];
 const soundsToAsyncLoad = [s17, s18, s19, s20, s16, s8, s9, s10, s12, s13, s14, s15];
 
 var firebaseConfig = {
-  apiKey: "AIzaSyDimK5PvHd3hBT8Xoyup_ogKaSPT3Chwzc",
-  authDomain: "ratchelor.firebaseapp.com",
-  databaseURL: "https://ratchelor-default-rtdb.firebaseio.com",
-  projectId: "ratchelor",
-  storageBucket: "ratchelor.appspot.com",
-  messagingSenderId: "993096202246",
-  appId: "1:993096202246:web:bf0ebeedc4c347640aeb87",
-  measurementId: "G-LV5NLFXL03"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_URL,
+  databaseURL: process.env.REACT_APP_DB_URL,
+  projectId: process.env.REACT_APP_PROJECTID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  measurementId: process.env.REACT_APP_MEASUREID
 };
 
 // Initialize Firebase
