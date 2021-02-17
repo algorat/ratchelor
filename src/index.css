@@ -723,8 +723,8 @@ button:focus {
 #animePic {
   animation: fadeIn ease 10s;
   flex-shrink: 0;
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 #animeText {

@@ -6,7 +6,7 @@ class AnimeEnding extends React.Component {
       <div id="animeEndingScreen" className="screen">
         <img
           id="animePic"
-          src={`/ratchelor/img/Anime/${this.props.winningRat.filename}.jpg`}
+          src={`/ratchelor/img/anime2/${this.props.winningRat.filename}.jpg`}
           alt="your chosen rat looking adoringly at you"
         ></img>
         <div id="animeText">

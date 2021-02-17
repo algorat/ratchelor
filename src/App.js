@@ -564,6 +564,9 @@ class RatchelorGame extends React.Component {
         />
       );
     } else if (this.state.gameStage === PROPOSAL) {
+      while (this.state.activeRatNames.length > 1) {
+        // wait for state to update
+      }
       this.finalRat = this.getRatByName(this.state.activeRatNames[0]);
       if(!this.setProposedInDatabase){
         this.setProposedInDatabase = true;
