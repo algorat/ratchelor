@@ -83,7 +83,7 @@ const SPECIAL_ENDING = 6;
 const PROPOSAL = 7;
 
 const INTERLUDE_OFFSET = 900;
-const ANIM_START_INCR = 30;
+const ANIM_TIME = 400;
 
 class RatchelorGame extends React.Component {
   constructor() {
@@ -114,14 +114,13 @@ class RatchelorGame extends React.Component {
       interludeText: "Round 1",
       //the rat that we r currently talking to
       currentRatIdx: 0,
-      interludeBottom: INTERLUDE_OFFSET,
-      incr: ANIM_START_INCR,
       volume: 15,
       playerIdx: -1,
       isPreloading: true,
       percentLoaded: 0.0,
       isShowingSafariMsg: false,
-      isOnMobile: false
+      isOnMobile: false,
+      curtainsClass: "curtainsOff"
     };
     this.finalRat = ratsJson[3];
     this.changeCurrentRatIdx = this.changeCurrentRatIdx.bind(this);
@@ -254,38 +253,20 @@ class RatchelorGame extends React.Component {
   }
 
   beginInterludeAndAdvanceState(text, delay, newGameStage) {
-    //console.log("beginning interval")
-    this.setState({ interludeText: text });
-    this.startInterludeInterval = window.setInterval(() => {
-      let interludeBottom = this.state.interludeBottom - this.state.incr;
-      if (interludeBottom <= 0) {
-        interludeBottom = 0;
-        if (newGameStage) {
-          this.setState({ gameStage: newGameStage });
-        }
-        window.clearInterval(this.startInterludeInterval);
-        window.setTimeout(() => {
-          this.endInterlude();
-        }, delay);
-      } else {
-        this.setState({ incr: this.state.incr * 0.97 });
-      }
-      this.setState({ interludeBottom });
-    }, 5);
+    this.setState({ interludeText: text, curtainsClass: "curtainsIn" }, () => {
+      window.setTimeout(() => {
+          this.setState({ gameStage: newGameStage }, () => {
+            window.setTimeout(() => {
+              this.endInterlude();
+            }, delay);
+            }
+          );
+      }, ANIM_TIME); 
+    });
   }
 
   endInterlude() {
-    this.endInterludeInterval = window.setInterval(() => {
-      let interludeBottom = this.state.interludeBottom + this.state.incr;
-      if (interludeBottom >= INTERLUDE_OFFSET) {
-        interludeBottom = INTERLUDE_OFFSET;
-        window.clearInterval(this.endInterludeInterval);
-        this.setState({ incr: ANIM_START_INCR });
-      } else {
-        this.setState({ incr: this.state.incr * 1.03 });
-      }
-      this.setState({ interludeBottom });
-    }, 5);
+    this.setState({curtainsClass: "curtainsOut"});
   }
 
   setCallPlaySound(f) {
@@ -474,19 +455,17 @@ class RatchelorGame extends React.Component {
           playTap={this.playTap}
           playSelectAnswer={this.playSelectAnswer}
           playBadActionSound={this.playBadActionSound}
-          advanceState={() => {
-            this.beginInterludeAndAdvanceState(
-              `chit chat`,
-              900,
-              TALKING_TO_RATS
-            );
-            if(this.playNewRoundSound){
-              this.playNewRoundSound()
-            }
-          }}
-          setActiveRats={(selectedRats) => {
-            this.setState({beginningRatPool: selectedRats});
-            this.setState({ activeRatNames: selectedRats });
+          setActiveRatsAndAdvanceState={(selectedRats) => {
+            this.setState({ activeRatNames: selectedRats, beginningRatPool: selectedRats }, () => {
+              this.beginInterludeAndAdvanceState(
+                `chit chat`,
+                900,
+                TALKING_TO_RATS
+              );
+              if(this.playNewRoundSound){
+                this.playNewRoundSound()
+              }
+            });
 
           }}
         />
@@ -539,34 +518,32 @@ class RatchelorGame extends React.Component {
           playSelectAnswer={this.playSelectAnswer}
           playBadActionSound={this.playBadActionSound}
           numRoses={this.rosesPerRound[this.state.roundNum]}
-          setActiveRats={(selectedRats) => {
-            this.setState({ activeRatNames: selectedRats });
-          }}
-          advanceState={() => {
-            // Update the current round number
-            const newRoundNum = this.state.roundNum + 1;
-            // If that was the last round, advance to Anime
-            if (newRoundNum === this.numRounds) {
-              this.setState({ gameStage: PROPOSAL });
-              // Else, keep talking to rats
-            } else {
-              this.beginInterludeAndAdvanceState(
-                `chit chat`,
-                900,
-                TALKING_TO_RATS
-              );
-              if(this.playNewRoundSound){
-                this.playNewRoundSound()
+          setActiveRatsAndAdvanceState={(selectedRats) => {
+            this.setState({ activeRatNames: selectedRats }, () => {
+              // Update the current round number
+              const newRoundNum = this.state.roundNum + 1;
+              // If that was the last round, advance to Anime
+              if (newRoundNum === this.numRounds) {
+                this.setState({ gameStage: PROPOSAL });
+                // Else, keep talking to rats
+              } else {
+                this.setState({ roundNum: newRoundNum }, () =>
+                {
+                  this.beginInterludeAndAdvanceState(
+                    `chit chat`,
+                    900,
+                    TALKING_TO_RATS
+                  );
+                  if(this.playNewRoundSound){
+                    this.playNewRoundSound()
+                  }
+                });
               }
-              this.setState({ roundNum: newRoundNum });
-            }
+            });
           }}
         />
       );
     } else if (this.state.gameStage === PROPOSAL) {
-      while (this.state.activeRatNames.length > 1) {
-        // wait for state to update
-      }
       this.finalRat = this.getRatByName(this.state.activeRatNames[0]);
       if(!this.setProposedInDatabase){
         this.setProposedInDatabase = true;
@@ -649,7 +626,8 @@ class RatchelorGame extends React.Component {
           {safariMsg}
 
           <div id="interludeContainer" >
-            <div id="interlude" style={{ bottom: this.state.interludeBottom }}>
+            {/* <div id="interlude" style={{ bottom: this.state.interludeBottom }}> */}
+            <div id="interlude" className={`${this.state.curtainsClass}`}>
               <div id="interludeText">{this.state.interludeText}</div>
             </div>
             {screen}

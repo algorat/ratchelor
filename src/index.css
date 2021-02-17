@@ -174,7 +174,6 @@ button:focus {
   width: 900px;
   z-index: 900;
   height: 750px;
-  bottom: 950px;
   margin-top: 10px;
   background-image: url('img/Backgrounds/curtains.png');
   background-size: 100%;
@@ -182,6 +181,38 @@ button:focus {
   display: flex;
   justify-content: center;
   /* bottom: 0 !important; */
+}
+
+.curtainsOff {
+  bottom: 950px;
+}
+
+.curtainsIn {
+  animation: curtainsIn ease-out 0.4s;
+  bottom: 0px;
+}
+
+.curtainsOut {
+  animation: curtainsOut ease-in 0.4s;
+  bottom: 950px;
+}
+
+@keyframes curtainsIn {
+  0% {
+    bottom: 950px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes curtainsOut {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: 950px;
+  }
 }
 
 #interludeText {
