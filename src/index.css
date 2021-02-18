@@ -984,6 +984,14 @@ button:focus {
   z-index: 10;
 }
 
+#epilogueButton {
+  position: absolute;
+  opacity: 1;
+  animation: fadeInDelay ease 8s;
+  right: 20px;
+  top: 30px;
+}
+
 #SpecialEndingScreen #chooseText {
   font-family: 'Yusei Magic';
   font-size: 30px;
@@ -999,14 +1007,27 @@ button:focus {
 
 #SpecialEndingScreen button {
   margin-top: -15px;
+  margin-left: 10px;
+  border: 5px solid #eda9b7;
 }
 
-#restartButton {
+#SpecialEndingScreen button:hover {
+  border: 5px solid #ffeeee;
+}
+
+#SpecialEndingScreen #endingButtonContainer {
   position: absolute;
   opacity: 1;
-  animation: fadeInDelay ease 10s;
-  right: 20px;
-  top: 30px;
+  animation: fadeInDelay ease 5s;
+  top: 15px;
+}
+
+#payusButton {
+  right: 162px;
+}
+
+#followusButton {
+  right: 475px;
 }
 
 /* ANIMATIONS */
