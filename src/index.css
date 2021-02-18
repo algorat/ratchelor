@@ -1437,7 +1437,7 @@ input[type='range']::-ms-thumb {
   right: 108px;
   color: rgb(114, 63, 65);
   font-family: 'Yusei Magic', sans-serif;
-  background-color: rgba(254, 220, 221, 1);
+  background-color: rgb(253, 237, 238);
   padding: 10px 10px;
   font-size: 16px;
   text-decoration: none;
@@ -1464,7 +1464,7 @@ input[type='range']::-ms-thumb {
   padding: 0 12px;
   border-radius: 12px;
   line-height: 105%;
-  background-color: rgba(254, 220, 221, 1);
+  background-color: rgb(253, 237, 238);
   font-family: Yusei Magic;
   text-align: center;
   color: rgb(114, 63, 65);

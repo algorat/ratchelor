@@ -53,7 +53,7 @@ class TalkingToRats extends React.Component {
       if (!this.state.ratImgsLoaded) {
         this.setState({ratImgsLoaded: true}, () => {
           if (this.sendFirstRatTimeout === null) {
-            this.sendFirstRatTimeout = 0;
+            this.sendFirstRatTimeout = 1;
             this.sendRatIn();
           }
         });
