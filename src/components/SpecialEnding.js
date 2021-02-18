@@ -179,7 +179,7 @@ class SpecialEnding extends React.Component {
     }
     ratsList.push(
     <div id="endingButtonContainer" key={"restartbutton"} style={{paddingTop:20}}> 
-      <button id="followusButton" onClick={() => {window.open("https://instagram.com/alg0rat")}}>Follow</button>
+      <button id="followusButton" onClick={() => {window.open("https://instagram.com/alg0rat")}}>Follow for updates</button>
       <button id="payusButton" onClick={() => {window.open("https://ko-fi.com/alg0rat")}}>Donate if you enjoyed!</button>
       <button id="restartButton" onClick={this.props.restartGame}>Replay?</button>
       </div>
