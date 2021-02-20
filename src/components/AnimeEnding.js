@@ -17,7 +17,7 @@ class AnimeEnding extends React.Component {
             ]
           }
         </div>
-        <button id="restartButton" onClick={this.props.epilogue}>
+        <button id="epilogueButton" onClick={this.props.epilogue}>
         Epilogue
         </button>
       </div>

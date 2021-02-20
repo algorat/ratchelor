@@ -3,9 +3,6 @@ import ReactionAnimation from './ReactionAnimation'
 import responsesJson from "../responses.json";
 import soundsToActionsJson from "../soundsToActions.json";
 
-const OFF_LEFT = -550;
-const OFF_BOTTOM = -400;
-const ON_BOTTOM = 25;
 class TalkingToRats extends React.Component {
   constructor(props) {
     super(props);
@@ -17,6 +14,9 @@ class TalkingToRats extends React.Component {
     this.activeRats = this.ratNames.map((ratName) =>
       this.props.getRatByName(ratName)
     );
+    this.sendFirstRatTimeout = null;
+    this.numRatImgsLoaded = 0;
+    this.ratImgs = [];
     // Store all of your canned responses in an array
     this.responses = responsesJson;
     this.charSpeed = 30;
@@ -26,20 +26,48 @@ class TalkingToRats extends React.Component {
       ratIndex: 0,
       charsRevealed: 0,
       responses: [],
-      ratLeft: OFF_LEFT,
-      ratTop: 0,
-      dialogueBottom: OFF_BOTTOM,
       incr: 1,
       reacting: false,
       lastActiveRat: -1,
       ratDialogue: "",
+      ratImgsLoaded: false,
     };
+  }
+  
+  ratImgLoaded() {
+    this.numRatImgsLoaded++;
+    if (this.numRatImgsLoaded === this.activeRats.length) {
+      this.setState({ratImgsLoaded: true}, () => {
+        if (this.sendFirstRatTimeout === null) {
+          this.sendFirstRatTimeout = window.setTimeout(() => {
+            this.sendRatIn();
+          }, this.props.startDelay);
+        }
+      })
+    }
+  }
+
+  preloadRatImgs() {
+    // Preload timeout if images don't load in 3.8s
+    window.setTimeout(() => {
+      if (!this.state.ratImgsLoaded) {
+        this.setState({ratImgsLoaded: true}, () => {
+          if (this.sendFirstRatTimeout === null) {
+            this.sendFirstRatTimeout = 1;
+            this.sendRatIn();
+          }
+        });
+      }
+    }, 4500)
+
+    for (let i = 0; i < this.activeRats.length; i++) {
+      let imgHTML = <img key={i} id={`ratImg${i}`} onLoad={this.ratImgLoaded.bind(this)} alt="a rat who wants to fall in love with you" className="ratImg" src={`/ratchelor/img/Couch/${this.activeRats[i].filename}.png`}></img>
+      this.ratImgs.push(imgHTML);
+    }
   }
 
   componentDidMount() {
-    window.setTimeout(() => {
-      this.sendRatIn();
-    }, this.props.startDelay);
+    this.preloadRatImgs();
   }
 
   componentWillUnmount() {
@@ -78,51 +106,26 @@ class TalkingToRats extends React.Component {
 
   sendRatIn() {
     this.setState({currReaction: null})
-    this.getRandomResponses();
-    this.setState({ incr: 25 });
-    window.clearTimeout(this.reactionTimeout);
-    window.clearInterval(this.ratMoveOutInterval);
-    this.ratMoveInInterval = window.setInterval(() => {
-      if (this.state.ratLeft < 0) {
-        this.setState({ ratLeft: this.state.ratLeft + this.state.incr });
-        if (this.state.dialogueBottom < 0) {
-          let dialogueBottom = this.state.dialogueBottom + this.state.incr;
-          if (dialogueBottom > 0) dialogueBottom = 0;
-          this.setState({ incr: this.state.incr * 0.95 });
-          this.setState({ dialogueBottom });
-        }
-      } else {
-        window.clearInterval(this.ratMoveInInterval);
-        this.startTextMoving();
-      }
-    }, this.ratMoveSpeed);
+    this.getRandomResponses();   
+    document.getElementById("dialogueContainer").classList.remove("leavingDialogue");
+    document.getElementById(`ratImg${this.state.ratIndex}`).classList.add("enteringRat");
+    document.getElementById("dialogueContainer").classList.add("enteringDialogue");
+    window.setTimeout(this.startTextMoving.bind(this), 800);
   }
 
   sendRatOut() {
-    if (this.textInterval) window.clearInterval(this.textInterval);
-    window.clearInterval(this.ratMoveInInterval);
-    window.clearTimeout(this.reactionTimeout);
-    this.ratMoveOutInterval = window.setInterval(() => {
-      if (this.state.ratLeft > OFF_LEFT) {
-        this.setState({ ratLeft: this.state.ratLeft - this.state.incr });
-        if (this.state.dialogueBottom > OFF_BOTTOM) {
-          let dialogueBottom = this.state.dialogueBottom - this.state.incr;
-          if (dialogueBottom < OFF_BOTTOM) dialogueBottom = OFF_BOTTOM;
-          this.setState({ dialogueBottom });
-          this.setState({ incr: this.state.incr * 1.05 });
-        }
-      } else {
-        window.clearInterval(this.ratMoveOutInterval);
-        this.setState({ reacting: false, charsRevealed: 0, ratDialogue: "..." }, 
+    document.getElementById(`ratImg${this.state.ratIndex}`).classList.remove("enteringRat");
+    document.getElementById("dialogueContainer").classList.remove("enteringDialogue");
+    document.getElementById(`ratImg${this.state.ratIndex}`).classList.add("leavingRat");
+    document.getElementById("dialogueContainer").classList.add("leavingDialogue");
+    window.setTimeout( () => {
+      this.setState({ reacting: false, charsRevealed: 0, ratDialogue: "..." }, 
           () => this.setNextRat()
         );
-        
-      }
-    }, this.ratMoveSpeed);
+    }, 800);
   }
 
   startTextMoving() {
-   
       this.textInterval = window.setInterval(() => {
         let ratDialogue = this.activeRats[this.state.ratIndex].dialogue[
           this.props.round
@@ -233,42 +236,26 @@ class TalkingToRats extends React.Component {
           alt="you as a rat, on the couch"
           src={this.props.playerRatUrl}
         ></img>
+        <div id="allRats">{this.ratImgs}</div>
         <div id="talkingRatContainer">
-        <img
-          id="talkingRat"
-          alt="a rat on the couch who is talking to you"
-          style={{
-            left: `${this.state.ratLeft}px`,
-            top: `${this.state.ratTop}px`,
-          }}
-          src={`/ratchelor/img/Couch/${
-            this.activeRats[this.state.ratIndex].filename
-          }.png`}
-        ></img>
+
         { this.state.reacting && 
           <ReactionAnimation 
-
-          
             emote={<img alt="" src={`/ratchelor/img/Reactions/${this.state.currReaction}.PNG`}/>}
-
-
             left={this.activeRats[this.state.lastActiveRat].reaction_pos[0] * 100}
             top={this.activeRats[this.state.lastActiveRat].reaction_pos[1] * 100}
           />}
         </div>
-        <div
-          id="dialogueContainer"
-          style={{ bottom: `${this.state.dialogueBottom}px` }}
-        >
+        <div id="dialogueContainer">
           <div id="ratName">{this.activeRats[this.state.ratIndex].name}</div>
-          <div id="ratDialogue">{ratDialogue}</div>
+          <div id="textDialogueContainer">
+            <div id="ratDialogue"> {ratDialogue}</div>
+            <div id="responses">
+                {this.state.responses}
+            </div>
+           </div>
         </div>
-        <div
-          id="responses"
-          style={{ bottom: `${this.state.dialogueBottom + ON_BOTTOM}px` }}
-        >
-          {this.state.responses}
-        </div>
+        
       </div>
     );
   }

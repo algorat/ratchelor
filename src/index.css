@@ -476,14 +476,84 @@ button:focus {
   justify-content: center;
   width: 100%;
   position: absolute;
+  bottom: 25px;
 }
 
 #talkingToRatsScreen #talkingRat,
+.ratImg,
 #playerRat {
   margin: 0;
   padding: 0;
   width: 100%;
   position: absolute;
+}
+
+.ratImg {
+  left: -550px;
+}
+
+.enteringRat {
+  animation: sendRatIn ease-out 0.8s !important;
+  left: 0;
+}
+
+.leavingRat {
+  left: -550px;
+  animation: sendRatOut ease-in 0.8s !important;
+}
+
+#dialogueContainer {
+  bottom: -400px;
+}
+
+#textDialogueContainer {
+  position: relative;
+}
+
+#talkingToRatsScreen .enteringDialogue {
+  bottom: 0;
+  animation: sendDialogueIn ease-out 0.8s !important;
+}
+
+.leavingDialogue {
+  /* bottom: -400px !important; */
+  animation: sendDialogueOut ease-in 0.8s !important;
+}
+
+@keyframes sendRatIn {
+  0% {
+    left: -550px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+
+@keyframes sendRatOut {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -550px;
+  }
+}
+
+@keyframes sendDialogueIn {
+  0% {
+    bottom: -400px;
+  }
+  100% {
+    bottom: 0px;
+  }
+}
+
+@keyframes sendDialogueOut {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -400px;
+  }
 }
 
 #talkingRatContainer {
@@ -914,6 +984,14 @@ button:focus {
   z-index: 10;
 }
 
+#epilogueButton {
+  position: absolute;
+  opacity: 1;
+  animation: fadeInDelay ease 8s;
+  right: 20px;
+  top: 30px;
+}
+
 #SpecialEndingScreen #chooseText {
   font-family: 'Yusei Magic';
   font-size: 30px;
@@ -929,14 +1007,27 @@ button:focus {
 
 #SpecialEndingScreen button {
   margin-top: -15px;
+  margin-left: 10px;
+  border: 5px solid #eda9b7;
 }
 
-#restartButton {
+#SpecialEndingScreen button:hover {
+  border: 5px solid #ffeeee;
+}
+
+#SpecialEndingScreen #endingButtonContainer {
   position: absolute;
   opacity: 1;
-  animation: fadeInDelay ease 10s;
-  right: 20px;
-  top: 30px;
+  animation: fadeInDelay ease 5s;
+  top: 15px;
+}
+
+#payusButton {
+  right: 162px;
+}
+
+#followusButton {
+  right: 475px;
 }
 
 /* ANIMATIONS */
@@ -1367,7 +1458,7 @@ input[type='range']::-ms-thumb {
   right: 108px;
   color: rgb(114, 63, 65);
   font-family: 'Yusei Magic', sans-serif;
-  background-color: rgba(254, 220, 221, 1);
+  background-color: rgb(253, 237, 238);
   padding: 10px 10px;
   font-size: 16px;
   text-decoration: none;
@@ -1394,7 +1485,7 @@ input[type='range']::-ms-thumb {
   padding: 0 12px;
   border-radius: 12px;
   line-height: 105%;
-  background-color: rgba(254, 220, 221, 1);
+  background-color: rgb(253, 237, 238);
   font-family: Yusei Magic;
   text-align: center;
   color: rgb(114, 63, 65);
