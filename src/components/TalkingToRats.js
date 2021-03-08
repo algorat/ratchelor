@@ -219,6 +219,7 @@ class TalkingToRats extends React.Component {
       );
       responses.push(responseDiv);
     }
+    this.props.setMobileMenu(<div id="responses">{responses}</div>);
     this.setState({ responses });
   }
 
@@ -250,9 +251,11 @@ class TalkingToRats extends React.Component {
           <div id="ratName">{this.activeRats[this.state.ratIndex].name}</div>
           <div id="textDialogueContainer">
             <div id="ratDialogue"> {ratDialogue}</div>
-            <div id="responses">
-                {this.state.responses}
-            </div>
+            {!this.props.isOnMobile && (
+              <div id="responses">
+                  {this.state.responses}
+              </div>
+            )}
            </div>
         </div>
         

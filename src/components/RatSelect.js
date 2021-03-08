@@ -1,28 +1,81 @@
 import React from "react";
 
+const SelectedRatMobileMenu = (props) => {
+
+  let selectedRatMenu = (
+    <div id="option-child">
+      {props.selectRatsButton}
+      <div id="name-of-rat">
+        {props.name}
+      </div>
+      <div id="rat-description">
+        {props.tagline}
+      </div>
+      <button onClick={
+          () => {
+            props.selectRat(props.name, props.id);
+          }
+        }>{props.selected ? "Unselect" : "Select"}</button>
+    </div>
+  )
+
+  return selectedRatMenu;
+}
+
 class RatSelect extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     // Once you've select the rats, advance to the next stage
     this.onClickSelectRats = () => {
-      this.props.setActiveRatsAndAdvanceState(this.state.selectedRats);
+      props.setActiveRatsAndAdvanceState(this.state.selectedRats);
     };
+
+    this.selectRat = this.selectRat.bind(this);
 
     this.state = {
       selectedRats: [],
       selectRatsButton: <div id="chooseText">Select your 7 contestants</div>,
     };
+
+    if(props.isOnMobile){
+      this.ratsDivObjects = {};
+      for (let i = 0; i < props.rats.length; i++) {
+        let name = props.rats[i].name;
+        let selected = this.state.selectedRats.indexOf(name);
+        let selectedRatMenu = (
+          <SelectedRatMobileMenu 
+            name={name} 
+            tagline={props.rats[i].tagline}
+            selected={selected >= 0}
+            selectRat={this.selectRat}
+            id={`rat${i}`}
+          />
+        )
+        this.ratsDivObjects[name] = selectedRatMenu;
+      }
+    }
+  }
+
+  componentWillUnmount(){
+    this.props.clearMobileMenu();
   }
 
   noContestantsLeft() {
     let selectRatsButton = (
       <div id="chooseText">
-        <button onClick={() => {this.onClickSelectRats();}}>Continue</button>
+        {this.props.isOnMobile ? ("You're done selecting!") : (<button onClick={() => {this.onClickSelectRats();}}>Continue</button>)}
       </div>
     );
     this.setState({ selectRatsButton });
     document.getElementById("ratListContainer").classList.remove("stillRats");
+
+    if(this.props.isOnMobile){
+      this.props.setMobileMenu(
+        <div id="option-child">
+          <button onClick={() => {this.onClickSelectRats();}}>Continue</button>
+        </div>)
+    }
   }
 
   oneContestantLeft() {
@@ -57,6 +110,22 @@ class RatSelect extends React.Component {
       newSelectedRats.splice(index, 1);
       this.setState({ selectedRats: newSelectedRats });
       element.classList.remove("selectedRat");
+
+      if(this.props.isOnMobile){
+        let selectedRatMenu = (
+          <SelectedRatMobileMenu 
+            name={ratName} 
+            tagline={this.props.rats[index].tagline}
+            selected={false}
+            selectRat={this.selectRat}
+            id={id}
+          />
+        )
+  
+        this.ratsDivObjects[ratName] = selectedRatMenu;
+        this.props.setMobileMenu(selectedRatMenu)
+      }
+      
       if (this.state.selectedRats.length !== this.props.numRatsInGame - 1) {
         this.multiContestantsLeft();
       } else {
@@ -76,6 +145,21 @@ class RatSelect extends React.Component {
     newSelectedRats.push(ratName);
     element.classList.add("selectedRat");
 
+    if(this.props.isOnMobile){
+      const index = this.state.selectedRats.indexOf(ratName);
+      let selectedRatMenu = (
+        <SelectedRatMobileMenu 
+          name={ratName} 
+          tagline={this.props.rats[index].tagline}
+          selected={true}
+          selectRat={this.selectRat}
+          id={id}
+        />
+      )
+      this.ratsDivObjects[ratName] = selectedRatMenu;
+      this.props.setMobileMenu(selectedRatMenu)
+    }
+    
     this.props.playTap();
 
     // If that was the final rat, display the advance button
@@ -91,40 +175,62 @@ class RatSelect extends React.Component {
     }
 
     // Force a UI update for the rat list
-
     this.setState({});
   }
 
   render() {
     let ratsList = [];
+    
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.props.rats.length; i++) {
       let filename = `/ratchelor/img/Frames/${this.props.rats[i].filename}.PNG`;
       let filenameHearts = `/ratchelor/img/Frames/hearts${(i % 9) + 1}.PNG`;
+      let name = this.props.rats[i].name;
+      let fullSelection = this.state.selectedRats.length === this.props.numRatsInGame;
+      let isSelected = this.state.selectedRats.indexOf(name) !== -1;
       ratsList.push(
-        <div key={"rats" + i} id="ratContainer">
+        <div key={"rats" + i} id={"ratContainer"} className={this.props.isOnMobile && "mobile"}>
           <div
             id={`rat${i}`}
             className="ratListItem"
             onClick={() => {
-              this.selectRat(this.props.rats[i].name, `rat${i}`);
+              if(this.props.isOnMobile){
+                if(fullSelection){
+                  if (isSelected) {
+                    this.props.setMobileMenu(this.ratsDivObjects[name]);
+                  } else {
+                    this.props.setMobileMenu(
+                      <div id="option-child">
+                        <div>
+                          Can't select any more, but you can still unselect rats.
+                        </div>
+                        <button onClick={() => {this.onClickSelectRats();}}>Continue</button>
+                      </div>
+                    );
+                  }
+                } else {
+                  this.props.setMobileMenu(this.ratsDivObjects[name]);
+                }
+              } else {
+                this.selectRat(this.props.rats[i].name, `rat${i}`);
+              }
             }}
           >
             <div className="ratPic">
               <img key={`ratframe${i}`} className="ratFrame" src={filename} alt="" />
               <img key={`rathearts${i}`} className="ratHearts" src={filenameHearts} alt="" />
             </div>
-            <div className="ratNameContainer">
+            {!this.props.isOnMobile && (<div className="ratNameContainer">
               <div className="ratName">{`${this.props.rats[i].name}`}</div>
               <div className="ratTagline">{`"${this.props.rats[i].tagline}"`}</div>
-            </div>
+            </div>)}
           </div>
         </div>
       );
     }
 
     return (
-      <div id="ratSelectScreen" className="screen">
+      <div id="ratSelectScreen" className={`screen ${this.props.isOnMobile ? "mobile-screen" : "" }`}>
         {this.state.selectRatsButton}
         <div id="ratListContainer" className="stillRats">
           {ratsList}

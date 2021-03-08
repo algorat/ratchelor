@@ -7,7 +7,33 @@ class IntroScreen extends React.Component {
       opacity: 1,
       loadingText: "Loading",
     };
+    this.setMobileYet = false;
     this.onClick = this.onClick.bind(this);
+    this.button = (<button
+      ref={(b) => {
+        if (b) {
+          b.addEventListener("click", () => {
+            props.playSound();
+          });
+        }
+      }}
+      onClick={this.onClick}
+    >
+      Embark
+    </button>)
+  }
+
+  componentDidUpdate(){
+    if(this.props.isOnMobile && !this.setMobileYet){
+      this.props.setMobileMenu(this.button);
+      this.setMobileYet = true;
+    }
+  }
+
+  componentWillUnmount(){
+    if(this.props.isOnMobile){
+      this.props.clearMobileMenu();
+    }
   }
 
   onClick() {
@@ -23,18 +49,7 @@ class IntroScreen extends React.Component {
   }
 
   render() {
-    let button = <button
-      ref={(b) => {
-        if (b) {
-          b.addEventListener("click", () => {
-            this.props.playSound();
-          });
-        }
-      }}
-      onClick={this.onClick}
-    >
-      Embark
-    </button>
+
 
     let loader = <div id="loadingText">{this.state.loadingText}</div>
     let percentLoadedText = Math.floor(this.props.percentLoaded * 100);
@@ -46,7 +61,7 @@ class IntroScreen extends React.Component {
         className={`screen loading-${this.props.isPreloading}`}
         style={{ opacity: this.state.opacity }}
       >
-        {this.props.isPreloading ? loader : button}
+        {!this.props.isOnMobile && (this.props.isPreloading ? loader : this.button)}
         <div id="hideme" />
       </div>
     );

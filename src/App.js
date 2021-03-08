@@ -120,7 +120,8 @@ class RatchelorGame extends React.Component {
       percentLoaded: 0.0,
       isShowingSafariMsg: false,
       isOnMobile: false,
-      curtainsClass: "curtainsOff"
+      curtainsClass: "curtainsOff",
+      mobileMenu: (<div/>)
     };
     this.finalRat = ratsJson[3];
     this.changeCurrentRatIdx = this.changeCurrentRatIdx.bind(this);
@@ -140,6 +141,8 @@ class RatchelorGame extends React.Component {
     this.setPlayTadaSound = this.setPlayTadaSound.bind(this);
     this.setPlayChimesSound = this.setPlayChimesSound.bind(this);
     this.setPlayWobbleSound = this.setPlayWobbleSound.bind(this);
+    this.setMobileMenu = this.setMobileMenu.bind(this);
+    this.clearMobileMenu = this.clearMobileMenu.bind(this);
 
     this.setPlayTap = this.setPlayTap.bind(this);
     this.donePreloading = this.donePreloading.bind(this);
@@ -147,6 +150,14 @@ class RatchelorGame extends React.Component {
     this.publicImgsLoaded= false;
     this.srcImgsLoaded= false;
     this.soundsLoaded= false;
+  }
+
+  setMobileMenu(d){
+    this.setState({mobileMenu:d});
+  }
+
+  clearMobileMenu(){
+    this.setState({mobileMenu: (<div/>)});
   }
 
   donePreloading(){
@@ -388,7 +399,7 @@ class RatchelorGame extends React.Component {
     var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
     this.setState({isShowingSafariMsg: isSafari});
     var isOnMobile =  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    this.setState({isOnMobile});
+    this.setState({isOnMobile: isOnMobile});
     if (isOnMobile) {
       document.getElementById("not-on-mobile").style.display = "none";
     }
@@ -399,8 +410,6 @@ class RatchelorGame extends React.Component {
   render() {
     let screen = "";
     let isPreloading = this.state.isPreloading;
-
-    //console.log(isPreloading)
     
     if (this.state.gameStage === INTRO) {
       // Intro screen: advances to next stage when complete
@@ -416,6 +425,9 @@ class RatchelorGame extends React.Component {
           }}
           isPreloading={isPreloading}
           percentLoaded={this.state.percentLoaded}
+          setMobileMenu={this.setMobileMenu}
+          clearMobileMenu={this.clearMobileMenu}
+          isOnMobile={this.state.isOnMobile}
           onClick={() => {
             this.beginInterludeAndAdvanceState(
               "meet yourself",
@@ -432,6 +444,9 @@ class RatchelorGame extends React.Component {
           playerIdx={this.state.playerIdx}
           playSelectAnswer={this.playSelectAnswer}
           playTap={this.playTap}
+          isOnMobile={this.state.isOnMobile}
+          setMobileMenu={this.setMobileMenu}
+          clearMobileMenu={this.clearMobileMenu}
           onClick={() => {
             this.beginInterludeAndAdvanceState(
               "meet your suitors",
@@ -455,6 +470,9 @@ class RatchelorGame extends React.Component {
           playTap={this.playTap}
           playSelectAnswer={this.playSelectAnswer}
           playBadActionSound={this.playBadActionSound}
+          setMobileMenu={this.setMobileMenu}
+          clearMobileMenu={this.clearMobileMenu}
+          isOnMobile={this.state.isOnMobile}
           setActiveRatsAndAdvanceState={(selectedRats) => {
             this.setState({ activeRatNames: selectedRats, beginningRatPool: selectedRats }, () => {
               this.beginInterludeAndAdvanceState(
@@ -479,6 +497,9 @@ class RatchelorGame extends React.Component {
           getRatByName={this.getRatByName}
           round={this.state.roundNum}
           startDelay={1000}
+          setMobileMenu={this.setMobileMenu}
+          clearMobileMenu={this.clearMobileMenu}
+          isOnMobile={this.state.isOnMobile}
           playSelectAnswer={this.playSelectAnswer}
           playCricketsSound={this.playCricketsSound}
           playTromboneSound={this.playTromboneSound}
@@ -598,71 +619,62 @@ class RatchelorGame extends React.Component {
     }
 
     let safariMsg = this.state.isShowingSafariMsg ? <div id="safari-container"><div id="safari-msg">This game has some issues in Safari, we recommend using Chrome or Firefox!</div><div id="safari-button" onClick={()=>{this.setState({isShowingSafariMsg: false})}}>x</div></div> : "";
-    
-    if ( this.state.isOnMobile )
-     {
-      let randoRatFilename = "";
-      let randoRatName = "";
-      if (this.randoRat) {
-        randoRatFilename = this.randoRat.filename;
-        randoRatName = this.randoRat.name;
-      }
-      return (
-        <div id="mobile-container">
-          <div id="mobile-message">{`To experience The Ratchelor, ${randoRatName} wants you to access this website on a desktop computer!`}</div>
-          <img
-            id="mobile-img"
-            alt="a rat who loves you"
-            src={`/ratchelor/img/Characters/${randoRatFilename}.png`}
-          ></img>
-        </div>
-      );
-    }
+    let mHeight = (411 - 10)/900;
     return (
-      <div id={`game-container`} className={`preloading-${isPreloading}`}>
+      <div 
+        className={`game-container-container ${this.state.isOnMobile ? "mobile" : ""}`}
+        style={{justifyContent: this.state.isOnMobile ? "flex-end" : "center"}}
+      >
+        <div 
+          id={`game-container`} 
+          className={`preloading-${isPreloading}`}
+          style={this.state.isOnMobile ? {transform: `scale(${mHeight})`, margin: `-${(900-(mHeight * 900))/2}px -${0.75 * (900-(mHeight * 900))/2}px`} : {}}
+        >
+          <div id="game">
+            <img id="frame" src="/ratchelor/img/frameSmaller.png" alt=""></img>
+            {safariMsg}
 
-        <div id="game">
-          <img id="frame" src="/ratchelor/img/frameSmaller.png" alt=""></img>
-          {safariMsg}
-
-          <div id="interludeContainer" >
-            {/* <div id="interlude" style={{ bottom: this.state.interludeBottom }}> */}
-            <div id="interlude" className={`${this.state.curtainsClass}`}>
-              <div id="interludeText">{this.state.interludeText}</div>
+            <div id="interludeContainer" >
+              {/* <div id="interlude" style={{ bottom: this.state.interludeBottom }}> */}
+              <div id="interlude" className={`${this.state.curtainsClass}`}>
+                <div id="interludeText">{this.state.interludeText}</div>
+              </div>
+              {screen}
             </div>
-            {screen}
-          </div>
 
-          <MusicManager
-            setCallPlaySound={this.setCallPlaySound}
-            phase={this.state.gameStage}
-            finalRat={this.finalRat}
-            currentRatIdx={this.state.currentRatIdx}
+            <MusicManager
+              setCallPlaySound={this.setCallPlaySound}
+              phase={this.state.gameStage}
+              finalRat={this.finalRat}
+              currentRatIdx={this.state.currentRatIdx}
+              volume={this.state.volume}
+            />
+            <SoundEffectController
             volume={this.state.volume}
-          />
-          <SoundEffectController
-           volume={this.state.volume}
-          setPlayRoseSound={this.setPlayRoseSound}
-          setPlayCricketsSound={this.setPlayCricketsSound}
-          setPlayBadActionSound={this.setPlayBadActionSound}
-          setPlayNewRoundSound={this.setPlayNewRoundSound}
-          setPlaySelectAnswer={this.setPlaySelectAnswer}
-          setPlayHarpSound={this.setPlayHarpSound}
-          setPlayTromboneSound={this.setPlayTromboneSound}
-          setPlayTap={this.setPlayTap}
-          setPlayChachingSound={this.setPlayChachingSound}
-          setPlayDingSound={this.setPlayDingSound}
-          setPlayMetalSound={this.setPlayMetalSound}
-          setPlayTadaSound={this.setPlayTadaSound}
-          setPlayChimesSound={this.setPlayChimesSound}
-          setPlayWobbleSound={this.setPlayWobbleSound}
+            setPlayRoseSound={this.setPlayRoseSound}
+            setPlayCricketsSound={this.setPlayCricketsSound}
+            setPlayBadActionSound={this.setPlayBadActionSound}
+            setPlayNewRoundSound={this.setPlayNewRoundSound}
+            setPlaySelectAnswer={this.setPlaySelectAnswer}
+            setPlayHarpSound={this.setPlayHarpSound}
+            setPlayTromboneSound={this.setPlayTromboneSound}
+            setPlayTap={this.setPlayTap}
+            setPlayChachingSound={this.setPlayChachingSound}
+            setPlayDingSound={this.setPlayDingSound}
+            setPlayMetalSound={this.setPlayMetalSound}
+            setPlayTadaSound={this.setPlayTadaSound}
+            setPlayChimesSound={this.setPlayChimesSound}
+            setPlayWobbleSound={this.setPlayWobbleSound}
+            />
+          </div>
+          <GameOptions
+            volume={this.state.volume}
+            changeVolume={this.changeVolume}
           />
         </div>
-        <GameOptions
-          volume={this.state.volume}
-          changeVolume={this.changeVolume}
-        />
-        
+        {this.state.isOnMobile && (<div className="option-holder">
+          {this.state.mobileMenu}
+        </div>)}
       </div>
     );
   }

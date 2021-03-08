@@ -27,37 +27,40 @@ class CharacterSelect extends React.Component {
       ratSelected: false,
       transform: 1,
     };
+
+    this.buttonAreaAfter = (
+      <div id="button-container">
+        <button
+          onClick={( )=>{
+            this.props.onClick(); 
+            //this.props.playSelectAnswer();
+          }
+        }
+        >
+          Onwards!
+        </button>
+      </div>
+    );
+
+    this.buttonAreaBefore = (
+      <div id="ratchelor-intro-question">Which rat do you want to be?</div>
+    );
   }
 
   componentDidMount() {
-    // this.interval = window.setInterval(() => {
-    //   let transform = -1 * this.state.transform
-    //   this.setState({transform})
-    //   console.log(transform)
-    // }, 1000);
+    this.props.setMobileMenu(this.buttonAreaBefore)
+  }
+
+  componentWillUnmount() {
+    this.props.clearMobileMenu();
   }
 
   render() {
     let buttonArea;
     if (this.state.ratSelected) {
-      buttonArea = (
-        <div id="button-container">
-          <button
-            onClick={( )=>{
-              this.props.onClick(); 
-              //this.props.playSelectAnswer();
-            }
-          }
-            style={{ display: this.props.playerIdx >= 0 ? "block" : "none" }}
-          >
-            Onwards!
-          </button>
-        </div>
-      );
+      buttonArea = this.buttonAreaBefore;
     } else {
-      buttonArea = (
-        <div id="ratchelor-intro-question">Which rat do you want to be?</div>
-      );
+      buttonArea = this.buttonAreaAfter;
     }
     return (
       <div id="custom-character" className="screen">
@@ -83,13 +86,17 @@ class CharacterSelect extends React.Component {
                   this.props.changePlayerIdx(idx + 1);
                   this.setState({ ratSelected: true });
                   this.props.playTap();
+                  if(this.props.isOnMobile){
+                    console.log("after")
+                    this.props.setMobileMenu(this.buttonAreaAfter)
+                  }
                 }}
                 key={`char${idx}`}
                 src={`/ratchelor/img/Player/${idx + 1}_intro.png`}
               />
             ))}
         </div>
-        {buttonArea}
+        {!this.props.isOnMobile && buttonArea}
       </div>
     );
   }
