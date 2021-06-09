@@ -619,16 +619,21 @@ class RatchelorGame extends React.Component {
     }
 
     let safariMsg = this.state.isShowingSafariMsg ? <div id="safari-container"><div id="safari-msg">This game has some issues in Safari, we recommend using Chrome or Firefox!</div><div id="safari-button" onClick={()=>{this.setState({isShowingSafariMsg: false})}}>x</div></div> : "";
-    let mHeight = (411 - 10)/900;
+    const desiredHeight = (window.innerHeight - 20);
+    let scalingAmount = desiredHeight/900;
+    let newWidth = 1120 * scalingAmount;
+    let remainingWidth = window.innerWidth - newWidth - 60;
     return (
       <div 
         className={`game-container-container ${this.state.isOnMobile ? "mobile" : ""}`}
-        style={{justifyContent: this.state.isOnMobile ? "flex-end" : "center"}}
+        style={{display: this.state.isOnMobile ? "block" : "flex"}}
       >
         <div 
           id={`game-container`} 
           className={`preloading-${isPreloading}`}
-          style={this.state.isOnMobile ? {transform: `scale(${mHeight})`, margin: `-${(900-(mHeight * 900))/2}px -${0.75 * (900-(mHeight * 900))/2}px`} : {}}
+          style={this.state.isOnMobile ? {transform: `scale(${scalingAmount})`,
+              position:"absolute", left: "20px", top: "10px", 
+              margin: `-${(675-desiredHeight)/2}px -${0.86 * (900-(scalingAmount * 900))/2}px`} : {}}
         >
           <div id="game">
             <img id="frame" src="/ratchelor/img/frameSmaller.png" alt=""></img>
@@ -672,9 +677,8 @@ class RatchelorGame extends React.Component {
             changeVolume={this.changeVolume}
           />
         </div>
-        {this.state.isOnMobile && (<div className="option-holder">
-          {this.state.mobileMenu}
-        </div>)}
+        {this.state.isOnMobile && (<div style={{"width":remainingWidth,
+          top: "10px", left:`${newWidth + 30}px`, position:"absolute", height: desiredHeight + "px"}} className="option-holder"></div>)}
       </div>
     );
   }

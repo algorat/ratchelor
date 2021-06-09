@@ -1555,9 +1555,8 @@ input[type='range']::-ms-thumb {
 .option-holder{
   width: 100%;
   height: 80%;
-  margin-right: 12px;
-  border: 2px solid white;
-  border-radius: 16px;
+  /* border: 2px solid white;
+  border-radius: 16px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1567,6 +1566,9 @@ input[type='range']::-ms-thumb {
   background-color: pink;
   font-family: "Yusei Magic", sans-serif;
   color: rgb(114, 63, 65);
+  border-image: url(./img/mobileControllerFrame.png) round;
+  border-image-slice: calc(50 / 184 * 100%) calc(80 / 284 * 100%) fill;
+  border-image-width: 30px 48px;
 }
 
 .option-holder div{
