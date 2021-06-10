@@ -19,6 +19,7 @@ class SpecialEnding extends React.Component {
     }
     this.state = {
       opacity: 1,
+      selectedRat: -1,
       selectedRats: [],
       selectRatsButton: <div id="chooseText">Others have found love too!</div>
     }
@@ -152,43 +153,49 @@ class SpecialEnding extends React.Component {
     //console.log(this.photos)
     // console.log(photos)
     let ratsList = [<img key={"bgimg"} id="specialBg" onClick={this.deselect.bind(this)} src={`/ratchelor/img/Photos/background.png`} alt="images on a table!"></img> ]
-
+    const MobileWrapper = this.props.mobileMenuWrapper;
+    const mobileTxt = (this.state.selectedRat < 0) ? "Tap on a photo to start." : this.text[this.state.selectedRat];
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.photos.length; i++) {
       if(this.text[i] === undefined){continue;}
       ratsList.push(
         <div key={"ratslist" + i} id="ratContainer">
-          <div  id={`rat${i}`} className="ratListItem">
-          <div className="ratPic">
-            <img className="ratFrame"
+          <div id={`rat${i}`} className="ratListItem">
+          <div className="ratPic" onClick={ () => {
+            if(this.props.isOnMobile){
+              this.setState({selectedRat: i})};
+            }
+          }>
+            <img className={ i === this.state.selectedRat ? "ratFrame selected" : "ratFrame"}
             style={{
           width: "100%",
           paddingTop:(30* this.random(i-991))+"px" ,
           paddingRight: (30* this.random(i+123)) +"px",
           transform: "rotate("+(this.random(i+22)*30) + "deg) scale(2.24) ",
-         
          }} src={"/ratchelor/img/Photos/"+this.photos[i]} alt=""/>
        
           </div>
           <div className="ratNameContainer">
-          <div className="ratName">{`${this.text[i]}`}</div>
+          {!this.props.isOnMobile && <div className="ratName">{`${this.text[i]}`}</div>}
           </div>
         </div>
         </div>
       )
     }
-    ratsList.push(
-    <div id="endingButtonContainer" key={"restartbutton"} style={{paddingTop:20}}> 
+    const buttons = (
+      <div id="endingButtonContainer" key={"restartbutton"} style={{paddingTop:20}}> 
       <button id="followusButton" onClick={() => {window.open("https://instagram.com/alg0rat")}}>Follow for updates</button>
       <button id="payusButton" onClick={() => {window.open("https://ko-fi.com/alg0rat")}}>Donate if you enjoyed!</button>
       <button id="restartButton" onClick={this.props.restartGame}>Replay?</button>
       </div>
-    )
+    );
     return (
       <div id="SpecialEndingScreen" className="screen">
-
-        <div id="ratListContainer">{ratsList}</div>
-
+        <div className="hide-overflow">
+          <div id="ratListContainer">{ratsList}</div>
+          {this.props.isOnMobile && <div className="mobile-description">{mobileTxt}</div>}
+        </div>
+        {this.props.isOnMobile ? <MobileWrapper>{buttons}</MobileWrapper> : buttons}
     </div>
     );
   }

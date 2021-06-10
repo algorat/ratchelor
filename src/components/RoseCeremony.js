@@ -17,7 +17,8 @@ class RoseCeremony extends React.Component {
       instructions: `Choose ${this.props.numRoses} contestants to continue`,
       middleRowClass: "",
       allRatsSelectedClass: "notAllRatsSelected",
-      lastRoseClass: ""
+      lastRoseClass: "",
+      currentlyViewedRat: [null, null]
     };
   }
 
@@ -128,6 +129,11 @@ class RoseCeremony extends React.Component {
     }
   }
 
+  selectRatIntermediate(ratName, id) {
+    console.log("updating state with ", ratName);
+    this.setState({currentlyViewedRat: [ratName, id]});
+  }
+
   // When a rat is clicked
   selectRat(ratName, id) {
     // Get the element for the current rat button
@@ -201,7 +207,12 @@ class RoseCeremony extends React.Component {
           id={`rat${i}`}
           className={`ratList`}
           onClick={() => {
-            this.selectRat(this.backRowRats[i].name, `rat${i}`);
+            if(this.props.isOnMobile){
+              this.selectRatIntermediate(this.backRowRats[i].name, `rat${i}`);
+            } else {
+              this.selectRat(this.backRowRats[i].name, `rat${i}`);
+            }
+            
           }}
         >
           <div className={`${this.state.allRatsSelectedClass}`}>
@@ -216,9 +227,9 @@ class RoseCeremony extends React.Component {
             src={roseFilename}
             alt="a rat waiting for you to make a decision"
           />
-          <div className="hoverText" alt="info about the rat">
+          {!this.props.isOnMobile && <div className="hoverText" alt="info about the rat">
             {this.backRowRats[i].name}
-          </div></div>
+          </div>}</div>
         </div>
       );
     }
@@ -234,10 +245,15 @@ class RoseCeremony extends React.Component {
           id={`rat${this.backRowRats.length + i}`}
           className={`ratList`}
           onClick={() => {
+            if(this.props.isOnMobile){
+              this.selectRatIntermediate( this.frontRowRats[i].name,
+                `rat${this.backRowRats.length + i}`);
+            } else {
             this.selectRat(
               this.frontRowRats[i].name,
               `rat${this.backRowRats.length + i}`
             );
+          }
           }}
         >
            <div className={`${this.state.allRatsSelectedClass}`}>
@@ -252,9 +268,10 @@ class RoseCeremony extends React.Component {
             src={roseFilename}
             alt="a rat waiting for you to make a decision"
           />
+          {!this.props.isOnMobile && 
           <div className="hoverText" alt="info about the rat">
             {this.frontRowRats[i].name}
-          </div>
+          </div>}
           </div>
         </div>
       );
@@ -262,6 +279,8 @@ class RoseCeremony extends React.Component {
 
     let bouquetNum = this.props.numRoses - this.state.selectedRats.length;
     if (!bouquetNum || bouquetNum < 0 || bouquetNum > 5) bouquetNum = 0;
+    const MobileWrapper = this.props.mobileMenuWrapper;
+    const lastClickedRat = this.props.getRatByName(this.state.currentlyViewedRat[0]);
 
     return (
       <div id="roseCeremonyScreen" className={`screen ${this.state.lastRoseClass}`}>
@@ -270,13 +289,29 @@ class RoseCeremony extends React.Component {
           alt="a rose bouquet"
           src={`/ratchelor/img/Bouquet/bouquet${bouquetNum}.png`}
         ></img>
-        <div id="instructions">{this.state.instructions}</div>
+        {!this.props.isOnMobile && <div id="instructions">{this.state.instructions}</div>}
         <div id="ratListContainer">
           <div id="backRow" className={`${this.state.middleRowClass}`}>
             {backRatsList}
           </div>
           <div id="frontRow">{frontRatsList}</div>
         </div>
+        { this.props.isOnMobile &&
+          (<MobileWrapper>
+            <div id="instructions">{this.state.instructions}</div>
+            {(this.state.currentlyViewedRat[0] === null) ?
+              <h2>Select a rat to get started</h2> :
+              <div id="mobile-container">
+                <img src={`/ratchelor/img/Frames/${lastClickedRat.filename}.PNG`} alt={`image of ${this.state.currentlyViewedRat[0]}`}/>
+                <h2>{this.state.currentlyViewedRat[0]}</h2>
+                <p>{lastClickedRat.tagline}</p>
+                <button onClick={() => {this.selectRat(...this.state.currentlyViewedRat);}}>
+                  {this.state.selectedRats.includes(this.state.currentlyViewedRat[0]) ? "Deselect" : "Select"}
+                </button>
+              </div>
+            }
+          </MobileWrapper>)
+        }
       </div>
     );
   }

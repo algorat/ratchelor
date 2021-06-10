@@ -114,7 +114,7 @@ class RatchelorGame extends React.Component {
       interludeText: "Round 1",
       //the rat that we r currently talking to
       currentRatIdx: 0,
-      volume: 15,
+      volume: 10,
       playerIdx: -1,
       isPreloading: true,
       percentLoaded: 0.0,
@@ -150,6 +150,25 @@ class RatchelorGame extends React.Component {
     this.publicImgsLoaded= false;
     this.srcImgsLoaded= false;
     this.soundsLoaded= false;
+
+    this.desiredHeight = (window.innerHeight - 20);
+    this.scalingAmount = this.desiredHeight/900;
+    this.newWidth = 1120 * this.scalingAmount;
+    this.remainingWidth = window.innerWidth - this.newWidth - 20;
+    this.mobileMenuWrapper = ({ children }) => {
+      return(
+        <div 
+          className="mobile-wrapper"
+          style={{
+          "left": (1120 - 110) + "px",
+          "top": "0px",
+          "width": (this.remainingWidth * 1/this.scalingAmount) + "px",
+          "height": 0.75 * (this.desiredHeight * 1/this.scalingAmount) + "px"
+        }}>
+          {children}
+        </div>
+      )
+    }
   }
 
   setMobileMenu(d){
@@ -425,9 +444,8 @@ class RatchelorGame extends React.Component {
           }}
           isPreloading={isPreloading}
           percentLoaded={this.state.percentLoaded}
-          setMobileMenu={this.setMobileMenu}
-          clearMobileMenu={this.clearMobileMenu}
           isOnMobile={this.state.isOnMobile}
+          mobileMenuWrapper={this.mobileMenuWrapper}
           onClick={() => {
             this.beginInterludeAndAdvanceState(
               "meet yourself",
@@ -445,8 +463,7 @@ class RatchelorGame extends React.Component {
           playSelectAnswer={this.playSelectAnswer}
           playTap={this.playTap}
           isOnMobile={this.state.isOnMobile}
-          setMobileMenu={this.setMobileMenu}
-          clearMobileMenu={this.clearMobileMenu}
+          mobileMenuWrapper={this.mobileMenuWrapper}
           onClick={() => {
             this.beginInterludeAndAdvanceState(
               "meet your suitors",
@@ -470,9 +487,8 @@ class RatchelorGame extends React.Component {
           playTap={this.playTap}
           playSelectAnswer={this.playSelectAnswer}
           playBadActionSound={this.playBadActionSound}
-          setMobileMenu={this.setMobileMenu}
-          clearMobileMenu={this.clearMobileMenu}
           isOnMobile={this.state.isOnMobile}
+          mobileMenuWrapper={this.mobileMenuWrapper}
           setActiveRatsAndAdvanceState={(selectedRats) => {
             this.setState({ activeRatNames: selectedRats, beginningRatPool: selectedRats }, () => {
               this.beginInterludeAndAdvanceState(
@@ -497,9 +513,8 @@ class RatchelorGame extends React.Component {
           getRatByName={this.getRatByName}
           round={this.state.roundNum}
           startDelay={1000}
-          setMobileMenu={this.setMobileMenu}
-          clearMobileMenu={this.clearMobileMenu}
           isOnMobile={this.state.isOnMobile}
+          mobileMenuWrapper={this.mobileMenuWrapper}
           playSelectAnswer={this.playSelectAnswer}
           playCricketsSound={this.playCricketsSound}
           playTromboneSound={this.playTromboneSound}
@@ -538,6 +553,8 @@ class RatchelorGame extends React.Component {
           playTap={this.playTap}
           playSelectAnswer={this.playSelectAnswer}
           playBadActionSound={this.playBadActionSound}
+          isOnMobile={this.state.isOnMobile}
+          mobileMenuWrapper={this.mobileMenuWrapper}
           numRoses={this.rosesPerRound[this.state.roundNum]}
           setActiveRatsAndAdvanceState={(selectedRats) => {
             this.setState({ activeRatNames: selectedRats }, () => {
@@ -584,6 +601,8 @@ class RatchelorGame extends React.Component {
       //    allows game to be restarted
       screen = (
         <AnimeEnding
+          isOnMobile={this.state.isOnMobile}
+          mobileMenuWrapper={this.mobileMenuWrapper}
           winningRat={this.finalRat}
           epilogue={() => {
             this.beginInterludeAndAdvanceState(
@@ -604,7 +623,8 @@ class RatchelorGame extends React.Component {
       screen = 
         <SpecialEnding
           finalRat={this.getRatByName(this.state.activeRatNames[0]).filename}
-          
+          isOnMobile={this.state.isOnMobile}
+          mobileMenuWrapper={this.mobileMenuWrapper}
           restartGame={() => {
             this.restartGame();
           }}
@@ -619,10 +639,7 @@ class RatchelorGame extends React.Component {
     }
 
     let safariMsg = this.state.isShowingSafariMsg ? <div id="safari-container"><div id="safari-msg">This game has some issues in Safari, we recommend using Chrome or Firefox!</div><div id="safari-button" onClick={()=>{this.setState({isShowingSafariMsg: false})}}>x</div></div> : "";
-    const desiredHeight = (window.innerHeight - 20);
-    let scalingAmount = desiredHeight/900;
-    let newWidth = 1120 * scalingAmount;
-    let remainingWidth = window.innerWidth - newWidth - 60;
+    
     return (
       <div 
         className={`game-container-container ${this.state.isOnMobile ? "mobile" : ""}`}
@@ -631,18 +648,20 @@ class RatchelorGame extends React.Component {
         <div 
           id={`game-container`} 
           className={`preloading-${isPreloading}`}
-          style={this.state.isOnMobile ? {transform: `scale(${scalingAmount})`,
-              position:"absolute", left: "20px", top: "10px", 
-              margin: `-${(675-desiredHeight)/2}px -${0.86 * (900-(scalingAmount * 900))/2}px`} : {}}
+          style={this.state.isOnMobile ? {transform: `scale(${this.scalingAmount})`,
+              position:"absolute", left: "10px", top: "10px", 
+              margin: `-${(675 - this.desiredHeight)/2}px -${(900-(this.scalingAmount * 1120))/2}px`} : {}}
         >
           <div id="game">
-            <img id="frame" src="/ratchelor/img/frameSmaller.png" alt=""></img>
+            <img id="frame" src={this.state.isOnMobile ? "/ratchelor/img/frameSmaller_mobile.png": "/ratchelor/img/frameSmaller.png"} alt=""></img>
             {safariMsg}
 
             <div id="interludeContainer" >
               {/* <div id="interlude" style={{ bottom: this.state.interludeBottom }}> */}
+              <div className="hide-overflow">
               <div id="interlude" className={`${this.state.curtainsClass}`}>
                 <div id="interludeText">{this.state.interludeText}</div>
+              </div>
               </div>
               {screen}
             </div>
@@ -672,13 +691,17 @@ class RatchelorGame extends React.Component {
             setPlayWobbleSound={this.setPlayWobbleSound}
             />
           </div>
-          <GameOptions
+
+          {!this.state.isOnMobile
+          && <GameOptions
             volume={this.state.volume}
             changeVolume={this.changeVolume}
-          />
+          />}
         </div>
-        {this.state.isOnMobile && (<div style={{"width":remainingWidth,
-          top: "10px", left:`${newWidth + 30}px`, position:"absolute", height: desiredHeight + "px"}} className="option-holder"></div>)}
+        {this.state.isOnMobile && (<div style={{"width": this.remainingWidth,
+          top: "10px", left:`${this.newWidth + 10}px`, zIndex: -1, 
+          position:"absolute", height: this.desiredHeight + "px"}} 
+          ><div className="option-holder"></div><div id="option-holder-child"></div></div>)}
       </div>
     );
   }

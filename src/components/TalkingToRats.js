@@ -219,12 +219,12 @@ class TalkingToRats extends React.Component {
       );
       responses.push(responseDiv);
     }
-    this.props.setMobileMenu(<div id="responses">{responses}</div>);
     this.setState({ responses });
   }
 
   // You get a random rat, they talk to you, you can respond, after you respond another rat shows up
   render() {
+    const MobileWrapper = this.props.mobileMenuWrapper;
     let ratDialogue = this.state.ratDialogue;
     if (this.state.currReaction) {
       ratDialogue = <img id="dialogueImg" alt="dialogue emoji" src={`/ratchelor/img/Reactions/${this.state.currReaction}.PNG`}></img>
@@ -232,6 +232,7 @@ class TalkingToRats extends React.Component {
     if (ratDialogue.length === 0) ratDialogue = "...";
     return (
       <div id="talkingToRatsScreen" className="screen">
+        <div className="hide-overflow">
         <img
           id="playerRat"
           alt="you as a rat, on the couch"
@@ -258,7 +259,14 @@ class TalkingToRats extends React.Component {
             )}
            </div>
         </div>
-        
+        </div>
+        {this.props.isOnMobile && 
+          <MobileWrapper>
+            <div id="responses">
+              {this.state.responses.length > 0 && <h2>What will you say in response?</h2>}
+              {this.state.responses}
+            </div>
+          </MobileWrapper>}
       </div>
     );
   }

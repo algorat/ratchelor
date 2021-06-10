@@ -47,17 +47,10 @@ class CharacterSelect extends React.Component {
     );
   }
 
-  componentDidMount() {
-    this.props.setMobileMenu(this.buttonAreaBefore)
-  }
-
-  componentWillUnmount() {
-    this.props.clearMobileMenu();
-  }
-
   render() {
     let buttonArea;
-    if (this.state.ratSelected) {
+    const MobileWrapper = this.props.mobileMenuWrapper;
+    if (!this.state.ratSelected) {
       buttonArea = this.buttonAreaBefore;
     } else {
       buttonArea = this.buttonAreaAfter;
@@ -86,17 +79,13 @@ class CharacterSelect extends React.Component {
                   this.props.changePlayerIdx(idx + 1);
                   this.setState({ ratSelected: true });
                   this.props.playTap();
-                  if(this.props.isOnMobile){
-                    console.log("after")
-                    this.props.setMobileMenu(this.buttonAreaAfter)
-                  }
                 }}
                 key={`char${idx}`}
                 src={`/ratchelor/img/Player/${idx + 1}_intro.png`}
               />
             ))}
         </div>
-        {!this.props.isOnMobile && buttonArea}
+        {this.props.isOnMobile ? <MobileWrapper>{buttonArea}</MobileWrapper> : buttonArea}
       </div>
     );
   }
