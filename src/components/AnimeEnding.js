@@ -9,7 +9,7 @@ class AnimeEnding extends React.Component {
         <div className="hide-overflow">
         <img
           id="animePic"
-          src={`/ratchelor/img/anime2/${this.props.winningRat.filename}.jpg`}
+          src={`${process.env.PUBLIC_URL}/img/anime2/${this.props.winningRat.filename}.jpg`}
           alt="your chosen rat looking adoringly at you"
         ></img>
         {!this.props.isOnMobile &&

@@ -1621,7 +1621,7 @@ input[type='range']::-ms-thumb {
 
 :root{
   --mobile-button-text-size: 3rem;
-  --mobile-h2: 3rem;
+  --mobile-h2: 2.7rem;
   --mobile-body: 2rem;
 }
 
@@ -1631,7 +1631,7 @@ input[type='range']::-ms-thumb {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 30px 100px;
+  padding: 30px 90px;
 }
 
 .mobile {
@@ -1685,8 +1685,9 @@ input[type='range']::-ms-thumb {
   margin: 0;
   margin-bottom: 1em;
   padding-bottom: 1em;
-  color: black;
-  border-bottom: 3px solid black;
+  color: #c44663;
+  font-style: italic;
+  /* border-bottom: 3px solid black; */
 }
 
 .mobile #talkingToRatsScreen #responses {
@@ -1695,17 +1696,6 @@ input[type='range']::-ms-thumb {
   align-items: center;
   top: 0px;
   width: 60%;
-}
-
-.mobile #responses > *{
-  margin-bottom: 12px !important;
-  font-size: var(--mobile-body) !important;
-  padding: 0.5em;
-  line-height: calc(1.2 * var(--mobile-body));
-}
-
-.mobile #responses > *:last-child{
-  margin-bottom: 0px !important;
 }
 
 .mobile #talkingToRatsScreen #ratDialogue{
@@ -1717,18 +1707,33 @@ input[type='range']::-ms-thumb {
   font-size: var(--mobile-body);
 }
 
+.mobile #responses > button{
+  margin-bottom: 12px !important;
+  font-size: var(--mobile-body) !important;
+  padding: 0.5em;
+  line-height: calc(1.2 * var(--mobile-body));
+}
+
+.mobile #responses > *:last-child{
+  margin-bottom: 0px !important;
+}
+
 .mobile #responses h2{
   font-family: 'Yusei Magic';
-  font-size: 2.5em;
+  font-size: var(--mobile-body);
+  line-height: calc(1.2 * var(--mobile-body));
+  color: #c44663;
+  font-style: italic;
+  margin-bottom: 2em;
 }
 
 .mobile #roseCeremonyScreen #instructions{
   background-color: transparent;
   border: none;
-  color: black;
-  padding-bottom: 1em;
-  border-bottom: 3px solid black;
-  margin-bottom: 1em;
+  color: #c44663;
+  /* border-bottom: 3px solid black; */
+  margin-bottom: 1.2em;
+  font-style: italic;
   height: auto;
   width: auto;
   position: relative;
@@ -1744,7 +1749,7 @@ input[type='range']::-ms-thumb {
 }
 
 #mobile-container img{
-  width: 50%;
+  width: 40%;
 }
 
 .mobile #epilogueButton{

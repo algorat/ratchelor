@@ -61,7 +61,7 @@ class TalkingToRats extends React.Component {
     }, 4500)
 
     for (let i = 0; i < this.activeRats.length; i++) {
-      let imgHTML = <img key={i} id={`ratImg${i}`} onLoad={this.ratImgLoaded.bind(this)} alt="a rat who wants to fall in love with you" className="ratImg" src={`/ratchelor/img/Couch/${this.activeRats[i].filename}.png`}></img>
+      let imgHTML = <img key={i} id={`ratImg${i}`} onLoad={this.ratImgLoaded.bind(this)} alt="a rat who wants to fall in love with you" className="ratImg" src={`${process.env.PUBLIC_URL}/img/Couch/${this.activeRats[i].filename}.png`}></img>
       this.ratImgs.push(imgHTML);
     }
   }
@@ -227,7 +227,7 @@ class TalkingToRats extends React.Component {
     const MobileWrapper = this.props.mobileMenuWrapper;
     let ratDialogue = this.state.ratDialogue;
     if (this.state.currReaction) {
-      ratDialogue = <img id="dialogueImg" alt="dialogue emoji" src={`/ratchelor/img/Reactions/${this.state.currReaction}.PNG`}></img>
+      ratDialogue = <img id="dialogueImg" alt="dialogue emoji" src={`${process.env.PUBLIC_URL}/img/Reactions/${this.state.currReaction}.PNG`}></img>
     }
     if (ratDialogue.length === 0) ratDialogue = "...";
     return (
@@ -243,7 +243,7 @@ class TalkingToRats extends React.Component {
 
         { this.state.reacting && 
           <ReactionAnimation 
-            emote={<img alt="" src={`/ratchelor/img/Reactions/${this.state.currReaction}.PNG`}/>}
+            emote={<img alt="" src={`${process.env.PUBLIC_URL}/img/Reactions/${this.state.currReaction}.PNG`}/>}
             left={this.activeRats[this.state.lastActiveRat].reaction_pos[0] * 100}
             top={this.activeRats[this.state.lastActiveRat].reaction_pos[1] * 100}
           />}

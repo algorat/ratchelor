@@ -150,19 +150,35 @@ class RatchelorGame extends React.Component {
     this.publicImgsLoaded= false;
     this.srcImgsLoaded= false;
     this.soundsLoaded= false;
+    
 
     this.desiredHeight = (window.innerHeight - 20);
+    
     this.scalingAmount = this.desiredHeight/900;
     this.newWidth = 1120 * this.scalingAmount;
     this.remainingWidth = window.innerWidth - this.newWidth - 20;
+    this.remainingWidthContent = (this.remainingWidth > 300 ? 300 : this.remainingWidth);
+    const leftOffset = (this.remainingWidth - this.remainingWidthContent)/2;
+
+    const minControlWidth = window.innerWidth/3;
+    if(this.remainingWidth < minControlWidth){
+      this.remainingWidth = minControlWidth;
+      this.remainingWidthContent = this.remainingWidth;
+      this.newWidth = window.innerWidth * 0.95 - minControlWidth;
+      this.scalingAmount = this.newWidth/1120;
+      this.desiredHeight = 900 * this.scalingAmount;
+    }
+
+    this.topoffset = (window.innerHeight - this.desiredHeight)/2;
+
     this.mobileMenuWrapper = ({ children }) => {
       return(
         <div 
           className="mobile-wrapper"
           style={{
-          "left": (1120 - 110) + "px",
+          "left": (1120 - 110 + leftOffset * 1/this.scalingAmount) + "px",
           "top": "0px",
-          "width": (this.remainingWidth * 1/this.scalingAmount) + "px",
+          "width": (this.remainingWidthContent * 1/this.scalingAmount) + "px",
           "height": 0.75 * (this.desiredHeight * 1/this.scalingAmount) + "px"
         }}>
           {children}
@@ -212,7 +228,7 @@ class RatchelorGame extends React.Component {
       let filename = "";
       if (fullFilename.indexOf("public") !== -1) {
         filename = fullFilename.slice(7);
-        filename = "/ratchelor/" + filename;
+        filename = process.env.PUBLIC_URL + "/" + filename;
       }
       // Load image
       img.src = filename;
@@ -525,7 +541,7 @@ class RatchelorGame extends React.Component {
           playTadaSound={this.playTadaSound}
           playChimesSound={this.playChimesSound}
           playWobbleSound={this.playWobbleSound}
-          playerRatUrl={`/ratchelor/img/Player/${this.state.playerIdx}.png`}
+          playerRatUrl={`${process.env.PUBLIC_URL}/img/Player/${this.state.playerIdx}.png`}
           goToRoseCeremony={() =>
             {this.beginInterludeAndAdvanceState(
               `who gets a rose?`,
@@ -590,7 +606,7 @@ class RatchelorGame extends React.Component {
       screen = (
         <Proposal
           finalRat={this.finalRat}
-          playerRatUrl={`/ratchelor/img/Player/${this.state.playerIdx}_proposal.PNG`}
+          playerRatUrl={`${process.env.PUBLIC_URL}/img/Player/${this.state.playerIdx}_proposal.PNG`}
           advanceState={() => {
             this.setState({ gameStage: ANIME_ENDING });
           }}
@@ -639,7 +655,6 @@ class RatchelorGame extends React.Component {
     }
 
     let safariMsg = this.state.isShowingSafariMsg ? <div id="safari-container"><div id="safari-msg">This game has some issues in Safari, we recommend using Chrome or Firefox!</div><div id="safari-button" onClick={()=>{this.setState({isShowingSafariMsg: false})}}>x</div></div> : "";
-    
     return (
       <div 
         className={`game-container-container ${this.state.isOnMobile ? "mobile" : ""}`}
@@ -649,11 +664,11 @@ class RatchelorGame extends React.Component {
           id={`game-container`} 
           className={`preloading-${isPreloading}`}
           style={this.state.isOnMobile ? {transform: `scale(${this.scalingAmount})`,
-              position:"absolute", left: "10px", top: "10px", 
+              position:"absolute", left: "10px", top: this.topoffset + "px", 
               margin: `-${(675 - this.desiredHeight)/2}px -${(900-(this.scalingAmount * 1120))/2}px`} : {}}
         >
           <div id="game">
-            <img id="frame" src={this.state.isOnMobile ? "/ratchelor/img/frameSmaller_mobile.png": "/ratchelor/img/frameSmaller.png"} alt=""></img>
+            <img id="frame" src={this.state.isOnMobile ? `${process.env.PUBLIC_URL}/img/frameSmaller_mobile.png`: `${process.env.PUBLIC_URL}/img/frameSmaller.png`} alt=""></img>
             {safariMsg}
 
             <div id="interludeContainer" >
@@ -699,7 +714,7 @@ class RatchelorGame extends React.Component {
           />}
         </div>
         {this.state.isOnMobile && (<div style={{"width": this.remainingWidth,
-          top: "10px", left:`${this.newWidth + 10}px`, zIndex: -1, 
+          top: this.topoffset, left:`${this.newWidth + 10}px`, zIndex: -1, 
           position:"absolute", height: this.desiredHeight + "px"}} 
           ><div className="option-holder"></div><div id="option-holder-child"></div></div>)}
       </div>

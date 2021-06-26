@@ -152,7 +152,7 @@ class SpecialEnding extends React.Component {
   render() {
     //console.log(this.photos)
     // console.log(photos)
-    let ratsList = [<img key={"bgimg"} id="specialBg" onClick={this.deselect.bind(this)} src={`/ratchelor/img/Photos/background.png`} alt="images on a table!"></img> ]
+    let ratsList = [<img key={"bgimg"} id="specialBg" onClick={this.deselect.bind(this)} src={`${process.env.PUBLIC_URL}/img/Photos/background.png`} alt="images on a table!"></img> ]
     const MobileWrapper = this.props.mobileMenuWrapper;
     const mobileTxt = (this.state.selectedRat < 0) ? "Tap on a photo to start." : this.text[this.state.selectedRat];
     // Create a clickable div for every rat in the game
@@ -172,7 +172,7 @@ class SpecialEnding extends React.Component {
           paddingTop:(30* this.random(i-991))+"px" ,
           paddingRight: (30* this.random(i+123)) +"px",
           transform: "rotate("+(this.random(i+22)*30) + "deg) scale(2.24) ",
-         }} src={"/ratchelor/img/Photos/"+this.photos[i]} alt=""/>
+         }} src={`${process.env.PUBLIC_URL}/img/Photos/${this.photos[i]}`} alt=""/>
        
           </div>
           <div className="ratNameContainer">

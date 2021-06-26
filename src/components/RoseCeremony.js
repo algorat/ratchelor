@@ -198,8 +198,8 @@ class RoseCeremony extends React.Component {
     let backRatsList = [];
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.backRowRats.length; i++) {
-      let filename = `/ratchelor/img/Characters/${this.backRowRats[i].filename}.png`;
-      let roseFilename = `/ratchelor/img/Characters/roses/${this.backRowRats[i].filename}.png`;
+      let filename = `${process.env.PUBLIC_URL}/img/Characters/${this.backRowRats[i].filename}.png`;
+      let roseFilename = `${process.env.PUBLIC_URL}/img/Characters/roses/${this.backRowRats[i].filename}.png`;
       backRatsList.push(
         
         <div
@@ -236,8 +236,8 @@ class RoseCeremony extends React.Component {
     let frontRatsList = [];
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.frontRowRats.length; i++) {
-      let filename = `/ratchelor/img/Characters/${this.frontRowRats[i].filename}.png`;
-      let roseFilename = `/ratchelor/img/Characters/roses/${this.frontRowRats[i].filename}.png`;
+      let filename = `${process.env.PUBLIC_URL}/img/Characters/${this.frontRowRats[i].filename}.png`;
+      let roseFilename = `${process.env.PUBLIC_URL}/img/Characters/roses/${this.frontRowRats[i].filename}.png`;
 
       frontRatsList.push(
         <div
@@ -287,7 +287,7 @@ class RoseCeremony extends React.Component {
         <img
           id="bouquet"
           alt="a rose bouquet"
-          src={`/ratchelor/img/Bouquet/bouquet${bouquetNum}.png`}
+          src={`${process.env.PUBLIC_URL}/img/Bouquet/bouquet${bouquetNum}.png`}
         ></img>
         {!this.props.isOnMobile && <div id="instructions">{this.state.instructions}</div>}
         <div id="ratListContainer">
@@ -302,7 +302,7 @@ class RoseCeremony extends React.Component {
             {(this.state.currentlyViewedRat[0] === null) ?
               <h2>Select a rat to get started</h2> :
               <div id="mobile-container">
-                <img src={`/ratchelor/img/Frames/${lastClickedRat.filename}.PNG`} alt={`image of ${this.state.currentlyViewedRat[0]}`}/>
+                <img src={`${process.env.PUBLIC_URL}/img/Frames/${lastClickedRat.filename}.PNG`} alt={`image of ${this.state.currentlyViewedRat[0]}`}/>
                 <h2>{this.state.currentlyViewedRat[0]}</h2>
                 <p>{lastClickedRat.tagline}</p>
                 <button onClick={() => {this.selectRat(...this.state.currentlyViewedRat);}}>

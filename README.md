@@ -46,6 +46,13 @@ or
 npm run build
 ```
 
+# Deploying the app to staging
+Deploys to ratchelor.web.app for QA 
+
+```
+npm run staging
+```
+
 # Prettifying the app
 
 ```
