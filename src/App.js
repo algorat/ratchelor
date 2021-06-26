@@ -132,8 +132,7 @@ class RatchelorGame extends React.Component {
       percentLoaded: 0.0,
       isShowingSafariMsg: false,
       isOnMobile: false,
-      curtainsClass: "curtainsOff",
-      mobileMenu: <div />,
+      curtainsClass: "curtainsOff"
     };
     this.finalRat = ratsJson[3];
     this.changeCurrentRatIdx = this.changeCurrentRatIdx.bind(this);
@@ -153,8 +152,8 @@ class RatchelorGame extends React.Component {
     this.setPlayTadaSound = this.setPlayTadaSound.bind(this);
     this.setPlayChimesSound = this.setPlayChimesSound.bind(this);
     this.setPlayWobbleSound = this.setPlayWobbleSound.bind(this);
-    this.setMobileMenu = this.setMobileMenu.bind(this);
-    this.clearMobileMenu = this.clearMobileMenu.bind(this);
+    this.recalculateDimensions = this.recalculateDimensions.bind(this);
+    this.updateDimensions = this.updateDimensions.bind(this);
 
     this.setPlayTap = this.setPlayTap.bind(this);
     this.donePreloading = this.donePreloading.bind(this);
@@ -163,50 +162,57 @@ class RatchelorGame extends React.Component {
     this.srcImgsLoaded = false;
     this.soundsLoaded = false;
 
-    this.desiredHeight = window.innerHeight - 20;
+  }
 
-    this.scalingAmount = this.desiredHeight / 900;
-    this.newWidth = 1120 * this.scalingAmount;
-    this.remainingWidth = window.innerWidth - this.newWidth - 20;
-    this.remainingWidthContent =
-      this.remainingWidth > 300 ? 300 : this.remainingWidth;
-    const leftOffset = (this.remainingWidth - this.remainingWidthContent) / 2;
+  recalculateDimensions(){
 
-    const minControlWidth = window.innerWidth / 3;
-    if (this.remainingWidth < minControlWidth) {
-      this.remainingWidth = minControlWidth;
-      this.remainingWidthContent = this.remainingWidth;
-      this.newWidth = window.innerWidth * 0.95 - minControlWidth;
-      this.scalingAmount = this.newWidth / 1120;
-      this.desiredHeight = 900 * this.scalingAmount;
+    if(window.innerHeight > window.innerWidth){
+      this.setState({
+        mobileAndPortrait: true
+      })
+      return;
     }
 
-    this.topoffset = (window.innerHeight - this.desiredHeight) / 2;
+    let desiredHeight = window.innerHeight - 20;
+    let scalingAmount = desiredHeight / 900;
+    let newWidth = 1120 * scalingAmount;
+    let remainingWidth = window.innerWidth - newWidth - 20;
+    let remainingWidthContent =
+      remainingWidth > 300 ? 300 : remainingWidth;
+    let leftOffset = (remainingWidth - remainingWidthContent) / 2;
 
-    this.mobileMenuWrapper = ({ children }) => {
-      return (
-        <div
-          className="mobile-wrapper"
-          style={{
-            left: 1120 - 110 + (leftOffset * 1) / this.scalingAmount + "px",
-            top: "0px",
-            width: (this.remainingWidthContent * 1) / this.scalingAmount + "px",
-            height:
-              0.75 * ((this.desiredHeight * 1) / this.scalingAmount) + "px",
-          }}
-        >
-          {children}
-        </div>
-      );
-    };
+    const minControlWidth = window.innerWidth / 3;
+    if (remainingWidthContent < minControlWidth) {
+      remainingWidth = minControlWidth;
+      remainingWidthContent = remainingWidth;
+      newWidth = window.innerWidth * 0.95 - minControlWidth;
+      scalingAmount = newWidth / 1120;
+      desiredHeight = 900 * scalingAmount;
+    }
+
+    let topoffset = (window.innerHeight - desiredHeight) / 2;
+
+    this.setState({
+      remainingWidth: remainingWidth,
+      remainingWidthContent: remainingWidthContent,
+      desiredHeight: desiredHeight, 
+      scalingAmount: scalingAmount,
+      topoffset: topoffset,
+      newWidth: newWidth,
+      leftOffset: leftOffset,
+      mobileAndPortrait: false
+    });
   }
 
-  setMobileMenu(d) {
-    this.setState({ mobileMenu: d });
-  }
+  updateDimensions() {
+    console.log("RESIZE")
+    if(this.state.isOnMobile){
+      this.recalculateDimensions();
+    }
+  };
 
-  clearMobileMenu() {
-    this.setState({ mobileMenu: <div /> });
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDimensions);
   }
 
   donePreloading() {
@@ -471,14 +477,37 @@ class RatchelorGame extends React.Component {
     this.setState({ isOnMobile: isOnMobile });
     if (isOnMobile) {
       document.getElementById("not-on-mobile").style.display = "none";
+      this.recalculateDimensions();
     }
     this.database = firebase.database();
     this.randoRat = ratsJson[Math.floor(Math.random() * ratsJson.length)];
+    window.addEventListener('resize', this.updateDimensions);
   }
 
   render() {
     let screen = "";
     let isPreloading = this.state.isPreloading;
+
+    if(this.state.mobileAndPortrait){
+      return <div>Hmmmm looks like you're in portrait mode. Turn your phone to landscape!</div>
+    }
+
+    const mobileMenuWrapper = ({ children }) => {
+      return (
+        <div
+          className="mobile-wrapper"
+          style={{
+            left: 1120 - 110 + (this.state.leftOffset * 1) / this.state.scalingAmount + "px",
+            top: "0px",
+            width: (this.state.remainingWidthContent * 1) / this.state.scalingAmount + "px",
+            height:
+              0.75 * ((this.state.desiredHeight * 1) / this.state.scalingAmount) + "px",
+          }}
+        >
+          {children}
+        </div>
+      );
+    };
 
     if (this.state.gameStage === INTRO) {
       // Intro screen: advances to next stage when complete
@@ -495,7 +524,7 @@ class RatchelorGame extends React.Component {
           isPreloading={isPreloading}
           percentLoaded={this.state.percentLoaded}
           isOnMobile={this.state.isOnMobile}
-          mobileMenuWrapper={this.mobileMenuWrapper}
+          mobileMenuWrapper={mobileMenuWrapper}
           onClick={() => {
             this.beginInterludeAndAdvanceState(
               "meet yourself",
@@ -513,7 +542,7 @@ class RatchelorGame extends React.Component {
           playSelectAnswer={this.playSelectAnswer}
           playTap={this.playTap}
           isOnMobile={this.state.isOnMobile}
-          mobileMenuWrapper={this.mobileMenuWrapper}
+          mobileMenuWrapper={mobileMenuWrapper}
           onClick={() => {
             this.beginInterludeAndAdvanceState(
               "meet your suitors",
@@ -538,7 +567,7 @@ class RatchelorGame extends React.Component {
           playSelectAnswer={this.playSelectAnswer}
           playBadActionSound={this.playBadActionSound}
           isOnMobile={this.state.isOnMobile}
-          mobileMenuWrapper={this.mobileMenuWrapper}
+          mobileMenuWrapper={mobileMenuWrapper}
           setActiveRatsAndAdvanceState={(selectedRats) => {
             this.setState(
               { activeRatNames: selectedRats, beginningRatPool: selectedRats },
@@ -566,7 +595,7 @@ class RatchelorGame extends React.Component {
           round={this.state.roundNum}
           startDelay={1000}
           isOnMobile={this.state.isOnMobile}
-          mobileMenuWrapper={this.mobileMenuWrapper}
+          mobileMenuWrapper={mobileMenuWrapper}
           playSelectAnswer={this.playSelectAnswer}
           playCricketsSound={this.playCricketsSound}
           playTromboneSound={this.playTromboneSound}
@@ -604,7 +633,7 @@ class RatchelorGame extends React.Component {
           playSelectAnswer={this.playSelectAnswer}
           playBadActionSound={this.playBadActionSound}
           isOnMobile={this.state.isOnMobile}
-          mobileMenuWrapper={this.mobileMenuWrapper}
+          mobileMenuWrapper={mobileMenuWrapper}
           numRoses={this.rosesPerRound[this.state.roundNum]}
           setActiveRatsAndAdvanceState={(selectedRats) => {
             this.setState({ activeRatNames: selectedRats }, () => {
@@ -651,7 +680,7 @@ class RatchelorGame extends React.Component {
       screen = (
         <AnimeEnding
           isOnMobile={this.state.isOnMobile}
-          mobileMenuWrapper={this.mobileMenuWrapper}
+          mobileMenuWrapper={mobileMenuWrapper}
           winningRat={this.finalRat}
           epilogue={() => {
             this.beginInterludeAndAdvanceState(
@@ -673,7 +702,7 @@ class RatchelorGame extends React.Component {
         <SpecialEnding
           finalRat={this.getRatByName(this.state.activeRatNames[0]).filename}
           isOnMobile={this.state.isOnMobile}
-          mobileMenuWrapper={this.mobileMenuWrapper}
+          mobileMenuWrapper={mobileMenuWrapper}
           restartGame={() => {
             this.restartGame();
           }}
@@ -716,12 +745,12 @@ class RatchelorGame extends React.Component {
           style={
             this.state.isOnMobile
               ? {
-                  transform: `scale(${this.scalingAmount})`,
+                  transform: `scale(${this.state.scalingAmount})`,
                   position: "absolute",
                   left: "10px",
-                  top: this.topoffset + "px",
-                  margin: `-${(675 - this.desiredHeight) / 2}px -${
-                    (900 - this.scalingAmount * 1120) / 2
+                  top: this.state.topoffset + "px",
+                  margin: `-${(675 - this.state.desiredHeight) / 2}px -${
+                    (900 - this.state.scalingAmount * 1120) / 2
                   }px`,
                 }
               : {}
@@ -785,12 +814,12 @@ class RatchelorGame extends React.Component {
         {this.state.isOnMobile && (
           <div
             style={{
-              width: this.remainingWidth,
-              top: this.topoffset,
-              left: `${this.newWidth + 10}px`,
+              width: this.state.remainingWidth,
+              top: this.state.topoffset,
+              left: `${this.state.newWidth + 10}px`,
               zIndex: -1,
               position: "absolute",
-              height: this.desiredHeight + "px",
+              height: this.state.desiredHeight + "px",
             }}
           >
             <div className="option-holder"></div>
