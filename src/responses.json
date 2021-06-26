@@ -2840,18 +2840,19 @@
         "reaction": "smile"
       }
     ],
-    "5": [      {
-      "response": "You talk a lot",
-      "reaction": "neutral"
-    },
-    {
-      "response": "Care for some juice?",
-      "reaction": "smile"
-    },
-    {
-      "response": "Hmm!",
-      "reaction": "smile"
-    }
+    "5": [
+      {
+        "response": "You talk a lot",
+        "reaction": "neutral"
+      },
+      {
+        "response": "Care for some juice?",
+        "reaction": "smile"
+      },
+      {
+        "response": "Hmm!",
+        "reaction": "smile"
+      }
     ]
   },
   "hottiethespule": {
@@ -3041,25 +3042,32 @@
       {
         "response": "Wow you're so different",
         "reaction": "smile"
-      },      {
+      },
+      {
         "response": "Wow!",
         "reaction": "smile"
-      },      {
+      },
+      {
         "response": "I think outfits are ugly",
         "reaction": "frown"
-      },      {
+      },
+      {
         "response": "What?",
         "reaction": "smile"
-      },      {
+      },
+      {
         "response": "Wow!",
         "reaction": "smile"
-      },      {
+      },
+      {
         "response": "Oh wow",
         "reaction": "smile"
-      },      {
+      },
+      {
         "response": "Would you like some juice?",
         "reaction": "smile"
-      },      {
+      },
+      {
         "response": "Yikes!",
         "reaction": "tear"
       }
@@ -3076,13 +3084,15 @@
       {
         "response": "Yikes",
         "reaction": "big_frown"
-      },      {
+      },
+      {
         "response": "Wow!",
         "reaction": "smile"
-      },      {
+      },
+      {
         "response": "oh wow",
         "reaction": "smile"
-      } 
+      }
     ],
     "2": [
       {
@@ -3932,6 +3942,7 @@
       {
         "response": "Care for some juice?",
         "reaction": "smile"
-      }]
+      }
+    ]
   }
 }

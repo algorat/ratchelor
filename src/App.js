@@ -55,7 +55,20 @@ import s25 from "./sounds/metal.mp3";
 
 const backgroundSrc = [bg0, bg1, bg2, bg3, bg4, bg5];
 const soundsToPreload = [s2, s3, s5, s6, s7, s11, s1, s21, s22, s23, s24, s25];
-const soundsToAsyncLoad = [s17, s18, s19, s20, s16, s8, s9, s10, s12, s13, s14, s15];
+const soundsToAsyncLoad = [
+  s17,
+  s18,
+  s19,
+  s20,
+  s16,
+  s8,
+  s9,
+  s10,
+  s12,
+  s13,
+  s14,
+  s15,
+];
 
 var firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -65,7 +78,7 @@ var firebaseConfig = {
   storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_APPID,
-  measurementId: process.env.REACT_APP_MEASUREID
+  measurementId: process.env.REACT_APP_MEASUREID,
 };
 
 // Initialize Firebase
@@ -82,7 +95,6 @@ const ANIME_ENDING = 5;
 const SPECIAL_ENDING = 6;
 const PROPOSAL = 7;
 
-const INTERLUDE_OFFSET = 900;
 const ANIM_TIME = 400;
 
 class RatchelorGame extends React.Component {
@@ -107,7 +119,7 @@ class RatchelorGame extends React.Component {
       // What round of the rose-talking loop we're on
       roundNum: 0,
       //beginning rat pool for the special end
-      beginningRatPool:[],
+      beginningRatPool: [],
       // String list of all rat names currently still in the game
       activeRatNames: [],
       // Text for interlude screens that fall down
@@ -121,7 +133,7 @@ class RatchelorGame extends React.Component {
       isShowingSafariMsg: false,
       isOnMobile: false,
       curtainsClass: "curtainsOff",
-      mobileMenu: (<div/>)
+      mobileMenu: <div />,
     };
     this.finalRat = ratsJson[3];
     this.changeCurrentRatIdx = this.changeCurrentRatIdx.bind(this);
@@ -147,62 +159,64 @@ class RatchelorGame extends React.Component {
     this.setPlayTap = this.setPlayTap.bind(this);
     this.donePreloading = this.donePreloading.bind(this);
 
-    this.publicImgsLoaded= false;
-    this.srcImgsLoaded= false;
-    this.soundsLoaded= false;
-    
+    this.publicImgsLoaded = false;
+    this.srcImgsLoaded = false;
+    this.soundsLoaded = false;
 
-    this.desiredHeight = (window.innerHeight - 20);
-    
-    this.scalingAmount = this.desiredHeight/900;
+    this.desiredHeight = window.innerHeight - 20;
+
+    this.scalingAmount = this.desiredHeight / 900;
     this.newWidth = 1120 * this.scalingAmount;
     this.remainingWidth = window.innerWidth - this.newWidth - 20;
-    this.remainingWidthContent = (this.remainingWidth > 300 ? 300 : this.remainingWidth);
-    const leftOffset = (this.remainingWidth - this.remainingWidthContent)/2;
+    this.remainingWidthContent =
+      this.remainingWidth > 300 ? 300 : this.remainingWidth;
+    const leftOffset = (this.remainingWidth - this.remainingWidthContent) / 2;
 
-    const minControlWidth = window.innerWidth/3;
-    if(this.remainingWidth < minControlWidth){
+    const minControlWidth = window.innerWidth / 3;
+    if (this.remainingWidth < minControlWidth) {
       this.remainingWidth = minControlWidth;
       this.remainingWidthContent = this.remainingWidth;
       this.newWidth = window.innerWidth * 0.95 - minControlWidth;
-      this.scalingAmount = this.newWidth/1120;
+      this.scalingAmount = this.newWidth / 1120;
       this.desiredHeight = 900 * this.scalingAmount;
     }
 
-    this.topoffset = (window.innerHeight - this.desiredHeight)/2;
+    this.topoffset = (window.innerHeight - this.desiredHeight) / 2;
 
     this.mobileMenuWrapper = ({ children }) => {
-      return(
-        <div 
+      return (
+        <div
           className="mobile-wrapper"
           style={{
-          "left": (1120 - 110 + leftOffset * 1/this.scalingAmount) + "px",
-          "top": "0px",
-          "width": (this.remainingWidthContent * 1/this.scalingAmount) + "px",
-          "height": 0.75 * (this.desiredHeight * 1/this.scalingAmount) + "px"
-        }}>
+            left: 1120 - 110 + (leftOffset * 1) / this.scalingAmount + "px",
+            top: "0px",
+            width: (this.remainingWidthContent * 1) / this.scalingAmount + "px",
+            height:
+              0.75 * ((this.desiredHeight * 1) / this.scalingAmount) + "px",
+          }}
+        >
           {children}
         </div>
-      )
-    }
+      );
+    };
   }
 
-  setMobileMenu(d){
-    this.setState({mobileMenu:d});
+  setMobileMenu(d) {
+    this.setState({ mobileMenu: d });
   }
 
-  clearMobileMenu(){
-    this.setState({mobileMenu: (<div/>)});
+  clearMobileMenu() {
+    this.setState({ mobileMenu: <div /> });
   }
 
-  donePreloading(){
-    if(this.preloadTimeout){
+  donePreloading() {
+    if (this.preloadTimeout) {
       window.clearTimeout(this.preloadTimeout);
     }
     if (this.preloadInterval) {
       window.clearInterval(this.preloadInterval);
     }
-    this.setState({isPreloading: false});
+    this.setState({ isPreloading: false });
     this.asyncLoadSounds();
   }
 
@@ -214,16 +228,18 @@ class RatchelorGame extends React.Component {
     const loadFracPerInterval = intervalTime / timeoutTime;
 
     this.preloadInterval = window.setInterval(() => {
-      this.setState({percentLoaded: this.state.percentLoaded + loadFracPerInterval});
-    }, intervalTime)
+      this.setState({
+        percentLoaded: this.state.percentLoaded + loadFracPerInterval,
+      });
+    }, intervalTime);
 
     this.preloadTimeout = window.setTimeout(() => {
       console.log("preloading timed out! continuing..");
-      this.setState({isPreloading: false});
+      this.setState({ isPreloading: false });
     }, timeoutTime);
 
     // PUBLIC IMAGES
-    this.allPublicImagesForPreload.forEach(fullFilename => {
+    this.allPublicImagesForPreload.forEach((fullFilename) => {
       var img = new Image();
       let filename = "";
       if (fullFilename.indexOf("public") !== -1) {
@@ -237,21 +253,28 @@ class RatchelorGame extends React.Component {
         if (fileIdx !== -1) {
           this.allPublicImagesForPreload.splice(fileIdx, 1);
         }
-        if (this.allPublicImagesForPreload.length === 0 && !this.state.publicImgsLoaded) {
+        if (
+          this.allPublicImagesForPreload.length === 0 &&
+          !this.state.publicImgsLoaded
+        ) {
           console.log("all images loaded");
           this.publicImgsLoaded = true;
-          if(this.srcImgsLoaded && this.soundsLoaded && this.publicImgsLoaded){
+          if (
+            this.srcImgsLoaded &&
+            this.soundsLoaded &&
+            this.publicImgsLoaded
+          ) {
             this.donePreloading();
           }
         }
-      }
+      };
     });
 
     // PRELOADED SOUNDS
-    this.soundsToPreload.forEach(filename => {
+    this.soundsToPreload.forEach((filename) => {
       // Load sound
       var audio = new Audio(filename);
-      
+
       audio.addEventListener("canplaythrough", () => {
         let fileIdx = this.soundsToPreload.indexOf(filename);
         if (fileIdx !== -1) {
@@ -260,16 +283,20 @@ class RatchelorGame extends React.Component {
         if (this.soundsToPreload.length === 0) {
           console.log("all sounds loaded");
           this.soundsLoaded = true;
-          if(this.srcImgsLoaded && this.soundsLoaded && this.publicImgsLoaded){
+          if (
+            this.srcImgsLoaded &&
+            this.soundsLoaded &&
+            this.publicImgsLoaded
+          ) {
             this.donePreloading();
           }
         }
       });
       audio.load();
-    })
+    });
 
     // SRC BACKGROUNDS
-    backgroundSrc.forEach(filename => {
+    backgroundSrc.forEach((filename) => {
       var img = new Image();
       img.src = filename;
 
@@ -281,97 +308,97 @@ class RatchelorGame extends React.Component {
         if (this.backgroundSrc.length === 0) {
           console.log("all src images loaded");
           this.srcImgsLoaded = true;
-          if(this.srcImgsLoaded && this.soundsLoaded && this.publicImgsLoaded){
+          if (
+            this.srcImgsLoaded &&
+            this.soundsLoaded &&
+            this.publicImgsLoaded
+          ) {
             this.donePreloading();
           }
         }
-      }
-    })
-
-    
-
+      };
+    });
   }
 
-  asyncLoadSounds(){
-    this.soundsToAsyncLoad.forEach(fullFilename => {
+  asyncLoadSounds() {
+    this.soundsToAsyncLoad.forEach((fullFilename) => {
       new Audio(fullFilename);
-    })
+    });
   }
 
   beginInterludeAndAdvanceState(text, delay, newGameStage) {
     this.setState({ interludeText: text, curtainsClass: "curtainsIn" }, () => {
       window.setTimeout(() => {
-          this.setState({ gameStage: newGameStage }, () => {
-            window.setTimeout(() => {
-              this.endInterlude();
-            }, delay);
-            }
-          );
-      }, ANIM_TIME); 
+        this.setState({ gameStage: newGameStage }, () => {
+          window.setTimeout(() => {
+            this.endInterlude();
+          }, delay);
+        });
+      }, ANIM_TIME);
     });
   }
 
   endInterlude() {
-    this.setState({curtainsClass: "curtainsOut"});
+    this.setState({ curtainsClass: "curtainsOut" });
   }
 
   setCallPlaySound(f) {
     this.callPlaySound = f;
   }
 
-  setPlayRoseSound(f){
+  setPlayRoseSound(f) {
     this.playRoseSound = f;
   }
 
-  setPlayChachingSound(f){
+  setPlayChachingSound(f) {
     this.playChachingSound = f;
   }
 
-  setPlayDingSound(f){
+  setPlayDingSound(f) {
     this.playDingSound = f;
   }
 
-  setPlayMetalSound(f){
+  setPlayMetalSound(f) {
     this.playMetalSound = f;
   }
 
-  setPlayTadaSound(f){
+  setPlayTadaSound(f) {
     this.playTadaSound = f;
   }
 
-  setPlayChimesSound(f){
+  setPlayChimesSound(f) {
     this.playChimesSound = f;
   }
 
-  setPlayWobbleSound(f){
+  setPlayWobbleSound(f) {
     this.playWobbleSound = f;
   }
 
-  setPlayCricketsSound(f){
+  setPlayCricketsSound(f) {
     this.playCricketsSound = f;
   }
 
-  setPlayTromboneSound(f){
+  setPlayTromboneSound(f) {
     this.playTromboneSound = f;
   }
 
-  setPlayHarpSound(f){
+  setPlayHarpSound(f) {
     this.playHarpSound = f;
   }
 
-  setPlayBadActionSound(f){
+  setPlayBadActionSound(f) {
     this.playBadActionSound = f;
   }
 
-  setPlayNewRoundSound(f){
+  setPlayNewRoundSound(f) {
     this.playNewRoundSound = f;
   }
 
-  setPlaySelectAnswer(f){
+  setPlaySelectAnswer(f) {
     this.playSelectAnswer = f;
   }
 
-  setPlayTap(f){
+  setPlayTap(f) {
     this.playTap = f;
   }
 
@@ -426,15 +453,22 @@ class RatchelorGame extends React.Component {
       .set(firebase.database.ServerValue.increment(1));
   }
 
-  
-
   componentDidMount() {
     this.preload();
     this.interludeElement = document.getElementById("interlude");
-    var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
-    this.setState({isShowingSafariMsg: isSafari});
-    var isOnMobile =  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    this.setState({isOnMobile: isOnMobile});
+    var isSafari =
+      /constructor/i.test(window.HTMLElement) ||
+      (function (p) {
+        return p.toString() === "[object SafariRemoteNotification]";
+      })(
+        !window["safari"] ||
+          (typeof safari !== "undefined" && window["safari"].pushNotification)
+      );
+    this.setState({ isShowingSafariMsg: isSafari });
+    var isOnMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
+    this.setState({ isOnMobile: isOnMobile });
     if (isOnMobile) {
       document.getElementById("not-on-mobile").style.display = "none";
     }
@@ -445,7 +479,7 @@ class RatchelorGame extends React.Component {
   render() {
     let screen = "";
     let isPreloading = this.state.isPreloading;
-    
+
     if (this.state.gameStage === INTRO) {
       // Intro screen: advances to next stage when complete
       screen = (
@@ -454,8 +488,8 @@ class RatchelorGame extends React.Component {
             if (this.callPlaySound) {
               this.callPlaySound(this.state.gameStage + 1);
             }
-            if(this.playNewRoundSound){
-              this.playNewRoundSound()
+            if (this.playNewRoundSound) {
+              this.playNewRoundSound();
             }
           }}
           isPreloading={isPreloading}
@@ -486,8 +520,8 @@ class RatchelorGame extends React.Component {
               900,
               RAT_SELECT
             );
-            if(this.playNewRoundSound){
-              this.playNewRoundSound()
+            if (this.playNewRoundSound) {
+              this.playNewRoundSound();
             }
           }}
         />
@@ -506,17 +540,19 @@ class RatchelorGame extends React.Component {
           isOnMobile={this.state.isOnMobile}
           mobileMenuWrapper={this.mobileMenuWrapper}
           setActiveRatsAndAdvanceState={(selectedRats) => {
-            this.setState({ activeRatNames: selectedRats, beginningRatPool: selectedRats }, () => {
-              this.beginInterludeAndAdvanceState(
-                `chit chat`,
-                900,
-                TALKING_TO_RATS
-              );
-              if(this.playNewRoundSound){
-                this.playNewRoundSound()
+            this.setState(
+              { activeRatNames: selectedRats, beginningRatPool: selectedRats },
+              () => {
+                this.beginInterludeAndAdvanceState(
+                  `chit chat`,
+                  900,
+                  TALKING_TO_RATS
+                );
+                if (this.playNewRoundSound) {
+                  this.playNewRoundSound();
+                }
               }
-            });
-
+            );
           }}
         />
       );
@@ -542,18 +578,16 @@ class RatchelorGame extends React.Component {
           playChimesSound={this.playChimesSound}
           playWobbleSound={this.playWobbleSound}
           playerRatUrl={`${process.env.PUBLIC_URL}/img/Player/${this.state.playerIdx}.png`}
-          goToRoseCeremony={() =>
-            {this.beginInterludeAndAdvanceState(
+          goToRoseCeremony={() => {
+            this.beginInterludeAndAdvanceState(
               `who gets a rose?`,
               900,
               ROSE_CEREMONY
-            )
-            if(this.playNewRoundSound){
-              this.playNewRoundSound()
+            );
+            if (this.playNewRoundSound) {
+              this.playNewRoundSound();
             }
-          }
-            
-          }
+          }}
           changeCurrentRatIdx={this.changeCurrentRatIdx}
         />
       );
@@ -581,15 +615,14 @@ class RatchelorGame extends React.Component {
                 this.setState({ gameStage: PROPOSAL });
                 // Else, keep talking to rats
               } else {
-                this.setState({ roundNum: newRoundNum }, () =>
-                {
+                this.setState({ roundNum: newRoundNum }, () => {
                   this.beginInterludeAndAdvanceState(
                     `chit chat`,
                     900,
                     TALKING_TO_RATS
                   );
-                  if(this.playNewRoundSound){
-                    this.playNewRoundSound()
+                  if (this.playNewRoundSound) {
+                    this.playNewRoundSound();
                   }
                 });
               }
@@ -599,7 +632,7 @@ class RatchelorGame extends React.Component {
       );
     } else if (this.state.gameStage === PROPOSAL) {
       this.finalRat = this.getRatByName(this.state.activeRatNames[0]);
-      if(!this.setProposedInDatabase){
+      if (!this.setProposedInDatabase) {
         this.setProposedInDatabase = true;
         this.incrementTotalRatCount(this.state.activeRatNames[0]);
       }
@@ -626,17 +659,17 @@ class RatchelorGame extends React.Component {
               900,
               SPECIAL_ENDING
             );
-            if(this.playNewRoundSound){
-              this.playNewRoundSound()
+            if (this.playNewRoundSound) {
+              this.playNewRoundSound();
             }
           }}
-        />);
-
-    }else if (this.state.gameStage === SPECIAL_ENDING) {
+        />
+      );
+    } else if (this.state.gameStage === SPECIAL_ENDING) {
       // special ending screen:
       //    allows game to be restarted
 
-      screen = 
+      screen = (
         <SpecialEnding
           finalRat={this.getRatByName(this.state.activeRatNames[0]).filename}
           isOnMobile={this.state.isOnMobile}
@@ -644,39 +677,74 @@ class RatchelorGame extends React.Component {
           restartGame={() => {
             this.restartGame();
           }}
-          getRatByName={(n) =>{
+          getRatByName={(n) => {
             this.getRatByName(n);
           }}
-         
           beginningRatPool={this.state.beginningRatPool}
         />
-   
-
+      );
     }
 
-    let safariMsg = this.state.isShowingSafariMsg ? <div id="safari-container"><div id="safari-msg">This game has some issues in Safari, we recommend using Chrome or Firefox!</div><div id="safari-button" onClick={()=>{this.setState({isShowingSafariMsg: false})}}>x</div></div> : "";
+    let safariMsg = this.state.isShowingSafariMsg ? (
+      <div id="safari-container">
+        <div id="safari-msg">
+          This game has some issues in Safari, we recommend using Chrome or
+          Firefox!
+        </div>
+        <div
+          id="safari-button"
+          onClick={() => {
+            this.setState({ isShowingSafariMsg: false });
+          }}
+        >
+          x
+        </div>
+      </div>
+    ) : (
+      ""
+    );
     return (
-      <div 
-        className={`game-container-container ${this.state.isOnMobile ? "mobile" : ""}`}
-        style={{display: this.state.isOnMobile ? "block" : "flex"}}
+      <div
+        className={`game-container-container ${
+          this.state.isOnMobile ? "mobile" : ""
+        }`}
+        style={{ display: this.state.isOnMobile ? "block" : "flex" }}
       >
-        <div 
-          id={`game-container`} 
+        <div
+          id={`game-container`}
           className={`preloading-${isPreloading}`}
-          style={this.state.isOnMobile ? {transform: `scale(${this.scalingAmount})`,
-              position:"absolute", left: "10px", top: this.topoffset + "px", 
-              margin: `-${(675 - this.desiredHeight)/2}px -${(900-(this.scalingAmount * 1120))/2}px`} : {}}
+          style={
+            this.state.isOnMobile
+              ? {
+                  transform: `scale(${this.scalingAmount})`,
+                  position: "absolute",
+                  left: "10px",
+                  top: this.topoffset + "px",
+                  margin: `-${(675 - this.desiredHeight) / 2}px -${
+                    (900 - this.scalingAmount * 1120) / 2
+                  }px`,
+                }
+              : {}
+          }
         >
           <div id="game">
-            <img id="frame" src={this.state.isOnMobile ? `${process.env.PUBLIC_URL}/img/frameSmaller_mobile.png`: `${process.env.PUBLIC_URL}/img/frameSmaller.png`} alt=""></img>
+            <img
+              id="frame"
+              src={
+                this.state.isOnMobile
+                  ? `${process.env.PUBLIC_URL}/img/frameSmaller_mobile.png`
+                  : `${process.env.PUBLIC_URL}/img/frameSmaller.png`
+              }
+              alt=""
+            ></img>
             {safariMsg}
 
-            <div id="interludeContainer" >
+            <div id="interludeContainer">
               {/* <div id="interlude" style={{ bottom: this.state.interludeBottom }}> */}
               <div className="hide-overflow">
-              <div id="interlude" className={`${this.state.curtainsClass}`}>
-                <div id="interludeText">{this.state.interludeText}</div>
-              </div>
+                <div id="interlude" className={`${this.state.curtainsClass}`}>
+                  <div id="interludeText">{this.state.interludeText}</div>
+                </div>
               </div>
               {screen}
             </div>
@@ -689,34 +757,46 @@ class RatchelorGame extends React.Component {
               volume={this.state.volume}
             />
             <SoundEffectController
-            volume={this.state.volume}
-            setPlayRoseSound={this.setPlayRoseSound}
-            setPlayCricketsSound={this.setPlayCricketsSound}
-            setPlayBadActionSound={this.setPlayBadActionSound}
-            setPlayNewRoundSound={this.setPlayNewRoundSound}
-            setPlaySelectAnswer={this.setPlaySelectAnswer}
-            setPlayHarpSound={this.setPlayHarpSound}
-            setPlayTromboneSound={this.setPlayTromboneSound}
-            setPlayTap={this.setPlayTap}
-            setPlayChachingSound={this.setPlayChachingSound}
-            setPlayDingSound={this.setPlayDingSound}
-            setPlayMetalSound={this.setPlayMetalSound}
-            setPlayTadaSound={this.setPlayTadaSound}
-            setPlayChimesSound={this.setPlayChimesSound}
-            setPlayWobbleSound={this.setPlayWobbleSound}
+              volume={this.state.volume}
+              setPlayRoseSound={this.setPlayRoseSound}
+              setPlayCricketsSound={this.setPlayCricketsSound}
+              setPlayBadActionSound={this.setPlayBadActionSound}
+              setPlayNewRoundSound={this.setPlayNewRoundSound}
+              setPlaySelectAnswer={this.setPlaySelectAnswer}
+              setPlayHarpSound={this.setPlayHarpSound}
+              setPlayTromboneSound={this.setPlayTromboneSound}
+              setPlayTap={this.setPlayTap}
+              setPlayChachingSound={this.setPlayChachingSound}
+              setPlayDingSound={this.setPlayDingSound}
+              setPlayMetalSound={this.setPlayMetalSound}
+              setPlayTadaSound={this.setPlayTadaSound}
+              setPlayChimesSound={this.setPlayChimesSound}
+              setPlayWobbleSound={this.setPlayWobbleSound}
             />
           </div>
 
-          {!this.state.isOnMobile
-          && <GameOptions
-            volume={this.state.volume}
-            changeVolume={this.changeVolume}
-          />}
+          {!this.state.isOnMobile && (
+            <GameOptions
+              volume={this.state.volume}
+              changeVolume={this.changeVolume}
+            />
+          )}
         </div>
-        {this.state.isOnMobile && (<div style={{"width": this.remainingWidth,
-          top: this.topoffset, left:`${this.newWidth + 10}px`, zIndex: -1, 
-          position:"absolute", height: this.desiredHeight + "px"}} 
-          ><div className="option-holder"></div><div id="option-holder-child"></div></div>)}
+        {this.state.isOnMobile && (
+          <div
+            style={{
+              width: this.remainingWidth,
+              top: this.topoffset,
+              left: `${this.newWidth + 10}px`,
+              zIndex: -1,
+              position: "absolute",
+              height: this.desiredHeight + "px",
+            }}
+          >
+            <div className="option-holder"></div>
+            <div id="option-holder-child"></div>
+          </div>
+        )}
       </div>
     );
   }

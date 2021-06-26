@@ -8,18 +8,20 @@ class IntroScreen extends React.Component {
       loadingText: "Loading",
     };
     this.onClick = this.onClick.bind(this);
-    this.button = (<button
-      ref={(b) => {
-        if (b) {
-          b.addEventListener("click", () => {
-            props.playSound();
-          });
-        }
-      }}
-      onClick={this.onClick}
-    >
-      Embark
-    </button>)
+    this.button = (
+      <button
+        ref={(b) => {
+          if (b) {
+            b.addEventListener("click", () => {
+              props.playSound();
+            });
+          }
+        }}
+        onClick={this.onClick}
+      >
+        Embark
+      </button>
+    );
   }
 
   onClick() {
@@ -35,12 +37,11 @@ class IntroScreen extends React.Component {
   }
 
   render() {
-    
     const MobileWrapper = this.props.mobileMenuWrapper;
-    let loader = <div id="loadingText">{this.state.loadingText}</div>
+    let loader = <div id="loadingText">{this.state.loadingText}</div>;
     let percentLoadedText = Math.floor(this.props.percentLoaded * 100);
-    loader = <div id="loadingText">Loading {percentLoadedText}%</div>
-    const buttonOrLoader = (this.props.isPreloading ? loader : this.button);
+    loader = <div id="loadingText">Loading {percentLoadedText}%</div>;
+    const buttonOrLoader = this.props.isPreloading ? loader : this.button;
 
     return (
       <div
@@ -50,7 +51,9 @@ class IntroScreen extends React.Component {
       >
         {!this.props.isOnMobile && buttonOrLoader}
         <div id="hideme" />
-        {this.props.isOnMobile && (<MobileWrapper>{buttonOrLoader}</MobileWrapper>)}
+        {this.props.isOnMobile && (
+          <MobileWrapper>{buttonOrLoader}</MobileWrapper>
+        )}
       </div>
     );
   }

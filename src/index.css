@@ -62,7 +62,7 @@ img {
   font-size: 19px;
   padding-bottom: 3px;
   padding-top: 2px;
-  font-family: 'Yusei Magic';
+  font-family: "Yusei Magic";
   position: absolute;
   top: -31px;
   left: 0;
@@ -99,14 +99,14 @@ img {
   flex-direction: column;
 }
 
-#mobile-container p{
+#mobile-container p {
   text-align: center;
 }
 
 #mobile-message {
   color: rgb(109, 33, 21);
   background-color: rgb(255, 230, 226);
-  font-family: 'Yusei Magic', sans-serif;
+  font-family: "Yusei Magic", sans-serif;
   width: 80%;
   font-size: 18px;
   text-align: center;
@@ -139,7 +139,7 @@ img {
 
 #hideme {
   visibility: none;
-  background-image: url('img/preview.png');
+  background-image: url("img/preview.png");
 }
 
 button {
@@ -149,7 +149,7 @@ button {
   padding: 10px 20px;
   border-radius: 40px;
   border: 3px solid white;
-  font-family: 'Yusei Magic', sans-serif;
+  font-family: "Yusei Magic", sans-serif;
   font-size: 20px;
 }
 
@@ -182,7 +182,7 @@ button:focus {
   z-index: 900;
   height: 750px;
   margin-top: 10px;
-  background-image: url('img/Backgrounds/curtains.png');
+  background-image: url("img/Backgrounds/curtains.png");
   background-size: 100%;
   position: absolute;
   display: flex;
@@ -223,7 +223,7 @@ button:focus {
 }
 
 #interludeText {
-  font-family: 'Yusei Magic', sans-serif;
+  font-family: "Yusei Magic", sans-serif;
   font-size: 60px;
   margin-top: 290px;
   color: white;
@@ -237,7 +237,7 @@ button:focus {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: url('img/Backgrounds/intro.gif');
+  background-image: url("img/Backgrounds/intro.gif");
   background-repeat: no-repeat;
   background-size: 100%;
   position: relative;
@@ -252,7 +252,7 @@ button:focus {
 }
 
 #introScreen #loadingText {
-  font-family: 'Yusei Magic', sans-serif;
+  font-family: "Yusei Magic", sans-serif;
   font-size: 48px;
   left: 420px;
   bottom: 240px;
@@ -267,7 +267,7 @@ button:focus {
   background-color: #dfaa13;
   padding: 8px 30px;
   border-width: 8px;
-  font-family: 'Sofia', cursive;
+  font-family: "Sofia", cursive;
   border-radius: 42px;
 }
 
@@ -348,7 +348,7 @@ button:focus {
 }
 
 #ratSelectScreen .ratNameContainer {
-  font-family: 'Yusei Magic';
+  font-family: "Yusei Magic";
   font-size: 16px;
   text-align: center;
   padding-bottom: 10px;
@@ -371,7 +371,7 @@ button:focus {
 
 #ratSelectScreen .ratTagline {
   font-size: 15px;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 600;
   padding: 5px;
 }
@@ -401,7 +401,7 @@ button:focus {
 }
 
 #ratSelectScreen #chooseText {
-  font-family: 'Yusei Magic';
+  font-family: "Yusei Magic";
   font-size: 30px;
   margin-bottom: 0px;
   padding-top: 18px;
@@ -421,7 +421,7 @@ button:focus {
 /* TALKING TO RATS */
 #talkingToRatsScreen {
   /* overflow: hidden; */
-  background-image: url('img/Backgrounds/couch.gif');
+  background-image: url("img/Backgrounds/couch.gif");
   background-repeat: no-repeat;
   background-size: 100%;
   width: 900px;
@@ -436,7 +436,7 @@ button:focus {
 }
 
 #talkingToRatsScreen #ratName {
-  font-family: 'Yusei Magic', sans-serif;
+  font-family: "Yusei Magic", sans-serif;
   font-size: 24px;
   background-color: #ad8f18;
   color: #f5eaca;
@@ -453,7 +453,7 @@ button:focus {
 }
 
 #talkingToRatsScreen #ratDialogue {
-  font-family: 'Yusei Magic', sans-serif;
+  font-family: "Yusei Magic", sans-serif;
   font-size: 21px;
   padding: 15px 35px;
   background-color: #e0d192;
@@ -579,7 +579,7 @@ button:focus {
 
 /* ROSE CEREMONY */
 #roseCeremonyScreen {
-  background-image: url('img/Backgrounds/rose_ceremony.png');
+  background-image: url("img/Backgrounds/rose_ceremony.png");
   background-repeat: no-repeat;
   background-size: 100%;
   width: 900px;
@@ -591,7 +591,7 @@ button:focus {
 }
 
 #roseCeremonyScreen.lastRose {
-  background-image: url('img/Backgrounds/garden.png');
+  background-image: url("img/Backgrounds/garden.png");
 }
 
 #roseCeremonyScreen.lastRose #instructions {
@@ -711,7 +711,7 @@ button:focus {
   width: 100px;
   background-color: rgb(236, 217, 165);
   color: rgb(59, 17, 11);
-  font-family: 'Yusei Magic', sans-serif;
+  font-family: "Yusei Magic", sans-serif;
   font-size: 18px;
   text-align: center;
   padding: 6px 0;
@@ -776,14 +776,14 @@ button:focus {
   align-items: center;
   position: absolute;
   top: 0;
-  font-family: 'Yusei Magic', sans-serif;
+  font-family: "Yusei Magic", sans-serif;
   font-size: 30px;
 }
 
 /* PROPOSAL SCREEN */
 #proposalScreen {
   animation: fadeIn ease 2.4s;
-  background-image: url('img/Backgrounds/beach.png');
+  background-image: url("img/Backgrounds/beach.png");
   background-size: 100%;
   display: flex;
   align-items: center;
@@ -837,7 +837,7 @@ button:focus {
 }
 
 #animeText {
-  font-family: 'Yusei Magic';
+  font-family: "Yusei Magic";
   font-size: 20px;
   position: absolute;
   padding: 20px 40px;
@@ -945,7 +945,7 @@ button:focus {
 }
 
 #SpecialEndingScreen .ratNameContainer {
-  font-family: 'Yusei Magic';
+  font-family: "Yusei Magic";
   font-size: 16px;
   text-align: center;
   padding-bottom: 10px;
@@ -973,7 +973,7 @@ button:focus {
 
 #SpecialEndingScreen .ratTagline {
   font-size: 15px;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 600;
   padding: 5px;
 }
@@ -1001,7 +1001,7 @@ button:focus {
 }
 
 #SpecialEndingScreen #chooseText {
-  font-family: 'Yusei Magic';
+  font-family: "Yusei Magic";
   font-size: 30px;
   margin-bottom: 0px;
   padding-top: 18px;
@@ -1225,7 +1225,7 @@ button:focus {
   cursor: pointer;
 }
 
-input[type='range'] {
+input[type="range"] {
   -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
   width: 100%; /* Specific width is required for Firefox. */
   background: transparent; /* Otherwise white in Chrome */
@@ -1234,15 +1234,15 @@ input[type='range'] {
   margin: 0px;
 }
 
-input[type='range']::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
 }
 
-input[type='range']:focus {
+input[type="range"]:focus {
   outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
 }
 
-input[type='range']::-ms-track {
+input[type="range"]::-ms-track {
   width: 100%;
   cursor: pointer;
 
@@ -1252,7 +1252,7 @@ input[type='range']::-ms-track {
   color: transparent;
 }
 
-input[type='range']::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 2px solid #977c40;
   height: 36px;
@@ -1265,7 +1265,7 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 /* All the same stuff for Firefox */
-input[type='range']::-moz-range-thumb {
+input[type="range"]::-moz-range-thumb {
   border: 2px solid #977c40;
   height: 36px;
   width: 16px;
@@ -1277,7 +1277,7 @@ input[type='range']::-moz-range-thumb {
 }
 
 /* All the same stuff for IE */
-input[type='range']::-ms-thumb {
+input[type="range"]::-ms-thumb {
   border: 2px solid #977c40;
   height: 36px;
   width: 16px;
@@ -1359,20 +1359,20 @@ input[type='range']::-ms-thumb {
 #ratchelor-intro-title {
   font-size: 42px;
   color: #c14d67;
-  font-family: 'Yusei Magic', sans-serif;
+  font-family: "Yusei Magic", sans-serif;
 }
 
 #ratchelor-intro {
   width: 55%;
   text-align: center;
-  font-family: 'Yusei Magic', sans-serif;
+  font-family: "Yusei Magic", sans-serif;
   color: #c14d67;
   font-size: 22px;
   margin-top: 15px;
 }
 
 #ratchelor-intro-question {
-  font-family: 'Yusei Magic', sans-serif;
+  font-family: "Yusei Magic", sans-serif;
   margin-top: 50px;
   margin-bottom: 30px;
   font-size: 28px;
@@ -1457,7 +1457,7 @@ input[type='range']::-ms-thumb {
   z-index: 0;
 }
 
-.game-container-container{
+.game-container-container {
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -1477,7 +1477,7 @@ input[type='range']::-ms-thumb {
   width: auto;
   right: 108px;
   color: rgb(114, 63, 65);
-  font-family: 'Yusei Magic', sans-serif;
+  font-family: "Yusei Magic", sans-serif;
   background-color: rgb(253, 237, 238);
   padding: 10px 10px;
   font-size: 16px;
@@ -1558,7 +1558,7 @@ input[type='range']::-ms-thumb {
   font-style: italic;
 }
 
-.option-holder{
+.option-holder {
   width: 100%;
   height: 100%;
   /* border: 2px solid white;
@@ -1571,32 +1571,32 @@ input[type='range']::-ms-thumb {
   font-size: 14px !important;
   font-family: "Yusei Magic", sans-serif;
   color: rgb(114, 63, 65);
-  border-image: url('./img/mobileControllerFrame.png');
+  border-image: url("./img/mobileControllerFrame.png");
   border-image-slice: 9% 6% fill;
   border-image-width: 35px 35px;
   border-image-repeat: round;
 }
 
-#option-holder-child{
+#option-holder-child {
   position: absolute;
   width: 80%;
   height: 86%;
   top: 7%;
   left: 10%;
-  background-color: #FEC8CB;
+  background-color: #fec8cb;
   z-index: -2;
 }
 
-.option-holder div{
+.option-holder div {
   font-size: 20px !important;
 }
 
-.mobile-screen #chooseText{
+.mobile-screen #chooseText {
   font-size: 48px !important;
   height: 120px !important;
 }
 
-#option-child{
+#option-child {
   width: 100%;
   height: 100%;
   padding: 24px 12px;
@@ -1605,12 +1605,12 @@ input[type='range']::-ms-thumb {
   justify-content: space-between;
 }
 
-#name-of-rat{
+#name-of-rat {
   font-weight: 800;
   border-bottom: 1px solid rgb(114, 63, 65);
 }
 
-.option-holder #responses{
+.option-holder #responses {
   display: flex;
   width: 100%;
   height: 100%;
@@ -1619,13 +1619,13 @@ input[type='range']::-ms-thumb {
   align-items: center;
 }
 
-:root{
+:root {
   --mobile-button-text-size: 3rem;
   --mobile-h2: 2.7rem;
   --mobile-body: 2rem;
 }
 
-.mobile .mobile-wrapper{
+.mobile .mobile-wrapper {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -1637,10 +1637,10 @@ input[type='range']::-ms-thumb {
 .mobile {
   font-size: var(--mobile-body);
   line-height: 130%;
-  font-family: 'Yusei Magic', sans-serif;
+  font-family: "Yusei Magic", sans-serif;
 }
 
-.mobile h2{
+.mobile h2 {
   font-size: var(--mobile-h2);
   margin: 0px;
   line-height: calc(1.2 * var(--mobile-h2));
@@ -1658,20 +1658,20 @@ input[type='range']::-ms-thumb {
   left: 0;
   top: 0;
 }
-.mobile #ratchelor-intro-title{
+.mobile #ratchelor-intro-title {
   font-size: var(--mobile-h2) !important;
   line-height: calc(1.2 * var(--mobile-h2));
 }
 
-.mobile #ratchelor-intro{
+.mobile #ratchelor-intro {
   font-size: var(--mobile-body) !important;
 }
 
-.mobile #hearts-header{
+.mobile #hearts-header {
   display: none;
 }
 
-.mobile #ratchelor-intro-question{
+.mobile #ratchelor-intro-question {
   font-size: var(--mobile-h2) !important;
   line-height: calc(1.2 * var(--mobile-h2));
 }
@@ -1698,28 +1698,28 @@ input[type='range']::-ms-thumb {
   width: 60%;
 }
 
-.mobile #talkingToRatsScreen #ratDialogue{
+.mobile #talkingToRatsScreen #ratDialogue {
   font-size: var(--mobile-body);
   padding-bottom: 35px;
 }
 
-.mobile #talkingToRatsScreen #ratName{
+.mobile #talkingToRatsScreen #ratName {
   font-size: var(--mobile-body);
 }
 
-.mobile #responses > button{
+.mobile #responses > button {
   margin-bottom: 12px !important;
   font-size: var(--mobile-body) !important;
   padding: 0.5em;
   line-height: calc(1.2 * var(--mobile-body));
 }
 
-.mobile #responses > *:last-child{
+.mobile #responses > *:last-child {
   margin-bottom: 0px !important;
 }
 
-.mobile #responses h2{
-  font-family: 'Yusei Magic';
+.mobile #responses h2 {
+  font-family: "Yusei Magic";
   font-size: var(--mobile-body);
   line-height: calc(1.2 * var(--mobile-body));
   color: #c44663;
@@ -1727,7 +1727,7 @@ input[type='range']::-ms-thumb {
   margin-bottom: 2em;
 }
 
-.mobile #roseCeremonyScreen #instructions{
+.mobile #roseCeremonyScreen #instructions {
   background-color: transparent;
   border: none;
   color: #c44663;
@@ -1740,35 +1740,35 @@ input[type='range']::-ms-thumb {
   text-align: center;
 }
 
-#ratSelectScreen .mobile-wrapper{
+#ratSelectScreen .mobile-wrapper {
   justify-content: flex-start;
 }
 
-#roseCeremonyScreen .mobile-wrapper{
+#roseCeremonyScreen .mobile-wrapper {
   justify-content: flex-start;
 }
 
-#mobile-container img{
+#mobile-container img {
   width: 40%;
 }
 
-.mobile #epilogueButton{
+.mobile #epilogueButton {
   position: relative;
 }
 
-.mobile #ratSelectScreen{
+.mobile #ratSelectScreen {
   justify-content: space-evenly;
 }
 
-.mobile #SpecialEndingScreen #endingButtonContainer{
+.mobile #SpecialEndingScreen #endingButtonContainer {
   position: relative;
 }
 
-.mobile #SpecialEndingScreen #endingButtonContainer > *{
+.mobile #SpecialEndingScreen #endingButtonContainer > * {
   margin-bottom: 0.5em !important;
 }
 
-.mobile .mobile-description{
+.mobile .mobile-description {
   z-index: 100;
   width: 100%;
   position: absolute;
@@ -1785,17 +1785,17 @@ input[type='range']::-ms-thumb {
   background-color: transparent;
 }
 
-.mobile #SpecialEndingScreen .ratFrame{
+.mobile #SpecialEndingScreen .ratFrame {
   filter: grayscale(1);
 }
 
-.mobile #SpecialEndingScreen .ratFrame.selected{
+.mobile #SpecialEndingScreen .ratFrame.selected {
   filter: grayscale(0);
 }
 
-.hide-overflow{
+.hide-overflow {
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;

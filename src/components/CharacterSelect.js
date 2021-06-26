@@ -31,11 +31,10 @@ class CharacterSelect extends React.Component {
     this.buttonAreaAfter = (
       <div id="button-container">
         <button
-          onClick={( )=>{
-            this.props.onClick(); 
+          onClick={() => {
+            this.props.onClick();
             //this.props.playSelectAnswer();
-          }
-        }
+          }}
         >
           Onwards!
         </button>
@@ -65,8 +64,8 @@ class CharacterSelect extends React.Component {
           ></img>
           <div id="ratchelor-intro-title">You are The Ratchelor,</div>
           <div id="ratchelor-intro">
-            A single rat looking for love. You will meet many rats and
-            choose who to keep, round after round, until you find true love.
+            A single rat looking for love. You will meet many rats and choose
+            who to keep, round after round, until you find true love.
           </div>
         </div>
         <div id="custom-character-row">
@@ -81,11 +80,17 @@ class CharacterSelect extends React.Component {
                   this.props.playTap();
                 }}
                 key={`char${idx}`}
-                src={`${process.env.PUBLIC_URL}/img/Player/${idx + 1}_intro.png`}
+                src={`${process.env.PUBLIC_URL}/img/Player/${
+                  idx + 1
+                }_intro.png`}
               />
             ))}
         </div>
-        {this.props.isOnMobile ? <MobileWrapper>{buttonArea}</MobileWrapper> : buttonArea}
+        {this.props.isOnMobile ? (
+          <MobileWrapper>{buttonArea}</MobileWrapper>
+        ) : (
+          buttonArea
+        )}
       </div>
     );
   }

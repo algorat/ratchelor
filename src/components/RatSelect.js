@@ -19,7 +19,13 @@ class RatSelect extends React.Component {
   noContestantsLeft() {
     let selectRatsButton = (
       <div id="chooseText">
-        <button onClick={() => {this.onClickSelectRats();}}>Continue</button>
+        <button
+          onClick={() => {
+            this.onClickSelectRats();
+          }}
+        >
+          Continue
+        </button>
       </div>
     );
     this.setState({ selectRatsButton });
@@ -45,8 +51,8 @@ class RatSelect extends React.Component {
     this.setState({ selectRatsButton });
   }
 
-  selectRatIntermediate(ratName, id){
-    this.setState({currentlyViewedRat: id});
+  selectRatIntermediate(ratName, id) {
+    this.setState({ currentlyViewedRat: id });
   }
 
   // When a rat is clicked
@@ -106,14 +112,16 @@ class RatSelect extends React.Component {
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.props.rats.length; i++) {
       let filename = `${process.env.PUBLIC_URL}/img/Frames/${this.props.rats[i].filename}.PNG`;
-      let filenameHearts = `${process.env.PUBLIC_URL}/img/Frames/hearts${(i % 9) + 1}.PNG`;
+      let filenameHearts = `${process.env.PUBLIC_URL}/img/Frames/hearts${
+        (i % 9) + 1
+      }.PNG`;
       ratsList.push(
         <div key={"rats" + i} id="ratContainer">
           <div
             id={`rat${i}`}
             className="ratListItem"
             onClick={() => {
-              if(this.props.isOnMobile){
+              if (this.props.isOnMobile) {
                 this.selectRatIntermediate(this.props.rats[i].name, i);
               } else {
                 this.selectRat(this.props.rats[i].name, `rat${i}`);
@@ -121,14 +129,25 @@ class RatSelect extends React.Component {
             }}
           >
             <div className="ratPic">
-              <img key={`ratframe${i}`} className="ratFrame" src={filename} alt="" />
-              <img key={`rathearts${i}`} className="ratHearts" src={filenameHearts} alt="" />
+              <img
+                key={`ratframe${i}`}
+                className="ratFrame"
+                src={filename}
+                alt=""
+              />
+              <img
+                key={`rathearts${i}`}
+                className="ratHearts"
+                src={filenameHearts}
+                alt=""
+              />
             </div>
             {!this.props.isOnMobile && (
-            <div className="ratNameContainer">
-              <div className="ratName">{`${this.props.rats[i].name}`}</div>
-              <div className="ratTagline">{`"${this.props.rats[i].tagline}"`}</div>
-            </div>)}
+              <div className="ratNameContainer">
+                <div className="ratName">{`${this.props.rats[i].name}`}</div>
+                <div className="ratTagline">{`"${this.props.rats[i].tagline}"`}</div>
+              </div>
+            )}
           </div>
         </div>
       );
@@ -140,22 +159,33 @@ class RatSelect extends React.Component {
         <div id="ratListContainer" className="stillRats">
           {ratsList}
         </div>
-        { this.props.isOnMobile &&
-          (<MobileWrapper>
+        {this.props.isOnMobile && (
+          <MobileWrapper>
             {this.state.selectRatsButton}
-            {(this.state.currentlyViewedRat < 0) ? 
-              <div>Select a rat!</div> : 
+            {this.state.currentlyViewedRat < 0 ? (
+              <div>Select a rat!</div>
+            ) : (
               <div id="mobile-container">
                 <h2>{this.props.rats[this.state.currentlyViewedRat].name}</h2>
                 <p>{this.props.rats[this.state.currentlyViewedRat].tagline}</p>
-                <button onClick={() => {this.selectRat(this.props.rats[this.state.currentlyViewedRat].name, `rat${this.state.currentlyViewedRat}`);}}>
-                  {this.state.selectedRats.includes(this.props.rats[this.state.currentlyViewedRat].name) ? "Deselect" : "Select"}
+                <button
+                  onClick={() => {
+                    this.selectRat(
+                      this.props.rats[this.state.currentlyViewedRat].name,
+                      `rat${this.state.currentlyViewedRat}`
+                    );
+                  }}
+                >
+                  {this.state.selectedRats.includes(
+                    this.props.rats[this.state.currentlyViewedRat].name
+                  )
+                    ? "Deselect"
+                    : "Select"}
                 </button>
               </div>
-            }
-          </MobileWrapper>)
-        }
-        
+            )}
+          </MobileWrapper>
+        )}
       </div>
     );
   }

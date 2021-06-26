@@ -18,13 +18,16 @@ class RoseCeremony extends React.Component {
       middleRowClass: "",
       allRatsSelectedClass: "notAllRatsSelected",
       lastRoseClass: "",
-      currentlyViewedRat: [null, null]
+      currentlyViewedRat: [null, null],
     };
   }
 
   componentDidMount() {
     if (this.props.numRoses === 1) {
-      this.setState({ instructions: `Choose your soulmate` , lastRoseClass: "lastRose"});
+      this.setState({
+        instructions: `Choose your soulmate`,
+        lastRoseClass: "lastRose",
+      });
     }
     // Randomly shuffle the rats for this round
     this.ratNames = this.props.activeRatNames.sort(function (a, b) {
@@ -131,7 +134,7 @@ class RoseCeremony extends React.Component {
 
   selectRatIntermediate(ratName, id) {
     console.log("updating state with ", ratName);
-    this.setState({currentlyViewedRat: [ratName, id]});
+    this.setState({ currentlyViewedRat: [ratName, id] });
   }
 
   // When a rat is clicked
@@ -201,35 +204,36 @@ class RoseCeremony extends React.Component {
       let filename = `${process.env.PUBLIC_URL}/img/Characters/${this.backRowRats[i].filename}.png`;
       let roseFilename = `${process.env.PUBLIC_URL}/img/Characters/roses/${this.backRowRats[i].filename}.png`;
       backRatsList.push(
-        
         <div
           key={i}
           id={`rat${i}`}
           className={`ratList`}
           onClick={() => {
-            if(this.props.isOnMobile){
+            if (this.props.isOnMobile) {
               this.selectRatIntermediate(this.backRowRats[i].name, `rat${i}`);
             } else {
               this.selectRat(this.backRowRats[i].name, `rat${i}`);
             }
-            
           }}
         >
           <div className={`${this.state.allRatsSelectedClass}`}>
-          {/* {`${this.backRowRats[i].name}`} */}
-          <img
-            className={`ratPic  ${this.backRowRats[i].size}`}
-            src={filename}
-            alt="a rat waiting for you to make a decision"
-          />
-           <img
-            className={`ratPic ratWithRosePic  ${this.backRowRats[i].size}`}
-            src={roseFilename}
-            alt="a rat waiting for you to make a decision"
-          />
-          {!this.props.isOnMobile && <div className="hoverText" alt="info about the rat">
-            {this.backRowRats[i].name}
-          </div>}</div>
+            {/* {`${this.backRowRats[i].name}`} */}
+            <img
+              className={`ratPic  ${this.backRowRats[i].size}`}
+              src={filename}
+              alt="a rat waiting for you to make a decision"
+            />
+            <img
+              className={`ratPic ratWithRosePic  ${this.backRowRats[i].size}`}
+              src={roseFilename}
+              alt="a rat waiting for you to make a decision"
+            />
+            {!this.props.isOnMobile && (
+              <div className="hoverText" alt="info about the rat">
+                {this.backRowRats[i].name}
+              </div>
+            )}
+          </div>
         </div>
       );
     }
@@ -245,33 +249,36 @@ class RoseCeremony extends React.Component {
           id={`rat${this.backRowRats.length + i}`}
           className={`ratList`}
           onClick={() => {
-            if(this.props.isOnMobile){
-              this.selectRatIntermediate( this.frontRowRats[i].name,
-                `rat${this.backRowRats.length + i}`);
+            if (this.props.isOnMobile) {
+              this.selectRatIntermediate(
+                this.frontRowRats[i].name,
+                `rat${this.backRowRats.length + i}`
+              );
             } else {
-            this.selectRat(
-              this.frontRowRats[i].name,
-              `rat${this.backRowRats.length + i}`
-            );
-          }
+              this.selectRat(
+                this.frontRowRats[i].name,
+                `rat${this.backRowRats.length + i}`
+              );
+            }
           }}
         >
-           <div className={`${this.state.allRatsSelectedClass}`}>
-          {/* {`${this.frontRowRats[i].name}`} */}
-          <img
-            className={`ratPic ${this.frontRowRats[i].size}`}
-            src={filename}
-            alt="a rat waiting for you to make a decision"
-          />
-          <img
-            className={`ratPic ratWithRosePic ${this.frontRowRats[i].size}`}
-            src={roseFilename}
-            alt="a rat waiting for you to make a decision"
-          />
-          {!this.props.isOnMobile && 
-          <div className="hoverText" alt="info about the rat">
-            {this.frontRowRats[i].name}
-          </div>}
+          <div className={`${this.state.allRatsSelectedClass}`}>
+            {/* {`${this.frontRowRats[i].name}`} */}
+            <img
+              className={`ratPic ${this.frontRowRats[i].size}`}
+              src={filename}
+              alt="a rat waiting for you to make a decision"
+            />
+            <img
+              className={`ratPic ratWithRosePic ${this.frontRowRats[i].size}`}
+              src={roseFilename}
+              alt="a rat waiting for you to make a decision"
+            />
+            {!this.props.isOnMobile && (
+              <div className="hoverText" alt="info about the rat">
+                {this.frontRowRats[i].name}
+              </div>
+            )}
           </div>
         </div>
       );
@@ -280,38 +287,57 @@ class RoseCeremony extends React.Component {
     let bouquetNum = this.props.numRoses - this.state.selectedRats.length;
     if (!bouquetNum || bouquetNum < 0 || bouquetNum > 5) bouquetNum = 0;
     const MobileWrapper = this.props.mobileMenuWrapper;
-    const lastClickedRat = this.props.getRatByName(this.state.currentlyViewedRat[0]);
+    const lastClickedRat = this.props.getRatByName(
+      this.state.currentlyViewedRat[0]
+    );
 
     return (
-      <div id="roseCeremonyScreen" className={`screen ${this.state.lastRoseClass}`}>
+      <div
+        id="roseCeremonyScreen"
+        className={`screen ${this.state.lastRoseClass}`}
+      >
         <img
           id="bouquet"
           alt="a rose bouquet"
           src={`${process.env.PUBLIC_URL}/img/Bouquet/bouquet${bouquetNum}.png`}
         ></img>
-        {!this.props.isOnMobile && <div id="instructions">{this.state.instructions}</div>}
+        {!this.props.isOnMobile && (
+          <div id="instructions">{this.state.instructions}</div>
+        )}
         <div id="ratListContainer">
           <div id="backRow" className={`${this.state.middleRowClass}`}>
             {backRatsList}
           </div>
           <div id="frontRow">{frontRatsList}</div>
         </div>
-        { this.props.isOnMobile &&
-          (<MobileWrapper>
+        {this.props.isOnMobile && (
+          <MobileWrapper>
             <div id="instructions">{this.state.instructions}</div>
-            {(this.state.currentlyViewedRat[0] === null) ?
-              <h2>Select a rat to get started</h2> :
+            {this.state.currentlyViewedRat[0] === null ? (
+              <h2>Select a rat to get started</h2>
+            ) : (
               <div id="mobile-container">
-                <img src={`${process.env.PUBLIC_URL}/img/Frames/${lastClickedRat.filename}.PNG`} alt={`image of ${this.state.currentlyViewedRat[0]}`}/>
+                <img
+                  src={`${process.env.PUBLIC_URL}/img/Frames/${lastClickedRat.filename}.PNG`}
+                  alt={`image of ${this.state.currentlyViewedRat[0]}`}
+                />
                 <h2>{this.state.currentlyViewedRat[0]}</h2>
                 <p>{lastClickedRat.tagline}</p>
-                <button onClick={() => {this.selectRat(...this.state.currentlyViewedRat);}}>
-                  {this.state.selectedRats.includes(this.state.currentlyViewedRat[0]) ? "Deselect" : "Select"}
+                <button
+                  onClick={() => {
+                    this.selectRat(...this.state.currentlyViewedRat);
+                  }}
+                >
+                  {this.state.selectedRats.includes(
+                    this.state.currentlyViewedRat[0]
+                  )
+                    ? "Deselect"
+                    : "Select"}
                 </button>
               </div>
-            }
-          </MobileWrapper>)
-        }
+            )}
+          </MobileWrapper>
+        )}
       </div>
     );
   }
