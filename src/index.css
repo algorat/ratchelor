@@ -126,6 +126,17 @@ img {
   -ms-user-select: none;
 }
 
+#ratchelor2 {
+  position: absolute;
+  z-index: 10001;
+  text-align: center;
+  margin-left: 200px;
+  top: 677px;
+  color: rgb(116, 94, 30);
+  font-family: 'Yusei Magic', sans-serif;
+  font-size: 20px;
+}
+
 * {
   box-sizing: border-box;
 }

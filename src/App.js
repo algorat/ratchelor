@@ -623,6 +623,8 @@ class RatchelorGame extends React.Component {
 
         <div id="game">
           <img id="frame" src="/ratchelor/img/frameSmaller.png" alt=""></img>
+          <div id="ratchelor2">Stay tuned for The Ratchelor 2, coming this Valentine's Day! </div>
+
           {safariMsg}
 
           <div id="interludeContainer" >
