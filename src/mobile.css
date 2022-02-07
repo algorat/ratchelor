@@ -5,6 +5,14 @@
   --mobile-body-line-height: 1.4xrem;
 }
 
+@media (max-height: 360px) {
+  :root {
+    --mobile-body: 0.9rem;
+    --mobile-h2: 1.1rem;
+    --mobile-button-text-size: 1.3rem;
+  }
+}
+
 .mobile .mobile-wrapper {
   flex-grow: 1;
   padding: 8px;
@@ -77,7 +85,6 @@
   padding-bottom: 1em;
   color: #c44663;
   font-style: italic;
-  /* border-bottom: 3px solid black; */
 }
 
 .mobile #talkingToRatsScreen #responses {
@@ -194,7 +201,6 @@
   border: 3px solid #b35468;
   background-color: #fbe6e5;
   width: 100%;
-  /* top: 5%; */
   border-radius: 4px;
   display: flex;
   flex-direction: column;
@@ -367,10 +373,6 @@
   margin: 0;
 }
 
-.mobile-rat-portrait {
-  max-width: 100px;
-}
-
 .mobile #roseCeremonyScreen #bouquet {
   width: 100%;
 }
@@ -402,14 +404,6 @@
 
 .mobile #roseCeremonyScreen #ratListContainer {
   bottom: 24px;
-}
-
-@media (max-height: 360px) {
-  :root {
-    --mobile-body: 0.9rem;
-    --mobile-h2: 1.1rem;
-    --mobile-button-text-size: 1.3rem;
-  }
 }
 
 .mobile #specialBg {
