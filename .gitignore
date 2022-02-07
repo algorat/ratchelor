@@ -105,3 +105,6 @@ dist
 
 # ignore DS_Store
 .DS_Store
+
+# ignore staging files
+staging/*
