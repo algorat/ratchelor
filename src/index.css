@@ -5,13 +5,8 @@ html {
   position: relative;
   background-image: url(./img/Backgrounds/wallpaper.png);
   background-size: 350px 285px;
-  overflow-x: hidden;
 }
-/* img {
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges; */
-/* } */
+
 body {
   margin: 0;
   width: 100%;
@@ -91,34 +86,6 @@ img {
 #safari-button:hover {
   color: rgb(206, 165, 29);
   background-color: rgba(255, 255, 255, 0.9);
-}
-
-#mobile-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-#mobile-container p {
-  line-height: var(--mobile-body-line-height);
-  text-align: center;
-}
-
-#mobile-message {
-  color: rgb(109, 33, 21);
-  background-color: rgb(255, 230, 226);
-  font-family: "Yusei Magic", sans-serif;
-  width: 80%;
-  font-size: 18px;
-  text-align: center;
-  padding: 30px;
-  border-radius: 10px;
-}
-
-#mobile-img {
-  width: 200px;
-  padding-top: 30px;
 }
 
 #frame {

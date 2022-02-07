@@ -498,3 +498,15 @@
 .mobile #endingButtonContainer button {
   margin-bottom: 8px !important;
 }
+
+.mobile #mobile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mobile #mobile-container p {
+  line-height: var(--mobile-body-line-height);
+  text-align: center;
+}
