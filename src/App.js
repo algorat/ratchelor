@@ -101,12 +101,12 @@ class RatchelorGame extends React.Component {
   constructor() {
     super();
     // Num rats the person should select at the very beginning
-    this.numRatsInGame = 3;
+    this.numRatsInGame = 7;
     // How many rounds there are
-    this.numRounds = 2;
+    this.numRounds = 5;
     this.setProposedInDatabase = false;
     // How many roses get given out each round
-    this.rosesPerRound = [2, 1];
+    this.rosesPerRound = [5, 4, 3, 2, 1];
 
     this.allPublicImagesForPreload = allPublicImagesForPreload;
     this.backgroundSrc = backgroundSrc;
