@@ -153,7 +153,6 @@ class RatchelorGame extends React.Component {
     this.setPlayChimesSound = this.setPlayChimesSound.bind(this);
     this.setPlayWobbleSound = this.setPlayWobbleSound.bind(this);
     this.recalculateDimensions = this.recalculateDimensions.bind(this);
-    this.updateDimensions = this.updateDimensions.bind(this);
 
     this.setPlayTap = this.setPlayTap.bind(this);
     this.donePreloading = this.donePreloading.bind(this);
@@ -164,6 +163,10 @@ class RatchelorGame extends React.Component {
   }
 
   recalculateDimensions() {
+    if (!this.state.isOnMobile) {
+      return;
+    }
+
     if (window.innerHeight > window.innerWidth) {
       this.setState({
         mobileAndPortrait: true,
@@ -175,14 +178,8 @@ class RatchelorGame extends React.Component {
     });
   }
 
-  updateDimensions() {
-    if (this.state.isOnMobile) {
-      this.recalculateDimensions();
-    }
-  }
-
   componentWillUnmount() {
-    window.removeEventListener("resize", this.updateDimensions);
+    window.removeEventListener("resize", this.recalculateDimensions);
   }
 
   donePreloading() {
@@ -451,7 +448,7 @@ class RatchelorGame extends React.Component {
     }
     this.database = firebase.database();
     this.randoRat = ratsJson[Math.floor(Math.random() * ratsJson.length)];
-    window.addEventListener("resize", this.updateDimensions);
+    window.addEventListener("resize", this.recalculateDimensions);
   }
 
   render() {
