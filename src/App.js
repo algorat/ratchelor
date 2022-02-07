@@ -452,7 +452,6 @@ class RatchelorGame extends React.Component {
   }
 
   render() {
-    console.log("updating");
     let screen = "";
     let isPreloading = this.state.isPreloading;
 
@@ -632,7 +631,6 @@ class RatchelorGame extends React.Component {
           mobileMenuWrapper={mobileMenuWrapper}
           playerRatUrl={`${process.env.PUBLIC_URL}/img/Player/${this.state.playerIdx}_proposal.PNG`}
           advanceState={() => {
-            console.log("advancing to anime ending");
             this.setState({ gameStage: ANIME_ENDING });
           }}
         />
