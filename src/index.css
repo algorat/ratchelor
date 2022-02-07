@@ -1539,7 +1539,3 @@ input[type='range']::-ms-thumb {
   font-style: italic;
 }
 
-#name-of-rat {
-  font-weight: 800;
-  border-bottom: 1px solid rgb(114, 63, 65);
-}
