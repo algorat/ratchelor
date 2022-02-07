@@ -170,32 +170,7 @@ class RatchelorGame extends React.Component {
       });
       return;
     }
-    this.origHeight = 675;
-    this.origWidth = 900;
-    let desiredHeight = window.innerHeight;
-    let scalingAmount = desiredHeight / this.origHeight;
-    let newWidth = this.origWidth * scalingAmount;
-    let remainingWidth = window.innerWidth - newWidth;
-    let remainingWidthContent = remainingWidth;
-    //remainingWidth > 300 ? 300 : remainingWidth;
-    let leftOffset = (remainingWidth - remainingWidthContent) / 2;
-
-    // const minControlWidth = window.innerWidth / 3;
-    // if (remainingWidthContent < minControlWidth) {
-    //   remainingWidth = minControlWidth;
-    //   remainingWidthContent = remainingWidth;
-    //   newWidth = window.innerWidth * 0.95 - minControlWidth;
-    //   scalingAmount = newWidth / origWidth;
-    //   desiredHeight = origHeight * scalingAmount;
-    // }
-
     this.setState({
-      remainingWidth: remainingWidth,
-      remainingWidthContent: remainingWidthContent,
-      desiredHeight: desiredHeight,
-      scalingAmount: scalingAmount,
-      newWidth: newWidth,
-      leftOffset: leftOffset,
       mobileAndPortrait: false,
     });
   }
@@ -448,10 +423,10 @@ class RatchelorGame extends React.Component {
   }
 
   incrementTotalRatCount(ratName) {
-    // this.database
-    //   .ref("/")
-    //   .child(ratName)
-    //   .set(firebase.database.ServerValue.increment(1));
+    this.database
+      .ref("/")
+      .child(ratName)
+      .set(firebase.database.ServerValue.increment(1));
   }
 
   componentDidMount() {
