@@ -29,7 +29,9 @@ class RatSelect extends React.Component {
           Continue
         </button>
       </div>
-    ) : "You're done!";
+    ) : (
+      "You're done!"
+    );
     this.setState({ selectRatsButton });
     document.getElementById("ratListContainer").classList.remove("stillRats");
   }
@@ -154,81 +156,94 @@ class RatSelect extends React.Component {
         </div>
       );
     }
-    
-    if(this.state.currentlyViewedRat >= 0){
-      console.log((this.props.numRatsInGame - this.state.selectedRats.length) === 0, 
-      this.state.selectedRats.includes(this.props.rats[this.state.currentlyViewedRat].name), 
-      ((this.props.numRatsInGame - this.state.selectedRats.length) === 0)
-                    && this.state.selectedRats.includes(
-                      this.props.rats[this.state.currentlyViewedRat].name
-                    )
+
+    if (this.state.currentlyViewedRat >= 0) {
+      console.log(
+        this.props.numRatsInGame - this.state.selectedRats.length === 0,
+        this.state.selectedRats.includes(
+          this.props.rats[this.state.currentlyViewedRat].name
+        ),
+        this.props.numRatsInGame - this.state.selectedRats.length === 0 &&
+          this.state.selectedRats.includes(
+            this.props.rats[this.state.currentlyViewedRat].name
+          )
       );
     }
 
-
     return (
       <>
-      <div id="ratSelectScreen" className="screen">
-        {!this.props.isOnMobile && this.state.selectRatsButton}
-        <div id="ratListContainer" className="stillRats">
-          {ratsList}
-        </div>
-      </div>
-      {this.props.isOnMobile && (
-        <MobileWrapper>
-          <div className="controls-wrapper">
-            <div className="controls-wrapper__header">
-            {this.state.selectRatsButton}
-            </div>
-            <div className="controls-wrapper__body">
-            {this.state.currentlyViewedRat < 0 ? (
-            <div>Select a rat!</div>
-          ) : (
-            <div id="mobile-container">
-              <h2>{this.props.rats[this.state.currentlyViewedRat].name}</h2>
-              <div class="row">
-                <p>{this.props.rats[this.state.currentlyViewedRat].tagline}</p>
-              </div>
-              <button
-                onClick={() => {
-                  this.selectRat(
-                    this.props.rats[this.state.currentlyViewedRat].name,
-                    `rat${this.state.currentlyViewedRat}`
-                  );
-                }}
-                className={
-                  (this.props.numRatsInGame === this.state.selectedRats.length)
-                  && !this.state.selectedRats.includes(
-                    this.props.rats[this.state.currentlyViewedRat].name
-                  ) ?  "unselect" : ""
-                }
-              >
-                {this.state.selectedRats.includes(
-                  this.props.rats[this.state.currentlyViewedRat].name
-                )
-                  ? "Deselect"
-                  : "Select"}
-              </button>
-            </div>
-          )}
-            </div>
+        <div id="ratSelectScreen" className="screen">
+          {!this.props.isOnMobile && this.state.selectRatsButton}
+          <div id="ratListContainer" className="stillRats">
+            {ratsList}
           </div>
-          <div id="button-container">
-          <button
-            className={
-              (this.props.numRatsInGame - this.state.selectedRats.length) > 0 && "unselect"}
+        </div>
+        {this.props.isOnMobile && (
+          <MobileWrapper>
+            <div className="controls-wrapper">
+              <div className="controls-wrapper__header">
+                {this.state.selectRatsButton}
+              </div>
+              <div className="controls-wrapper__body">
+                {this.state.currentlyViewedRat < 0 ? (
+                  <div>Select a rat!</div>
+                ) : (
+                  <div id="mobile-container">
+                    <h2>
+                      {this.props.rats[this.state.currentlyViewedRat].name}
+                    </h2>
+                    <div class="row">
+                      <p>
+                        {this.props.rats[this.state.currentlyViewedRat].tagline}
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => {
+                        this.selectRat(
+                          this.props.rats[this.state.currentlyViewedRat].name,
+                          `rat${this.state.currentlyViewedRat}`
+                        );
+                      }}
+                      className={
+                        this.props.numRatsInGame ===
+                          this.state.selectedRats.length &&
+                        !this.state.selectedRats.includes(
+                          this.props.rats[this.state.currentlyViewedRat].name
+                        )
+                          ? "unselect"
+                          : ""
+                      }
+                    >
+                      {this.state.selectedRats.includes(
+                        this.props.rats[this.state.currentlyViewedRat].name
+                      )
+                        ? "Deselect"
+                        : "Select"}
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+            <div id="button-container">
+              <button
+                className={
+                  this.props.numRatsInGame - this.state.selectedRats.length >
+                    0 && "unselect"
+                }
                 onClick={() => {
-                  if (this.props.numRatsInGame !== this.state.selectedRats.length){
-                    return
+                  if (
+                    this.props.numRatsInGame !== this.state.selectedRats.length
+                  ) {
+                    return;
                   }
-                  this.onClickSelectRats()
+                  this.onClickSelectRats();
                 }}
               >
                 Onwards
-            </button>
+              </button>
             </div>
-        </MobileWrapper>
-      )}
+          </MobileWrapper>
+        )}
       </>
     );
   }

@@ -129,7 +129,7 @@ class RoseCeremony extends React.Component {
       this.setState({ instructions: `Choose ${ratsLeft} more contestants` });
     } else if (ratsLeft === 1) {
       this.setState({ instructions: `Choose ${ratsLeft} more contestant` });
-    } 
+    }
   }
 
   selectRatIntermediate(ratName, id) {
@@ -184,12 +184,12 @@ class RoseCeremony extends React.Component {
         );
       }
 
-      if(!this.props.isOnMobile){
+      if (!this.props.isOnMobile) {
         this.setState({ instructions: giveRosesButton });
       } else {
-        this.setState({ instructions: "You're done!"})
+        this.setState({ instructions: "You're done!" });
       }
-      
+
       this.setState({ allRatsSelectedClass: "allRatsSelected" });
     } else {
       this.updateInstructions();
@@ -301,70 +301,72 @@ class RoseCeremony extends React.Component {
 
     return (
       <>
-      <div
-        id="roseCeremonyScreen"
-        className={`screen ${this.state.lastRoseClass}`}
-      >
-        <img
-          id="bouquet"
-          alt="a rose bouquet"
-          src={`${process.env.PUBLIC_URL}/img/Bouquet/bouquet${bouquetNum}.png`}
-        ></img>
-        {!this.props.isOnMobile && (
-          <div id="instructions">{this.state.instructions}</div>
-        )}
-        <div id="ratListContainer">
-          <div id="backRow" className={`${this.state.middleRowClass}`}>
-            {backRatsList}
-          </div>
-          <div id="frontRow">{frontRatsList}</div>
-        </div>
-      </div>
-      {this.props.isOnMobile && (
-        <MobileWrapper>
-          <div className="controls-wrapper">
-            <div className="controls-wrapper__header">
-              <div id="instructions">{this.state.instructions}</div>
+        <div
+          id="roseCeremonyScreen"
+          className={`screen ${this.state.lastRoseClass}`}
+        >
+          <img
+            id="bouquet"
+            alt="a rose bouquet"
+            src={`${process.env.PUBLIC_URL}/img/Bouquet/bouquet${bouquetNum}.png`}
+          ></img>
+          {!this.props.isOnMobile && (
+            <div id="instructions">{this.state.instructions}</div>
+          )}
+          <div id="ratListContainer">
+            <div id="backRow" className={`${this.state.middleRowClass}`}>
+              {backRatsList}
             </div>
-          <div className="controls-wrapper__body controls-wrapper__body--row">
-          {lastClickedRat === null || lastClickedRat === undefined
-           ? (
-            <h2>Select a rat to get started</h2>
-          ) : (
-            <div id="mobile-container">
-              <h2>{this.state.currentlyViewedRat[0]}</h2>
+            <div id="frontRow">{frontRatsList}</div>
+          </div>
+        </div>
+        {this.props.isOnMobile && (
+          <MobileWrapper>
+            <div className="controls-wrapper">
+              <div className="controls-wrapper__header">
+                <div id="instructions">{this.state.instructions}</div>
+              </div>
+              <div className="controls-wrapper__body controls-wrapper__body--row">
+                {lastClickedRat === null || lastClickedRat === undefined ? (
+                  <h2>Select a rat to get started</h2>
+                ) : (
+                  <div id="mobile-container">
+                    <h2>{this.state.currentlyViewedRat[0]}</h2>
+                    <button
+                      onClick={() => {
+                        this.selectRat(...this.state.currentlyViewedRat);
+                      }}
+                      className={
+                        this.state.selectedRats.length === this.numRoses &&
+                        !this.state.selectedRats.includes(
+                          this.state.currentlyViewedRat[0]
+                        )
+                          ? "unselect"
+                          : ""
+                      }
+                    >
+                      {this.state.selectedRats.includes(
+                        this.state.currentlyViewedRat[0]
+                      )
+                        ? "Deselect"
+                        : "Select"}
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+            <div id="button-container">
               <button
-                onClick={() => {
-                  this.selectRat(...this.state.currentlyViewedRat);
-                }}
                 className={
-                  (this.state.selectedRats.length === this.numRoses)
-                  && !this.state.selectedRats.includes(
-                    this.state.currentlyViewedRat[0]
-                  ) ?  "unselect" : ""
+                  this.state.selectedRats.length !== this.numRoses && "unselect"
                 }
+                onClick={this.endRoseCeremony.bind(this)}
               >
-                {this.state.selectedRats.includes(
-                  this.state.currentlyViewedRat[0]
-                )
-                  ? "Deselect"
-                  : "Select"}
+                {this.numRoses === 1 ? "Propose" : "Continue finding love"}
               </button>
             </div>
-          )}</div>
-          </div>
-          <div id="button-container">
-          <button
-            className={
-              this.state.selectedRats.length !== this.numRoses && "unselect"
-            }
-            onClick={this.endRoseCeremony.bind(this)}
-          >
-            {(this.numRoses === 1) ? "Propose" : "Continue finding love"}
-          </button>
-            </div>
-        </MobileWrapper>
-      )}
+          </MobileWrapper>
+        )}
       </>
     );
   }

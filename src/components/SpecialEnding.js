@@ -191,10 +191,15 @@ class SpecialEnding extends React.Component {
                 }
                 style={{
                   width: "100%",
-                  paddingTop: this.props.isOnMobile ? "0px" : 30 * this.random(i - 991) + "px",
-                  paddingRight: this.props.isOnMobile ? "0px" : 30 * this.random(i + 123) + "px",
-                  transform:
-                    `rotate(${this.random(i + 22) * 30}deg) ${!this.props.isOnMobile && "scale(2.24)"}`,
+                  paddingTop: this.props.isOnMobile
+                    ? "0px"
+                    : 30 * this.random(i - 991) + "px",
+                  paddingRight: this.props.isOnMobile
+                    ? "0px"
+                    : 30 * this.random(i + 123) + "px",
+                  transform: `rotate(${this.random(i + 22) * 30}deg) ${
+                    !this.props.isOnMobile && "scale(2.24)"
+                  }`,
                 }}
                 src={`${process.env.PUBLIC_URL}/img/Photos/${this.photos[i]}`}
                 alt=""
@@ -238,18 +243,16 @@ class SpecialEnding extends React.Component {
     );
     return (
       <>
-      <div id="SpecialEndingScreen" className="screen">
-        <div className="hide-overflow">
-          <div id="ratListContainer">{ratsList}</div>
-          {this.props.isOnMobile && (
-            <div className="mobile-description">{mobileTxt}</div>
-          )}
+        <div id="SpecialEndingScreen" className="screen">
+          <div className="hide-overflow">
+            <div id="ratListContainer">{ratsList}</div>
+            {this.props.isOnMobile && (
+              <div className="mobile-description">{mobileTxt}</div>
+            )}
+          </div>
+          {!this.props.isOnMobile && buttons}
         </div>
-        {!this.props.isOnMobile && (buttons)}
-      </div>
-      {this.props.isOnMobile && (
-        <MobileWrapper>{buttons}</MobileWrapper>
-      )}
+        {this.props.isOnMobile && <MobileWrapper>{buttons}</MobileWrapper>}
       </>
     );
   }

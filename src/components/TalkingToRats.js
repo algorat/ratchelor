@@ -265,53 +265,58 @@ class TalkingToRats extends React.Component {
     if (ratDialogue.length === 0) ratDialogue = "...";
     return (
       <>
-      <div id="talkingToRatsScreen" className="screen">
-        <div className="hide-overflow">
-          <img
-            id="playerRat"
-            alt="you as a rat, on the couch"
-            src={this.props.playerRatUrl}
-          ></img>
-          <div id="allRats">{this.ratImgs}</div>
-          <div id="talkingRatContainer">
-            {this.state.reacting && (
-              <ReactionAnimation
-                emote={
-                  <img
-                    alt=""
-                    src={`${process.env.PUBLIC_URL}/img/Reactions/${this.state.currReaction}.PNG`}
-                  />
-                }
-                left={
-                  this.activeRats[this.state.lastActiveRat].reaction_pos[0] *
-                  100
-                }
-                top={
-                  this.activeRats[this.state.lastActiveRat].reaction_pos[1] *
-                  100
-                }
-              />
-            )}
-          </div>
-          <div id="dialogueContainer">
-            <div id="ratName">{this.activeRats[this.state.ratIndex].name}</div>
-            <div id="textDialogueContainer">
-              <div id="ratDialogue"> {ratDialogue}</div>
-              {!this.props.isOnMobile && (
-                <div id="responses">{this.state.responses}</div>
+        <div id="talkingToRatsScreen" className="screen">
+          <div className="hide-overflow">
+            <img
+              id="playerRat"
+              alt="you as a rat, on the couch"
+              src={this.props.playerRatUrl}
+            ></img>
+            <div id="allRats">{this.ratImgs}</div>
+            <div id="talkingRatContainer">
+              {this.state.reacting && (
+                <ReactionAnimation
+                  emote={
+                    <img
+                      alt=""
+                      src={`${process.env.PUBLIC_URL}/img/Reactions/${this.state.currReaction}.PNG`}
+                    />
+                  }
+                  left={
+                    this.activeRats[this.state.lastActiveRat].reaction_pos[0] *
+                    100
+                  }
+                  top={
+                    this.activeRats[this.state.lastActiveRat].reaction_pos[1] *
+                    100
+                  }
+                />
               )}
+            </div>
+            <div id="dialogueContainer">
+              <div id="ratName">
+                {this.activeRats[this.state.ratIndex].name}
+              </div>
+              <div id="textDialogueContainer">
+                <div id="ratDialogue"> {ratDialogue}</div>
+                {!this.props.isOnMobile && (
+                  <div id="responses">{this.state.responses}</div>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      {this.props.isOnMobile && (
+        {this.props.isOnMobile && (
           <MobileWrapper>
             <div className="controls-wrapper">
               <div className="controls-wrapper__header">
                 <p>What will you say in response?</p>
               </div>
-              <div id="responses" className="controls-wrapper__body controls-wrapper__body--row">
-              {this.state.responses}
+              <div
+                id="responses"
+                className="controls-wrapper__body controls-wrapper__body--row"
+              >
+                {this.state.responses}
               </div>
             </div>
           </MobileWrapper>

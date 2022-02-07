@@ -25,7 +25,7 @@ class IntroScreen extends React.Component {
   }
 
   onClick() {
-    console.log("dafsdfasf")
+    console.log("dafsdfasf");
     this.fadeInterval = window.setInterval(() => {
       let opacity = this.state.opacity - 0.01;
       if (opacity <= 0) {
@@ -46,19 +46,17 @@ class IntroScreen extends React.Component {
 
     return (
       <>
-      <div
-        id="introScreen"
-        className={`screen loading-${this.props.isPreloading}`}
-        style={{ opacity: this.state.opacity }}
-      >
-        {!this.props.isOnMobile && buttonOrLoader}
-        <div id="hideme" />
-      </div>
-      {this.props.isOnMobile && (
+        <div
+          id="introScreen"
+          className={`screen loading-${this.props.isPreloading}`}
+          style={{ opacity: this.state.opacity }}
+        >
+          {!this.props.isOnMobile && buttonOrLoader}
+          <div id="hideme" />
+        </div>
+        {this.props.isOnMobile && (
           <MobileWrapper>
-            <div id="button-container">
-              {buttonOrLoader}
-            </div>
+            <div id="button-container">{buttonOrLoader}</div>
           </MobileWrapper>
         )}
       </>

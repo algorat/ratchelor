@@ -132,7 +132,7 @@ class RatchelorGame extends React.Component {
       percentLoaded: 0.0,
       isShowingSafariMsg: false,
       isOnMobile: false,
-      curtainsClass: "curtainsOff"
+      curtainsClass: "curtainsOff",
     };
     this.finalRat = ratsJson[3];
     this.changeCurrentRatIdx = this.changeCurrentRatIdx.bind(this);
@@ -161,15 +161,13 @@ class RatchelorGame extends React.Component {
     this.publicImgsLoaded = false;
     this.srcImgsLoaded = false;
     this.soundsLoaded = false;
-
   }
 
-  recalculateDimensions(){
-
-    if(window.innerHeight > window.innerWidth){
+  recalculateDimensions() {
+    if (window.innerHeight > window.innerWidth) {
       this.setState({
-        mobileAndPortrait: true
-      })
+        mobileAndPortrait: true,
+      });
       return;
     }
     this.origHeight = 675;
@@ -194,22 +192,22 @@ class RatchelorGame extends React.Component {
     this.setState({
       remainingWidth: remainingWidth,
       remainingWidthContent: remainingWidthContent,
-      desiredHeight: desiredHeight, 
+      desiredHeight: desiredHeight,
       scalingAmount: scalingAmount,
       newWidth: newWidth,
       leftOffset: leftOffset,
-      mobileAndPortrait: false
+      mobileAndPortrait: false,
     });
   }
 
   updateDimensions() {
-    if(this.state.isOnMobile){
+    if (this.state.isOnMobile) {
       this.recalculateDimensions();
     }
-  };
+  }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.updateDimensions);
+    window.removeEventListener("resize", this.updateDimensions);
   }
 
   donePreloading() {
@@ -478,26 +476,25 @@ class RatchelorGame extends React.Component {
     }
     this.database = firebase.database();
     this.randoRat = ratsJson[Math.floor(Math.random() * ratsJson.length)];
-    window.addEventListener('resize', this.updateDimensions);
+    window.addEventListener("resize", this.updateDimensions);
   }
 
   render() {
-    console.log("updating")
+    console.log("updating");
     let screen = "";
     let isPreloading = this.state.isPreloading;
 
-    if(this.state.mobileAndPortrait){
-      return <div>Hmmmm looks like you're in portrait mode. Turn your phone to landscape!</div>
+    if (this.state.mobileAndPortrait) {
+      return (
+        <div>
+          Hmmmm looks like you're in portrait mode. Turn your phone to
+          landscape!
+        </div>
+      );
     }
 
     const mobileMenuWrapper = ({ children }) => {
-      return (
-        <div
-          className="mobile-wrapper"
-        >
-          {children}
-        </div>
-      );
+      return <div className="mobile-wrapper">{children}</div>;
     };
 
     if (this.state.gameStage === INTRO) {
@@ -663,7 +660,7 @@ class RatchelorGame extends React.Component {
           mobileMenuWrapper={mobileMenuWrapper}
           playerRatUrl={`${process.env.PUBLIC_URL}/img/Player/${this.state.playerIdx}_proposal.PNG`}
           advanceState={() => {
-            console.log("advancing to anime ending")
+            console.log("advancing to anime ending");
             this.setState({ gameStage: ANIME_ENDING });
           }}
         />
@@ -733,24 +730,22 @@ class RatchelorGame extends React.Component {
         }`}
         style={{ display: this.state.isOnMobile ? "block" : "flex" }}
       >
-        <div
-          id={`game-container`}
-          className={`preloading-${isPreloading}`}
-        >
+        <div id={`game-container`} className={`preloading-${isPreloading}`}>
           <div id="game">
-            {
-              (!this.state.isOnMobile) && 
-            <img
-              id="frame"
-              src={`${process.env.PUBLIC_URL}/img/frameSmaller.png`}
-              alt=""
-            ></img>
-            }
+            {!this.state.isOnMobile && (
+              <img
+                id="frame"
+                src={`${process.env.PUBLIC_URL}/img/frameSmaller.png`}
+                alt=""
+              ></img>
+            )}
             {safariMsg}
 
             <div id="interludeContainer">
               {/* <div id="interlude" style={{ bottom: this.state.interludeBottom }}> */}
-              {this.state.isOnMobile && <div className="black-background screen"></div>}
+              {this.state.isOnMobile && (
+                <div className="black-background screen"></div>
+              )}
               <div className="hide-overflow screen">
                 <div id="interlude" className={`${this.state.curtainsClass}`}>
                   <div id="interludeText">{this.state.interludeText}</div>
