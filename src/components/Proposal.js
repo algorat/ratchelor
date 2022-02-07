@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const FADE_DELAY = 3600;
 

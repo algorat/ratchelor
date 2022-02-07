@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 class CharacterImg extends React.Component {
   render() {
     return (
       <div
         onClick={this.props.onClick}
-        className={`player-img ${this.props.selected && 'selected-img'}`}
+        className={`player-img ${this.props.selected && "selected-img"}`}
       >
         {this.props.selected && (
           <img
@@ -91,7 +91,7 @@ class CharacterSelect extends React.Component {
           </div>
           <div id="custom-character-row">
             {Array(4)
-              .fill('')
+              .fill("")
               .map((_, idx) => (
                 <CharacterImg
                   selected={idx + 1 === this.props.playerIdx}
@@ -114,17 +114,17 @@ class CharacterSelect extends React.Component {
             <div className="controls-wrapper">
               <div className="controls-wrapper__header">
                 {this.props.playerIdx < 0
-                  ? 'Which rat do you want to be?'
-                  : 'You have selected...'}
+                  ? "Which rat do you want to be?"
+                  : "You have selected..."}
               </div>
               <div className="controls-wrapper__body controls-wrapper__body--row">
                 <div>
                   <img
                     src={`${process.env.PUBLIC_URL}/img/rose.png`}
-                    style={{ float: 'left', width: '20%', marginRight: '12px' }}
+                    style={{ float: "left", width: "20%", marginRight: "12px" }}
                   />
                   {this.props.playerIdx < 0
-                    ? 'Select one from the left panel to get started.'
+                    ? "Select one from the left panel to get started."
                     : "Wonderful! Press Onwards if you're ready to continue."}
                 </div>
               </div>

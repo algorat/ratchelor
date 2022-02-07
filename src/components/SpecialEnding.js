@@ -1,6 +1,6 @@
-import React from 'react';
-import photosRats from '../photosRats.json';
-import ratsJson from '../rats.json';
+import React from "react";
+import photosRats from "../photosRats.json";
+import ratsJson from "../rats.json";
 
 class SpecialEnding extends React.Component {
   constructor(props) {
@@ -133,7 +133,7 @@ class SpecialEnding extends React.Component {
     if (element === null) {
       return;
     }
-    element.classList.add('selectedRat');
+    element.classList.add("selectedRat");
     this.selecctedID = id;
     this.selected = true;
   }
@@ -144,7 +144,7 @@ class SpecialEnding extends React.Component {
     if (element === null) {
       return;
     }
-    element.classList.remove('selectedRat');
+    element.classList.remove("selectedRat");
   }
   random(seed) {
     var x = Math.sin(seed++) * 10000;
@@ -155,7 +155,7 @@ class SpecialEnding extends React.Component {
     // console.log(photos)
     let ratsList = [
       <img
-        key={'bgimg'}
+        key={"bgimg"}
         id="specialBg"
         onClick={this.deselect.bind(this)}
         src={`${process.env.PUBLIC_URL}/img/Photos/background.png`}
@@ -165,7 +165,7 @@ class SpecialEnding extends React.Component {
     const MobileWrapper = this.props.mobileMenuWrapper;
     const mobileTxt =
       this.state.selectedRat < 0
-        ? 'Tap on a photo to start.'
+        ? "Tap on a photo to start."
         : this.text[this.state.selectedRat];
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.photos.length; i++) {
@@ -173,7 +173,7 @@ class SpecialEnding extends React.Component {
         continue;
       }
       ratsList.push(
-        <div key={'ratslist' + i} id="ratContainer">
+        <div key={"ratslist" + i} id="ratContainer">
           <div id={`rat${i}`} className="ratListItem">
             <div
               className="ratPic"
@@ -186,19 +186,19 @@ class SpecialEnding extends React.Component {
               <img
                 className={
                   i === this.state.selectedRat
-                    ? 'ratFrame selected'
-                    : 'ratFrame'
+                    ? "ratFrame selected"
+                    : "ratFrame"
                 }
                 style={{
-                  width: '100%',
+                  width: "100%",
                   paddingTop: this.props.isOnMobile
-                    ? '0px'
-                    : 30 * this.random(i - 991) + 'px',
+                    ? "0px"
+                    : 30 * this.random(i - 991) + "px",
                   paddingRight: this.props.isOnMobile
-                    ? '0px'
-                    : 30 * this.random(i + 123) + 'px',
+                    ? "0px"
+                    : 30 * this.random(i + 123) + "px",
                   transform: `rotate(${this.random(i + 22) * 30}deg) ${
-                    !this.props.isOnMobile && 'scale(2.24)'
+                    !this.props.isOnMobile && "scale(2.24)"
                   }`,
                 }}
                 src={`${process.env.PUBLIC_URL}/img/Photos/${this.photos[i]}`}
@@ -217,13 +217,13 @@ class SpecialEnding extends React.Component {
     const buttons = (
       <div
         id="endingButtonContainer"
-        key={'restartbutton'}
+        key={"restartbutton"}
         style={{ paddingTop: 20 }}
       >
         <button
           id="followusButton"
           onClick={() => {
-            window.open('https://www.instagram.com/alg0rat/?hl=en');
+            window.open("https://www.instagram.com/alg0rat/?hl=en");
           }}
         >
           Follow for updates
@@ -231,7 +231,7 @@ class SpecialEnding extends React.Component {
         <button
           id="payusButton"
           onClick={() => {
-            window.open('https://ko-fi.com/alg0rat');
+            window.open("https://ko-fi.com/alg0rat");
           }}
         >
           Donate if you enjoyed!

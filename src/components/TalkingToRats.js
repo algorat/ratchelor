@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactionAnimation from './ReactionAnimation';
-import responsesJson from '../responses.json';
-import soundsToActionsJson from '../soundsToActions.json';
+import React from "react";
+import ReactionAnimation from "./ReactionAnimation";
+import responsesJson from "../responses.json";
+import soundsToActionsJson from "../soundsToActions.json";
 
 class TalkingToRats extends React.Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class TalkingToRats extends React.Component {
     this.responses = responsesJson;
     this.charSpeed = 30;
     this.ratMoveSpeed = 10;
-    this.rxnSound = '';
+    this.rxnSound = "";
     this.state = {
       ratIndex: 0,
       charsRevealed: 0,
@@ -29,7 +29,7 @@ class TalkingToRats extends React.Component {
       incr: 1,
       reacting: false,
       lastActiveRat: -1,
-      ratDialogue: '',
+      ratDialogue: "",
       ratImgsLoaded: false,
     };
   }
@@ -96,7 +96,7 @@ class TalkingToRats extends React.Component {
   }
 
   playReactionSound(rxn) {
-    let rxnSound = '';
+    let rxnSound = "";
 
     Object.keys(soundsToActionsJson).forEach((sound) => {
       if (soundsToActionsJson[sound].includes(rxn)) {
@@ -108,7 +108,7 @@ class TalkingToRats extends React.Component {
 
   startReaction(responseReaction, props) {
     this.setState({
-      responses: '',
+      responses: "",
       incr: 1,
       reacting: true,
       lastActiveRat: this.state.ratIndex,
@@ -122,33 +122,33 @@ class TalkingToRats extends React.Component {
     this.setState({ currReaction: null });
     this.getRandomResponses();
     document
-      .getElementById('dialogueContainer')
-      .classList.remove('leavingDialogue');
+      .getElementById("dialogueContainer")
+      .classList.remove("leavingDialogue");
     document
       .getElementById(`ratImg${this.state.ratIndex}`)
-      .classList.add('enteringRat');
+      .classList.add("enteringRat");
     document
-      .getElementById('dialogueContainer')
-      .classList.add('enteringDialogue');
+      .getElementById("dialogueContainer")
+      .classList.add("enteringDialogue");
     window.setTimeout(this.startTextMoving.bind(this), 800);
   }
 
   sendRatOut() {
     document
       .getElementById(`ratImg${this.state.ratIndex}`)
-      .classList.remove('enteringRat');
+      .classList.remove("enteringRat");
     document
-      .getElementById('dialogueContainer')
-      .classList.remove('enteringDialogue');
+      .getElementById("dialogueContainer")
+      .classList.remove("enteringDialogue");
     document
       .getElementById(`ratImg${this.state.ratIndex}`)
-      .classList.add('leavingRat');
+      .classList.add("leavingRat");
     document
-      .getElementById('dialogueContainer')
-      .classList.add('leavingDialogue');
+      .getElementById("dialogueContainer")
+      .classList.add("leavingDialogue");
     window.setTimeout(() => {
       this.setState(
-        { reacting: false, charsRevealed: 0, ratDialogue: '...' },
+        { reacting: false, charsRevealed: 0, ratDialogue: "..." },
         () => this.setNextRat()
       );
     }, 800);
@@ -196,7 +196,7 @@ class TalkingToRats extends React.Component {
     //gets index of rat
     let currentRat = this.activeRats[this.state.ratIndex];
     //gets rat filename
-    let currentRatFilename = currentRat['filename'];
+    let currentRatFilename = currentRat["filename"];
     //grabs dialogue index
     let currentIndex = this.props.round;
 
@@ -219,23 +219,23 @@ class TalkingToRats extends React.Component {
             this.submitResponse.bind(this)(responseReaction, this.props);
             this.props.playSelectAnswer();
 
-            if (this.rxnSound === 'crickets') {
+            if (this.rxnSound === "crickets") {
               this.props.playCricketsSound();
-            } else if (this.rxnSound === 'harp') {
+            } else if (this.rxnSound === "harp") {
               this.props.playHarpSound();
-            } else if (this.rxnSound === 'ding') {
+            } else if (this.rxnSound === "ding") {
               this.props.playDingSound();
-            } else if (this.rxnSound === 'metal') {
+            } else if (this.rxnSound === "metal") {
               this.props.playMetalSound();
-            } else if (this.rxnSound === 'chaching') {
+            } else if (this.rxnSound === "chaching") {
               this.props.playChachingSound();
-            } else if (this.rxnSound === 'wobble') {
+            } else if (this.rxnSound === "wobble") {
               this.props.playWobbleSound();
-            } else if (this.rxnSound === 'chimes') {
+            } else if (this.rxnSound === "chimes") {
               this.props.playChimesSound();
-            } else if (this.rxnSound === 'womp') {
+            } else if (this.rxnSound === "womp") {
               this.props.playTromboneSound();
-            } else if (this.rxnSound === 'tada') {
+            } else if (this.rxnSound === "tada") {
               this.props.playTadaSound();
             }
           }}
@@ -262,7 +262,7 @@ class TalkingToRats extends React.Component {
         ></img>
       );
     }
-    if (ratDialogue.length === 0) ratDialogue = '...';
+    if (ratDialogue.length === 0) ratDialogue = "...";
     return (
       <>
         <div id="talkingToRatsScreen" className="screen">

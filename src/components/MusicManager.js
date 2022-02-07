@@ -1,18 +1,18 @@
-import React from 'react';
+import React from "react";
 
-import Cheerful from '../sounds/Cheerful.mp3';
-import Funky from '../sounds/Funky.mp3';
-import Intense from '../sounds/Intense.mp3';
-import IntroScreen from '../sounds/Intro_Screen.mp3';
-import Paris from '../sounds/Paris.mp3';
-import Pop from '../sounds/Pop.mp3';
-import RomanticHappy from '../sounds/Romantic_Happy.mp3';
-import RomanticSad from '../sounds/Romantic_Sad.mp3';
-import RoseCeremony from '../sounds/Rose_Ceremony.mp3';
-import Talking1 from '../sounds/Talking_To_Rat_1.mp3';
-import Talking2 from '../sounds/Talking_To_Rat_2.mp3';
-import Talking3 from '../sounds/Talking_To_Rat_3.mp3';
-import Talking4 from '../sounds/Talking_To_Rat_4.mp3';
+import Cheerful from "../sounds/Cheerful.mp3";
+import Funky from "../sounds/Funky.mp3";
+import Intense from "../sounds/Intense.mp3";
+import IntroScreen from "../sounds/Intro_Screen.mp3";
+import Paris from "../sounds/Paris.mp3";
+import Pop from "../sounds/Pop.mp3";
+import RomanticHappy from "../sounds/Romantic_Happy.mp3";
+import RomanticSad from "../sounds/Romantic_Sad.mp3";
+import RoseCeremony from "../sounds/Rose_Ceremony.mp3";
+import Talking1 from "../sounds/Talking_To_Rat_1.mp3";
+import Talking2 from "../sounds/Talking_To_Rat_2.mp3";
+import Talking3 from "../sounds/Talking_To_Rat_3.mp3";
+import Talking4 from "../sounds/Talking_To_Rat_4.mp3";
 import {
   RAT_SELECT,
   PLAYER_SELECT,
@@ -20,7 +20,7 @@ import {
   ROSE_CEREMONY,
   ANIME_ENDING,
   PROPOSAL,
-} from '../App';
+} from "../App";
 
 const TalkingMusic = [Talking1, Talking2, Talking3, Talking4];
 const Endings = {
@@ -92,18 +92,18 @@ class MusicManager extends React.Component {
   playSound() {
     if (
       !this.musicStarted ||
-      (this.url !== '' && this.rap && this.rap.src.indexOf(this.url) < 0)
+      (this.url !== "" && this.rap && this.rap.src.indexOf(this.url) < 0)
     ) {
       this.rap.src = this.url;
       this.rap.volume = this.volume;
-      this.rap.addEventListener('canplaythrough', () => {
+      this.rap.addEventListener("canplaythrough", () => {
         var playPromise = this.rap.play();
         this.musicStarted = true;
         if (playPromise !== undefined) {
           playPromise
             .then((_) => {})
             .catch((e) => {
-              console.log('error caught', e);
+              console.log("error caught", e);
             });
         }
       });

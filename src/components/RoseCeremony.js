@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 class RoseCeremony extends React.Component {
   constructor(props) {
@@ -13,11 +13,11 @@ class RoseCeremony extends React.Component {
 
     this.state = {
       selectedRats: [],
-      giveRosesButton: '',
+      giveRosesButton: "",
       instructions: `Choose ${this.props.numRoses} to continue`,
-      middleRowClass: '',
-      allRatsSelectedClass: 'notAllRatsSelected',
-      lastRoseClass: '',
+      middleRowClass: "",
+      allRatsSelectedClass: "notAllRatsSelected",
+      lastRoseClass: "",
       currentlyViewedRat: [null, null],
     };
   }
@@ -26,7 +26,7 @@ class RoseCeremony extends React.Component {
     if (this.props.numRoses === 1) {
       this.setState({
         instructions: `Choose your soulmate`,
-        lastRoseClass: 'lastRose',
+        lastRoseClass: "lastRose",
       });
     }
     // Randomly shuffle the rats for this round
@@ -52,38 +52,38 @@ class RoseCeremony extends React.Component {
       frontRowSize = 2;
     } else {
       backRowSize = this.ratNames.length;
-      this.setState({ middleRowClass: 'middleRow' });
+      this.setState({ middleRowClass: "middleRow" });
     }
 
     // Find our special sized rats
-    let bearIndex = this.ratNames.indexOf('Bear');
-    let miggIndex = this.ratNames.indexOf('Migg Mouse');
-    let largoIndex = this.ratNames.indexOf('Largathon');
+    let bearIndex = this.ratNames.indexOf("Bear");
+    let miggIndex = this.ratNames.indexOf("Migg Mouse");
+    let largoIndex = this.ratNames.indexOf("Largathon");
 
     // Put bear first
     if (bearIndex !== -1) {
       if (backRowSize > 0) {
-        backRowNames.push('Bear');
+        backRowNames.push("Bear");
       } else {
-        frontRowNames.push('Bear');
+        frontRowNames.push("Bear");
       }
     }
 
     // Put largo next
     if (largoIndex !== -1) {
       if (backRowSize > 0) {
-        backRowNames.push('Largathon');
+        backRowNames.push("Largathon");
       } else {
-        frontRowNames.push('Largathon');
+        frontRowNames.push("Largathon");
       }
     }
 
     // Put Migg next
     if (miggIndex !== -1) {
       if (frontRowSize > 0) {
-        frontRowNames.push('Migg Mouse');
+        frontRowNames.push("Migg Mouse");
       } else {
-        backRowNames.push('Migg Mouse');
+        backRowNames.push("Migg Mouse");
       }
     }
 
@@ -92,9 +92,9 @@ class RoseCeremony extends React.Component {
       let currName = this.ratNames[i];
       if (
         !(
-          currName === 'Migg Mouse' ||
-          currName === 'Largathon' ||
-          currName === 'Bear'
+          currName === "Migg Mouse" ||
+          currName === "Largathon" ||
+          currName === "Bear"
         )
       ) {
         // Fill up the rows according to the number of contestants
@@ -123,7 +123,7 @@ class RoseCeremony extends React.Component {
   }
 
   updateInstructions() {
-    this.setState({ allRatsSelectedClass: '' });
+    this.setState({ allRatsSelectedClass: "" });
     let ratsLeft = this.props.numRoses - this.state.selectedRats.length;
     if (ratsLeft > 1) {
       this.setState({ instructions: `Choose ${ratsLeft} more contestants` });
@@ -148,7 +148,7 @@ class RoseCeremony extends React.Component {
       newSelectedRats.splice(index, 1);
       this.props.playTap();
       this.setState({ selectedRats: newSelectedRats });
-      element.classList.remove('selectedRat');
+      element.classList.remove("selectedRat");
       this.updateInstructions();
       return;
     }
@@ -162,7 +162,7 @@ class RoseCeremony extends React.Component {
     // Otherwise, select this rat
     let newSelectedRats = this.state.selectedRats;
     newSelectedRats.push(ratName);
-    element.classList.add('selectedRat');
+    element.classList.add("selectedRat");
     this.props.playTap();
 
     // If that was the final rat, display the advance button
@@ -189,7 +189,7 @@ class RoseCeremony extends React.Component {
         this.setState({ instructions: "You're done!" });
       }
 
-      this.setState({ allRatsSelectedClass: 'allRatsSelected' });
+      this.setState({ allRatsSelectedClass: "allRatsSelected" });
     } else {
       this.updateInstructions();
     }
@@ -338,15 +338,15 @@ class RoseCeremony extends React.Component {
                         !this.state.selectedRats.includes(
                           this.state.currentlyViewedRat[0]
                         )
-                          ? 'unselect'
-                          : ''
+                          ? "unselect"
+                          : ""
                       }
                     >
                       {this.state.selectedRats.includes(
                         this.state.currentlyViewedRat[0]
                       )
-                        ? 'Deselect'
-                        : 'Select'}
+                        ? "Deselect"
+                        : "Select"}
                     </button>
                   </div>
                 )}
@@ -356,12 +356,12 @@ class RoseCeremony extends React.Component {
               <button
                 className={
                   this.state.selectedRats.length !== this.numRoses
-                    ? 'unselect'
-                    : ''
+                    ? "unselect"
+                    : ""
                 }
                 onClick={this.endRoseCeremony.bind(this)}
               >
-                {this.numRoses === 1 ? 'Propose' : 'Continue finding love'}
+                {this.numRoses === 1 ? "Propose" : "Continue finding love"}
               </button>
             </div>
           </MobileWrapper>

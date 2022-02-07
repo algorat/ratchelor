@@ -1,19 +1,19 @@
-import React from 'react';
+import React from "react";
 
-import assignRose from '../sounds/rose3.wav';
-import badAction from '../sounds/bad_action_sfx.wav';
-import newRound from '../sounds/curtains.mp3';
-import selectAnswer from '../sounds/louder_tap.mp3';
-import tap from '../sounds/louder_tap.mp3';
-import crickets from '../sounds/crickets.mp3';
-import harp from '../sounds/harp.mp3';
-import trombone from '../sounds/trombone.mp3';
-import chaching from '../sounds/chaching.mp3';
-import ding from '../sounds/ding.mp3';
-import metal from '../sounds/metal.mp3';
-import tada from '../sounds/tada.mp3';
-import chimes from '../sounds/chimes.mp3';
-import wobble from '../sounds/wobble.mp3';
+import assignRose from "../sounds/rose3.wav";
+import badAction from "../sounds/bad_action_sfx.wav";
+import newRound from "../sounds/curtains.mp3";
+import selectAnswer from "../sounds/louder_tap.mp3";
+import tap from "../sounds/louder_tap.mp3";
+import crickets from "../sounds/crickets.mp3";
+import harp from "../sounds/harp.mp3";
+import trombone from "../sounds/trombone.mp3";
+import chaching from "../sounds/chaching.mp3";
+import ding from "../sounds/ding.mp3";
+import metal from "../sounds/metal.mp3";
+import tada from "../sounds/tada.mp3";
+import chimes from "../sounds/chimes.mp3";
+import wobble from "../sounds/wobble.mp3";
 
 class SoundEffectController extends React.Component {
   constructor(props) {
@@ -139,13 +139,13 @@ class SoundEffectController extends React.Component {
     if (this.rap) {
       this.rap.src = url;
       this.rap.volume = this.volume;
-      this.rap.addEventListener('canplaythrough', () => {
+      this.rap.addEventListener("canplaythrough", () => {
         var playPromise = this.rap.play();
         if (playPromise !== undefined) {
           playPromise
             .then((_) => {})
             .catch((e) => {
-              console.log('error caught', e);
+              console.log("error caught", e);
             });
         }
       });

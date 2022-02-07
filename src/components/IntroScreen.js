@@ -1,18 +1,18 @@
-import React from 'react';
+import React from "react";
 
 class IntroScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       opacity: 1,
-      loadingText: 'Loading',
+      loadingText: "Loading",
     };
     this.onClick = this.onClick.bind(this);
     this.button = (
       <button
         ref={(b) => {
           if (b) {
-            b.addEventListener('click', () => {
+            b.addEventListener("click", () => {
               props.playSound();
             });
           }
