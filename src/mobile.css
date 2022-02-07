@@ -526,3 +526,16 @@
   padding: 8px;
   color: #873246;
 }
+
+.mobile #ratchelor2 {
+  position: fixed;
+  z-index: 10001;
+  text-align: left;
+  top: 0px;
+  width: 200px;
+  left: 0px;
+  margin-left: 0;
+  color: rgb(116, 94, 30);
+  font-family: "Yusei Magic", sans-serif;
+  font-size: 20px;
+}
