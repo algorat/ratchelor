@@ -28,22 +28,47 @@ class CharacterSelect extends React.Component {
       transform: 1,
     };
 
-    this.buttonAreaAfter = (
-      <div id="button-container">
-        <button
-          onClick={() => {
-            this.props.onClick();
-            //this.props.playSelectAnswer();
-          }}
-        >
-          Onwards!
-        </button>
-      </div>
-    );
+    if(props.isOnMobile){
+      this.buttonAreaBefore = (
+        <div id="button-container">
+          <button
+            className="unselect"
+          >
+            Onwards!
+          </button>
+        </div>
+      )
 
-    this.buttonAreaBefore = (
-      <div id="ratchelor-intro-question">Which rat do you want to be?</div>
-    );
+      this.buttonAreaAfter = (
+        <div id="button-container">
+          <button
+            onClick={() => {
+              this.props.onClick();
+            }}
+          >
+            Onwards!
+          </button>
+        </div>
+      )
+    } else {
+      this.buttonAreaAfter = (
+        <div id="button-container">
+          <button
+            onClick={() => {
+              this.props.onClick();
+              //this.props.playSelectAnswer();
+            }}
+          >
+            Onwards!
+          </button>
+        </div>
+      );
+  
+      this.buttonAreaBefore = (
+        <div id="ratchelor-intro-question">Which rat do you want to be?</div>
+      );
+    }
+    
   }
 
   render() {
@@ -55,6 +80,7 @@ class CharacterSelect extends React.Component {
       buttonArea = this.buttonAreaAfter;
     }
     return (
+      <>
       <div id="custom-character" className="screen">
         <div id="ratchelor-intro-container">
           <img
@@ -86,12 +112,31 @@ class CharacterSelect extends React.Component {
               />
             ))}
         </div>
-        {this.props.isOnMobile ? (
-          <MobileWrapper>{buttonArea}</MobileWrapper>
-        ) : (
-          buttonArea
-        )}
+        {!this.props.isOnMobile && (buttonArea)}
       </div>
+      {this.props.isOnMobile && (
+        <MobileWrapper>
+          <div className="controls-wrapper">
+            <div className="controls-wrapper__header">
+            {this.props.playerIdx < 0 ? "Which rat do you want to be?" : "You have selected..."}
+            </div>
+            <div className="controls-wrapper__body controls-wrapper__body--row">
+              <div>
+              <img 
+                src={`${process.env.PUBLIC_URL}/img/rose.png`}
+                style={{float: "left", width: "20%", marginRight: "12px"}}
+              /> 
+                {this.props.playerIdx < 0 ? 
+                  "Select one from the left panel to get started."
+                  : "Wonderful! Press Onwards if you're ready to continue." }
+              </div> 
+            </div>
+          </div>
+          <div id="button-container">
+            {buttonArea}
+          </div>
+        </MobileWrapper>)}
+      </>
     );
   }
 }

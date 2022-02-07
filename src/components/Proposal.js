@@ -18,6 +18,7 @@ class Proposal extends React.Component {
           window.clearInterval(this.opacityInterval);
         } else {
           let opacity = this.state.opacity - 0.01;
+          console.log(opacity)
           this.setState({ opacity });
         }
       }, 10);
@@ -25,7 +26,9 @@ class Proposal extends React.Component {
   }
 
   render() {
-    return (
+    const MobileWrapper = this.props.mobileMenuWrapper;
+    console.log("opacity", this.state.opacity)
+    return (<>
       <div
         id="proposalScreen"
         style={{ opacity: this.state.opacity }}
@@ -43,6 +46,14 @@ class Proposal extends React.Component {
           src={this.props.playerRatUrl}
         ></img>
       </div>
+       {this.props.isOnMobile && (
+        <MobileWrapper>
+          <div className="controls-wrapper">
+            <p>*proposes : 3*</p>
+          </div>
+        </MobileWrapper>
+      )}
+      </>
     );
   }
 }

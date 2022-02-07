@@ -172,32 +172,30 @@ class RatchelorGame extends React.Component {
       })
       return;
     }
-
-    let desiredHeight = window.innerHeight - 20;
-    let scalingAmount = desiredHeight / 900;
-    let newWidth = 1120 * scalingAmount;
-    let remainingWidth = window.innerWidth - newWidth - 20;
-    let remainingWidthContent =
-      remainingWidth > 300 ? 300 : remainingWidth;
+    this.origHeight = 675;
+    this.origWidth = 900;
+    let desiredHeight = window.innerHeight;
+    let scalingAmount = desiredHeight / this.origHeight;
+    let newWidth = this.origWidth * scalingAmount;
+    let remainingWidth = window.innerWidth - newWidth;
+    let remainingWidthContent = remainingWidth;
+    //remainingWidth > 300 ? 300 : remainingWidth;
     let leftOffset = (remainingWidth - remainingWidthContent) / 2;
 
-    const minControlWidth = window.innerWidth / 3;
-    if (remainingWidthContent < minControlWidth) {
-      remainingWidth = minControlWidth;
-      remainingWidthContent = remainingWidth;
-      newWidth = window.innerWidth * 0.95 - minControlWidth;
-      scalingAmount = newWidth / 1120;
-      desiredHeight = 900 * scalingAmount;
-    }
-
-    let topoffset = (window.innerHeight - desiredHeight) / 2;
+    // const minControlWidth = window.innerWidth / 3;
+    // if (remainingWidthContent < minControlWidth) {
+    //   remainingWidth = minControlWidth;
+    //   remainingWidthContent = remainingWidth;
+    //   newWidth = window.innerWidth * 0.95 - minControlWidth;
+    //   scalingAmount = newWidth / origWidth;
+    //   desiredHeight = origHeight * scalingAmount;
+    // }
 
     this.setState({
       remainingWidth: remainingWidth,
       remainingWidthContent: remainingWidthContent,
       desiredHeight: desiredHeight, 
       scalingAmount: scalingAmount,
-      topoffset: topoffset,
       newWidth: newWidth,
       leftOffset: leftOffset,
       mobileAndPortrait: false
@@ -205,7 +203,6 @@ class RatchelorGame extends React.Component {
   }
 
   updateDimensions() {
-    console.log("RESIZE")
     if(this.state.isOnMobile){
       this.recalculateDimensions();
     }
@@ -453,10 +450,10 @@ class RatchelorGame extends React.Component {
   }
 
   incrementTotalRatCount(ratName) {
-    this.database
-      .ref("/")
-      .child(ratName)
-      .set(firebase.database.ServerValue.increment(1));
+    // this.database
+    //   .ref("/")
+    //   .child(ratName)
+    //   .set(firebase.database.ServerValue.increment(1));
   }
 
   componentDidMount() {
@@ -485,6 +482,7 @@ class RatchelorGame extends React.Component {
   }
 
   render() {
+    console.log("updating")
     let screen = "";
     let isPreloading = this.state.isPreloading;
 
@@ -496,13 +494,6 @@ class RatchelorGame extends React.Component {
       return (
         <div
           className="mobile-wrapper"
-          style={{
-            left: 1120 - 110 + (this.state.leftOffset * 1) / this.state.scalingAmount + "px",
-            top: "0px",
-            width: (this.state.remainingWidthContent * 1) / this.state.scalingAmount + "px",
-            height:
-              0.75 * ((this.state.desiredHeight * 1) / this.state.scalingAmount) + "px",
-          }}
         >
           {children}
         </div>
@@ -668,8 +659,11 @@ class RatchelorGame extends React.Component {
       screen = (
         <Proposal
           finalRat={this.finalRat}
+          isOnMobile={this.state.isOnMobile}
+          mobileMenuWrapper={mobileMenuWrapper}
           playerRatUrl={`${process.env.PUBLIC_URL}/img/Player/${this.state.playerIdx}_proposal.PNG`}
           advanceState={() => {
+            console.log("advancing to anime ending")
             this.setState({ gameStage: ANIME_ENDING });
           }}
         />
@@ -742,35 +736,22 @@ class RatchelorGame extends React.Component {
         <div
           id={`game-container`}
           className={`preloading-${isPreloading}`}
-          style={
-            this.state.isOnMobile
-              ? {
-                  transform: `scale(${this.state.scalingAmount})`,
-                  position: "absolute",
-                  left: "10px",
-                  top: this.state.topoffset + "px",
-                  margin: `-${(675 - this.state.desiredHeight) / 2}px -${
-                    (900 - this.state.scalingAmount * 1120) / 2
-                  }px`,
-                }
-              : {}
-          }
         >
           <div id="game">
+            {
+              (!this.state.isOnMobile) && 
             <img
               id="frame"
-              src={
-                this.state.isOnMobile
-                  ? `${process.env.PUBLIC_URL}/img/frameSmaller_mobile.png`
-                  : `${process.env.PUBLIC_URL}/img/frameSmaller.png`
-              }
+              src={`${process.env.PUBLIC_URL}/img/frameSmaller.png`}
               alt=""
             ></img>
+            }
             {safariMsg}
 
             <div id="interludeContainer">
               {/* <div id="interlude" style={{ bottom: this.state.interludeBottom }}> */}
-              <div className="hide-overflow">
+              {this.state.isOnMobile && <div className="black-background screen"></div>}
+              <div className="hide-overflow screen">
                 <div id="interlude" className={`${this.state.curtainsClass}`}>
                   <div id="interludeText">{this.state.interludeText}</div>
                 </div>
@@ -811,21 +792,6 @@ class RatchelorGame extends React.Component {
             />
           )}
         </div>
-        {this.state.isOnMobile && (
-          <div
-            style={{
-              width: this.state.remainingWidth,
-              top: this.state.topoffset,
-              left: `${this.state.newWidth + 10}px`,
-              zIndex: -1,
-              position: "absolute",
-              height: this.state.desiredHeight + "px",
-            }}
-          >
-            <div className="option-holder"></div>
-            <div id="option-holder-child"></div>
-          </div>
-        )}
       </div>
     );
   }

@@ -191,10 +191,10 @@ class SpecialEnding extends React.Component {
                 }
                 style={{
                   width: "100%",
-                  paddingTop: 30 * this.random(i - 991) + "px",
-                  paddingRight: 30 * this.random(i + 123) + "px",
+                  paddingTop: this.props.isOnMobile ? "0px" : 30 * this.random(i - 991) + "px",
+                  paddingRight: this.props.isOnMobile ? "0px" : 30 * this.random(i + 123) + "px",
                   transform:
-                    "rotate(" + this.random(i + 22) * 30 + "deg) scale(2.24) ",
+                    `rotate(${this.random(i + 22) * 30}deg) ${!this.props.isOnMobile && "scale(2.24)"}`,
                 }}
                 src={`${process.env.PUBLIC_URL}/img/Photos/${this.photos[i]}`}
                 alt=""
@@ -218,7 +218,7 @@ class SpecialEnding extends React.Component {
         <button
           id="followusButton"
           onClick={() => {
-            window.open("https://instagram.com/alg0rat");
+            window.open("https://www.instagram.com/alg0rat/?hl=en");
           }}
         >
           Follow for updates
@@ -237,6 +237,7 @@ class SpecialEnding extends React.Component {
       </div>
     );
     return (
+      <>
       <div id="SpecialEndingScreen" className="screen">
         <div className="hide-overflow">
           <div id="ratListContainer">{ratsList}</div>
@@ -244,12 +245,12 @@ class SpecialEnding extends React.Component {
             <div className="mobile-description">{mobileTxt}</div>
           )}
         </div>
-        {this.props.isOnMobile ? (
-          <MobileWrapper>{buttons}</MobileWrapper>
-        ) : (
-          buttons
-        )}
+        {!this.props.isOnMobile && (buttons)}
       </div>
+      {this.props.isOnMobile && (
+        <MobileWrapper>{buttons}</MobileWrapper>
+      )}
+      </>
     );
   }
 }

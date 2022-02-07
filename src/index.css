@@ -1,8 +1,11 @@
 html {
   margin: 0px;
-  width: 100%;
-  height: 100%;
+  min-width: 100%;
+  min-height: calc(var(--vh, 1vh) * 100);
   position: relative;
+  background-image: url(./img/Backgrounds/wallpaper.png);
+  background-size: 350px 285px;
+  overflow-x: hidden;
 }
 /* img {
   image-rendering: pixelated;
@@ -17,8 +20,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(./img/Backgrounds/wallpaper.png);
-  background-size: 350px 285px;
 }
 
 img {
@@ -100,6 +101,7 @@ img {
 }
 
 #mobile-container p {
+  line-height: var(--mobile-body-line-height);
   text-align: center;
 }
 
@@ -166,7 +168,7 @@ button:focus {
 /* INTERLUDE */
 
 #interludeContainer {
-  /* overflow: hidden; */
+  overflow: hidden;
   width: 900px;
   height: 732px;
   position: absolute;
@@ -196,7 +198,7 @@ button:focus {
 
 .curtainsIn {
   animation: curtainsIn ease-out 0.4s;
-  bottom: 0px;
+  bottom: -30px;
 }
 
 .curtainsOut {
@@ -464,6 +466,7 @@ button:focus {
 
 #talkingToRatsScreen #dialogueContainer {
   position: absolute;
+  width: 100%;
 }
 
 #talkingToRatsScreen button {
@@ -1385,7 +1388,6 @@ input[type="range"]::-ms-thumb {
   align-items: center;
   justify-content: center;
   width: 100% !important;
-  margin-top: 45px;
   z-index: 1;
 }
 
@@ -1579,10 +1581,10 @@ input[type="range"]::-ms-thumb {
 
 #option-holder-child {
   position: absolute;
-  width: 80%;
+  width: 90%;
   height: 86%;
   top: 7%;
-  left: 10%;
+  left: 7%;
   background-color: #fec8cb;
   z-index: -2;
 }
@@ -1617,180 +1619,6 @@ input[type="range"]::-ms-thumb {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-}
-
-:root {
-  --mobile-button-text-size: 3rem;
-  --mobile-h2: 2.7rem;
-  --mobile-body: 2rem;
-}
-
-.mobile .mobile-wrapper {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 30px 90px;
-}
-
-.mobile {
-  font-size: var(--mobile-body);
-  line-height: 130%;
-  font-family: "Yusei Magic", sans-serif;
-}
-
-.mobile h2 {
-  font-size: var(--mobile-h2);
-  margin: 0px;
-  line-height: calc(1.2 * var(--mobile-h2));
-  text-align: center;
-}
-
-.mobile button {
-  margin: 0px !important;
-  font-size: var(--mobile-button-text-size) !important;
-  line-height: calc(1.2 * var(--mobile-button-text-size));
-}
-
-.mobile #introScreen #loadingText {
-  position: relative;
-  left: 0;
-  top: 0;
-}
-.mobile #ratchelor-intro-title {
-  font-size: var(--mobile-h2) !important;
-  line-height: calc(1.2 * var(--mobile-h2));
-}
-
-.mobile #ratchelor-intro {
-  font-size: var(--mobile-body) !important;
-}
-
-.mobile #hearts-header {
-  display: none;
-}
-
-.mobile #ratchelor-intro-question {
-  font-size: var(--mobile-h2) !important;
-  line-height: calc(1.2 * var(--mobile-h2));
-}
-
-.mobile #ratSelectScreen #chooseText {
-  font-size: var(--mobile-body) !important;
-  background-color: transparent !important;
-  line-height: calc(1.2 * var(--mobile-body));
-  border: none;
-  height: auto;
-  margin: 0;
-  margin-bottom: 1em;
-  padding-bottom: 1em;
-  color: #c44663;
-  font-style: italic;
-  /* border-bottom: 3px solid black; */
-}
-
-.mobile #talkingToRatsScreen #responses {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  top: 0px;
-  width: 60%;
-}
-
-.mobile #talkingToRatsScreen #ratDialogue {
-  font-size: var(--mobile-body);
-  padding-bottom: 35px;
-}
-
-.mobile #talkingToRatsScreen #ratName {
-  font-size: var(--mobile-body);
-}
-
-.mobile #responses > button {
-  margin-bottom: 12px !important;
-  font-size: var(--mobile-body) !important;
-  padding: 0.5em;
-  line-height: calc(1.2 * var(--mobile-body));
-}
-
-.mobile #responses > *:last-child {
-  margin-bottom: 0px !important;
-}
-
-.mobile #responses h2 {
-  font-family: "Yusei Magic";
-  font-size: var(--mobile-body);
-  line-height: calc(1.2 * var(--mobile-body));
-  color: #c44663;
-  font-style: italic;
-  margin-bottom: 2em;
-}
-
-.mobile #roseCeremonyScreen #instructions {
-  background-color: transparent;
-  border: none;
-  color: #c44663;
-  /* border-bottom: 3px solid black; */
-  margin-bottom: 1.2em;
-  font-style: italic;
-  height: auto;
-  width: auto;
-  position: relative;
-  text-align: center;
-}
-
-#ratSelectScreen .mobile-wrapper {
-  justify-content: flex-start;
-}
-
-#roseCeremonyScreen .mobile-wrapper {
-  justify-content: flex-start;
-}
-
-#mobile-container img {
-  width: 40%;
-}
-
-.mobile #epilogueButton {
-  position: relative;
-}
-
-.mobile #ratSelectScreen {
-  justify-content: space-evenly;
-}
-
-.mobile #SpecialEndingScreen #endingButtonContainer {
-  position: relative;
-}
-
-.mobile #SpecialEndingScreen #endingButtonContainer > * {
-  margin-bottom: 0.5em !important;
-}
-
-.mobile .mobile-description {
-  z-index: 100;
-  width: 100%;
-  position: absolute;
-  bottom: 0px;
-  text-align: center;
-  background-color: rgb(253, 237, 238);
-  color: rgb(114, 63, 65);
-  border-top: 2px solid rgb(114, 63, 65);
-  padding: 1em 0px;
-}
-
-.mobile #SpecialEndingScreen .ratNameContainer {
-  border: none;
-  background-color: transparent;
-}
-
-.mobile #SpecialEndingScreen .ratFrame {
-  filter: grayscale(1);
-}
-
-.mobile #SpecialEndingScreen .ratFrame.selected {
-  filter: grayscale(0);
 }
 
 .hide-overflow {

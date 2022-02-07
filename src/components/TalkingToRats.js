@@ -264,6 +264,7 @@ class TalkingToRats extends React.Component {
     }
     if (ratDialogue.length === 0) ratDialogue = "...";
     return (
+      <>
       <div id="talkingToRatsScreen" className="screen">
         <div className="hide-overflow">
           <img
@@ -302,17 +303,20 @@ class TalkingToRats extends React.Component {
             </div>
           </div>
         </div>
-        {this.props.isOnMobile && (
+      </div>
+      {this.props.isOnMobile && (
           <MobileWrapper>
-            <div id="responses">
-              {this.state.responses.length > 0 && (
-                <h2>What will you say in response?</h2>
-              )}
+            <div className="controls-wrapper">
+              <div className="controls-wrapper__header">
+                <p>What will you say in response?</p>
+              </div>
+              <div id="responses" className="controls-wrapper__body controls-wrapper__body--row">
               {this.state.responses}
+              </div>
             </div>
           </MobileWrapper>
         )}
-      </div>
+      </>
     );
   }
 }
