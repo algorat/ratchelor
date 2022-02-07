@@ -7,7 +7,7 @@
 
 .mobile .mobile-wrapper {
   flex-grow: 1;
-  margin-left: 8px;
+  padding: 8px;
   z-index: 100;
 }
 
@@ -15,6 +15,8 @@
   font-size: var(--mobile-body);
   line-height: 130%;
   font-family: "Yusei Magic", sans-serif;
+  height: 100%;
+  width: 100%;
 }
 
 .mobile h2 {
@@ -23,7 +25,6 @@
   line-height: calc(1.2 * var(--mobile-h2));
   text-align: center;
   font-family: "Sofia";
-  /* margin-bottom: 12px; */
 }
 
 .mobile button {
@@ -45,6 +46,7 @@
   left: 0;
   top: 0;
 }
+
 .mobile #ratchelor-intro-title {
   font-size: var(--mobile-h2) !important;
   line-height: calc(1.2 * var(--mobile-h2));
@@ -300,13 +302,6 @@
 .mobile #game {
   height: 100%;
   width: 100%;
-}
-
-.mobile {
-  top: 2.5%;
-  left: 2.5%;
-  height: 95%;
-  width: 95%;
 }
 
 .mobile #interludeContainer {
