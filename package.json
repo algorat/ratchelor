@@ -21,7 +21,7 @@
     "files": "node ./filesgen.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prettify": "prettier --write --single-quote ./src"
+    "prettify": "prettier --write ./src"
   },
   "eslintConfig": {
     "extends": [

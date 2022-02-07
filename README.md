@@ -60,7 +60,7 @@ npm run staging
 # Prettifying the app
 
 ```
-npx prettier --write --single-quote ./src
+npx prettier --write ./src
 ```
 
 or 
