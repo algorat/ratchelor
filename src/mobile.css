@@ -1,8 +1,9 @@
 :root {
   --mobile-button-text-size: 1.8rem;
   --mobile-h2: 1.8rem;
+  --mobile-h2-line-height: 2.2rem;
   --mobile-body: 1.2rem;
-  --mobile-body-line-height: 1.4xrem;
+  --mobile-body-line-height: 1.4rem;
 }
 
 @media (max-height: 360px) {
@@ -509,4 +510,19 @@
 .mobile #mobile-container p {
   line-height: var(--mobile-body-line-height);
   text-align: center;
+}
+
+.portrait-warning {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: #ffe5e5;
+  z-index: 101;
+  font-size: var(--mobile-h2);
+  text-align: center;
+  line-height: var(--mobile-h2-line-height);
+  padding: 8px;
+  color: #873246;
 }

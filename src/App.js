@@ -162,8 +162,8 @@ class RatchelorGame extends React.Component {
     this.soundsLoaded = false;
   }
 
-  recalculateDimensions() {
-    if (!this.state.isOnMobile) {
+  recalculateDimensions(onMobile = this.state.isOnMobile) {
+    if (!onMobile) {
       return;
     }
 
@@ -444,7 +444,7 @@ class RatchelorGame extends React.Component {
     this.setState({ isOnMobile: isOnMobile });
     if (isOnMobile) {
       document.getElementById("not-on-mobile").style.display = "none";
-      this.recalculateDimensions();
+      this.recalculateDimensions(true);
     }
     this.database = firebase.database();
     this.randoRat = ratsJson[Math.floor(Math.random() * ratsJson.length)];
@@ -454,15 +454,6 @@ class RatchelorGame extends React.Component {
   render() {
     let screen = "";
     let isPreloading = this.state.isPreloading;
-
-    if (this.state.mobileAndPortrait) {
-      return (
-        <div>
-          Hmmmm looks like you're in portrait mode. Turn your phone to
-          landscape!
-        </div>
-      );
-    }
 
     const mobileMenuWrapper = ({ children }) => {
       return <div className="mobile-wrapper">{children}</div>;
@@ -700,6 +691,15 @@ class RatchelorGame extends React.Component {
         }`}
         style={{ display: this.state.isOnMobile ? "block" : "flex" }}
       >
+        {this.state.mobileAndPortrait && (
+          <div className="portrait-warning">
+            Alas! Looks like you're in portrait mode. Rotate your phone to
+            landscape to continue playing!
+            <br />
+            <br />
+            <span>(＃￣0￣)</span>
+          </div>
+        )}
         <div id={`game-container`} className={`preloading-${isPreloading}`}>
           <div id="game">
             {!this.state.isOnMobile && (

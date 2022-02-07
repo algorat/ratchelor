@@ -18,7 +18,6 @@ class Proposal extends React.Component {
           window.clearInterval(this.opacityInterval);
         } else {
           let opacity = this.state.opacity - 0.01;
-          console.log(opacity);
           this.setState({ opacity });
         }
       }, 10);
@@ -27,7 +26,6 @@ class Proposal extends React.Component {
 
   render() {
     const MobileWrapper = this.props.mobileMenuWrapper;
-    console.log("opacity", this.state.opacity);
     return (
       <>
         <div

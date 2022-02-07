@@ -157,19 +157,6 @@ class RatSelect extends React.Component {
       );
     }
 
-    if (this.state.currentlyViewedRat >= 0) {
-      console.log(
-        this.props.numRatsInGame - this.state.selectedRats.length === 0,
-        this.state.selectedRats.includes(
-          this.props.rats[this.state.currentlyViewedRat].name
-        ),
-        this.props.numRatsInGame - this.state.selectedRats.length === 0 &&
-          this.state.selectedRats.includes(
-            this.props.rats[this.state.currentlyViewedRat].name
-          )
-      );
-    }
-
     return (
       <>
         <div id="ratSelectScreen" className="screen">
@@ -192,7 +179,7 @@ class RatSelect extends React.Component {
                     <h2>
                       {this.props.rats[this.state.currentlyViewedRat].name}
                     </h2>
-                    <div class="row">
+                    <div className="row">
                       <p>
                         {this.props.rats[this.state.currentlyViewedRat].tagline}
                       </p>
@@ -227,8 +214,9 @@ class RatSelect extends React.Component {
             <div id="button-container">
               <button
                 className={
-                  this.props.numRatsInGame - this.state.selectedRats.length >
-                    0 && "unselect"
+                  this.props.numRatsInGame - this.state.selectedRats.length > 0
+                    ? "unselect"
+                    : ""
                 }
                 onClick={() => {
                   if (

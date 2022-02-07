@@ -133,7 +133,6 @@ class RoseCeremony extends React.Component {
   }
 
   selectRatIntermediate(ratName, id) {
-    console.log("updating state with ", ratName);
     this.setState({ currentlyViewedRat: [ratName, id] });
   }
 
@@ -297,8 +296,6 @@ class RoseCeremony extends React.Component {
       this.state.currentlyViewedRat[0]
     );
 
-    console.log(this.state.currentlyViewedRat[0], lastClickedRat);
-
     return (
       <>
         <div
@@ -358,7 +355,9 @@ class RoseCeremony extends React.Component {
             <div id="button-container">
               <button
                 className={
-                  this.state.selectedRats.length !== this.numRoses && "unselect"
+                  this.state.selectedRats.length !== this.numRoses
+                    ? "unselect"
+                    : ""
                 }
                 onClick={this.endRoseCeremony.bind(this)}
               >
