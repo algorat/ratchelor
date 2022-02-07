@@ -389,7 +389,7 @@ button:focus {
 
 /* TALKING TO RATS */
 #talkingToRatsScreen {
-  /* overflow: hidden; */
+  overflow: hidden;
   background-image: url("img/Backgrounds/couch.gif");
   background-repeat: no-repeat;
   background-size: 100%;
@@ -793,7 +793,7 @@ button:focus {
 /* ANIME ENDING */
 #animeEndingScreen {
   position: relative;
-  /* overflow: hidden; */
+  overflow: hidden;
   display: flex;
   justify-content: center;
   background-color: black;
@@ -831,7 +831,7 @@ button:focus {
   flex-direction: column;
   position: relative;
   align-items: center;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 #SpecialEndingScreen button {
