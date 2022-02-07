@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class RatSelect extends React.Component {
   constructor(props) {
@@ -33,7 +33,7 @@ class RatSelect extends React.Component {
       "You're done!"
     );
     this.setState({ selectRatsButton });
-    document.getElementById("ratListContainer").classList.remove("stillRats");
+    document.getElementById('ratListContainer').classList.remove('stillRats');
   }
 
   oneContestantLeft() {
@@ -43,7 +43,7 @@ class RatSelect extends React.Component {
       } more contestant`}</div>
     );
     this.setState({ selectRatsButton });
-    document.getElementById("ratListContainer").classList.add("stillRats");
+    document.getElementById('ratListContainer').classList.add('stillRats');
   }
 
   multiContestantsLeft() {
@@ -71,7 +71,7 @@ class RatSelect extends React.Component {
       const newSelectedRats = this.state.selectedRats;
       newSelectedRats.splice(index, 1);
       this.setState({ selectedRats: newSelectedRats });
-      element.classList.remove("selectedRat");
+      element.classList.remove('selectedRat');
       if (this.state.selectedRats.length !== this.props.numRatsInGame - 1) {
         this.multiContestantsLeft();
       } else {
@@ -89,7 +89,7 @@ class RatSelect extends React.Component {
     // Otherwise, select this rat
     let newSelectedRats = this.state.selectedRats;
     newSelectedRats.push(ratName);
-    element.classList.add("selectedRat");
+    element.classList.add('selectedRat');
 
     this.props.playTap();
 
@@ -120,7 +120,7 @@ class RatSelect extends React.Component {
         (i % 9) + 1
       }.PNG`;
       ratsList.push(
-        <div key={"rats" + i} id="ratContainer">
+        <div key={'rats' + i} id="ratContainer">
           <div
             id={`rat${i}`}
             className="ratListItem"
@@ -197,15 +197,15 @@ class RatSelect extends React.Component {
                         !this.state.selectedRats.includes(
                           this.props.rats[this.state.currentlyViewedRat].name
                         )
-                          ? "unselect"
-                          : ""
+                          ? 'unselect'
+                          : ''
                       }
                     >
                       {this.state.selectedRats.includes(
                         this.props.rats[this.state.currentlyViewedRat].name
                       )
-                        ? "Deselect"
-                        : "Select"}
+                        ? 'Deselect'
+                        : 'Select'}
                     </button>
                   </div>
                 )}
@@ -215,8 +215,8 @@ class RatSelect extends React.Component {
               <button
                 className={
                   this.props.numRatsInGame - this.state.selectedRats.length > 0
-                    ? "unselect"
-                    : ""
+                    ? 'unselect'
+                    : ''
                 }
                 onClick={() => {
                   if (

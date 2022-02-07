@@ -1,9 +1,9 @@
-import React from "react";
-import soundLogoMute from "../img/icons/volume_mute.png";
-import soundLogo0 from "../img/icons/volume_0.png";
-import soundLogo1 from "../img/icons/volume_1.png";
-import soundLogo2 from "../img/icons/volume_2.png";
-import soundLogo3 from "../img/icons/volume_3.png";
+import React from 'react';
+import soundLogoMute from '../img/icons/volume_mute.png';
+import soundLogo0 from '../img/icons/volume_0.png';
+import soundLogo1 from '../img/icons/volume_1.png';
+import soundLogo2 from '../img/icons/volume_2.png';
+import soundLogo3 from '../img/icons/volume_3.png';
 
 class GameOptions extends React.Component {
   render() {

@@ -1,57 +1,57 @@
-import "./App.css";
-import React from "react";
-import IntroScreen from "./components/IntroScreen";
-import RatSelect from "./components/RatSelect";
-import TalkingToRats from "./components/TalkingToRats";
-import RoseCeremony from "./components/RoseCeremony";
-import AnimeEnding from "./components/AnimeEnding";
-import SpecialEnding from "./components/SpecialEnding";
-import MusicManager from "./components/MusicManager";
-import SoundEffectController from "./components/SoundEffectController";
-import GameOptions from "./components/GameOptions";
-import CharacterSelect from "./components/CharacterSelect";
-import Proposal from "./components/Proposal";
+import './App.css';
+import React from 'react';
+import IntroScreen from './components/IntroScreen';
+import RatSelect from './components/RatSelect';
+import TalkingToRats from './components/TalkingToRats';
+import RoseCeremony from './components/RoseCeremony';
+import AnimeEnding from './components/AnimeEnding';
+import SpecialEnding from './components/SpecialEnding';
+import MusicManager from './components/MusicManager';
+import SoundEffectController from './components/SoundEffectController';
+import GameOptions from './components/GameOptions';
+import CharacterSelect from './components/CharacterSelect';
+import Proposal from './components/Proposal';
 
-import ratsJson from "./rats.json";
-import firebase from "firebase/app";
-import "firebase/analytics";
-import "firebase/database";
-import allPublicImagesForPreload from "./allPublicImages.json";
+import ratsJson from './rats.json';
+import firebase from 'firebase/app';
+import 'firebase/analytics';
+import 'firebase/database';
+import allPublicImagesForPreload from './allPublicImages.json';
 
 /* background img files for preload -- sry for the tech debt but its 1am */
-import bg0 from "./img/Backgrounds/beach.png";
-import bg1 from "./img/Backgrounds/couch.gif";
-import bg2 from "./img/Backgrounds/curtains.png";
-import bg3 from "./img/Backgrounds/garden.png";
-import bg4 from "./img/Backgrounds/intro.gif";
+import bg0 from './img/Backgrounds/beach.png';
+import bg1 from './img/Backgrounds/couch.gif';
+import bg2 from './img/Backgrounds/curtains.png';
+import bg3 from './img/Backgrounds/garden.png';
+import bg4 from './img/Backgrounds/intro.gif';
 //import bg7 from "./img/Backgrounds/rose_ceremony.png";
-import bg5 from "./img/Backgrounds/wallpaper.png";
+import bg5 from './img/Backgrounds/wallpaper.png';
 
 /* sound files for preload -- sry for the tech debt but its 1am */
-import s1 from "./sounds/bad_action_sfx.wav";
-import s2 from "./sounds/curtains.mp3";
-import s3 from "./sounds/louder_tap.mp3";
-import s5 from "./sounds/crickets.mp3";
-import s6 from "./sounds/harp.mp3";
-import s7 from "./sounds/trombone.mp3";
-import s8 from "./sounds/Cheerful.mp3";
-import s9 from "./sounds/Funky.mp3";
-import s10 from "./sounds/Intense.mp3";
-import s11 from "./sounds/Intro_Screen.mp3";
-import s12 from "./sounds/Paris.mp3";
-import s13 from "./sounds/Pop.mp3";
-import s14 from "./sounds/Romantic_Happy.mp3";
-import s15 from "./sounds/Romantic_Sad.mp3";
-import s16 from "./sounds/Rose_Ceremony.mp3";
-import s17 from "./sounds/Talking_To_Rat_1.mp3";
-import s18 from "./sounds/Talking_To_Rat_2.mp3";
-import s19 from "./sounds/Talking_To_Rat_3.mp3";
-import s20 from "./sounds/Talking_To_Rat_4.mp3";
-import s21 from "./sounds/chimes.mp3";
-import s22 from "./sounds/tada.mp3";
-import s23 from "./sounds/wobble.mp3";
-import s24 from "./sounds/chaching.mp3";
-import s25 from "./sounds/metal.mp3";
+import s1 from './sounds/bad_action_sfx.wav';
+import s2 from './sounds/curtains.mp3';
+import s3 from './sounds/louder_tap.mp3';
+import s5 from './sounds/crickets.mp3';
+import s6 from './sounds/harp.mp3';
+import s7 from './sounds/trombone.mp3';
+import s8 from './sounds/Cheerful.mp3';
+import s9 from './sounds/Funky.mp3';
+import s10 from './sounds/Intense.mp3';
+import s11 from './sounds/Intro_Screen.mp3';
+import s12 from './sounds/Paris.mp3';
+import s13 from './sounds/Pop.mp3';
+import s14 from './sounds/Romantic_Happy.mp3';
+import s15 from './sounds/Romantic_Sad.mp3';
+import s16 from './sounds/Rose_Ceremony.mp3';
+import s17 from './sounds/Talking_To_Rat_1.mp3';
+import s18 from './sounds/Talking_To_Rat_2.mp3';
+import s19 from './sounds/Talking_To_Rat_3.mp3';
+import s20 from './sounds/Talking_To_Rat_4.mp3';
+import s21 from './sounds/chimes.mp3';
+import s22 from './sounds/tada.mp3';
+import s23 from './sounds/wobble.mp3';
+import s24 from './sounds/chaching.mp3';
+import s25 from './sounds/metal.mp3';
 
 const backgroundSrc = [bg0, bg1, bg2, bg3, bg4, bg5];
 const soundsToPreload = [s2, s3, s5, s6, s7, s11, s1, s21, s22, s23, s24, s25];
@@ -123,7 +123,7 @@ class RatchelorGame extends React.Component {
       // String list of all rat names currently still in the game
       activeRatNames: [],
       // Text for interlude screens that fall down
-      interludeText: "Round 1",
+      interludeText: 'Round 1',
       //the rat that we r currently talking to
       currentRatIdx: 0,
       volume: 10,
@@ -132,7 +132,7 @@ class RatchelorGame extends React.Component {
       percentLoaded: 0.0,
       isShowingSafariMsg: false,
       isOnMobile: false,
-      curtainsClass: "curtainsOff",
+      curtainsClass: 'curtainsOff',
     };
     this.finalRat = ratsJson[3];
     this.changeCurrentRatIdx = this.changeCurrentRatIdx.bind(this);
@@ -179,7 +179,7 @@ class RatchelorGame extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.recalculateDimensions);
+    window.removeEventListener('resize', this.recalculateDimensions);
   }
 
   donePreloading() {
@@ -207,17 +207,17 @@ class RatchelorGame extends React.Component {
     }, intervalTime);
 
     this.preloadTimeout = window.setTimeout(() => {
-      console.log("preloading timed out! continuing..");
+      console.log('preloading timed out! continuing..');
       this.setState({ isPreloading: false });
     }, timeoutTime);
 
     // PUBLIC IMAGES
     this.allPublicImagesForPreload.forEach((fullFilename) => {
       var img = new Image();
-      let filename = "";
-      if (fullFilename.indexOf("public") !== -1) {
+      let filename = '';
+      if (fullFilename.indexOf('public') !== -1) {
         filename = fullFilename.slice(7);
-        filename = process.env.PUBLIC_URL + "/" + filename;
+        filename = process.env.PUBLIC_URL + '/' + filename;
       }
       // Load image
       img.src = filename;
@@ -230,7 +230,7 @@ class RatchelorGame extends React.Component {
           this.allPublicImagesForPreload.length === 0 &&
           !this.state.publicImgsLoaded
         ) {
-          console.log("all images loaded");
+          console.log('all images loaded');
           this.publicImgsLoaded = true;
           if (
             this.srcImgsLoaded &&
@@ -248,13 +248,13 @@ class RatchelorGame extends React.Component {
       // Load sound
       var audio = new Audio(filename);
 
-      audio.addEventListener("canplaythrough", () => {
+      audio.addEventListener('canplaythrough', () => {
         let fileIdx = this.soundsToPreload.indexOf(filename);
         if (fileIdx !== -1) {
           this.soundsToPreload.splice(fileIdx, 1);
         }
         if (this.soundsToPreload.length === 0) {
-          console.log("all sounds loaded");
+          console.log('all sounds loaded');
           this.soundsLoaded = true;
           if (
             this.srcImgsLoaded &&
@@ -279,7 +279,7 @@ class RatchelorGame extends React.Component {
           this.backgroundSrc.splice(fileIdx, 1);
         }
         if (this.backgroundSrc.length === 0) {
-          console.log("all src images loaded");
+          console.log('all src images loaded');
           this.srcImgsLoaded = true;
           if (
             this.srcImgsLoaded &&
@@ -300,7 +300,7 @@ class RatchelorGame extends React.Component {
   }
 
   beginInterludeAndAdvanceState(text, delay, newGameStage) {
-    this.setState({ interludeText: text, curtainsClass: "curtainsIn" }, () => {
+    this.setState({ interludeText: text, curtainsClass: 'curtainsIn' }, () => {
       window.setTimeout(() => {
         this.setState({ gameStage: newGameStage }, () => {
           window.setTimeout(() => {
@@ -312,7 +312,7 @@ class RatchelorGame extends React.Component {
   }
 
   endInterlude() {
-    this.setState({ curtainsClass: "curtainsOut" });
+    this.setState({ curtainsClass: 'curtainsOut' });
   }
 
   setCallPlaySound(f) {
@@ -377,7 +377,7 @@ class RatchelorGame extends React.Component {
 
   // Reset everything to restart the game
   restartGame() {
-    console.log("restarting");
+    console.log('restarting');
     this.setProposedInDatabase = false;
     this.setState(
       {
@@ -387,7 +387,7 @@ class RatchelorGame extends React.Component {
         playerIdx: -1,
       },
       () => {
-        console.log("done!");
+        console.log('done!');
       }
     );
   }
@@ -421,21 +421,21 @@ class RatchelorGame extends React.Component {
 
   incrementTotalRatCount(ratName) {
     this.database
-      .ref("/")
+      .ref('/')
       .child(ratName)
       .set(firebase.database.ServerValue.increment(1));
   }
 
   componentDidMount() {
     this.preload();
-    this.interludeElement = document.getElementById("interlude");
+    this.interludeElement = document.getElementById('interlude');
     var isSafari =
       /constructor/i.test(window.HTMLElement) ||
       (function (p) {
-        return p.toString() === "[object SafariRemoteNotification]";
+        return p.toString() === '[object SafariRemoteNotification]';
       })(
-        !window["safari"] ||
-          (typeof safari !== "undefined" && window["safari"].pushNotification)
+        !window['safari'] ||
+          (typeof safari !== 'undefined' && window['safari'].pushNotification)
       );
     this.setState({ isShowingSafariMsg: isSafari });
     var isOnMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -443,20 +443,20 @@ class RatchelorGame extends React.Component {
     );
     this.setState({ isOnMobile: isOnMobile });
     if (isOnMobile) {
-      document.getElementById("not-on-mobile").style.display = "none";
+      document.getElementById('not-on-mobile').style.display = 'none';
       const kofiWidget = document.querySelector("[id*='kofi-widget']");
       if (kofiWidget) {
-        kofiWidget.style.display = "none";
+        kofiWidget.style.display = 'none';
       }
       this.recalculateDimensions(true);
     }
     this.database = firebase.database();
     this.randoRat = ratsJson[Math.floor(Math.random() * ratsJson.length)];
-    window.addEventListener("resize", this.recalculateDimensions);
+    window.addEventListener('resize', this.recalculateDimensions);
   }
 
   render() {
-    let screen = "";
+    let screen = '';
     let isPreloading = this.state.isPreloading;
 
     const mobileMenuWrapper = ({ children }) => {
@@ -481,7 +481,7 @@ class RatchelorGame extends React.Component {
           mobileMenuWrapper={mobileMenuWrapper}
           onClick={() => {
             this.beginInterludeAndAdvanceState(
-              "meet yourself",
+              'meet yourself',
               900,
               PLAYER_SELECT
             );
@@ -499,7 +499,7 @@ class RatchelorGame extends React.Component {
           mobileMenuWrapper={mobileMenuWrapper}
           onClick={() => {
             this.beginInterludeAndAdvanceState(
-              "meet your suitors",
+              'meet your suitors',
               900,
               RAT_SELECT
             );
@@ -686,14 +686,14 @@ class RatchelorGame extends React.Component {
         </div>
       </div>
     ) : (
-      ""
+      ''
     );
     return (
       <div
         className={`game-container-container ${
-          this.state.isOnMobile ? "mobile" : ""
+          this.state.isOnMobile ? 'mobile' : ''
         }`}
-        style={{ display: this.state.isOnMobile ? "block" : "flex" }}
+        style={{ display: this.state.isOnMobile ? 'block' : 'flex' }}
       >
         {this.state.mobileAndPortrait && (
           <div className="portrait-warning">
@@ -715,7 +715,7 @@ class RatchelorGame extends React.Component {
             )}
             {!this.state.isOnMobile && (
               <div id="ratchelor2">
-                Stay tuned for The Ratchelor 2, coming this Valentine's Day!{" "}
+                Stay tuned for The Ratchelor 2, coming this Valentine's Day!{' '}
               </div>
             )}
             {safariMsg}

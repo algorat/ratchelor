@@ -23,7 +23,7 @@
 .mobile {
   font-size: var(--mobile-body);
   line-height: 130%;
-  font-family: "Yusei Magic", sans-serif;
+  font-family: 'Yusei Magic', sans-serif;
   height: 100%;
   width: 100%;
 }
@@ -33,7 +33,7 @@
   margin: 8px 0px;
   line-height: calc(1.2 * var(--mobile-h2));
   text-align: center;
-  font-family: "Sofia";
+  font-family: 'Sofia';
 }
 
 .mobile button {
@@ -125,7 +125,7 @@
 }
 
 .mobile #responses h2 {
-  font-family: "Yusei Magic";
+  font-family: 'Yusei Magic';
   font-size: var(--mobile-body);
   line-height: calc(1.2 * var(--mobile-body));
   color: #c44663;
@@ -273,7 +273,7 @@
 }
 
 .mobile #ratSelectScreen .controls-wrapper__body h2 {
-  font-family: "Sofia";
+  font-family: 'Sofia';
 }
 
 .mobile #button-container {
@@ -290,7 +290,7 @@
 
 .mobile #button-container button {
   border: 4px solid #b29261;
-  font-family: "Sofia";
+  font-family: 'Sofia';
   color: #836232 !important;
   font-size: 20px;
   background-color: #ffda57 !important;
@@ -536,7 +536,7 @@
   left: 0px;
   margin-left: 0;
   color: rgb(116, 94, 30);
-  font-family: "Yusei Magic", sans-serif;
+  font-family: 'Yusei Magic', sans-serif;
   font-size: 20px;
 }
 
