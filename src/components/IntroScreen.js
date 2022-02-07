@@ -1,4 +1,5 @@
 import React from "react";
+import MobileWrapper from "./MobileWrapper";
 
 class IntroScreen extends React.Component {
   constructor(props) {
@@ -37,7 +38,6 @@ class IntroScreen extends React.Component {
   }
 
   render() {
-    const MobileWrapper = this.props.mobileMenuWrapper;
     let loader = <div id="loadingText">{this.state.loadingText}</div>;
     let percentLoadedText = Math.floor(this.props.percentLoaded * 100);
     loader = <div id="loadingText">Loading {percentLoadedText}%</div>;

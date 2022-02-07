@@ -2,6 +2,7 @@ import React from "react";
 import ReactionAnimation from "./ReactionAnimation";
 import responsesJson from "../responses.json";
 import soundsToActionsJson from "../soundsToActions.json";
+import MobileWrapper from "./MobileWrapper";
 
 class TalkingToRats extends React.Component {
   constructor(props) {
@@ -251,7 +252,6 @@ class TalkingToRats extends React.Component {
 
   // You get a random rat, they talk to you, you can respond, after you respond another rat shows up
   render() {
-    const MobileWrapper = this.props.mobileMenuWrapper;
     let ratDialogue = this.state.ratDialogue;
     if (this.state.currReaction) {
       ratDialogue = (
@@ -307,18 +307,12 @@ class TalkingToRats extends React.Component {
           </div>
         </div>
         {this.props.isOnMobile && (
-          <MobileWrapper>
-            <div className="controls-wrapper">
-              <div className="controls-wrapper__header">
-                <p>What will you say in response?</p>
-              </div>
-              <div
-                id="responses"
-                className="controls-wrapper__body controls-wrapper__body--row"
-              >
-                {this.state.responses}
-              </div>
-            </div>
+          <MobileWrapper
+            controlsStyled={true}
+            header={"What will you say in response?"}
+            bodyId={"responses"}
+          >
+            {this.state.responses}
           </MobileWrapper>
         )}
       </>

@@ -1,9 +1,8 @@
 import React from "react";
+import MobileWrapper from "./MobileWrapper";
 
 class AnimeEnding extends React.Component {
   render() {
-    const MobileWrapper = this.props.mobileMenuWrapper;
-
     return (
       <>
         <div id="animeEndingScreen" className="screen">
@@ -28,21 +27,22 @@ class AnimeEnding extends React.Component {
           )}
         </div>
         {this.props.isOnMobile && (
-          <MobileWrapper>
-            <div className="controls-wrapper anime-ending">
-              <p>
-                {
-                  this.props.winningRat.dialogue[
-                    this.props.winningRat.dialogue.length - 1
-                  ]
-                }
-              </p>
-            </div>
-            <div id="button-container">
+          <MobileWrapper
+            controlsStyled={true}
+            bodyId={"anime-ending"}
+            cta={
               <button id="epilogueButton" onClick={this.props.epilogue}>
                 Epilogue
               </button>
-            </div>
+            }
+          >
+            <p>
+              {
+                this.props.winningRat.dialogue[
+                  this.props.winningRat.dialogue.length - 1
+                ]
+              }
+            </p>
           </MobileWrapper>
         )}
       </>

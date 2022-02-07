@@ -101,12 +101,12 @@ class RatchelorGame extends React.Component {
   constructor() {
     super();
     // Num rats the person should select at the very beginning
-    this.numRatsInGame = 7;
+    this.numRatsInGame = 3;
     // How many rounds there are
-    this.numRounds = 5;
+    this.numRounds = 2;
     this.setProposedInDatabase = false;
     // How many roses get given out each round
-    this.rosesPerRound = [5, 4, 3, 2, 1];
+    this.rosesPerRound = [2, 1];
 
     this.allPublicImagesForPreload = allPublicImagesForPreload;
     this.backgroundSrc = backgroundSrc;
@@ -459,10 +459,6 @@ class RatchelorGame extends React.Component {
     let screen = "";
     let isPreloading = this.state.isPreloading;
 
-    const mobileMenuWrapper = ({ children }) => {
-      return <div className="mobile-wrapper">{children}</div>;
-    };
-
     if (this.state.gameStage === INTRO) {
       // Intro screen: advances to next stage when complete
       screen = (
@@ -478,7 +474,6 @@ class RatchelorGame extends React.Component {
           isPreloading={isPreloading}
           percentLoaded={this.state.percentLoaded}
           isOnMobile={this.state.isOnMobile}
-          mobileMenuWrapper={mobileMenuWrapper}
           onClick={() => {
             this.beginInterludeAndAdvanceState(
               "meet yourself",
@@ -496,7 +491,6 @@ class RatchelorGame extends React.Component {
           playSelectAnswer={this.playSelectAnswer}
           playTap={this.playTap}
           isOnMobile={this.state.isOnMobile}
-          mobileMenuWrapper={mobileMenuWrapper}
           onClick={() => {
             this.beginInterludeAndAdvanceState(
               "meet your suitors",
@@ -521,7 +515,6 @@ class RatchelorGame extends React.Component {
           playSelectAnswer={this.playSelectAnswer}
           playBadActionSound={this.playBadActionSound}
           isOnMobile={this.state.isOnMobile}
-          mobileMenuWrapper={mobileMenuWrapper}
           setActiveRatsAndAdvanceState={(selectedRats) => {
             this.setState(
               { activeRatNames: selectedRats, beginningRatPool: selectedRats },
@@ -549,7 +542,6 @@ class RatchelorGame extends React.Component {
           round={this.state.roundNum}
           startDelay={1000}
           isOnMobile={this.state.isOnMobile}
-          mobileMenuWrapper={mobileMenuWrapper}
           playSelectAnswer={this.playSelectAnswer}
           playCricketsSound={this.playCricketsSound}
           playTromboneSound={this.playTromboneSound}
@@ -587,7 +579,6 @@ class RatchelorGame extends React.Component {
           playSelectAnswer={this.playSelectAnswer}
           playBadActionSound={this.playBadActionSound}
           isOnMobile={this.state.isOnMobile}
-          mobileMenuWrapper={mobileMenuWrapper}
           numRoses={this.rosesPerRound[this.state.roundNum]}
           setActiveRatsAndAdvanceState={(selectedRats) => {
             this.setState({ activeRatNames: selectedRats }, () => {
@@ -623,7 +614,6 @@ class RatchelorGame extends React.Component {
         <Proposal
           finalRat={this.finalRat}
           isOnMobile={this.state.isOnMobile}
-          mobileMenuWrapper={mobileMenuWrapper}
           playerRatUrl={`${process.env.PUBLIC_URL}/img/Player/${this.state.playerIdx}_proposal.PNG`}
           advanceState={() => {
             this.setState({ gameStage: ANIME_ENDING });
@@ -636,7 +626,6 @@ class RatchelorGame extends React.Component {
       screen = (
         <AnimeEnding
           isOnMobile={this.state.isOnMobile}
-          mobileMenuWrapper={mobileMenuWrapper}
           winningRat={this.finalRat}
           epilogue={() => {
             this.beginInterludeAndAdvanceState(
@@ -658,7 +647,6 @@ class RatchelorGame extends React.Component {
         <SpecialEnding
           finalRat={this.getRatByName(this.state.activeRatNames[0]).filename}
           isOnMobile={this.state.isOnMobile}
-          mobileMenuWrapper={mobileMenuWrapper}
           restartGame={() => {
             this.restartGame();
           }}

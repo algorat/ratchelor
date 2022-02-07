@@ -1,4 +1,5 @@
 import React from "react";
+import MobileWrapper from "./MobileWrapper";
 
 class CharacterImg extends React.Component {
   render() {
@@ -68,7 +69,6 @@ class CharacterSelect extends React.Component {
 
   render() {
     let buttonArea;
-    const MobileWrapper = this.props.mobileMenuWrapper;
     if (!this.state.ratSelected) {
       buttonArea = this.buttonAreaBefore;
     } else {
@@ -110,26 +110,23 @@ class CharacterSelect extends React.Component {
           {!this.props.isOnMobile && buttonArea}
         </div>
         {this.props.isOnMobile && (
-          <MobileWrapper>
-            <div className="controls-wrapper">
-              <div className="controls-wrapper__header">
-                {this.props.playerIdx < 0
-                  ? "Which rat do you want to be?"
-                  : "You have selected..."}
-              </div>
-              <div className="controls-wrapper__body controls-wrapper__body--row">
-                <div>
-                  <img
-                    src={`${process.env.PUBLIC_URL}/img/rose.png`}
-                    style={{ float: "left", width: "20%", marginRight: "12px" }}
-                  />
-                  {this.props.playerIdx < 0
-                    ? "Select one from the left panel to get started."
-                    : "Wonderful! Press Onwards if you're ready to continue."}
-                </div>
-              </div>
-            </div>
-            <div id="button-container">{buttonArea}</div>
+          <MobileWrapper
+            controlsStyled={true}
+            row={true}
+            header={
+              this.props.playerIdx < 0
+                ? "Which rat do you want to be?"
+                : "You have selected..."
+            }
+            cta={buttonArea}
+          >
+            <img
+              src={`${process.env.PUBLIC_URL}/img/rose.png`}
+              style={{ float: "left", width: "20%", marginRight: "12px" }}
+            />
+            {this.props.playerIdx < 0
+              ? "Select one from the left panel to get started."
+              : "Wonderful! Press Onwards if you're ready to continue."}
           </MobileWrapper>
         )}
       </>

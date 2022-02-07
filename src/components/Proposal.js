@@ -1,4 +1,5 @@
 import React from "react";
+import MobileWrapper from "./MobileWrapper";
 
 const FADE_DELAY = 3600;
 
@@ -25,7 +26,6 @@ class Proposal extends React.Component {
   }
 
   render() {
-    const MobileWrapper = this.props.mobileMenuWrapper;
     return (
       <>
         <div
@@ -46,10 +46,8 @@ class Proposal extends React.Component {
           ></img>
         </div>
         {this.props.isOnMobile && (
-          <MobileWrapper>
-            <div className="controls-wrapper">
-              <p>*proposes : 3*</p>
-            </div>
+          <MobileWrapper controlsStyled={true}>
+            <p>*proposes : 3*</p>
           </MobileWrapper>
         )}
       </>

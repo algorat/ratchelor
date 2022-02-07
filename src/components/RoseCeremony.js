@@ -1,4 +1,5 @@
 import React from "react";
+import MobileWrapper from "./MobileWrapper";
 
 class RoseCeremony extends React.Component {
   constructor(props) {
@@ -291,9 +292,19 @@ class RoseCeremony extends React.Component {
 
     let bouquetNum = this.props.numRoses - this.state.selectedRats.length;
     if (!bouquetNum || bouquetNum < 0 || bouquetNum > 5) bouquetNum = 0;
-    const MobileWrapper = this.props.mobileMenuWrapper;
     const lastClickedRat = this.props.getRatByName(
       this.state.currentlyViewedRat[0]
+    );
+
+    const mobileButton = (
+      <button
+        className={
+          this.state.selectedRats.length !== this.numRoses ? "unselect" : ""
+        }
+        onClick={this.endRoseCeremony.bind(this)}
+      >
+        {this.numRoses === 1 ? "Propose" : "Continue finding love"}
+      </button>
     );
 
     return (
@@ -317,55 +328,43 @@ class RoseCeremony extends React.Component {
             <div id="frontRow">{frontRatsList}</div>
           </div>
         </div>
-        {this.props.isOnMobile && (
-          <MobileWrapper>
-            <div className="controls-wrapper">
-              <div className="controls-wrapper__header">
-                <div id="instructions">{this.state.instructions}</div>
-              </div>
-              <div className="controls-wrapper__body controls-wrapper__body--row">
-                {lastClickedRat === null || lastClickedRat === undefined ? (
-                  <h2>Select a rat to get started</h2>
-                ) : (
-                  <div id="mobile-container">
-                    <h2>{this.state.currentlyViewedRat[0]}</h2>
-                    <button
-                      onClick={() => {
-                        this.selectRat(...this.state.currentlyViewedRat);
-                      }}
-                      className={
-                        this.state.selectedRats.length === this.numRoses &&
-                        !this.state.selectedRats.includes(
-                          this.state.currentlyViewedRat[0]
-                        )
-                          ? "unselect"
-                          : ""
-                      }
-                    >
-                      {this.state.selectedRats.includes(
-                        this.state.currentlyViewedRat[0]
-                      )
-                        ? "Deselect"
-                        : "Select"}
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
-            <div id="button-container">
+        {this.props.isOnMobile &&
+          (lastClickedRat === null || lastClickedRat === undefined ? (
+            <MobileWrapper
+              controlsStyled={true}
+              header={this.state.instructions}
+              cta={mobileButton}
+            >
+              <h2>Select a rat to get started</h2>
+            </MobileWrapper>
+          ) : (
+            <MobileWrapper
+              controlsStyled={true}
+              header={this.state.instructions}
+              cta={mobileButton}
+            >
+              <h2>{this.state.currentlyViewedRat[0]}</h2>
               <button
+                onClick={() => {
+                  this.selectRat(...this.state.currentlyViewedRat);
+                }}
                 className={
-                  this.state.selectedRats.length !== this.numRoses
+                  this.state.selectedRats.length === this.numRoses &&
+                  !this.state.selectedRats.includes(
+                    this.state.currentlyViewedRat[0]
+                  )
                     ? "unselect"
                     : ""
                 }
-                onClick={this.endRoseCeremony.bind(this)}
               >
-                {this.numRoses === 1 ? "Propose" : "Continue finding love"}
+                {this.state.selectedRats.includes(
+                  this.state.currentlyViewedRat[0]
+                )
+                  ? "Deselect"
+                  : "Select"}
               </button>
-            </div>
-          </MobileWrapper>
-        )}
+            </MobileWrapper>
+          ))}
       </>
     );
   }

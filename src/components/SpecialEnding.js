@@ -1,6 +1,7 @@
 import React from "react";
 import photosRats from "../photosRats.json";
 import ratsJson from "../rats.json";
+import MobileWrapper from "./MobileWrapper";
 
 class SpecialEnding extends React.Component {
   constructor(props) {
@@ -162,7 +163,6 @@ class SpecialEnding extends React.Component {
         alt="images on a table!"
       ></img>,
     ];
-    const MobileWrapper = this.props.mobileMenuWrapper;
     const mobileTxt =
       this.state.selectedRat < 0
         ? "Tap on a photo to start."
@@ -247,7 +247,7 @@ class SpecialEnding extends React.Component {
           <div className="hide-overflow">
             <div id="ratListContainer">{ratsList}</div>
             {this.props.isOnMobile && (
-              <div className="mobile-description">{mobileTxt}</div>
+              <div className="special-ending-description">{mobileTxt}</div>
             )}
           </div>
           {!this.props.isOnMobile && buttons}

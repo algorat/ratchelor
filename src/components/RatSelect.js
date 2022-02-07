@@ -1,4 +1,5 @@
 import React from "react";
+import MobileWrapper from "./MobileWrapper";
 
 class RatSelect extends React.Component {
   constructor(props) {
@@ -111,8 +112,23 @@ class RatSelect extends React.Component {
   }
 
   render() {
-    const MobileWrapper = this.props.mobileMenuWrapper;
     let ratsList = [];
+    const mobileCTA = (
+      <button
+        className={
+          this.props.numRatsInGame - this.state.selectedRats.length > 0
+            ? "unselect"
+            : ""
+        }
+        onClick={() => {
+          if (!this.props.numRatsInGame !== this.state.selectedRats.length) {
+            this.onClickSelectRats();
+          }
+        }}
+      >
+        Onwards
+      </button>
+    );
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.props.rats.length; i++) {
       let filename = `${process.env.PUBLIC_URL}/img/Frames/${this.props.rats[i].filename}.PNG`;
@@ -165,73 +181,49 @@ class RatSelect extends React.Component {
             {ratsList}
           </div>
         </div>
-        {this.props.isOnMobile && (
-          <MobileWrapper>
-            <div className="controls-wrapper">
-              <div className="controls-wrapper__header">
-                {this.state.selectRatsButton}
+        {this.props.isOnMobile &&
+          (this.state.currentlyViewedRat < 0 ? (
+            <MobileWrapper
+              controlsStyled={true}
+              header={this.state.selectRatsButton}
+              cta={mobileCTA}
+            >
+              <div>Select a rat!</div>
+            </MobileWrapper>
+          ) : (
+            <MobileWrapper
+              controlsStyled={true}
+              header={this.state.selectRatsButton}
+              cta={mobileCTA}
+            >
+              <h2>{this.props.rats[this.state.currentlyViewedRat].name}</h2>
+              <div className="column">
+                <p>{this.props.rats[this.state.currentlyViewedRat].tagline}</p>
               </div>
-              <div className="controls-wrapper__body">
-                {this.state.currentlyViewedRat < 0 ? (
-                  <div>Select a rat!</div>
-                ) : (
-                  <div id="mobile-container">
-                    <h2>
-                      {this.props.rats[this.state.currentlyViewedRat].name}
-                    </h2>
-                    <div className="row">
-                      <p>
-                        {this.props.rats[this.state.currentlyViewedRat].tagline}
-                      </p>
-                    </div>
-                    <button
-                      onClick={() => {
-                        this.selectRat(
-                          this.props.rats[this.state.currentlyViewedRat].name,
-                          `rat${this.state.currentlyViewedRat}`
-                        );
-                      }}
-                      className={
-                        this.props.numRatsInGame ===
-                          this.state.selectedRats.length &&
-                        !this.state.selectedRats.includes(
-                          this.props.rats[this.state.currentlyViewedRat].name
-                        )
-                          ? "unselect"
-                          : ""
-                      }
-                    >
-                      {this.state.selectedRats.includes(
-                        this.props.rats[this.state.currentlyViewedRat].name
-                      )
-                        ? "Deselect"
-                        : "Select"}
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
-            <div id="button-container">
               <button
+                onClick={() => {
+                  this.selectRat(
+                    this.props.rats[this.state.currentlyViewedRat].name,
+                    `rat${this.state.currentlyViewedRat}`
+                  );
+                }}
                 className={
-                  this.props.numRatsInGame - this.state.selectedRats.length > 0
+                  this.props.numRatsInGame === this.state.selectedRats.length &&
+                  !this.state.selectedRats.includes(
+                    this.props.rats[this.state.currentlyViewedRat].name
+                  )
                     ? "unselect"
                     : ""
                 }
-                onClick={() => {
-                  if (
-                    this.props.numRatsInGame !== this.state.selectedRats.length
-                  ) {
-                    return;
-                  }
-                  this.onClickSelectRats();
-                }}
               >
-                Onwards
+                {this.state.selectedRats.includes(
+                  this.props.rats[this.state.currentlyViewedRat].name
+                )
+                  ? "Deselect"
+                  : "Select"}
               </button>
-            </div>
-          </MobileWrapper>
-        )}
+            </MobileWrapper>
+          ))}
       </>
     );
   }
