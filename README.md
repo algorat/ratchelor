@@ -53,8 +53,15 @@ Deploys to ratchelor.web.app for QA
 npm run staging
 ```
 
+
 # Prettifying the app
 
 ```
 npx prettier --write ./src
+```
+
+or 
+
+```
+npm run prettify
 ```
