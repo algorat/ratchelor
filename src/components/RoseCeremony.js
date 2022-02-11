@@ -192,10 +192,23 @@ class RoseCeremony extends React.Component {
     let backRatsList = [];
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.backRowRats.length; i++) {
-      let filename = `/ratchelor/img/Characters/${this.backRowRats[i].filename}.png`;
-      let roseFilename = `/ratchelor/img/Characters/roses/${this.backRowRats[i].filename}.png`;
+      let filename;
+      let roseFilename;
+      let sadFilename;
+      //was gonna add this section in by  checking has_dif_versions from the jason, then pulling the index
+      //from accessing the round we are on but im not sure how to check the round so Ill ccircle back
+      // if($(this.backRowRats[i].has_different_versions) == true){
+        // filename = `/ratchelor/img/Characters/${this.backRowRats[i].scene_filename[ROUNDNUMBER]}.png`;
+        // roseFilename = `/ratchelor/img/Characters/${this.backRowRats[i].scene_filename[ROUNDNUMBER]}-rose.png`;
+        // sadFilename = `/ratchelor/img/Characters/${this.backRowRats[i].scene_filename[ROUNDNUMBER]}-sad.png`;
+      // }
+      // else{
+        filename = `/ratchelor/img/Characters/${this.backRowRats[i].filename}.png`;
+        roseFilename = `/ratchelor/img/Characters/${this.backRowRats[i].filename}-rose.png`;
+        sadFilename = `/ratchelor/img/Characters/${this.backRowRats[i].filename}-sad.png`;
+        //}
       backRatsList.push(
-        
+      
         <div
           key={i}
           id={`rat${i}`}
@@ -225,18 +238,32 @@ class RoseCeremony extends React.Component {
     let frontRatsList = [];
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.frontRowRats.length; i++) {
-      let filename = `/ratchelor/img/Characters/${this.frontRowRats[i].filename}.png`;
-      let roseFilename = `/ratchelor/img/Characters/roses/${this.frontRowRats[i].filename}.png`;
+
+      let filename;
+      let roseFilename;
+      let sadFilename;
+      //was gonna add this section in by  checking has_dif_versions from the jason, then pulling the index
+      //from accessing the round we are on but im not sure how to check the round so Ill ccircle back
+      // if($(this.backRowRats[i].has_different_versions) == true){
+        // filename = `/ratchelor/img/Characters/${this.backRowRats[i].scene_filename[ROUNDNUMBER]}.png`;
+        // roseFilename = `/ratchelor/img/Characters/${this.backRowRats[i].scene_filename[ROUNDNUMBER]}-rose.png`;
+        // sadFilename = `/ratchelor/img/Characters/${this.backRowRats[i].scene_filename[ROUNDNUMBER]}-sad.png`;
+      // }
+      // else{
+        filename = `/ratchelor/img/Characters/${this.frontRowRats[i].filename}.png`;
+        roseFilename = `/ratchelor/img/Characters/${this.frontRowRats[i].filename}-rose.png`;
+        sadFilename = `/ratchelor/img/Characters/${this.frontRowRats[i].filename}-sad.png`; 
+// }
 
       frontRatsList.push(
         <div
           key={i}
-          id={`rat${this.backRowRats.length + i}`}
+          id={`rat${this.frontRowRats.length + i}`}
           className={`ratList`}
           onClick={() => {
             this.selectRat(
               this.frontRowRats[i].name,
-              `rat${this.backRowRats.length + i}`
+              `rat${this.frontRowRats.length + i}`
             );
           }}
         >

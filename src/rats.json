@@ -9,6 +9,7 @@
             "",
             ""
         ],
+        "has_different_versions":false,
         "tagline": "wheeeEEEEEE",
         "filename": "zippy",
         "size": "small",
@@ -25,6 +26,7 @@
             "",
             ""
         ],
+        "has_different_versions":false,
         "tagline": "",
         "filename": "lepix",
         "size": "small",
@@ -41,6 +43,7 @@
             "",
             ""
         ],
+        "has_different_versions":false,
         "tagline": "",
         "filename": "fizzywig",
         "size": "medium",
@@ -56,6 +59,14 @@
             "",
             "",
             ""
+        ],
+        "has_different_versions":true,
+        "scene_filename":[
+            "moom",
+            "moom",
+            "moom",
+            "moom",
+            "moom-rose"
         ],
         "tagline": "",
         "filename": "moom",
@@ -73,6 +84,7 @@
             "",
             ""
         ],
+        "has_different_versions":false,
         "tagline": "You could say I'm sick... with love",
         "filename": "eggs",
         "size": "small",
@@ -89,6 +101,7 @@
             "",
             ""
         ],
+        "has_different_versions":false,
         "tagline": "",
         "filename": "boyboymysterio",
         "size": "small",
@@ -105,8 +118,9 @@
             "",
             ""
         ],
+        "has_different_versions":false,
         "tagline": "",
-        "filename": "hotlands",
+        "filename": "barronhotlands",
         "size": "medium",
         "ending": "FUNKY",
         "reaction_pos":[0.214, 0.13]
@@ -121,6 +135,7 @@
             "",
             ""
         ],
+        "has_different_versions":false,
         "tagline": "",
         "filename": "moderna",
         "size": "med-large",
@@ -137,8 +152,9 @@
             "",
             ""
         ],
+        "has_different_versions":false,
         "tagline": "",
-        "filename": "Sharpie",
+        "filename": "sharpie",
         "size": "medium",
         "ending": "INTENSE",
         "reaction_pos":[0.25, 0.1358]
@@ -153,6 +169,7 @@
             "",
             ""
         ],
+        "has_different_versions":false,
         "tagline": "",
         "filename": "martine",
         "size": "medium",
@@ -160,7 +177,7 @@
         "reaction_pos":[0.34, 0.1367]
     },
     {
-        "name": "Klause von Maus",
+        "name": "Klaus von Maus",
         "dialogue": [
             "",
             "",
@@ -169,8 +186,9 @@
             "",
             ""
         ],
+        "has_different_versions":false,
         "tagline": "",
-        "filename": "kvm",
+        "filename": "klaus",
         "size": "medium",
         "ending": "PARIS",
         "reaction_pos":[0.29, 0.1325]
@@ -185,6 +203,7 @@
             "",
             ""
         ],
+        "has_different_versions":false,
         "tagline": "",
         "filename": "empire",
         "size": "medium",
@@ -201,8 +220,9 @@
             "",
             ""
         ],
+        "has_different_versions":false,
         "tagline": "glip",
-        "filename": "Esche",
+        "filename": "esche",
         "size": "small",
         "ending": "ROMANTICSAD",
         "reaction_pos":[0.24, 0.13]
@@ -216,6 +236,14 @@
             "",
             "",
             ""
+        ],
+        "has_different_versions":true,
+        "scene_filename":[
+            "podolico-1",
+            "podolico-2",
+            "podolico-3",
+            "podolico-4",
+            "podolico-5"
         ],
         "tagline": "",
         "filename": "podolico",
@@ -233,6 +261,7 @@
             "",
             ""
         ],
+        "has_different_versions":false,
         "tagline": "",
         "filename": "celery",
         "size": "small",
@@ -250,6 +279,7 @@
             "",
             ""
         ],
+        "has_different_versions":false,
         "tagline": "",
         "filename": "shibby",
         "size": "large",
@@ -266,6 +296,7 @@
             "",
             ""
         ],
+        "has_different_versions":false,
         "tagline": "",
         "filename": "simmsammo",
         "size": "medium",
@@ -282,6 +313,7 @@
             "",
             ""
         ],
+        "has_different_versions":false,
         "tagline": "",
         "filename": "seansean",
         "size": "small",
@@ -298,6 +330,7 @@
             "",
             ""
         ],
+        "has_different_versions":false,
         "tagline": "",
         "filename": "ultrarat",
         "size": "med-large",
@@ -315,6 +348,7 @@
             "",
             ""
         ],
+        "has_different_versions":false,
         "tagline": "",
         "filename": "pederson",
         "size": "medium",
@@ -331,6 +365,7 @@
             "",
             ""
         ],
+        "has_different_versions":false,
         "filename": "sminny",
         "tagline": "",
         "size": "medium",
