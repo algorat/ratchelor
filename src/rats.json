@@ -12,7 +12,7 @@
         "has_different_versions":false,
         "tagline": "wheeeEEEEEE",
         "filename": "zippy",
-        "size": "small",
+        "size": "medium",
         "ending": "POP",
         "reaction_pos": [0.22, 0.12]
     },
@@ -29,7 +29,7 @@
         "has_different_versions":false,
         "tagline": "",
         "filename": "lepix",
-        "size": "small",
+        "size": "medium",
         "ending": "CHEERFUL",
         "reaction_pos": [0.23, 0.29]
     },
@@ -87,7 +87,7 @@
         "has_different_versions":false,
         "tagline": "You could say I'm sick... with love",
         "filename": "eggs",
-        "size": "small",
+        "size": "medium",
         "ending": "ROMANTICSAD",
         "reaction_pos":[0.285, 0.105]
     },
@@ -104,7 +104,7 @@
         "has_different_versions":false,
         "tagline": "",
         "filename": "boyboymysterio",
-        "size": "small",
+        "size": "medium",
         "ending": "CHEERFUL",
         "reaction_pos":[0.2, 0.1]
     },
@@ -138,7 +138,7 @@
         "has_different_versions":false,
         "tagline": "",
         "filename": "moderna",
-        "size": "med-large",
+        "size": "medium",
         "ending": "ROMANTICHAPPY",
         "reaction_pos":[0.214, 0.13]
     },
@@ -223,7 +223,7 @@
         "has_different_versions":false,
         "tagline": "glip",
         "filename": "esche",
-        "size": "small",
+        "size": "medium",
         "ending": "ROMANTICSAD",
         "reaction_pos":[0.24, 0.13]
     },
@@ -247,7 +247,7 @@
         ],
         "tagline": "",
         "filename": "podolico",
-        "size": "large",
+        "size": "medium",
         "ending": "CHEERFUL",
         "reaction_pos":[0.2333, 0.1258]
     },
@@ -264,7 +264,7 @@
         "has_different_versions":false,
         "tagline": "",
         "filename": "celery",
-        "size": "small",
+        "size": "medium",
         "ending": "ROMANTICSAD",
         "reaction_pos":[0.24, 0.11667]
     },
@@ -282,7 +282,7 @@
         "has_different_versions":false,
         "tagline": "",
         "filename": "shibby",
-        "size": "large",
+        "size": "medium",
         "ending": "CHEERFUL",
         "reaction_pos":[0.285, 0.1167]
     },
@@ -316,7 +316,7 @@
         "has_different_versions":false,
         "tagline": "",
         "filename": "seansean",
-        "size": "small",
+        "size": "medium",
         "ending": "INTENSE",
         "reaction_pos":[0.315, 0.1]
     },
@@ -333,7 +333,7 @@
         "has_different_versions":false,
         "tagline": "",
         "filename": "ultrarat",
-        "size": "med-large",
+        "size": "medium",
         "ending": "CHEERFUL",
         "reaction_pos":[0.254, 0.1133]
     },
