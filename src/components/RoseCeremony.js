@@ -13,6 +13,7 @@ class RoseCeremony extends React.Component {
 
     this.state = {
       selectedRats: [],
+      deselectedRats: [],
       giveRosesButton: "",
       instructions: `Choose ${this.props.numRoses} contestants to continue`,
       middleRowClass: "",
@@ -135,6 +136,10 @@ class RoseCeremony extends React.Component {
 
     // If it's already chosen, deselect it
     if (this.state.selectedRats.indexOf(ratName) !== -1) {
+      let newdeSelectedRats = this.state.deselectedRats;
+      newdeSelectedRats.push(ratName);
+      element.classList.add("deselectedRat");
+
       const index = this.state.selectedRats.indexOf(ratName);
       const newSelectedRats = this.state.selectedRats;
       newSelectedRats.splice(index, 1);
@@ -156,6 +161,14 @@ class RoseCeremony extends React.Component {
     newSelectedRats.push(ratName);
     element.classList.add("selectedRat");
     this.props.playTap();
+    // check if it was sad and remove that pic if it was sad
+    if (this.state.deselectedRats.indexOf(ratName) !== -1) {
+      const index = this.state.deselectedRats.indexOf(ratName);
+      const newdeSelectedRats = this.state.deselectedRats;
+      newdeSelectedRats.splice(index, 1);
+      this.setState({ deselectedRats: newdeSelectedRats });
+      element.classList.remove("deselectedRat");
+    }
 
     // If that was the final rat, display the advance button
     if (this.state.selectedRats.length === this.numRoses) {
@@ -227,7 +240,12 @@ class RoseCeremony extends React.Component {
            <img
             className={`ratPic ratWithRosePic  ${this.backRowRats[i].size}`}
             src={roseFilename}
-            alt="a rat waiting for you to make a decision"
+            alt="a rat with a rose"
+          />
+            <img
+            className={`ratPic sadRatPic  ${this.backRowRats[i].size}`}
+            src={sadFilename}
+            alt="a sad rat"
           />
           <div className="hoverText" alt="info about the rat">
             {this.backRowRats[i].name}
@@ -277,7 +295,12 @@ class RoseCeremony extends React.Component {
           <img
             className={`ratPic ratWithRosePic ${this.frontRowRats[i].size}`}
             src={roseFilename}
-            alt="a rat waiting for you to make a decision"
+            alt="a rat with a rose"
+          />
+          <img
+            className={`ratPic sadRatPic  ${this.backRowRats[i].size}`}
+            src={sadFilename}
+            alt="a sad rat"
           />
           <div className="hoverText" alt="info about the rat">
             {this.frontRowRats[i].name}

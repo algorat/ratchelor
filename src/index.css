@@ -670,6 +670,9 @@ button:focus {
 #roseCeremonyScreen .selectedRat .ratPic {
   display: none;
 }
+#roseCeremonyScreen .deselectedRat .ratPic {
+  display: none;
+}
 
 #roseCeremonyScreen .ratWithRosePic {
   display: none;
@@ -680,6 +683,12 @@ button:focus {
   /* -webkit-filter: drop-shadow(2px 2px 0px #574600)
     drop-shadow(-2px -2px 0px #574600) !important;
   filter: drop-shadow(2px 2px 0px #574600) drop-shadow(-2px -2px 0px #574600) !important; */
+}
+#roseCeremonyScreen .sadRatPic {
+  display: none;
+}
+#roseCeremonyScreen .deselectedRat .sadRatPic {
+  display: inline;
 }
 
 #roseCeremonyScreen .large {
