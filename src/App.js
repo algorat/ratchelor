@@ -703,11 +703,6 @@ class RatchelorGame extends React.Component {
                 alt=""
               ></img>
             )}
-            {!this.state.isOnMobile && (
-              <div id="ratchelor2">
-                Stay tuned for The Ratchelor 2, coming this Valentine's Day!{" "}
-              </div>
-            )}
             {safariMsg}
 
             <div id="interludeContainer">

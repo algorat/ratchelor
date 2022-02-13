@@ -132,7 +132,7 @@ class RatSelect extends React.Component {
     );
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.props.rats.length; i++) {
-      let filename = `${process.env.PUBLIC_URL}/img/Frames/${this.props.rats[i].filename}.PNG`;
+      let filename = `${process.env.PUBLIC_URL}/img/Frames/${this.props.rats[i].filename}-frame.PNG`;
       let filenameHearts = `${process.env.PUBLIC_URL}/img/Frames/hearts${
         (i % 9) + 1
       }.PNG`;
