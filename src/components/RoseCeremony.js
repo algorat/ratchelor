@@ -1,5 +1,6 @@
 import React from "react";
 import MobileWrapper from "./MobileWrapper";
+import arrow from "../img/arrow-500.png";
 
 class RoseCeremony extends React.Component {
   constructor(props) {
@@ -239,6 +240,14 @@ class RoseCeremony extends React.Component {
                 {this.backRowRats[i].name}
               </div>
             )}
+            {(this.props.isOnMobile && 
+              this.state.currentlyViewedRat[0] === this.backRowRats[i].name) 
+              && (
+              <img 
+                className="roseCeremonySelectedArrow"
+                src={arrow} 
+                alt={"arrow pointing at the selected rat"} />
+            )}
           </div>
         </div>
       );
@@ -284,6 +293,14 @@ class RoseCeremony extends React.Component {
               <div className="hoverText" alt="info about the rat">
                 {this.frontRowRats[i].name}
               </div>
+            )}
+            {(this.props.isOnMobile && 
+              this.state.currentlyViewedRat[0] === this.frontRowRats[i].name) 
+              && (
+              <img 
+                className="roseCeremonySelectedArrow"
+                src={arrow} 
+                alt={"arrow pointing at the selected rat"} />
             )}
           </div>
         </div>
@@ -343,6 +360,7 @@ class RoseCeremony extends React.Component {
               header={this.state.instructions}
               cta={mobileButton}
             >
+              <img className="roseCeremonyWidePortrait" src={`${process.env.PUBLIC_URL}/img/Wide/${lastClickedRat.filename}.png`}/>
               <h2>{this.state.currentlyViewedRat[0]}</h2>
               <button
                 onClick={() => {

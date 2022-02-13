@@ -746,13 +746,11 @@ class RatchelorGame extends React.Component {
               setPlayWobbleSound={this.setPlayWobbleSound}
             />
           </div>
-
-          {!this.state.isOnMobile && (
-            <GameOptions
-              volume={this.state.volume}
-              changeVolume={this.changeVolume}
-            />
-          )}
+          <GameOptions
+            volume={this.state.volume}
+            changeVolume={this.changeVolume}
+            isOnMobile={this.state.isOnMobile}
+          />
         </div>
       </div>
     );

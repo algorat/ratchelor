@@ -1,5 +1,6 @@
 import React from "react";
 import MobileWrapper from "./MobileWrapper";
+import arrows from "../img/arrows_frame.png";
 
 class RatSelect extends React.Component {
   constructor(props) {
@@ -151,16 +152,21 @@ class RatSelect extends React.Component {
             <div className="ratPic">
               <img
                 key={`ratframe${i}`}
-                className="ratFrame"
+                className={`ratFrame ${(this.props.isOnMobile && this.state.currentlyViewedRat === i) ? "ratFrameActive" : ""}`}
                 src={filename}
                 alt=""
               />
               <img
                 key={`rathearts${i}`}
-                className="ratHearts"
+                className={`ratHearts ${(this.props.isOnMobile && this.state.currentlyViewedRat === i) ? "ratFrameActive" : ""}`}
                 src={filenameHearts}
                 alt=""
               />
+              {
+                (this.props.isOnMobile && this.state.currentlyViewedRat === i) && (
+                  <img className="ratFrameArrow" src={arrows} alt={"Decorative arrows pointed to the selected rat."} />
+                )
+              }
             </div>
             {!this.props.isOnMobile && (
               <div className="ratNameContainer">
@@ -196,7 +202,7 @@ class RatSelect extends React.Component {
               header={this.state.selectRatsButton}
               cta={mobileCTA}
             >
-              <h2>{this.props.rats[this.state.currentlyViewedRat].name}</h2>
+              <h2 style={{marginBottom: 0}}>{this.props.rats[this.state.currentlyViewedRat].name}</h2>
               <div className="column">
                 <p>{this.props.rats[this.state.currentlyViewedRat].tagline}</p>
               </div>

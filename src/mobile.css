@@ -45,6 +45,7 @@
   flex-grow: 1;
   padding: 8px;
   z-index: 100;
+  max-width: 40vw;
 }
 
 .mobile .unselect {
@@ -66,6 +67,10 @@
   line-height: calc(1.2 * var(--mobile-h2));
   text-align: center;
   font-family: 'Sofia';
+}
+
+.mobile p {
+  margin: 10px 0px;
 }
 
 .mobile button {
@@ -113,6 +118,10 @@
   width: 100%;
   justify-content: center;
   align-items: center;
+}
+
+.mobile .controls-wrapper__body img {
+  max-height: 25vh;
 }
 
 .mobile .controls-wrapper__body--row {
@@ -175,6 +184,45 @@
   margin: 0;
 }
 
+.mobile #ratSelectScreen .ratFrameArrow {
+  position: absolute;
+  width: 200%;
+  margin-left: -50%;
+  margin-top: -50%;
+  aspect-ratio: 1;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.mobile #ratSelectScreen .ratFrame {
+  filter: grayscale(1);
+}
+
+.mobile #ratSelectScreen .selectedRat .ratFrame {
+  filter: grayscale(0);
+}
+
+.mobile #ratSelectScreen .selectedRat .ratHearts {
+  filter: grayscale(0);
+}
+/* 
+.mobile #ratSelectScreen .ratFrame.ratFrameActive {
+  animation: pulse ease-in 0.2s;
+}
+
+.mobile #ratSelectScreen .ratHearts.ratFrameActive {
+  animation: pulse ease-in 0.2s;
+  transform: scale(1.3);
+} */
+
+.mobile #ratSelectScreen .ratPic {
+  filter: none;
+}
+
+.mobile #ratSelectScreen .ratHearts {
+  filter: grayscale(1);
+}
+
 .mobile #ratSelectScreen .controls-wrapper__body h2 {
   font-family: 'Sofia';
 }
@@ -222,32 +270,52 @@
 .mobile #roseCeremonyScreen #ratListContainer {
   width: 100%;
   height: 80%;
-  bottom: 24px;
+  top: 24px;
   flex-wrap: nowrap;
 }
 
-.mobile #roseCeremonyScreen .medium {
-  height: 80px;
+.mobile #roseCeremonyScreen .roseCeremonySelectedArrow {
+  position: absolute;
+  height: 20vh;
+  aspect-ratio: 1;
+  left: -40%;
+  bottom: -15%;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.mobile .roseCeremonyWidePortrait {
+  height: 60px;
+  max-height: 13vh;
+}
+
+.mobile #roseCeremonyScreen .small {
+  height: 18vh;
   width: auto;
 }
 
-.mobile #roseCeremonyScreen .large {
-  height: 140px;
+.mobile #roseCeremonyScreen .medium {
+  height: 22vh;
   width: auto;
 }
 
 .mobile #roseCeremonyScreen .med-large {
-  height: 110px;
+  height: 32vh;
   width: auto;
 }
 
-.mobile #roseCeremonyScreen .small {
-  height: 50px;
+.mobile #roseCeremonyScreen .large {
+  height: 40vh;
   width: auto;
 }
 
 .mobile #roseCeremonyScreen #frontRow {
   margin-top: -20px;
+  column-gap: 4px;
+}
+
+.mobile #ratListContainer #backRow {
+  column-gap: 8px;
 }
 
 .mobile .middleRow {
@@ -270,6 +338,8 @@
 /*------------ SPECIAL ENDING ----------------*/
 .mobile #SpecialEndingScreen #endingButtonContainer {
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .mobile #endingButtonContainer button {
@@ -451,4 +521,11 @@
   position: absolute;
   top: 0;
   left: 0;
+}
+
+#game-options-mobile {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 10001;
 }
