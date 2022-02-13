@@ -1,14 +1,12 @@
 html {
   margin: 0px;
-  width: 100%;
-  height: 100%;
+  min-width: 100%;
+  min-height: calc(var(--vh, 1vh) * 100);
   position: relative;
+  background-image: url(./img/Backgrounds/wallpaper.png);
+  background-size: 350px 285px;
 }
-/* img {
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges; */
-/* } */
+
 body {
   margin: 0;
   width: 100%;
@@ -17,8 +15,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(./img/Backgrounds/wallpaper.png);
-  background-size: 350px 285px;
 }
 
 img {
@@ -30,9 +26,9 @@ img {
 }
 
 #root {
+  width: 100%;
+  height: 100%;
   position: relative;
-  width: 900px;
-  height: 675px;
 }
 
 .screen {
@@ -42,7 +38,10 @@ img {
 
 #game {
   position: relative;
+  width: 900px;
+  height: 675px;
 }
+
 @keyframes fadeOut {
   0% {
     opacity: 1;
@@ -87,29 +86,6 @@ img {
 #safari-button:hover {
   color: rgb(206, 165, 29);
   background-color: rgba(255, 255, 255, 0.9);
-}
-
-#mobile-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-#mobile-message {
-  color: rgb(109, 33, 21);
-  background-color: rgb(255, 230, 226);
-  font-family: 'Yusei Magic', sans-serif;
-  width: 80%;
-  font-size: 18px;
-  text-align: center;
-  padding: 30px;
-  border-radius: 10px;
-}
-
-#mobile-img {
-  width: 200px;
-  padding-top: 30px;
 }
 
 #frame {
@@ -200,7 +176,7 @@ button:focus {
 
 .curtainsIn {
   animation: curtainsIn ease-out 0.4s;
-  bottom: 0px;
+  bottom: -30px;
 }
 
 .curtainsOut {
@@ -415,6 +391,7 @@ button:focus {
   width: 100%;
   text-align: center;
   height: 85px;
+  z-index: 1;
 }
 
 #ratSelectScreen button {
@@ -467,6 +444,7 @@ button:focus {
 
 #talkingToRatsScreen #dialogueContainer {
   position: absolute;
+  width: 100%;
 }
 
 #talkingToRatsScreen button {
@@ -1355,7 +1333,8 @@ input[type='range']::-ms-thumb {
   justify-content: center;
   flex-direction: column;
   background-color: #ffe5e5;
-  height: 255px;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 #hearts-header {
@@ -1396,7 +1375,6 @@ input[type='range']::-ms-thumb {
   align-items: center;
   justify-content: center;
   width: 100% !important;
-  margin-top: 45px;
   z-index: 1;
 }
 
@@ -1464,7 +1442,18 @@ input[type='range']::-ms-thumb {
 }
 
 #game-container {
+  position: relative;
   z-index: 0;
+}
+
+.game-container-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 #game {
@@ -1553,7 +1542,17 @@ input[type='range']::-ms-thumb {
 #algorats-credit-small {
   font-size: 14px;
 }
+
 #sound-credit {
   font-size: 11px;
   font-style: italic;
+}
+
+.hide-overflow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }

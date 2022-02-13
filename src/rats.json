@@ -10,8 +10,22 @@
             "Wow! This is as the prophecy foretold: \nThe fur will get increasingly pink \nUntil you find your one true link \nThe curse only lifted when they propose \nAnd are presented with a crown of rose! \nOh it’s not part of the first necklace curse I mentioned, this curse I’ve had for a while from when I accidentally took a witch’s snow cone! Happy to break the curse with YOU!"
         ],
         "has_different_versions":false,
-        "tagline": "Expressing myself through socks!",
+        "tagline": "Trying something new with my socks!",
         "filename": "zippy",
+        "talking_to_rats_filename":[
+            "zippy-1",
+            "zippy-2",
+            "zippy-3",
+            "zippy-4",
+            "zippy-5"
+        ],
+        "rose_ceremony_filename":[
+            "zippy-1",
+            "zippy-2",
+            "zippy-3",
+            "zippy-4",
+            "zippy-5"
+        ],
         "size": "medium",
         "ending": "POP",
         "reaction_pos": [0.22, 0.12],
@@ -27,7 +41,6 @@
             "I was wondering if you like to burrow? It’s this thing where you take your arms and move the dirt around. I really like burrowing, I know it’s kind of “uncool” to burrow these days but it makes me feel so strong and powerful. We could try it together sometime.",
             "YES, I LOVE YOU!!! SQUEAK from the rooftops! Squeak squeak squeak all the way home! I’ve never squeaked so powerfully in my life! Ancestors, do you hear me? SQUEEEEEEEEEEAAAAAKKK"
         ],
-        "has_different_versions":false,
         "tagline": "SQUEAK?",
         "filename": "lepix",
         "size": "medium",
@@ -45,7 +58,6 @@
             "I quit my day job to focus more on my diving. I want to become a deep sea cave diver, I haven’t been diving much outside of the class I teach. I have been letting my fear of crabs/Carcinisation* get the best of me. I am ready to rewire my brain to function in life, through staying present!! I want to be present with you here. Just us surrounded by nothing but the vast ocean with maybe a little bit of crabs… oh no… hold on one second…. I gotta change the subject. My bandmate says he knows you! \n *Carcinisation is a frequently occurring convergent evolution in which a non-crab species evolves into a crab-like form",
             "Hey uhh, dunno how to say this, but when I’m with you I feel a lot more accurate with my depth perception, or even like it doesn’t really matter how far away stuff is. Ya know there’s not many people I trust, but I really trust you. Look at this cool shell I found for you. I love you, let’s stroll down the beach together. Be careful though"
         ],
-        "has_different_versions":false,
         "tagline": "I have a bellyache :(",
         "filename": "fizzywig",
         "size": "medium",
@@ -63,8 +75,7 @@
             "Guess what! One of my flowers bloomed! I must really love you, because all of the love from my brain got sucked into this flower and it now has a beautiful blossom. I’ve never felt this way before, so calm and so loved.",
             "Wow, I can’t believe it, all of my flowers bloomed! This has never happened before, I’m so happy and in love. This must be what it feels like to be with my soul mate. How beautiful! I love you!"
         ],
-        "has_different_versions":true,
-        "scene_filename":[
+        "talking_to_rats_filename":[
             "moom",
             "moom",
             "moom",
@@ -88,9 +99,15 @@
             "I wrote this manuscript for you. It’s comprised of a few volumes. This work lies at the intersection of biology, chemistry and poetry! My post doc studying under me say it’s my best work yet. The undergrads I teach laughed at it, but what do they know?",
             "I LOVE YOU!  I’ve told everyone and they are thrilled, so excited to have you in the family! They even made the downpayment on a house for just the two of us, and then also paid it off in full! I know we only just got engaged, but they work fast"
         ],
-        "has_different_versions":false,
         "tagline": "Back in the lab tomorrow",
         "filename": "eggs",
+        "talking_to_rats_filename":[
+            "eggs-1",
+            "eggs-2",
+            "eggs-3",
+            "eggs-4",
+            "eggs-5"
+        ],
         "size": "medium",
         "ending": "ROMANTICSAD",
         "reaction_pos":[0.285, 0.105],
@@ -106,7 +123,6 @@
             "WHOPPIE!!!!! WAHOOoeoooEOOII!\nAnyways, truth or dare? My truth is that I have 4 thumbs. Two on each finger, it’s not a secret, but i dont tell anyone. I’m not insecure about it though, everyone knows. Barron Hotlands said it was one of the more unique skeletal features of mine.",
             "WOWIE. I can’t believe you chose me!\n I wore my fanciest outfi! This is a tie of my favorite rats, and these sunglasses I borrowed from jagadoo. The sparkling aura of love is so bright between us that I must shield my eyes so as not to damage my cornea. You my dear are my everything! My euphoria!"
         ],
-        "has_different_versions":false,
         "tagline": "BADABING BADABOOM!",
         "filename": "boyboymysterio",
         "size": "medium",
@@ -124,7 +140,6 @@
             "Other rats can’t ever look at me directly because my sparkles are so blinding, but I can’t control them. You (and Boy Boy Mysterio) are the only one who’s ever looked at me directly. I feel that there is a spark between us, a flowering romance. Do you feel the same?  M’rat, I would treat you with love and respect if you choose me.",
             "I wore this vest in honor of you. All the rats depicted on it are perfect. You are also perfect. Together? We are perfect. All my favorite rats are depicted on this vest. Me, you, Jagadoo, Boy Boy Mysterio, my father, my favorite cousin Slim Jim, you again of course. Here, I will knit you a matching one."
         ],
-        "has_different_versions":false,
         "tagline": "Can I help you scheme?",
         "filename": "barronhotlands",
         "size": "medium",
@@ -142,9 +157,15 @@
             "I’ve been thinking about the conversations we’ve been having. You know what? I really like you. You’re cool, down to earth, and make me smile.",
             "Maaaaaan, when I came on this show, I didn’t realize I’d meet someone I vibe with the way you and I do. It’s like our vibes are on the same wavelength. I love you, I’m so excited for you to join the family baaaaand! Let’s go get you a rockin’ tambourine."
         ],
-        "has_different_versions":false,
         "tagline": "Hey man, cool vibes",
         "filename": "moderna",
+        "talking_to_rats_filename":[
+            "moderna",
+            "moderna",
+            "moderna-3",
+            "moderna",
+            "moderna"
+        ],
         "size": "medium",
         "ending": "ROMANTICHAPPY",
         "reaction_pos":[0.214, 0.13],
@@ -160,7 +181,6 @@
             "It’s my life’s ambition to compete internationally in Rage of Rempires tournaments. I hear the rats on the Pacific Ocean Garbage Patch are really training at it so I need to work hard too. But lately I’ve been wondering... I used to be so focused on my work… Dating seemed so cringy without the comfort of a computer screen to protect me, but I think I could do it with you.",
             "Oh! I made this crystal necklace for you. It has a bit of my energy in it. I already have one with some of yours. Is it okay? I wanted to do something but was having a really hard time figuring out what to do because I wanted it to be perfect for my one true love. I just know we’ll be together in life and after death."
         ],
-        "has_different_versions":false,
         "tagline": "I stream on Tuesdays and Sundays.",
         "filename": "sharpie",
         "size": "medium",
@@ -178,7 +198,6 @@
             "There’s something very important you need to know. If you choose to be with me, our true love will set my spirit free. My soul will leave this planet, and take its place among the stars. I love you. And if you love me the way I love you, then you’ll let me go.",
             "I can’t believe it, you set me free! This is the best day of my life, I love you, I love you, I love you. I love you all the way to the moon and the stars. My heart is full of joy and adventure. I’m finally free, I’ll never forget you my love!"
         ],
-        "has_different_versions":false,
         "tagline": "Oh... were you looking at me?",
         "filename": "martine",
         "size": "medium",
@@ -196,7 +215,6 @@
             "My Great-great-great-great-great-great-grand-rats made shoes for Beethoven’s house mice! Our families have kept in touch and they are studying at Rat State now. I always bring them a fresh pretzel whenever I see them - I brought yoü one for yoü to eat while we talk, and one for myself so we can both eat together.",
             "Ahh. I am in love with you. Ich liebe dich, as they say. I have made you this pretzel inspired by my love for you. Made of diamonds. A diamond pretzel for you, perfect in every way - even Cinderella would not be able to eat it, because it is for you. Welcome to the von Maus family!"
         ],
-        "has_different_versions":false,
         "tagline": "You're my Kuschelbär",
         "filename": "klaus",
         "size": "medium",
@@ -214,7 +232,6 @@
             "People think I’m addicted to power but I ’ m   j u s t   a   C O M M I T T E D    P E R S O N ! Let me be COMMITTED to you! Y o u  w o n ’t  r e g r e t  i t !!!!",
             "The moment we HIGH-FIVED I knew you were my right hand rat! Through LIFE we can do ANYTHING!!!!!"
         ],
-        "has_different_versions":false,
         "tagline": "H E Y  C U T I E",
         "filename": "empire",
         "size": "medium",
@@ -232,7 +249,6 @@
             "At first it was hard being different from everyone but my real friends never judged me!! I am unique! And I love my wings. Whenever I see lost bugs or bees who are tired out I always fly them back to their hives or wherever they live, and I’m glad to help! ",
             "Look at this flower! Isn’t it great? You are more great.. I love you. I love you the way I love pollen and the sky. You are my other half! But we are both whole! Your love gives me such a lovely calmness. I will never worry again."
         ],
-        "has_different_versions":false,
         "tagline": " Bzzzzzzz",
         "filename": "esche",
         "size": "medium",
@@ -250,8 +266,14 @@
             "We talked about dreams earlier, and I’ve realized some things about myself and my life. I’ve realized there's room in one’s life for a multitude of dreams, and that you don’t have to choose just one. I want you to know that you are one of my dreams, I think I might be falling in love with you. I hope you feel similarly.",
             "You’re a dream that I hold so close to my heart, so near and dear, and I know that being with you will open the door to so many more dreams. I love you. There are so many things that I can achieve with your support, things you can achieve with mine, and things we can both achieve together!"
         ],
-        "has_different_versions":true,
-        "scene_filename":[
+        "talking_to_rats_filename":[
+            "podolico",
+            "podolico",
+            "podolico",
+            "podolico",
+            "podolico"
+        ],
+        "rose_ceremony_filename":[
             "podolico-1",
             "podolico-2",
             "podolico-3",
@@ -275,9 +297,15 @@
             "Ohh!! Wow, did you get a haircut? It looks like fresh notes of egg-reduction with a raspberry twiste! I’d love to sample some with my sauvignon noir toast waffles. You are so beautiful and delicious my darling, I am in love with your tastes and your smells and most of all, I am in love with you…",
             "Oh my love!! I am so happy! To celebrate our one second anniversary I will cook you lightly roasted mushroom cucumbers in a lightly puffed horsdoeurve steak, topped with pan-seared puree on a bed of tartlet crostini."
         ],
-        "has_different_versions":false,
         "tagline": "What’s cookin’ good lookin’?",
         "filename": "celery",
+        "talking_to_rats_filename":[
+            "celery-1",
+            "celery-2",
+            "celery-3_4",
+            "celery-3_4",
+            "celery-5"
+        ],
         "size": "medium",
         "ending": "ROMANTICSAD",
         "reaction_pos":[0.24, 0.11667],
@@ -294,7 +322,6 @@
             "HOOOOH-WAHH!!  This is my favorite move!!! It’s a double-decker rabbit kick spin!! WAHHHOOOWOOHAH!!!! Anyways, I had the most wonderful dream last night! You and I had been training for the joint cross-country kick olympic challenge and right as I ran over the finish line for the final race with my world record-breaking speed, I looked across the room at you, and you were also running over your finish line with your world record-breaking speed, and you were looking at me and then everyone was cheering, and then we ran into each other's arms and everyone cheered even louder!",
             "My new favorite move is giving you a hug!!! I love you so much!!!! I want every moment to be spent with you, unless you have other things scheduled of course, because I respect your independence! Because I love you!! So much!!!"
         ],
-        "has_different_versions":false,
         "tagline": "Checkout my cool moves",
         "filename": "shibby",
         "size": "medium",
@@ -312,7 +339,6 @@
             "If you want something built right, you gotta build it yourself - true for houses, true for chairs. It’s also true for relationships, that’s why I always put in the work for people I care about. And I care about you, and I want you to be safe.",
             "I knew this wasn’t too good to be true! It was just good enough that it just HAD to be true… Oh… Lets get your house refurbished so that you’ll always be safe. The natural disasters will never get the better of you! "
         ],
-        "has_different_versions":false,
         "tagline": "Watch out! Be careful...",
         "filename": "simmsammo",
         "size": "medium",
@@ -330,9 +356,16 @@
             "My dear, it’s time I told you; I have some sort of special power, and well, it’s genetic! It’s quite different than most other rats I have to say. I’ve been able to do it since I was just a tiny rat! I’ve always sworn I would only ever show my one true love…",
             "My love! You chose me! It’s time I reveal my truth: I can fly! This scarf holds the secret to my abilities: using this magical scarf, I will take us on the most fabulous adventures all over the world! I love you! "
         ],
-        "has_different_versions":false,
+
         "tagline": "Come fly with me!",
         "filename": "seansean",
+        "talking_to_rats_filename":[
+            "seansean",
+            "seansean",
+            "seansean",
+            "seansean-4",
+            "seansean"
+        ],
         "size": "medium",
         "ending": "INTENSE",
         "reaction_pos":[0.315, 0.1],
@@ -351,6 +384,20 @@
         "has_different_versions":false,
         "tagline": "It's 2022?",
         "filename": "ultrarat",
+        "talking_to_rats_filename":[
+            "ultrarat-1",
+            "ultrarat-2",
+            "ultrarat-3",
+            "ultrarat-4",
+            "ultrarat"
+        ],
+        "rose_ceremony_filename":[
+            "ultrarat-1",
+            "ultrarat-2",
+            "ultrarat-3",
+            "ultrarat-4",
+            "ultrarat-5"
+        ],
         "size": "medium",
         "ending": "CHEERFUL",
         "reaction_pos":[0.254, 0.1133],
@@ -367,7 +414,6 @@
             "The honest truth is, I’ve always felt like I’m waiting for something great to happen. But I’m starting to realize, what if there’s no “big moment” it’s all leading up to? Maybe every moment is equally special, beautiful, and important. And no moment really exists besides “right now”. I guess what I’m saying is that us together, right now, this is the only moment that exists. There’s no past or future. Just now. And honestly, “now” is giving me butterflies.",
             "How lucky are we? Out of all the rats in the world, throughout all of history, you and I managed to find each other. Just two unlikely furballs, falling in love. What a miracle. Thank you for sharing your gentle soul with me. I love you! Let’s live happily together, one moment at a time. "
         ],
-        "has_different_versions":false,
         "tagline": "It’s very nice to meet you",
         "filename": "pederson",
         "size": "medium",
@@ -385,8 +431,14 @@
             "There’s something about you that just… really motivates me. Did I tell you I got that promotion I was up for? The boss said I’ve been glowing lately, it must be because of all the time I’ve been spending with you. I’d love to take you out to a nice dinner to celebrate. What does your schedule look like next week?",
             "Wow! I’m so happy you asked me to be your life partner… I wanted to ask you… do you want to be my… business partner? I know our time gets interrupted by the office a lot, and this way if I have to go to a meeting you can come with me, and we can keep holding hands, and we’ll be so successful!"
         ],
-        "has_different_versions":false,
         "filename": "sminny",
+        "talking_to_rats_filename":[
+            "sminny",
+            "sminny",
+            "sminny",
+            "sminny-4",
+            "sminny"
+        ],
         "tagline": "Can I add you on LinkedIn?",
         "size": "medium",
         "ending": "POP",

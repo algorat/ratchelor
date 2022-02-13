@@ -1,4 +1,5 @@
 import React from "react";
+import MobileWrapper from "./MobileWrapper";
 
 class IntroScreen extends React.Component {
   constructor(props) {
@@ -8,6 +9,20 @@ class IntroScreen extends React.Component {
       loadingText: "Loading",
     };
     this.onClick = this.onClick.bind(this);
+    this.button = (
+      <button
+        ref={(b) => {
+          if (b) {
+            b.addEventListener("click", () => {
+              props.playSound();
+            });
+          }
+        }}
+        onClick={this.onClick}
+      >
+        Embark
+      </button>
+    );
   }
 
   onClick() {
@@ -23,32 +38,27 @@ class IntroScreen extends React.Component {
   }
 
   render() {
-    let button = <button
-      ref={(b) => {
-        if (b) {
-          b.addEventListener("click", () => {
-            this.props.playSound();
-          });
-        }
-      }}
-      onClick={this.onClick}
-    >
-      Embark
-    </button>
-
-    let loader = <div id="loadingText">{this.state.loadingText}</div>
+    let loader = <div id="loadingText">{this.state.loadingText}</div>;
     let percentLoadedText = Math.floor(this.props.percentLoaded * 100);
-    loader = <div id="loadingText">Loading {percentLoadedText}%</div>
+    loader = <div id="loadingText">Loading {percentLoadedText}%</div>;
+    const buttonOrLoader = this.props.isPreloading ? loader : this.button;
 
     return (
-      <div
-        id="introScreen"
-        className={`screen loading-${this.props.isPreloading}`}
-        style={{ opacity: this.state.opacity }}
-      >
-        {this.props.isPreloading ? loader : button}
-        <div id="hideme" />
-      </div>
+      <>
+        <div
+          id="introScreen"
+          className={`screen loading-${this.props.isPreloading}`}
+          style={{ opacity: this.state.opacity }}
+        >
+          {!this.props.isOnMobile && buttonOrLoader}
+          <div id="hideme" />
+        </div>
+        {this.props.isOnMobile && (
+          <MobileWrapper>
+            <div id="button-container">{buttonOrLoader}</div>
+          </MobileWrapper>
+        )}
+      </>
     );
   }
 }

@@ -7,8 +7,36 @@ import soundLogo3 from "../img/icons/volume_3.png";
 
 class GameOptions extends React.Component {
   render() {
+
     const prog = this.props.volume;
     let soundurl;
+
+    if(this.props.isOnMobile) {
+      if (prog === 0) {
+        soundurl = soundLogoMute;
+      } else {
+        soundurl = soundLogo3;
+      }
+      
+      const toggleSoundMobile = () => {
+        if (this.props.volume === 0) {
+          this.props.changeVolume(22);
+        } else {
+          this.props.changeVolume(0);
+        }
+      };
+      return (
+        <div id="game-options-mobile">
+        <img
+          src={soundurl}
+          alt="Sound icon"
+          className="sound-icon"
+          onClick={toggleSoundMobile}
+        />
+        </div>
+      )
+    }
+
     if (prog === 0) {
       soundurl = soundLogoMute;
     } else if (prog < 25) {

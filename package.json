@@ -17,9 +17,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && rm -rf docs && mv build docs",
+    "staging": "PUBLIC_URL=/ react-scripts build && rm -rf staging && mv build staging && firebase deploy",
     "files": "node ./filesgen.js",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettify": "prettier --write ./src"
   },
   "eslintConfig": {
     "extends": [

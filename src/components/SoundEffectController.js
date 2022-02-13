@@ -15,7 +15,6 @@ import tada from "../sounds/tada.mp3";
 import chimes from "../sounds/chimes.mp3";
 import wobble from "../sounds/wobble.mp3";
 
-
 class SoundEffectController extends React.Component {
   constructor(props) {
     super(props);
@@ -50,14 +49,14 @@ class SoundEffectController extends React.Component {
     this.props.setPlayChimesSound(this.playChimesSound);
     this.props.setPlayWobbleSound(this.playWobbleSound);
 
-    this.volume = props.volume/100 + 0.15;
+    this.volume = props.volume / 100 + 0.15;
     this.finalRat = null;
     this.currentRatIdx = -1;
     this.musicStarted = false;
   }
 
   shouldComponentUpdate(props) {
-    if(props.volume === 0){
+    if (props.volume === 0) {
       this.volume = 0;
       this.setVolume(this.volume);
       return false;
@@ -66,7 +65,7 @@ class SoundEffectController extends React.Component {
     let newvolume = props.volume / 100 + 0.15;
     newvolume = newvolume > 1 ? 1 : newvolume;
 
-    if(newvolume !== this.volume){
+    if (newvolume !== this.volume) {
       this.volume = newvolume;
       this.setVolume(this.volume);
     }
@@ -74,59 +73,59 @@ class SoundEffectController extends React.Component {
     return false;
   }
 
-  playWobbleSound(){
+  playWobbleSound() {
     this.playSound(wobble);
   }
 
-  playChimesSound(){
+  playChimesSound() {
     this.playSound(chimes);
   }
 
-  playTadaSound(){
+  playTadaSound() {
     this.playSound(tada);
   }
 
-  playMetalSound(){
+  playMetalSound() {
     this.playSound(metal);
   }
 
-  playDingSound(){
+  playDingSound() {
     this.playSound(ding);
   }
 
-  playChachingSound(){
+  playChachingSound() {
     this.playSound(chaching);
   }
 
-  playCricketsSound(){
+  playCricketsSound() {
     this.playSound(crickets);
   }
 
-  playTromboneSound(){
+  playTromboneSound() {
     this.playSound(trombone);
   }
 
-  playHarpSound(){
+  playHarpSound() {
     this.playSound(harp);
   }
 
-  playRoseSound(){
+  playRoseSound() {
     this.playSound(assignRose);
   }
 
-  playBadActionSound(){
+  playBadActionSound() {
     this.playSound(badAction);
   }
 
-  playNewRoundSound(){
+  playNewRoundSound() {
     this.playSound(newRound);
   }
 
-  playSelectAnswer(){
+  playSelectAnswer() {
     this.playSound(selectAnswer);
   }
 
-  playTap(){
+  playTap() {
     this.playSound(tap);
   }
 
@@ -137,15 +136,19 @@ class SoundEffectController extends React.Component {
   }
 
   playSound(url) {
-    if ( this.rap ) {
+    if (this.rap) {
       this.rap.src = url;
       this.rap.volume = this.volume;
-      this.rap.addEventListener('canplaythrough', () => {
+      this.rap.addEventListener("canplaythrough", () => {
         var playPromise = this.rap.play();
         if (playPromise !== undefined) {
-          playPromise.then((_) => {}).catch((e)=>{console.log("error caught", e)});
+          playPromise
+            .then((_) => {})
+            .catch((e) => {
+              console.log("error caught", e);
+            });
         }
-      })  
+      });
     }
   }
 
