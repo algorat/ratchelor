@@ -48,7 +48,6 @@ class MusicManager extends React.Component {
   }
 
   shouldComponentUpdate(props) {
-
     if (this.props.phase < 1 && !this.musicStarted) {
       return false;
     }
@@ -97,13 +96,17 @@ class MusicManager extends React.Component {
     ) {
       this.rap.src = this.url;
       this.rap.volume = this.volume;
-      this.rap.addEventListener('canplaythrough', () => {
+      this.rap.addEventListener("canplaythrough", () => {
         var playPromise = this.rap.play();
         this.musicStarted = true;
         if (playPromise !== undefined) {
-          playPromise.then((_) => {}).catch((e)=>{console.log("error caught", e)});
+          playPromise
+            .then((_) => {})
+            .catch((e) => {
+              console.log("error caught", e);
+            });
         }
-      })   
+      });
     }
   }
 

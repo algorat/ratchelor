@@ -55,7 +55,20 @@ import s25 from "./sounds/metal.mp3";
 
 const backgroundSrc = [bg0, bg1, bg2, bg3, bg4, bg5];
 const soundsToPreload = [s2, s3, s5, s6, s7, s11, s1, s21, s22, s23, s24, s25];
-const soundsToAsyncLoad = [s17, s18, s19, s20, s16, s8, s9, s10, s12, s13, s14, s15];
+const soundsToAsyncLoad = [
+  s17,
+  s18,
+  s19,
+  s20,
+  s16,
+  s8,
+  s9,
+  s10,
+  s12,
+  s13,
+  s14,
+  s15,
+];
 
 var firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -65,7 +78,7 @@ var firebaseConfig = {
   storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_APPID,
-  measurementId: process.env.REACT_APP_MEASUREID
+  measurementId: process.env.REACT_APP_MEASUREID,
 };
 
 // Initialize Firebase
@@ -82,7 +95,6 @@ const ANIME_ENDING = 5;
 const SPECIAL_ENDING = 6;
 const PROPOSAL = 7;
 
-const INTERLUDE_OFFSET = 900;
 const ANIM_TIME = 400;
 
 class RatchelorGame extends React.Component {
@@ -107,20 +119,20 @@ class RatchelorGame extends React.Component {
       // What round of the rose-talking loop we're on
       roundNum: 0,
       //beginning rat pool for the special end
-      beginningRatPool:[],
+      beginningRatPool: [],
       // String list of all rat names currently still in the game
       activeRatNames: [],
       // Text for interlude screens that fall down
       interludeText: "Round 1",
       //the rat that we r currently talking to
       currentRatIdx: 0,
-      volume: 15,
+      volume: 10,
       playerIdx: -1,
       isPreloading: true,
       percentLoaded: 0.0,
       isShowingSafariMsg: false,
       isOnMobile: false,
-      curtainsClass: "curtainsOff"
+      curtainsClass: "curtainsOff",
     };
     this.finalRat = ratsJson[3];
     this.changeCurrentRatIdx = this.changeCurrentRatIdx.bind(this);
@@ -140,23 +152,44 @@ class RatchelorGame extends React.Component {
     this.setPlayTadaSound = this.setPlayTadaSound.bind(this);
     this.setPlayChimesSound = this.setPlayChimesSound.bind(this);
     this.setPlayWobbleSound = this.setPlayWobbleSound.bind(this);
+    this.recalculateDimensions = this.recalculateDimensions.bind(this);
 
     this.setPlayTap = this.setPlayTap.bind(this);
     this.donePreloading = this.donePreloading.bind(this);
 
-    this.publicImgsLoaded= false;
-    this.srcImgsLoaded= false;
-    this.soundsLoaded= false;
+    this.publicImgsLoaded = false;
+    this.srcImgsLoaded = false;
+    this.soundsLoaded = false;
   }
 
-  donePreloading(){
-    if(this.preloadTimeout){
+  recalculateDimensions(onMobile = this.state.isOnMobile) {
+    if (!onMobile) {
+      return;
+    }
+
+    if (window.innerHeight > window.innerWidth) {
+      this.setState({
+        mobileAndPortrait: true,
+      });
+      return;
+    }
+    this.setState({
+      mobileAndPortrait: false,
+    });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.recalculateDimensions);
+  }
+
+  donePreloading() {
+    if (this.preloadTimeout) {
       window.clearTimeout(this.preloadTimeout);
     }
     if (this.preloadInterval) {
       window.clearInterval(this.preloadInterval);
     }
-    this.setState({isPreloading: false});
+    this.setState({ isPreloading: false });
     this.asyncLoadSounds();
   }
 
@@ -168,21 +201,23 @@ class RatchelorGame extends React.Component {
     const loadFracPerInterval = intervalTime / timeoutTime;
 
     this.preloadInterval = window.setInterval(() => {
-      this.setState({percentLoaded: this.state.percentLoaded + loadFracPerInterval});
-    }, intervalTime)
+      this.setState({
+        percentLoaded: this.state.percentLoaded + loadFracPerInterval,
+      });
+    }, intervalTime);
 
     this.preloadTimeout = window.setTimeout(() => {
       console.log("preloading timed out! continuing..");
-      this.setState({isPreloading: false});
+      this.setState({ isPreloading: false });
     }, timeoutTime);
 
     // PUBLIC IMAGES
-    this.allPublicImagesForPreload.forEach(fullFilename => {
+    this.allPublicImagesForPreload.forEach((fullFilename) => {
       var img = new Image();
       let filename = "";
       if (fullFilename.indexOf("public") !== -1) {
         filename = fullFilename.slice(7);
-        filename = "/ratchelor/" + filename;
+        filename = process.env.PUBLIC_URL + "/" + filename;
       }
       // Load image
       img.src = filename;
@@ -191,21 +226,28 @@ class RatchelorGame extends React.Component {
         if (fileIdx !== -1) {
           this.allPublicImagesForPreload.splice(fileIdx, 1);
         }
-        if (this.allPublicImagesForPreload.length === 0 && !this.state.publicImgsLoaded) {
+        if (
+          this.allPublicImagesForPreload.length === 0 &&
+          !this.state.publicImgsLoaded
+        ) {
           console.log("all images loaded");
           this.publicImgsLoaded = true;
-          if(this.srcImgsLoaded && this.soundsLoaded && this.publicImgsLoaded){
+          if (
+            this.srcImgsLoaded &&
+            this.soundsLoaded &&
+            this.publicImgsLoaded
+          ) {
             this.donePreloading();
           }
         }
-      }
+      };
     });
 
     // PRELOADED SOUNDS
-    this.soundsToPreload.forEach(filename => {
+    this.soundsToPreload.forEach((filename) => {
       // Load sound
       var audio = new Audio(filename);
-      
+
       audio.addEventListener("canplaythrough", () => {
         let fileIdx = this.soundsToPreload.indexOf(filename);
         if (fileIdx !== -1) {
@@ -214,16 +256,20 @@ class RatchelorGame extends React.Component {
         if (this.soundsToPreload.length === 0) {
           console.log("all sounds loaded");
           this.soundsLoaded = true;
-          if(this.srcImgsLoaded && this.soundsLoaded && this.publicImgsLoaded){
+          if (
+            this.srcImgsLoaded &&
+            this.soundsLoaded &&
+            this.publicImgsLoaded
+          ) {
             this.donePreloading();
           }
         }
       });
       audio.load();
-    })
+    });
 
     // SRC BACKGROUNDS
-    backgroundSrc.forEach(filename => {
+    backgroundSrc.forEach((filename) => {
       var img = new Image();
       img.src = filename;
 
@@ -235,97 +281,97 @@ class RatchelorGame extends React.Component {
         if (this.backgroundSrc.length === 0) {
           console.log("all src images loaded");
           this.srcImgsLoaded = true;
-          if(this.srcImgsLoaded && this.soundsLoaded && this.publicImgsLoaded){
+          if (
+            this.srcImgsLoaded &&
+            this.soundsLoaded &&
+            this.publicImgsLoaded
+          ) {
             this.donePreloading();
           }
         }
-      }
-    })
-
-    
-
+      };
+    });
   }
 
-  asyncLoadSounds(){
-    this.soundsToAsyncLoad.forEach(fullFilename => {
+  asyncLoadSounds() {
+    this.soundsToAsyncLoad.forEach((fullFilename) => {
       new Audio(fullFilename);
-    })
+    });
   }
 
   beginInterludeAndAdvanceState(text, delay, newGameStage) {
     this.setState({ interludeText: text, curtainsClass: "curtainsIn" }, () => {
       window.setTimeout(() => {
-          this.setState({ gameStage: newGameStage }, () => {
-            window.setTimeout(() => {
-              this.endInterlude();
-            }, delay);
-            }
-          );
-      }, ANIM_TIME); 
+        this.setState({ gameStage: newGameStage }, () => {
+          window.setTimeout(() => {
+            this.endInterlude();
+          }, delay);
+        });
+      }, ANIM_TIME);
     });
   }
 
   endInterlude() {
-    this.setState({curtainsClass: "curtainsOut"});
+    this.setState({ curtainsClass: "curtainsOut" });
   }
 
   setCallPlaySound(f) {
     this.callPlaySound = f;
   }
 
-  setPlayRoseSound(f){
+  setPlayRoseSound(f) {
     this.playRoseSound = f;
   }
 
-  setPlayChachingSound(f){
+  setPlayChachingSound(f) {
     this.playChachingSound = f;
   }
 
-  setPlayDingSound(f){
+  setPlayDingSound(f) {
     this.playDingSound = f;
   }
 
-  setPlayMetalSound(f){
+  setPlayMetalSound(f) {
     this.playMetalSound = f;
   }
 
-  setPlayTadaSound(f){
+  setPlayTadaSound(f) {
     this.playTadaSound = f;
   }
 
-  setPlayChimesSound(f){
+  setPlayChimesSound(f) {
     this.playChimesSound = f;
   }
 
-  setPlayWobbleSound(f){
+  setPlayWobbleSound(f) {
     this.playWobbleSound = f;
   }
 
-  setPlayCricketsSound(f){
+  setPlayCricketsSound(f) {
     this.playCricketsSound = f;
   }
 
-  setPlayTromboneSound(f){
+  setPlayTromboneSound(f) {
     this.playTromboneSound = f;
   }
 
-  setPlayHarpSound(f){
+  setPlayHarpSound(f) {
     this.playHarpSound = f;
   }
 
-  setPlayBadActionSound(f){
+  setPlayBadActionSound(f) {
     this.playBadActionSound = f;
   }
 
-  setPlayNewRoundSound(f){
+  setPlayNewRoundSound(f) {
     this.playNewRoundSound = f;
   }
 
-  setPlaySelectAnswer(f){
+  setPlaySelectAnswer(f) {
     this.playSelectAnswer = f;
   }
 
-  setPlayTap(f){
+  setPlayTap(f) {
     this.playTap = f;
   }
 
@@ -380,28 +426,39 @@ class RatchelorGame extends React.Component {
       .set(firebase.database.ServerValue.increment(1));
   }
 
-  
-
   componentDidMount() {
     this.preload();
     this.interludeElement = document.getElementById("interlude");
-    var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
-    this.setState({isShowingSafariMsg: isSafari});
-    var isOnMobile =  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    this.setState({isOnMobile});
+    var isSafari =
+      /constructor/i.test(window.HTMLElement) ||
+      (function (p) {
+        return p.toString() === "[object SafariRemoteNotification]";
+      })(
+        !window["safari"] ||
+          (typeof safari !== "undefined" && window["safari"].pushNotification)
+      );
+    this.setState({ isShowingSafariMsg: isSafari });
+    var isOnMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
+    this.setState({ isOnMobile: isOnMobile });
     if (isOnMobile) {
       document.getElementById("not-on-mobile").style.display = "none";
+      const kofiWidget = document.querySelector("[id*='kofi-widget']");
+      if (kofiWidget) {
+        kofiWidget.style.display = "none";
+      }
+      this.recalculateDimensions(true);
     }
     this.database = firebase.database();
     this.randoRat = ratsJson[Math.floor(Math.random() * ratsJson.length)];
+    window.addEventListener("resize", this.recalculateDimensions);
   }
 
   render() {
     let screen = "";
     let isPreloading = this.state.isPreloading;
 
-    //console.log(isPreloading)
-    
     if (this.state.gameStage === INTRO) {
       // Intro screen: advances to next stage when complete
       screen = (
@@ -410,12 +467,13 @@ class RatchelorGame extends React.Component {
             if (this.callPlaySound) {
               this.callPlaySound(this.state.gameStage + 1);
             }
-            if(this.playNewRoundSound){
-              this.playNewRoundSound()
+            if (this.playNewRoundSound) {
+              this.playNewRoundSound();
             }
           }}
           isPreloading={isPreloading}
           percentLoaded={this.state.percentLoaded}
+          isOnMobile={this.state.isOnMobile}
           onClick={() => {
             this.beginInterludeAndAdvanceState(
               "meet yourself",
@@ -432,14 +490,15 @@ class RatchelorGame extends React.Component {
           playerIdx={this.state.playerIdx}
           playSelectAnswer={this.playSelectAnswer}
           playTap={this.playTap}
+          isOnMobile={this.state.isOnMobile}
           onClick={() => {
             this.beginInterludeAndAdvanceState(
               "meet your suitors",
               900,
               RAT_SELECT
             );
-            if(this.playNewRoundSound){
-              this.playNewRoundSound()
+            if (this.playNewRoundSound) {
+              this.playNewRoundSound();
             }
           }}
         />
@@ -455,18 +514,21 @@ class RatchelorGame extends React.Component {
           playTap={this.playTap}
           playSelectAnswer={this.playSelectAnswer}
           playBadActionSound={this.playBadActionSound}
+          isOnMobile={this.state.isOnMobile}
           setActiveRatsAndAdvanceState={(selectedRats) => {
-            this.setState({ activeRatNames: selectedRats, beginningRatPool: selectedRats }, () => {
-              this.beginInterludeAndAdvanceState(
-                `chit chat`,
-                900,
-                TALKING_TO_RATS
-              );
-              if(this.playNewRoundSound){
-                this.playNewRoundSound()
+            this.setState(
+              { activeRatNames: selectedRats, beginningRatPool: selectedRats },
+              () => {
+                this.beginInterludeAndAdvanceState(
+                  `chit chat`,
+                  900,
+                  TALKING_TO_RATS
+                );
+                if (this.playNewRoundSound) {
+                  this.playNewRoundSound();
+                }
               }
-            });
-
+            );
           }}
         />
       );
@@ -479,6 +541,7 @@ class RatchelorGame extends React.Component {
           getRatByName={this.getRatByName}
           round={this.state.roundNum}
           startDelay={1000}
+          isOnMobile={this.state.isOnMobile}
           roundNum={this.state.roundNum}
           playSelectAnswer={this.playSelectAnswer}
           playCricketsSound={this.playCricketsSound}
@@ -490,19 +553,17 @@ class RatchelorGame extends React.Component {
           playTadaSound={this.playTadaSound}
           playChimesSound={this.playChimesSound}
           playWobbleSound={this.playWobbleSound}
-          playerRatUrl={`/ratchelor/img/Player/${this.state.playerIdx}.png`}
-          goToRoseCeremony={() =>
-            {this.beginInterludeAndAdvanceState(
+          playerRatUrl={`${process.env.PUBLIC_URL}/img/Player/${this.state.playerIdx}.png`}
+          goToRoseCeremony={() => {
+            this.beginInterludeAndAdvanceState(
               `who gets a rose?`,
               900,
               ROSE_CEREMONY
-            )
-            if(this.playNewRoundSound){
-              this.playNewRoundSound()
+            );
+            if (this.playNewRoundSound) {
+              this.playNewRoundSound();
             }
-          }
-            
-          }
+          }}
           changeCurrentRatIdx={this.changeCurrentRatIdx}
         />
       );
@@ -519,6 +580,7 @@ class RatchelorGame extends React.Component {
           roundNum={this.state.roundNum}
           playSelectAnswer={this.playSelectAnswer}
           playBadActionSound={this.playBadActionSound}
+          isOnMobile={this.state.isOnMobile}
           numRoses={this.rosesPerRound[this.state.roundNum]}
           setActiveRatsAndAdvanceState={(selectedRats) => {
             this.setState({ activeRatNames: selectedRats }, () => {
@@ -529,15 +591,14 @@ class RatchelorGame extends React.Component {
                 this.setState({ gameStage: PROPOSAL });
                 // Else, keep talking to rats
               } else {
-                this.setState({ roundNum: newRoundNum }, () =>
-                {
+                this.setState({ roundNum: newRoundNum }, () => {
                   this.beginInterludeAndAdvanceState(
                     `chit chat`,
                     900,
                     TALKING_TO_RATS
                   );
-                  if(this.playNewRoundSound){
-                    this.playNewRoundSound()
+                  if (this.playNewRoundSound) {
+                    this.playNewRoundSound();
                   }
                 });
               }
@@ -547,14 +608,15 @@ class RatchelorGame extends React.Component {
       );
     } else if (this.state.gameStage === PROPOSAL) {
       this.finalRat = this.getRatByName(this.state.activeRatNames[0]);
-      if(!this.setProposedInDatabase){
+      if (!this.setProposedInDatabase) {
         this.setProposedInDatabase = true;
         this.incrementTotalRatCount(this.state.activeRatNames[0]);
       }
       screen = (
         <Proposal
           finalRat={this.finalRat}
-          playerRatUrl={`/ratchelor/img/Player/${this.state.playerIdx}_proposal.PNG`}
+          isOnMobile={this.state.isOnMobile}
+          playerRatUrl={`${process.env.PUBLIC_URL}/img/Player/${this.state.playerIdx}_proposal.PNG`}
           advanceState={() => {
             this.setState({ gameStage: ANIME_ENDING });
           }}
@@ -565,6 +627,7 @@ class RatchelorGame extends React.Component {
       //    allows game to be restarted
       screen = (
         <AnimeEnding
+          isOnMobile={this.state.isOnMobile}
           winningRat={this.finalRat}
           epilogue={() => {
             this.beginInterludeAndAdvanceState(
@@ -572,100 +635,125 @@ class RatchelorGame extends React.Component {
               900,
               SPECIAL_ENDING
             );
-            if(this.playNewRoundSound){
-              this.playNewRoundSound()
+            if (this.playNewRoundSound) {
+              this.playNewRoundSound();
             }
           }}
-        />);
-
-    }else if (this.state.gameStage === SPECIAL_ENDING) {
+        />
+      );
+    } else if (this.state.gameStage === SPECIAL_ENDING) {
       // special ending screen:
       //    allows game to be restarted
 
-      screen = 
+      screen = (
         <SpecialEnding
           finalRat={this.getRatByName(this.state.activeRatNames[0]).filename}
-          
+          isOnMobile={this.state.isOnMobile}
           restartGame={() => {
             this.restartGame();
           }}
-          getRatByName={(n) =>{
+          getRatByName={(n) => {
             this.getRatByName(n);
           }}
-         
           beginningRatPool={this.state.beginningRatPool}
         />
-   
-
-    }
-
-    let safariMsg = this.state.isShowingSafariMsg ? <div id="safari-container"><div id="safari-msg">This game has some issues in Safari, we recommend using Chrome or Firefox!</div><div id="safari-button" onClick={()=>{this.setState({isShowingSafariMsg: false})}}>x</div></div> : "";
-    
-    if ( this.state.isOnMobile )
-     {
-      let randoRatFilename = "";
-      let randoRatName = "";
-      if (this.randoRat) {
-        randoRatFilename = this.randoRat.filename;
-        randoRatName = this.randoRat.name;
-      }
-      return (
-        <div id="mobile-container">
-          <div id="mobile-message">{`To experience The Ratchelor, ${randoRatName} wants you to access this website on a desktop computer!`}</div>
-          <img
-            id="mobile-img"
-            alt="a rat who loves you"
-            src={`/ratchelor/img/Characters/${randoRatFilename}.png`}
-          ></img>
-        </div>
       );
     }
+
+    let safariMsg = this.state.isShowingSafariMsg ? (
+      <div id="safari-container">
+        <div id="safari-msg">
+          This game has some issues in Safari, we recommend using Chrome or
+          Firefox!
+        </div>
+        <div
+          id="safari-button"
+          onClick={() => {
+            this.setState({ isShowingSafariMsg: false });
+          }}
+        >
+          x
+        </div>
+      </div>
+    ) : (
+      ""
+    );
     return (
-      <div id={`game-container`} className={`preloading-${isPreloading}`}>
-
-        <div id="game">
-          <img id="frame" src="/ratchelor/img/frameSmaller.png" alt=""></img>
-
-          {safariMsg}
-
-          <div id="interludeContainer" >
-            {/* <div id="interlude" style={{ bottom: this.state.interludeBottom }}> */}
-            <div id="interlude" className={`${this.state.curtainsClass}`}>
-              <div id="interludeText">{this.state.interludeText}</div>
-            </div>
-            {screen}
+      <div
+        className={`game-container-container ${
+          this.state.isOnMobile ? "mobile" : ""
+        }`}
+        style={{ display: this.state.isOnMobile ? "block" : "flex" }}
+      >
+        {this.state.mobileAndPortrait && (
+          <div className="portrait-warning">
+            Alas! Looks like you're in portrait mode. Rotate your phone to
+            landscape to continue playing!
+            <br />
+            <br />
+            <span>(＃￣0￣)</span>
           </div>
+        )}
+        <div id={`game-container`} className={`preloading-${isPreloading}`}>
+          <div id="game">
+            {!this.state.isOnMobile && (
+              <img
+                id="frame"
+                src={`${process.env.PUBLIC_URL}/img/frameSmaller.png`}
+                alt=""
+              ></img>
+            )}
+            {!this.state.isOnMobile && (
+              <div id="ratchelor2">
+                Stay tuned for The Ratchelor 2, coming this Valentine's Day!{" "}
+              </div>
+            )}
+            {safariMsg}
 
-          <MusicManager
-            setCallPlaySound={this.setCallPlaySound}
-            phase={this.state.gameStage}
-            finalRat={this.finalRat}
-            currentRatIdx={this.state.currentRatIdx}
+            <div id="interludeContainer">
+              {/* <div id="interlude" style={{ bottom: this.state.interludeBottom }}> */}
+              {this.state.isOnMobile && (
+                <div className="black-background screen"></div>
+              )}
+              <div className="hide-overflow screen">
+                <div id="interlude" className={`${this.state.curtainsClass}`}>
+                  <div id="interludeText">{this.state.interludeText}</div>
+                </div>
+              </div>
+              {screen}
+            </div>
+
+            <MusicManager
+              setCallPlaySound={this.setCallPlaySound}
+              phase={this.state.gameStage}
+              finalRat={this.finalRat}
+              currentRatIdx={this.state.currentRatIdx}
+              volume={this.state.volume}
+            />
+            <SoundEffectController
+              volume={this.state.volume}
+              setPlayRoseSound={this.setPlayRoseSound}
+              setPlayCricketsSound={this.setPlayCricketsSound}
+              setPlayBadActionSound={this.setPlayBadActionSound}
+              setPlayNewRoundSound={this.setPlayNewRoundSound}
+              setPlaySelectAnswer={this.setPlaySelectAnswer}
+              setPlayHarpSound={this.setPlayHarpSound}
+              setPlayTromboneSound={this.setPlayTromboneSound}
+              setPlayTap={this.setPlayTap}
+              setPlayChachingSound={this.setPlayChachingSound}
+              setPlayDingSound={this.setPlayDingSound}
+              setPlayMetalSound={this.setPlayMetalSound}
+              setPlayTadaSound={this.setPlayTadaSound}
+              setPlayChimesSound={this.setPlayChimesSound}
+              setPlayWobbleSound={this.setPlayWobbleSound}
+            />
+          </div>
+          <GameOptions
             volume={this.state.volume}
-          />
-          <SoundEffectController
-           volume={this.state.volume}
-          setPlayRoseSound={this.setPlayRoseSound}
-          setPlayCricketsSound={this.setPlayCricketsSound}
-          setPlayBadActionSound={this.setPlayBadActionSound}
-          setPlayNewRoundSound={this.setPlayNewRoundSound}
-          setPlaySelectAnswer={this.setPlaySelectAnswer}
-          setPlayHarpSound={this.setPlayHarpSound}
-          setPlayTromboneSound={this.setPlayTromboneSound}
-          setPlayTap={this.setPlayTap}
-          setPlayChachingSound={this.setPlayChachingSound}
-          setPlayDingSound={this.setPlayDingSound}
-          setPlayMetalSound={this.setPlayMetalSound}
-          setPlayTadaSound={this.setPlayTadaSound}
-          setPlayChimesSound={this.setPlayChimesSound}
-          setPlayWobbleSound={this.setPlayWobbleSound}
+            changeVolume={this.changeVolume}
+            isOnMobile={this.state.isOnMobile}
           />
         </div>
-        <GameOptions
-          volume={this.state.volume}
-          changeVolume={this.changeVolume}
-        />
-        
       </div>
     );
   }

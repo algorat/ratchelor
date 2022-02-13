@@ -1,0 +1,531 @@
+:root {
+  --mobile-button-text-size: 1.8rem;
+  --mobile-h2: 1.8rem;
+  --mobile-h2-line-height: 2.2rem;
+  --mobile-body: 1.2rem;
+  --mobile-body-line-height: 1.4rem;
+}
+
+@media (max-height: 360px) {
+  :root {
+    --mobile-body: 0.9rem;
+    --mobile-h2: 1.1rem;
+    --mobile-button-text-size: 1.3rem;
+  }
+}
+
+/*------------ BASE STYLES ----------------*/
+.mobile {
+  font-size: var(--mobile-body);
+  line-height: 130%;
+  font-family: 'Yusei Magic', sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+.mobile #game-container {
+  height: 100%;
+  width: 100%;
+}
+
+.mobile #game {
+  height: 100%;
+  width: 100%;
+}
+
+.mobile .screen {
+  height: 100% !important;
+  width: auto !important;
+  aspect-ratio: 900 / 675;
+  border: 4px solid #b29261;
+  flex-shrink: 0;
+}
+
+.mobile .mobile-wrapper {
+  flex-grow: 1;
+  padding: 8px;
+  z-index: 100;
+  max-width: 40vw;
+}
+
+.mobile .unselect {
+  filter: grayscale(1);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.mobile .column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile h2 {
+  font-size: var(--mobile-h2);
+  margin: 8px 0px;
+  line-height: calc(1.2 * var(--mobile-h2));
+  text-align: center;
+  font-family: 'Sofia';
+}
+
+.mobile p {
+  margin: 10px 0px;
+}
+
+.mobile button {
+  margin: 0px !important;
+  font-size: var(--mobile-button-text-size) !important;
+  line-height: calc(1.2 * var(--mobile-button-text-size));
+  border: 0;
+  color: white !important;
+  background-color: #bf8c40 !important;
+}
+
+.mobile .controls-wrapper {
+  border: 3px solid #b35468;
+  background-color: #fbe6e5;
+  width: 100%;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+  position: relative;
+  color: #b35468;
+}
+
+.mobile .controls-wrapper .controls-wrapper__header {
+  background-color: #b35468;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  text-align: center;
+  flex-grow: 0;
+  color: white;
+}
+
+.mobile .controls-wrapper .controls-wrapper__header h2 {
+  font-size: var(--mobile-body);
+  color: white !important;
+}
+
+.mobile .controls-wrapper .controls-wrapper__body {
+  color: #b35468;
+  padding: 12px;
+  flex-grow: 1;
+  line-height: var(--mobile-body-line-height);
+  text-align: center;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile .controls-wrapper__body img {
+  max-height: 25vh;
+}
+
+.mobile .controls-wrapper__body--row {
+  flex-direction: row;
+}
+
+.mobile .controls-wrapper__body--col {
+  flex-direction: column;
+}
+
+.mobile #button-container {
+  height: auto;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mobile #button-container button {
+  border: 4px solid #b29261;
+  font-family: 'Sofia';
+  color: #836232 !important;
+  font-size: 20px;
+  background-color: #ffda57 !important;
+  flex-grow: 0;
+}
+
+/*------------ INTRO SCREEN ----------------*/
+.mobile #introScreen button {
+  font-size: 64px !important;
+  padding: 24px !important;
+}
+
+.mobile #introScreen #loadingText {
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+/*------------ RAT SELECT ----------------*/
+.mobile #ratSelectScreen #ratListContainer {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background-color: #fbe6e5;
+  margin-top: 0px;
+  align-items: center;
+}
+
+.mobile #ratSelectScreen #ratContainer {
+  width: auto;
+  height: auto;
+  aspect-ratio: 13/15;
+}
+
+.mobile #ratSelectScreen #ratContainer .ratListItem {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.mobile #ratSelectScreen .ratFrameArrow {
+  position: absolute;
+  width: 200%;
+  margin-left: -50%;
+  margin-top: -50%;
+  aspect-ratio: 1;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.mobile #ratSelectScreen .ratFrame {
+  filter: grayscale(1);
+}
+
+.mobile #ratSelectScreen .selectedRat .ratFrame {
+  filter: grayscale(0);
+}
+
+.mobile #ratSelectScreen .selectedRat .ratHearts {
+  filter: grayscale(0);
+}
+/* 
+.mobile #ratSelectScreen .ratFrame.ratFrameActive {
+  animation: pulse ease-in 0.2s;
+}
+
+.mobile #ratSelectScreen .ratHearts.ratFrameActive {
+  animation: pulse ease-in 0.2s;
+  transform: scale(1.3);
+} */
+
+.mobile #ratSelectScreen .ratPic {
+  filter: none;
+}
+
+.mobile #ratSelectScreen .ratHearts {
+  filter: grayscale(1);
+}
+
+.mobile #ratSelectScreen .controls-wrapper__body h2 {
+  font-family: 'Sofia';
+}
+
+/*------------ TALKING TO RATS ----------------*/
+.mobile #talkingToRatsScreen #ratDialogue {
+  font-size: var(--mobile-body);
+  padding: 16px;
+  width: 100%;
+}
+
+.mobile #talkingToRatsScreen #ratName {
+  font-size: var(--mobile-body);
+}
+
+.mobile #responses {
+  flex-direction: column;
+}
+
+.mobile #responses > button {
+  margin-bottom: 8px !important;
+  font-size: var(--mobile-body) !important;
+  padding: 0.5em;
+  line-height: calc(1.2 * var(--mobile-body));
+}
+
+.mobile #responses > *:last-child {
+  margin-bottom: 0px !important;
+}
+
+.mobile #responses h2 {
+  font-family: 'Yusei Magic';
+  font-size: var(--mobile-body);
+  line-height: calc(1.2 * var(--mobile-body));
+  color: #c44663;
+  font-style: italic;
+  margin-bottom: 2em;
+}
+
+/*------------ ROSE CEREMONY ----------------*/
+.mobile #roseCeremonyScreen #bouquet {
+  width: 100%;
+}
+
+.mobile #roseCeremonyScreen #ratListContainer {
+  width: 100%;
+  height: 80%;
+  top: 24px;
+  flex-wrap: nowrap;
+}
+
+.mobile #roseCeremonyScreen .roseCeremonySelectedArrow {
+  position: absolute;
+  height: 20vh;
+  aspect-ratio: 1;
+  left: -40%;
+  bottom: -15%;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.mobile .roseCeremonyWidePortrait {
+  height: 60px;
+  max-height: 13vh;
+}
+
+.mobile #roseCeremonyScreen .small {
+  height: 18vh;
+  width: auto;
+}
+
+.mobile #roseCeremonyScreen .medium {
+  height: 22vh;
+  width: auto;
+}
+
+.mobile #roseCeremonyScreen .med-large {
+  height: 32vh;
+  width: auto;
+}
+
+.mobile #roseCeremonyScreen .large {
+  height: 40vh;
+  width: auto;
+}
+
+.mobile #roseCeremonyScreen #frontRow {
+  margin-top: -20px;
+  column-gap: 4px;
+}
+
+.mobile #ratListContainer #backRow {
+  column-gap: 8px;
+}
+
+.mobile .middleRow {
+  margin: 0;
+}
+
+/*------------ ANIME ENDING ----------------*/
+.mobile #epilogueButton {
+  position: relative;
+  top: auto;
+  right: auto;
+}
+
+.mobile .controls-wrapper #anime-ending {
+  padding: 8px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+/*------------ SPECIAL ENDING ----------------*/
+.mobile #SpecialEndingScreen #endingButtonContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile #endingButtonContainer button {
+  margin-bottom: 8px !important;
+}
+
+.mobile #specialBg {
+  width: 100%;
+}
+
+.mobile .special-ending-description {
+  z-index: 100;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  background-color: rgb(253, 237, 238);
+  color: rgb(114, 63, 65);
+  border-top: 2px solid rgb(114, 63, 65);
+  padding: 1em 0px;
+}
+
+.mobile #SpecialEndingScreen .ratNameContainer {
+  border: none;
+  background-color: transparent;
+}
+
+.mobile #SpecialEndingScreen .ratFrame {
+  filter: grayscale(1);
+}
+
+.mobile #SpecialEndingScreen .ratFrame.selected {
+  filter: grayscale(0);
+}
+
+.mobile #SpecialEndingScreen #ratContainer {
+  width: 25%;
+  margin: 0;
+}
+
+.mobile #SpecialEndingScreen .ratListItem {
+  width: 100%;
+  height: auto;
+  padding: 0;
+}
+
+.mobile #SpecialEndingScreen .ratPic {
+  width: 100%;
+}
+
+.mobile #SpecialEndingScreen #ratListContainer {
+  padding-bottom: 50px;
+  height: 100%;
+}
+
+/*---------- INTERLUDE -----------*/
+.mobile #interlude {
+  width: 100%;
+  height: 110%;
+  background-position: bottom;
+}
+
+.mobile #interlude #interludeText {
+  font-size: var(--mobile-h2);
+  margin-top: 20%;
+}
+
+.mobile #interludeContainer {
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+}
+
+.mobile .curtainsOff {
+  bottom: 110%;
+}
+
+.mobile .curtainsIn {
+  bottom: -5%;
+}
+
+.mobile .curtainsOut {
+  bottom: 110%;
+}
+
+/*------- CHARACTER SELECT -------*/
+.mobile #custom-character-row {
+  display: grid;
+  width: 95%;
+  margin-left: 2.5%;
+  column-gap: 8px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.mobile #custom-character-row .player-img {
+  width: auto;
+}
+
+.mobile #ratchelor-intro-title {
+  font-size: var(--mobile-h2) !important;
+  line-height: calc(1.2 * var(--mobile-h2));
+}
+
+.mobile #ratchelor-intro {
+  font-size: var(--mobile-body) !important;
+  width: 90%;
+}
+
+.mobile #introScreen {
+  height: 100%;
+  background-size: cover;
+}
+
+.mobile #hearts-header {
+  display: none;
+}
+
+/*------- PROPOSAL -------*/
+.mobile .propose-large {
+  max-height: 60%;
+  max-width: 60%;
+}
+
+.mobile .propose-med-large {
+  max-height: 55%;
+  max-width: 55%;
+}
+
+.mobile .propose-medium {
+  max-height: 45%;
+  max-width: 45%;
+}
+
+.mobile .propose-small {
+  max-height: 35%;
+  max-width: 35%;
+}
+
+.mobile #proposalScreen #proposingRat {
+  max-height: 50%;
+  max-width: 50%;
+  margin-bottom: -10%;
+}
+
+/*------------ OTHER STUFF ----------------*/
+.mobile #ratchelor2 {
+  position: fixed;
+  z-index: 10001;
+  text-align: left;
+  top: 0px;
+  width: 200px;
+  left: 0px;
+  margin-left: 0;
+  color: rgb(116, 94, 30);
+  font-family: 'Yusei Magic', sans-serif;
+  font-size: 20px;
+}
+
+.portrait-warning {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: #ffe5e5;
+  z-index: 101;
+  font-size: var(--mobile-h2);
+  text-align: center;
+  line-height: var(--mobile-h2-line-height);
+  padding: 8px;
+  color: #873246;
+}
+
+.mobile .black-background {
+  z-index: -1;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#game-options-mobile {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 10001;
+}

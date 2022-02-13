@@ -1,7 +1,8 @@
 import React from "react";
-import ReactionAnimation from './ReactionAnimation'
+import ReactionAnimation from "./ReactionAnimation";
 import responsesJson from "../responses.json";
 import soundsToActionsJson from "../soundsToActions.json";
+import MobileWrapper from "./MobileWrapper";
 
 class TalkingToRats extends React.Component {
   constructor(props) {
@@ -34,17 +35,17 @@ class TalkingToRats extends React.Component {
       ratImgsLoaded: false,
     };
   }
-  
+
   ratImgLoaded() {
     this.numRatImgsLoaded++;
     if (this.numRatImgsLoaded === this.activeRats.length) {
-      this.setState({ratImgsLoaded: true}, () => {
+      this.setState({ ratImgsLoaded: true }, () => {
         if (this.sendFirstRatTimeout === null) {
           this.sendFirstRatTimeout = window.setTimeout(() => {
             this.sendRatIn();
           }, this.props.startDelay);
         }
-      })
+      });
     }
   }
 
@@ -52,14 +53,14 @@ class TalkingToRats extends React.Component {
     // Preload timeout if images don't load in 3.8s
     window.setTimeout(() => {
       if (!this.state.ratImgsLoaded) {
-        this.setState({ratImgsLoaded: true}, () => {
+        this.setState({ ratImgsLoaded: true }, () => {
           if (this.sendFirstRatTimeout === null) {
             this.sendFirstRatTimeout = 1;
             this.sendRatIn();
           }
         });
       }
-    }, 4500)
+    }, 4500);
 
     for (let i = 0; i < this.activeRats.length; i++) {
       const activeRat = this.activeRats[i];
@@ -100,56 +101,74 @@ class TalkingToRats extends React.Component {
       if (soundsToActionsJson[sound].includes(rxn)) {
         rxnSound = sound;
       }
-    })
+    });
     this.rxnSound = rxnSound;
-
   }
 
-  startReaction(responseReaction, props){
-    this.setState({ responses: "", incr: 1, reacting: true, lastActiveRat: this.state.ratIndex , currReaction: responseReaction});
+  startReaction(responseReaction, props) {
+    this.setState({
+      responses: "",
+      incr: 1,
+      reacting: true,
+      lastActiveRat: this.state.ratIndex,
+      currReaction: responseReaction,
+    });
     this.playReactionSound(responseReaction, props);
-    this.reactionTimeout = window.setTimeout(() => this.sendRatOut(), 1500)
+    this.reactionTimeout = window.setTimeout(() => this.sendRatOut(), 1500);
   }
 
   sendRatIn() {
-    this.setState({currReaction: null})
-    this.getRandomResponses();   
-    document.getElementById("dialogueContainer").classList.remove("leavingDialogue");
-    document.getElementById(`ratImg${this.state.ratIndex}`).classList.add("enteringRat");
-    document.getElementById("dialogueContainer").classList.add("enteringDialogue");
+    this.setState({ currReaction: null });
+    this.getRandomResponses();
+    document
+      .getElementById("dialogueContainer")
+      .classList.remove("leavingDialogue");
+    document
+      .getElementById(`ratImg${this.state.ratIndex}`)
+      .classList.add("enteringRat");
+    document
+      .getElementById("dialogueContainer")
+      .classList.add("enteringDialogue");
     window.setTimeout(this.startTextMoving.bind(this), 800);
   }
 
   sendRatOut() {
-    document.getElementById(`ratImg${this.state.ratIndex}`).classList.remove("enteringRat");
-    document.getElementById("dialogueContainer").classList.remove("enteringDialogue");
-    document.getElementById(`ratImg${this.state.ratIndex}`).classList.add("leavingRat");
-    document.getElementById("dialogueContainer").classList.add("leavingDialogue");
-    window.setTimeout( () => {
-      this.setState({ reacting: false, charsRevealed: 0, ratDialogue: "..." }, 
-          () => this.setNextRat()
-        );
+    document
+      .getElementById(`ratImg${this.state.ratIndex}`)
+      .classList.remove("enteringRat");
+    document
+      .getElementById("dialogueContainer")
+      .classList.remove("enteringDialogue");
+    document
+      .getElementById(`ratImg${this.state.ratIndex}`)
+      .classList.add("leavingRat");
+    document
+      .getElementById("dialogueContainer")
+      .classList.add("leavingDialogue");
+    window.setTimeout(() => {
+      this.setState(
+        { reacting: false, charsRevealed: 0, ratDialogue: "..." },
+        () => this.setNextRat()
+      );
     }, 800);
   }
 
   startTextMoving() {
-      this.textInterval = window.setInterval(() => {
-        let ratDialogue = this.activeRats[this.state.ratIndex].dialogue[
-          this.props.round
-        ].substring(0, this.state.charsRevealed);
-        this.setState({ratDialogue});
-        let charsRevealed = this.state.charsRevealed + 1;
-        if (
-          charsRevealed >
-          this.activeRats[this.state.ratIndex].dialogue[this.props.round].length
-        ) {
-          window.clearInterval(this.textInterval);
-        } else {
-          this.setState({ charsRevealed });
-        }
-      }, this.charSpeed);
-  
-    
+    this.textInterval = window.setInterval(() => {
+      let ratDialogue = this.activeRats[this.state.ratIndex].dialogue[
+        this.props.round
+      ].substring(0, this.state.charsRevealed);
+      this.setState({ ratDialogue });
+      let charsRevealed = this.state.charsRevealed + 1;
+      if (
+        charsRevealed >
+        this.activeRats[this.state.ratIndex].dialogue[this.props.round].length
+      ) {
+        window.clearInterval(this.textInterval);
+      } else {
+        this.setState({ charsRevealed });
+      }
+    }, this.charSpeed);
   }
 
   setNextRat() {
@@ -170,22 +189,21 @@ class TalkingToRats extends React.Component {
   }
 
   getRandomResponses() {
-
-    // Make sure we get random, different responses 
+    // Make sure we get random, different responses
     const numResponses = 3;
-  
+
     //gets index of rat
-    let currentRat = this.activeRats[this.state.ratIndex]
+    let currentRat = this.activeRats[this.state.ratIndex];
     //gets rat filename
-    let currentRatFilename = currentRat["filename"]
+    let currentRatFilename = currentRat["filename"];
     //grabs dialogue index
-    let currentIndex = this.props.round
+    let currentIndex = this.props.round;
 
     //all reaction/response couples for all rounds of chit-chat
-    let currentRatResponses = responsesJson[currentRatFilename]
+    let currentRatResponses = responsesJson[currentRatFilename];
 
     //responses for current spoken dialogue only
-    let currentRatResponseOptions = currentRatResponses[currentIndex]
+    let currentRatResponseOptions = currentRatResponses[currentIndex];
 
     currentRatResponseOptions.sort(() => 0.5 - Math.random());
 
@@ -195,32 +213,33 @@ class TalkingToRats extends React.Component {
       let responseText = currentRatResponseOptions[i].response;
       let responseReaction = currentRatResponseOptions[i].reaction;
       let responseDiv = (
-        <button onClick={
-          () => {this.submitResponse.bind(this)(responseReaction, this.props); 
-                  this.props.playSelectAnswer();
+        <button
+          onClick={() => {
+            this.submitResponse.bind(this)(responseReaction, this.props);
+            this.props.playSelectAnswer();
 
-                  if (this.rxnSound === "crickets") {
-                    this.props.playCricketsSound();
-                  } else if (this.rxnSound === "harp") {
-                    this.props.playHarpSound();
-                  } else if (this.rxnSound === "ding") {
-                    this.props.playDingSound();
-                  } else if (this.rxnSound === "metal") {
-                    this.props.playMetalSound();
-                  } else if (this.rxnSound === "chaching") {
-                    this.props.playChachingSound();
-                  } else if (this.rxnSound === "wobble") {
-                    this.props.playWobbleSound();
-                  } else if (this.rxnSound === "chimes") {
-                    this.props.playChimesSound();
-                  } else if (this.rxnSound === "womp") {
-                    this.props.playTromboneSound();
-                  } else if (this.rxnSound === "tada") {
-                    this.props.playTadaSound();
-                  }
-                }
-          } key={i}>
-
+            if (this.rxnSound === "crickets") {
+              this.props.playCricketsSound();
+            } else if (this.rxnSound === "harp") {
+              this.props.playHarpSound();
+            } else if (this.rxnSound === "ding") {
+              this.props.playDingSound();
+            } else if (this.rxnSound === "metal") {
+              this.props.playMetalSound();
+            } else if (this.rxnSound === "chaching") {
+              this.props.playChachingSound();
+            } else if (this.rxnSound === "wobble") {
+              this.props.playWobbleSound();
+            } else if (this.rxnSound === "chimes") {
+              this.props.playChimesSound();
+            } else if (this.rxnSound === "womp") {
+              this.props.playTromboneSound();
+            } else if (this.rxnSound === "tada") {
+              this.props.playTadaSound();
+            }
+          }}
+          key={i}
+        >
           {responseText}
         </button>
       );
@@ -233,37 +252,68 @@ class TalkingToRats extends React.Component {
   render() {
     let ratDialogue = this.state.ratDialogue;
     if (this.state.currReaction) {
-      ratDialogue = <img id="dialogueImg" alt="dialogue emoji" src={`/ratchelor/img/Reactions/${this.state.currReaction}.PNG`}></img>
+      ratDialogue = (
+        <img
+          id="dialogueImg"
+          alt="dialogue emoji"
+          src={`${process.env.PUBLIC_URL}/img/Reactions/${this.state.currReaction}.PNG`}
+        ></img>
+      );
     }
     if (ratDialogue.length === 0) ratDialogue = "...";
     return (
-      <div id="talkingToRatsScreen" className="screen">
-        <img
-          id="playerRat"
-          alt="you as a rat, on the couch"
-          src={this.props.playerRatUrl}
-        ></img>
-        <div id="allRats">{this.ratImgs}</div>
-        <div id="talkingRatContainer">
-
-        { this.state.reacting && 
-          <ReactionAnimation 
-            emote={<img alt="" src={`/ratchelor/img/Reactions/${this.state.currReaction}.PNG`}/>}
-            left={this.activeRats[this.state.lastActiveRat].reaction_pos[0] * 100}
-            top={this.activeRats[this.state.lastActiveRat].reaction_pos[1] * 100}
-          />}
-        </div>
-        <div id="dialogueContainer">
-          <div id="ratName">{this.activeRats[this.state.ratIndex].name}</div>
-          <div id="textDialogueContainer">
-            <div id="ratDialogue"> {ratDialogue}</div>
-            <div id="responses">
-                {this.state.responses}
+      <>
+        <div id="talkingToRatsScreen" className="screen">
+          <div className="hide-overflow">
+            <img
+              id="playerRat"
+              alt="you as a rat, on the couch"
+              src={this.props.playerRatUrl}
+            ></img>
+            <div id="allRats">{this.ratImgs}</div>
+            <div id="talkingRatContainer">
+              {this.state.reacting && (
+                <ReactionAnimation
+                  emote={
+                    <img
+                      alt=""
+                      src={`${process.env.PUBLIC_URL}/img/Reactions/${this.state.currReaction}.PNG`}
+                    />
+                  }
+                  left={
+                    this.activeRats[this.state.lastActiveRat].reaction_pos[0] *
+                    100
+                  }
+                  top={
+                    this.activeRats[this.state.lastActiveRat].reaction_pos[1] *
+                    100
+                  }
+                />
+              )}
             </div>
-           </div>
+            <div id="dialogueContainer">
+              <div id="ratName">
+                {this.activeRats[this.state.ratIndex].name}
+              </div>
+              <div id="textDialogueContainer">
+                <div id="ratDialogue"> {ratDialogue}</div>
+                {!this.props.isOnMobile && (
+                  <div id="responses">{this.state.responses}</div>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
-        
-      </div>
+        {this.props.isOnMobile && (
+          <MobileWrapper
+            controlsStyled={true}
+            header={"What will you say in response?"}
+            bodyId={"responses"}
+          >
+            {this.state.responses}
+          </MobileWrapper>
+        )}
+      </>
     );
   }
 }
