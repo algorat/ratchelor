@@ -2,6 +2,10 @@ import React from "react";
 import MobileWrapper from "./MobileWrapper";
 import arrow from "../img/arrow-500.png";
 
+const roseSuffix = '-rose.png'
+const roseSadSuffix = '-sad.png'
+
+
 class RoseCeremony extends React.Component {
   constructor(props) {
     super(props);
@@ -12,9 +16,11 @@ class RoseCeremony extends React.Component {
     this.activeRats = [];
     this.backRowRats = [];
     this.frontRowRats = [];
+    this.roundNum = props.roundNum;
 
     this.state = {
       selectedRats: [],
+      deselectedRats: [],
       giveRosesButton: "",
       instructions: `Choose ${this.props.numRoses} to continue`,
       middleRowClass: "",
@@ -140,11 +146,16 @@ class RoseCeremony extends React.Component {
 
   // When a rat is clicked
   selectRat(ratName, id) {
+    console.log(ratName, id)
     // Get the element for the current rat button
     const element = document.getElementById(id);
 
     // If it's already chosen, deselect it
     if (this.state.selectedRats.indexOf(ratName) !== -1) {
+      let newdeSelectedRats = this.state.deselectedRats;
+      newdeSelectedRats.push(ratName);
+      element.classList.add("deselectedRat");
+
       const index = this.state.selectedRats.indexOf(ratName);
       const newSelectedRats = this.state.selectedRats;
       newSelectedRats.splice(index, 1);
@@ -166,6 +177,14 @@ class RoseCeremony extends React.Component {
     newSelectedRats.push(ratName);
     element.classList.add("selectedRat");
     this.props.playTap();
+    // check if it was sad and remove that pic if it was sad
+    if (this.state.deselectedRats.indexOf(ratName) !== -1) {
+      const index = this.state.deselectedRats.indexOf(ratName);
+      const newdeSelectedRats = this.state.deselectedRats;
+      newdeSelectedRats.splice(index, 1);
+      this.setState({ deselectedRats: newdeSelectedRats });
+      element.classList.remove("deselectedRat");
+    }
 
     // If that was the final rat, display the advance button
     if (this.state.selectedRats.length === this.numRoses) {
@@ -208,8 +227,18 @@ class RoseCeremony extends React.Component {
     let backRatsList = [];
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.backRowRats.length; i++) {
-      let filename = `${process.env.PUBLIC_URL}/img/Characters/${this.backRowRats[i].filename}.png`;
-      let roseFilename = `${process.env.PUBLIC_URL}/img/Characters/roses/${this.backRowRats[i].filename}.png`;
+      const activeRat = this.backRowRats[i];
+      const baseName = activeRat.filename;
+      let filename = `/ratchelor/img/Characters/${baseName}.png`;
+      let roseFilename = `/ratchelor/img/Characters/${baseName}${roseSuffix}`;
+      let sadFilename = `/ratchelor/img/Characters/${baseName}${roseSadSuffix}`;
+
+      if (activeRat.rose_ceremony_filename && this.roundNum < activeRat.rose_ceremony_filename.length) {
+        const baseFilename = activeRat.rose_ceremony_filename[this.roundNum];
+        filename = `/ratchelor/img/Characters/${baseFilename}.png`;
+        roseFilename = `/ratchelor/img/Characters/${baseFilename}${roseSuffix}`;
+        sadFilename = `/ratchelor/img/Characters/${baseFilename}${roseSadSuffix}`;
+      }
       backRatsList.push(
         <div
           key={i}
@@ -235,6 +264,11 @@ class RoseCeremony extends React.Component {
               src={roseFilename}
               alt="a rat waiting for you to make a decision"
             />
+            <img
+              className={`ratPic sadRatPic  ${this.backRowRats[i].size}`}
+              src={sadFilename}
+              alt="a sad rat"
+            />
             {!this.props.isOnMobile && (
               <div className="hoverText" alt="info about the rat">
                 {this.backRowRats[i].name}
@@ -255,8 +289,18 @@ class RoseCeremony extends React.Component {
     let frontRatsList = [];
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.frontRowRats.length; i++) {
-      let filename = `${process.env.PUBLIC_URL}/img/Characters/${this.frontRowRats[i].filename}.png`;
-      let roseFilename = `${process.env.PUBLIC_URL}/img/Characters/roses/${this.frontRowRats[i].filename}.png`;
+      const activeRat = this.frontRowRats[i];
+      const baseName = activeRat.filename;
+      let filename = `/ratchelor/img/Characters/${baseName}.png`;
+      let roseFilename = `/ratchelor/img/Characters/${baseName}${roseSuffix}`;
+      let sadFilename = `/ratchelor/img/Characters/${baseName}${roseSadSuffix}`;
+
+      if (activeRat.rose_ceremony_filename && this.roundNum < activeRat.rose_ceremony_filename.length) {
+        const baseFilename = activeRat.rose_ceremony_filename[this.roundNum];
+        filename = `/ratchelor/img/Characters/${baseFilename}.png`;
+        roseFilename = `/ratchelor/img/Characters/${baseFilename}${roseSuffix}`;
+        sadFilename = `/ratchelor/img/Characters/${baseFilename}${roseSadSuffix}`;
+      }
 
       frontRatsList.push(
         <div
@@ -288,6 +332,11 @@ class RoseCeremony extends React.Component {
               className={`ratPic ratWithRosePic ${this.frontRowRats[i].size}`}
               src={roseFilename}
               alt="a rat waiting for you to make a decision"
+            />
+            <img
+              className={`ratPic sadRatPic  ${this.backRowRats[i].size}`}
+              src={sadFilename}
+              alt="a sad rat"
             />
             {!this.props.isOnMobile && (
               <div className="hoverText" alt="info about the rat">

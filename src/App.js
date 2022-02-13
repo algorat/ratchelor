@@ -542,6 +542,7 @@ class RatchelorGame extends React.Component {
           round={this.state.roundNum}
           startDelay={1000}
           isOnMobile={this.state.isOnMobile}
+          roundNum={this.state.roundNum}
           playSelectAnswer={this.playSelectAnswer}
           playCricketsSound={this.playCricketsSound}
           playTromboneSound={this.playTromboneSound}
@@ -576,6 +577,7 @@ class RatchelorGame extends React.Component {
           getRatByName={this.getRatByName}
           playRoseSound={this.playRoseSound}
           playTap={this.playTap}
+          roundNum={this.state.roundNum}
           playSelectAnswer={this.playSelectAnswer}
           playBadActionSound={this.playBadActionSound}
           isOnMobile={this.state.isOnMobile}
