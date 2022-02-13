@@ -2,63 +2,66 @@
     {
         "name": "Zippy",
         "dialogue": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Oh hello!!! <b>test tets </b> I am so excited to meet you!!! I’m Zippy…….. \n…\n.\n..\nOh Sorry was I just staring at you? I look at your face and I can’t help but smile!!",
+            "I have the BEST luck. Look at this necklace I found! It’s so pretty! Not like the last necklace I found, it turned out to be cursed! This one seems to be curse free so far :D",
+            "Oh gosh!! ! Golly ! Don’t tickle meeeeHONKSSSSQUEEEEEE HONKSQUEEEEEEE. \nOpp! Sorry about that honk-squee! Turns out this necklace was a bit cursed, but not too bad this time! \nI want to look my best for the cutest rat in town (you)!",
+            "Tee hee! If I had magic powers, I would make little hearts come out of my head and float around! That’s how I feel right now.",
+            "I don’t know if you’ve noticed but the reason I’m pink is because I like you so much! My fur isn’t actually pink but it looks pink because I’m blushing!! No it’s not a health issue :) Luckily! Ha Ha! I forgot to renew my health insurance, so its just me lucking out again. \nAnyways, I’ve had the BEST luck, I made it this far! I keep all the roses you give me and I am making a crown for you!",
+            "Wow! This is as the prophecy foretold: \nThe fur will get increasingly pink \nUntil you find your one true link \nThe curse only lifted when they propose \nAnd are presented with a crown of rose! \nOh it’s not part of the first necklace curse I mentioned, this curse I’ve had for a while from when I accidentally took a witch’s snow cone! Happy to break the curse with YOU!"
         ],
         "has_different_versions":false,
-        "tagline": "wheeeEEEEEE",
+        "tagline": "I'm trying something new with my socks",
         "filename": "zippy",
         "size": "medium",
         "ending": "POP",
-        "reaction_pos": [0.22, 0.12]
+        "reaction_pos": [0.22, 0.12],
+        "zodiac": "Aries"
     },
     {
         "name": "Le Pix",
         "dialogue": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Wow, your fur looks really natural. My fur is all natural too. Would you like to scavange with me sometime?",
+            "SQUEAK SQUEAK! I’ve heard our ancestors used to make “squeaking” sounds to communicate with one another. That’s how us rats evolved. SQUEAK! If you squeak loudly enough, your ancestors can hear!",
+            "What’s this seat made of anyway? It feels like a polyester blend, I have really sensitive toes because I walk around barefoot a lot. I read it makes your feet stronger.",
+            "Squeak squeaAAAk WOOF woof squeak squeeeeak WOOF squeak SQUEEEEEAK. That was an ancient dialect known as “squeakish”. Would you like to try squeaking together? It would mean a lot to me.",
+            "I was wondering if you like to burrow? It’s this thing where you take your arms and move the dirt around. I really like burrowing, I know it’s kind of “uncool” to burrow these days but it makes me feel so strong and powerful. We could try it together sometime.",
+            "YES, I LOVE YOU!!! SQUEAK from the rooftops! Squeak squeak squeak all the way home! I’ve never squeaked so powerfully in my life! Ancestors, do you hear me? SQUEEEEEEEEEEAAAAAKKK"
         ],
         "has_different_versions":false,
-        "tagline": "",
+        "tagline": "SQUEAK?",
         "filename": "lepix",
         "size": "medium",
         "ending": "CHEERFUL",
-        "reaction_pos": [0.23, 0.29]
+        "reaction_pos": [0.23, 0.29],
+        "zodiac":"Aquarius"
     },
     {
         "name": "Fizzywig",
         "dialogue": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Oh my gosh… please stop walking sideways… it reminds me of a crab… omg just thinking about it makes me…. ",
+            "Yeeeeshhh I’m tired …. Didn’t get much sleep last night... got home late and then stayed up jamming with the band, we are going pro… kind of have a headache now…\n Also kinda second guessing my new haircut.",
+            "Hey uhh are you okay? You seem a little… I dunno... Never mind… as long as you aren’t… evolving into a crab or something i dunno. Do you have an advil?",
+            "Ah the office was sticky today, like muggy, you know? Because I’m the new rat they gave me the musty desk. Oh yeah the Band isn’t going pro anymore I just really needed more stability so I got this day job, not really sure what i'm doing yet. It’s helping me finance my haircut, it was $500. The Band still practices on Sundays together, if you want to join!\n ",
+            "I quit my day job to focus more on my diving. I want to become a deep sea cave diver, I haven’t been diving much outside of the class I teach. I have been letting my fear of crabs/Carcinisation* get the best of me. I am ready to rewire my brain to function in life, through staying present!! I want to be present with you here. Just us surrounded by nothing but the vast ocean with maybe a little bit of crabs… oh no… hold on one second…. I gotta change the subject. My bandmate says he knows you! \n *Carcinisation is a frequently occurring convergent evolution in which a non-crab species evolves into a crab-like form",
+            "Hey uhh, dunno how to say this, but when I’m with you I feel a lot more accurate with my depth perception, or even like it doesn’t really matter how far away stuff is. Ya know there’s not many people I trust, but I really trust you. Look at this cool shell I found for you. I love you, let’s stroll down the beach together. Be careful though"
         ],
         "has_different_versions":false,
-        "tagline": "",
+        "tagline": "I have a bellyache :(",
         "filename": "fizzywig",
         "size": "medium",
         "ending": "PARIS",
-        "reaction_pos": [0.16, 0.134]
+        "reaction_pos": [0.16, 0.134],
+        "zodiac":"Libra"
     },
     {
         "name": "Moom",
         "dialogue": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Wow, hi… I knew you would be beautiful but I didn’t expect you to be so gorgeous I could barely think. Wow! Sorry, I promise I’m not always this awkward…",
+            "Oh these? These are some new plants that I’m growing. I carry them in my arms because the nutrients in my fur act as natural fertilizer. The warmth from my heart makes sure my plants grow big and tall with lots of love.",
+            "Wow, thank you for inviting me on another date. Can I tell you more about my hobbies? Every once in a while I find a worm when I’m gardening, and sometimes the worms are sick. That’s why I started my worm rescue, where I heal sick worms. ",
+            "I just got back from tending to the worms, and guess what? The worms threw a party for me! I couldn’t believe it. They have grown so strong and I get overwhelmed by how amazing they are. They sang a worm song about me! They make sound by rubbing their worm bristles against each other. It’s very quiet but it’s there! You want to meet them? They would love you…",
+            "Guess what! One of my flowers bloomed! I must really love you, because all of the love from my brain got sucked into this flower and it now has a beautiful blossom. I’ve never felt this way before, so calm and so loved.",
+            "Wow, I can’t believe it, all of my flowers bloomed! This has never happened before, I’m so happy and in love. This must be what it feels like to be with my soul mate. How beautiful! I love you!"
         ],
         "has_different_versions":true,
         "scene_filename":[
@@ -68,174 +71,184 @@
             "moom",
             "moom-rose"
         ],
-        "tagline": "",
+        "tagline": "Oh, hi! Do you like plants?",
         "filename": "moom",
         "size": "medium",
         "ending": "ROMANTICSAD",
-        "reaction_pos": [0.23, 0.14]
+        "reaction_pos": [0.23, 0.14],
+        "zodiac": "Cancer"
     },
     {
         "name": "Eggs",
         "dialogue": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Hmmmmmmmm… yes… I see what they meant when they talked about you. Well… I’ll have to make my own opinion I suppose. hmmmm….",
+            "Wow… you actually have a really calming presence. I feel like most other rats are screaming at me before I even sit down… but that might be because I’m sitting in the wrong seats. Anyway… you seem cool but I’ll have to keep thinking about it.",
+            "I go by Eggs on a day to day basis but I publish all my academic papers under the name Dr Eggplant - gives me more credibility in the field, sounds more professional, they never ask what I’m a doctor of though! Which is good since my doctorate program dealt with the effects of petroleum based artificial food dyes, with a focus on Triarylmethane, and how to make it as vibrant as possible. That’s not super related to the field I publish in now, but my research is as solid as a rock so I’ve never had a complaint. ",
+            "Guess who I brought to meet you: My siblings! Actually, I don’t know if you noticed but my twin, Goldenrod, stepped in for me on ‘our’ second date - unfortunately I couldn’t make it in time due to prior … commitments? We’re a tight knit family and always help each other out when we can. Back in primary school I always sat in for Goldo on exam days, and we both ended up Acing the class. Oh! And this is our taller sibling, they are thrilled to meet you, they’re a big fan of the show though! ",
+            "I wrote this manuscript for you. It’s comprised of a few volumes. This work lies at the intersection of biology, chemistry and poetry! My post doc studying under me say it’s my best work yet. The undergrads I teach laughed at it, but what do they know?",
+            "I LOVE YOU!  I’ve told everyone and they are thrilled, so excited to have you in the family! They even made the downpayment on a house for just the two of us, and then also paid it off in full! I know we only just got engaged, but they work fast"
         ],
         "has_different_versions":false,
-        "tagline": "You could say I'm sick... with love",
+        "tagline": "I dont agree with Camus assertation that understanding the universe would fail to make life more rich. I sequenced all structures of DNA that makes an egg and I thoroughly enjoy an egg every morning.",
         "filename": "eggs",
         "size": "medium",
         "ending": "ROMANTICSAD",
-        "reaction_pos":[0.285, 0.105]
+        "reaction_pos":[0.285, 0.105],
+        "zodiac": "Gemini"
     },
     {
         "name": "Boy Boy Mysterio",
         "dialogue": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "BADABING BADABOOM! It’s me! I’m here! Or am I? Maybe Im over there :O maybe I’m! … everywhere …. Or nowhere? Either way, I /might/ be here, but you’re definitely here cuz I see you with my eyes O_O",
+            "HEYYYy hey hey! Now ya see me, now ya don’t! Poof! Whadda ya know? I’m a part of the show! \n Follow me for all the updates on the hottest clubs around, \nFrom the hottest square dancing to the smokey lounge \nI got your night life covered \nI know the perfect spots for new lovers!",
+            "IDK if you have looked at my likes tab on twitter yet \nbut I am prepping for a really big bet! \nMe n my rat pals are getting in formation \nAt the club we are the next sensation \nJust ask Barron Hotlands & Jagadoo\n We are professionals! mystery is what we do",
+            "Whahoo! I’m lookin my best! Feelin even better and I’m taking a rest!!\nJust the other day I was roaming the night\nI put My inhibitions down I felt so light\nOnly then I can be the true me\nI take care of flowers like a little bee\nNo one knows this, dont tell anyone.\nThe next dark night would you like to join me?\nIn the community garden we will have all the fun.\n",
+            "WHOPPIE!!!!! WAHOOoeoooEOOII!\nAnyways, truth or dare? My truth is that I have 4 thumbs. Two on each finger, it’s not a secret, but i dont tell anyone. I’m not insecure about it though, everyone knows. Barron Hotlands said it was one of the more unique skeletal features of mine.",
+            "WOWIE. I can’t believe you chose me!\n I wore my fanciest outfi! This is a tie of my favorite rats, and these sunglasses I borrowed from jagadoo. The sparkling aura of love is so bright between us that I must shield my eyes so as not to damage my cornea. You my dear are my everything! My euphoria!"
         ],
         "has_different_versions":false,
-        "tagline": "",
+        "tagline": "BADABING BADABOOM!",
         "filename": "boyboymysterio",
         "size": "medium",
         "ending": "CHEERFUL",
-        "reaction_pos":[0.2, 0.1]
+        "reaction_pos":[0.2, 0.1],
+        "zodiac": "Scorpio"
     },
     {
         "name": "Barron Hotlands",
         "dialogue": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Hello! It is I! The great Barron Hotlands, a pleasure to make your acquaintance. You should be pleased to make mine as well, after all",
+            "Boy Boy Mysterio and I helped an old grandmother rat across the street the other day, and she was pleased to make our acquaintance, after all. :3 We invited her to stop by our vintage antique store for afternoon tea and now we call every other Sunday.",
+            "Boy Boy Mysterio and I have committed some nefarious deeds, if I do say so myself. Just the other day we.. *laughs*.. we… *giggling uncontrollably* switched out my mum’s nightstand brie with some swiss cheese with the holes filled in. She never even noticed! Oh, it was so amusing!",
+            "It has been such a pleasure to get to know you, I’m glad you approve of all my different pastimes and hobbies. You should join me and the group on one of our escapades. There's a party Friday night we were thinking of stoppingby, and when no one’s looking, we were gonna fill the cutlery drawer with 20$ bills.",
+            "Other rats can’t ever look at me directly because my sparkles are so blinding, but I can’t control them. You (and Boy Boy Mysterio) are the only one who’s ever looked at me directly. I feel that there is a spark between us, a flowering romance. Do you feel the same?  M’rat, I would treat you with love and respect if you choose me.",
+            "I wore this vest in honor of you. All the rats depicted on it are perfect. You are also perfect. Together? We are perfect. All my favorite rats are depicted on this vest. Me, you, Jagadoo, Boy Boy Mysterio, my father, my favorite cousin Slim Jim, you again of course. Here, I will knit you a matching one."
         ],
         "has_different_versions":false,
-        "tagline": "",
+        "tagline": "Boy Boy Mysterio and I are scheming up the next big thing.",
         "filename": "barronhotlands",
         "size": "medium",
         "ending": "FUNKY",
-        "reaction_pos":[0.214, 0.13]
+        "reaction_pos":[0.214, 0.13],
+        "zodiac": "Gemini"
     },
     {
         "name": "Moderna",
         "dialogue": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Hey ho, coolio. You look like you’d play a mean tune on the tambourine. I mean your whole vibe is rockin’ my world right now.",
+            "One day, I looked at my life and realized I wasn’t really livin’. I sold my house and bought a van, and now I travel with my kid. We have a family band and we sing folk songs for the townspeople.",
+            "I’ve gotta tell ya, there’s noooothing like road tripping down the coast. When the summer sun shines, I roll down the windows, hold my harmonica out the window, and let the wind play me a song.",
+            "Hey cool cat, if we’re gonna get reeeeal serious about each other, you need to meet the most important free spirit in my life: my kid. If you and I are gonna vibe, we’ve gotta alllll vibe together. You dig?",
+            "I’ve been thinking about the conversations we’ve been having. You know what? I really like you. You’re cool, down to earth, and make me smile.",
+            "Maaaaaan, when I came on this show, I didn’t realize I’d meet someone I vibe with the way you and I do. It’s like our vibes are on the same wavelength. I love you, I’m so excited for you to join the family baaaaand! Let’s go get you a rockin’ tambourine."
         ],
         "has_different_versions":false,
-        "tagline": "",
+        "tagline": "Hey man, cool vibes",
         "filename": "moderna",
         "size": "medium",
         "ending": "ROMANTICHAPPY",
-        "reaction_pos":[0.214, 0.13]
+        "reaction_pos":[0.214, 0.13],
+        "zodiac": "Taurus"
     },
     {
         "name": "Sharpie",
         "dialogue": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Do you play video games? I play a lot of games on my phone and my Tamagotchi. I always have to be ready to flee at any moment so I only purchase easy-to-transport items.",
+            "When Chrome Dino Game came out, you bet I was all over that game. I set WORLD records. No one really noticed, though. Being so invisible and lonely felt like I was being knifed in the heart, by a knife.",
+            "Nowadays I’m playing Rat Impact and I stream sometimes, if you want to tune in! Ummm! Not that I want you to, though, you should just do it if you’re curious. ",
+            "When I first started streaming, I didn’t have much of an audience, but I started streaming a game called Danganratpa and my channel really took off. Now I have a small community of regular followers who all know each other. I used to be alone, and it’s changed my life. Sometimes I still feel alone. But I’m always alert! Can’t let my guard down. And, I know I am never alone (ghosts).",
+            "It’s my life’s ambition to compete internationally in Rage of Rempires tournaments. I hear the rats on the Pacific Ocean Garbage Patch are really training at it so I need to work hard too. But lately I’ve been wondering... I used to be so focused on my work… Dating seemed so cringy without the comfort of a computer screen to protect me, but I think I could do it with you.",
+            "Oh! I made this crystal necklace for you. It has a bit of my energy in it. I already have one with some of yours. Is it okay? I wanted to do something but was having a really hard time figuring out what to do because I wanted it to be perfect for my one true love. I just know we’ll be together in life and after death."
         ],
         "has_different_versions":false,
-        "tagline": "",
+        "tagline": "I stream on Tuesdays and Sundays, oh and sometimes Thursdays when I’m not cleansing my aura.",
         "filename": "sharpie",
         "size": "medium",
         "ending": "INTENSE",
-        "reaction_pos":[0.25, 0.1358]
+        "reaction_pos":[0.25, 0.1358],
+        "zodiac": "Scorpio"
     },
     {
         "name": "Martine",
         "dialogue": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Wait – are you talking to me? I can’t believe it! You can actually see me? Most people just look right through me.",
+            "Honestly, I’m not sure how I wound up in this contest. I was having a lovely conversation with a raindrop and suddenly a gust of wind sucked me into the pipes. Thank you for choosing me, it means a lot.",
+            "People think being a ghost would be fun, but it’s kind of lonely actually. I mostly just fly around and visit people who are happy and in love. I’ve always wondered what it’s like to be in love.",
+            "Do you like to play chess? I’ve always thought it seemed like a lot of fun, but I never was able to wrap my mind around all the patterns. Maybe we could help each other learn",
+            "There’s something very important you need to know. If you choose to be with me, our true love will set my spirit free. My soul will leave this planet, and take its place among the stars. I love you. And if you love me the way I love you, then you’ll let me go.",
+            "I can’t believe it, you set me free! This is the best day of my life, I love you, I love you, I love you. I love you all the way to the moon and the stars. My heart is full of joy and adventure. I’m finally free, I’ll never forget you my love!"
         ],
         "has_different_versions":false,
-        "tagline": "",
+        "tagline": "Oh... were you looking at me?",
         "filename": "martine",
         "size": "medium",
         "ending": "INTENSE",
-        "reaction_pos":[0.34, 0.1367]
+        "reaction_pos":[0.34, 0.1367],
+        "zodiac": "Pices"
     },
     {
         "name": "Klaus von Maus",
         "dialogue": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Hallo, mein name ist Klaus. You are very beautiful. You remind me of Mount Zugspitze, it is very beaütiful, the resemblance is üncanny",
+            "Mein parents were shoemakers, and they made the best German clogs in all of Deutschland. I recently took over the shop myself. Do you like mein shoes? I can make yoü a pair…",
+            "I have maybe seven, maybe nine siblings, and of course my parents have siblings and their siblings have children who also have siblings, so theres a whole fest of us. The von Mauses. We are all trained in shoemakery. We get together and we machen the shuhe. Everyone works together to craft a single pair of shoes for one of us, but we go in order. My türn is next year. I am looking forward to it very müch.",
+            "One day I will take you to mount Zugspitze. We will ski the mountains together, with the von Maus family. You look like yoü would be a gut skier, very slidey down the hill… good for ski böots",
+            "My Great-great-great-great-great-great-grand-rats made shoes for Beethoven’s house mice! Our families have kept in touch and they are studying at Rat State now. I always bring them a fresh pretzel whenever I see them - I brought yoü one for yoü to eat while we talk, and one for myself so we can both eat together.",
+            "Ahh. I am in love with you. Ich liebe dich, as they say. I have made you this pretzel inspired by my love for you. Made of diamonds. A diamond pretzel for you, perfect in every way - even Cinderella would not be able to eat it, because it is for you. Welcome to the von Maus family!"
         ],
         "has_different_versions":false,
         "tagline": "",
         "filename": "klaus",
         "size": "medium",
         "ending": "PARIS",
-        "reaction_pos":[0.29, 0.1325]
+        "reaction_pos":[0.29, 0.1325],
+        "zodiac": "Aries"
     },
     {
         "name": "Empire",
         "dialogue": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "H i g h - f i v e ! !  Y e a h ! H e e H e e H a H a H a ,  i t   i s   m e ,   E M P I R E !   H o w   w o u l d   I   d e s c r i b e   m y s e l f   i n   o n e   w o r d ?   E n t r e p r e n e u r i a l  !",
+            "H o w   a m   I   s o   g o o d   a t   b u s i n e s s ?   M y   s u p e r p o w e r   i s   t h a t   I ’ m   a n   e m p a t h !",
+            "My friends and enemies call me BOSS !! L a s t  m o n t h  t h e  c o p s  r a i d e d  m y  b e a c h  h o u s e  b u t  d i d n ’ t   f i n d   a n y t h i n g  b e c a u s e  I ’ m  a n   E M P A T H !",
+            "I can tell that you’re an EMPATH too! T h a t ’ s  j u s t   w h a t   I ’ m   l o o k i n g   f o r   i n   a   l i f e   p a r t n e r  !! If this were Shrek the movie, you would be Fiona! and I would be Lord Farquad!",
+            "People think I’m addicted to power but I ’ m   j u s t   a   C O M M I T T E D    P E R S O N ! Let me be COMMITTED to you! Y o u  w o n ’t  r e g r e t  i t !!!!",
+            "The moment we HIGH-FIVED I knew you were my right hand rat! Through LIFE we can do ANYTHING!!!!!"
         ],
         "has_different_versions":false,
-        "tagline": "",
+        "tagline": "H E Y  C U T I E",
         "filename": "empire",
         "size": "medium",
         "ending": "PARIS",
-        "reaction_pos":[0.26, 0.0925]
+        "reaction_pos":[0.26, 0.0925],
+        "zodiac": "Virgo"
     },
     {
         "name": "Esche",
         "dialogue": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Mmmmm, you smellll like flowers! Is that rose essence shampoo? Maybe some lllillies in your connnditioner? I really like flowerrrs, and you are sweeeet! just like a flower",
+            "This is kind of embarrassing but do you have any polllllen? I’m pretty parched, forgot to eat breakfast today, just sort of ran out the door cause I was soooo excited to see yooUuuuUU! No worries if not.",
+            "I know you didn’t ask! But I just wanted to be upfront in case you were wondering! My father was a cocoon and my mom loooves caramel macchiatos, that’s why I ended up like this! It’s great to be able to fly. I don’t know anyone else with wings though. So it’s a little lonely. But I talk to the birds… I mean obviously birds have wings and they are lovely, I meant I didn’t know any other rats with wings.",
+            "Have you ever been to the forest? It’s not far, I was thinking we could visit, unless you don’t like forests! But you look like you might love them! Or like you’ve never been to one... Anyways! I can fly you around and show you allll my favorite birds nests!!!! All my favorite birds!!! My favorite worm lives there also, but I can lift you up and fly you to the tree tops so you can see the whole world!",
+            "At first it was hard being different from everyone but my real friends never judged me!! I am unique! And I love my wings. Whenever I see lost bugs or bees who are tired out I always fly them back to their hives or wherever they live, and I’m glad to help! ",
+            "Look at this flower! Isn’t it great? You are more great.. I love you. I love you the way I love pollen and the sky. You are my other half! But we are both whole! Your love gives me such a lovely calmness. I will never worry again."
         ],
         "has_different_versions":false,
-        "tagline": "glip",
+        "tagline": " Bzzzzzzz",
         "filename": "esche",
         "size": "medium",
         "ending": "ROMANTICSAD",
-        "reaction_pos":[0.24, 0.13]
+        "reaction_pos":[0.24, 0.13],
+        "zodiac": "Aquarius"
     },
     {
         "name": "Podolico",
         "dialogue": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Why hello my dear, pleased to meet you! My name is Podolico, which is short for Caciocavallo Podolico. Let’s see, there’s lots to go over, where should I start? I was born in the Campania region of Italy. I’ve lived all over the world, I speak eight languages, I’ve studied with the brightest scientists, and I was once on the cover of RAT magazine! But enough about me!",
+            "Well actually I don’t know if you know this, but I got my start in modeling because my ears are like the Fibonacci Sequence! That means they are the Golden Ratio, or, should I say, the Golden RATio, which is actually what Leonardo Da Vinci used to paint the Mona Lisa! I’m actually the first full-time ear model from my city, which is a really big accomplishment. I also used to do fur modeling, which is why I dye my fur so often, it’s such a fun way to express myself!",
+            "Oh yes, I know I seem confident, it’s because I’m an excellent speaker! They taught public speaking in my first PhD program. I did such a fine job on my presentations that they had me teach the class instead. That’s how I became the youngest ever professor at Rat University!",
+            "Well dear, surely I’ve been successful, but… If I’m being honest, I sometimes wonder if I’ve truly discovered my “passion”! Do I love modeling because I truly love it, or simply because I’ve excelled? I’ve spent my whole life chasing a “dream career”... but does such a thing even exist? These silly worries wiggle into my mind, and I cannot help but wonder what it’s all for!",
+            "We talked about dreams earlier, and I’ve realized some things about myself and my life. I’ve realized there's room in one’s life for a multitude of dreams, and that you don’t have to choose just one. I want you to know that you are one of my dreams, I think I might be falling in love with you. I hope you feel similarly.",
+            "You’re a dream that I hold so close to my heart, so near and dear, and I know that being with you will open the door to so many more dreams. I love you. There are so many things that I can achieve with your support, things you can achieve with mine, and things we can both achieve together!"
         ],
         "has_different_versions":true,
         "scene_filename":[
@@ -245,132 +258,140 @@
             "podolico-4",
             "podolico-5"
         ],
-        "tagline": "",
+        "tagline": "Don't dream it be it? Well first dream a little my dear.",
         "filename": "podolico",
         "size": "medium",
         "ending": "CHEERFUL",
-        "reaction_pos":[0.2333, 0.1258]
+        "reaction_pos":[0.2333, 0.1258],
+        "zodiac": "Leo"
     },
     {
         "name": "Celery",
         "dialogue": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Wow!!! This pillow! Very fragrant and a nice mouthfeel, medium rare. Ah, this candle holder. Now THIS has notes of fine rosewood and a hint of lime!!",
+            "YUM, this camera I grabbed backstage is very al dente. Oh, I didn’t notice you there! Did you know my ears are super sensory and act as extra tongues? Thats why I have an eclectic variety of berry infused hats. My nose can also occasionally taste.",
+            "Can I taste you with my super-sensory ear? Today you taste like a ripe blueberry but very overseasoned. Like a fine wine: bitter but tart, aged to perfection with a dry rub ;)",
+            "Today my ear says you taste like a steak tartare with a romesco sauce and a poached egg underneath… very acidic and not too sweet. Evenly roasted with a nice caramelization… I would love to create a seven course meal inspired by your beauty my dear.",
+            "Ohh!! Wow, did you get a haircut? It looks like fresh notes of egg-reduction with a raspberry twiste! I’d love to sample some with my sauvignon noir toast waffles. You are so beautiful and delicious my darling, I am in love with your tastes and your smells and most of all, I am in love with you…",
+            "Oh my love!! I am so happy! To celebrate our one second anniversary I will cook you lightly roasted mushroom cucumbers in a lightly puffed horsdoeurve steak, topped with pan-seared puree on a bed of tartlet crostini."
         ],
         "has_different_versions":false,
-        "tagline": "",
+        "tagline": "What’s cookin’ good lookin’?",
         "filename": "celery",
         "size": "medium",
         "ending": "ROMANTICSAD",
-        "reaction_pos":[0.24, 0.11667]
+        "reaction_pos":[0.24, 0.11667],
+        "zodiac": "Sagittarius"
     },
  
     {
         "name": "Amme",
         "dialogue": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Heee-yo! *spins in the air* That special move was called a pirouette. So I’m on a volleyball team, I’m the captain, and this season our team moved up a division! We are training really hard to beat our new nemesis, the Forrowers across the river. We never met them but we needed a new nemesis since we left our former nemesis team, the CheeseCarriers, back in the dust in the C division.",
+            "Hi-Yah! That’s what they call a roundhouse kick. I teach gymnastics at the rec center, helping young rats learn to do flips and tricks and kicks. I could show you how to do a cartwheel! I think a lot of life lessons can be taught by learning how to do a cartwheel.",
+            "HYUK! This is my third favorite move, its called the Reverse Rewind Jump Sneakup! Learned it in the third grade and every day I get better at it; sometimes I’m too good though. Once I performed it in the middle of our state tournament and I was so fast I went back a couple minutes and had to restart the match.",
+            "HEEYO!!!! This is my second favorite move, the Thunder Strike Roundabout! We have our first game against the CheeseCarriers tomorrow but I’m not worried about it! I hosted a pasta lunch party for my team today to carboload, and those CheeseCarriers don’t stand a chance against a well-fed team!",
+            "HOOOOH-WAHH!!  This is my favorite move!!! It’s a double-decker rabbit kick spin!! WAHHHOOOWOOHAH!!!! Anyways, I had the most wonderful dream last night! You and I had been training for the joint cross-country kick olympic challenge and right as I ran over the finish line for the final race with my world record-breaking speed, I looked across the room at you, and you were also running over your finish line with your world record-breaking speed, and you were looking at me and then everyone was cheering, and then we ran into each other's arms and everyone cheered even louder!",
+            "My new favorite move is giving you a hug!!! I love you so much!!!! I want every moment to be spent with you, unless you have other things scheduled of course, because I respect your independence! Because I love you!! So much!!!"
         ],
         "has_different_versions":false,
-        "tagline": "",
+        "tagline": "Checkout my cool moves",
         "filename": "shibby",
         "size": "medium",
         "ending": "CHEERFUL",
-        "reaction_pos":[0.285, 0.1167]
+        "reaction_pos":[0.285, 0.1167],
+        "zodiac": "Aries"
     },
     {
         "name": "SimmSammo",
         "dialogue": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Whoops!! I stepped on a nail on the way here, but I just realized. Good thing I have my emergency first aid kit hidden in the heel of my left boot. I volunteer for medical studies so it always pays off to be prepared - even if they were just regular studies I know I’d be more comfortable. My other heel has got some peppers inside just in case I need a snack. I used to volunteer for culinary studies and picked up the habit there",
+            "Owch-AH! This cushion is really NOT comfortable. I build chairs myself out of recycled bits and pieces of junk, so every chair in my house perfectly fits the curvature of my rear end. You can never be too prepared these days. I’m always learning new skills so I can survive when the time comes ",
+            "Actually, you might not know this about me but I don’t keep my beans in the kitchen - I have a second fridge full of them in my living room. I keep it near the fireplace since I figured that’s the safest place it can be - for example if a fire starts in the fireplace and starts spreading .. in an unsafe manner, well the fridge is in there and fridges are cold so I think they’d counteract each other. But it would also stop the opposite situation from occurring. ",
+            "At my last house I only had the one fridge, you know, the regular kind. Had a couple fire issues and the fire department came over one day, saying I can't use the fireplace as storage? And that it wasn’t safe? Well I don’t want to live in a house that has an unsafe fireplace, that just sounds dangerous. I moved out and built my own house, built a bunker underneath it also. ",
+            "If you want something built right, you gotta build it yourself - true for houses, true for chairs. It’s also true for relationships, that’s why I always put in the work for people I care about. And I care about you, and I want you to be safe.",
+            "I knew this wasn’t too good to be true! It was just good enough that it just HAD to be true… Oh… Lets get your house refurbished so that you’ll always be safe. The natural disasters will never get the better of you! "
         ],
         "has_different_versions":false,
-        "tagline": "",
+        "tagline": "You better watch out! There was some slippery steps out there, be careful.",
         "filename": "simmsammo",
         "size": "medium",
         "ending": "ROMANTICHAPPY",
-        "reaction_pos":[0.3267, 0.172]
+        "reaction_pos":[0.3267, 0.172],
+        "zodiac": "Virgo"
     },
     {
         "name": "Sean Sean",
         "dialogue": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Wow, you are simply radiant! I knew that from your profile of course, but in person, well, I am simply blown away! The colors of your fur shimmer and shine like a thousand brilliant diamonds in the sun, and I’m sure my eyes beam with a similar glow just from seeing you!",
+            "Wow, each time I see you I notice something new; your face oozes such a sort of confident resilience. I haven’t been so inspired since I met Buttress Querelle, who is not only a beloved colleague but also a dear friend. I sense that you and I could be dear friends too. I met Buttress at the mushroom farm where I volunteer on the weekends - to think, all those poor mushrooms in need of a home. Does me good to know we’ve helped so many. I’d love to take you there sometime! I actually have three mushroom pups of my own! I love them so much.",
+            "The mushroom farm also serves as a wedding venue, which helps us support ourselves and support the work we do. I’m actually a registered officiant and have officiated three different weddings on the property! … Oh how embarrassing! I can’t believe I’m talking about marriage and it's only our third date! ",
+            "Turns out my recent cataract surgery has effects on how I see color! But I also hear them, since I have synesthesia. And they taste good too. Food coloring is a must have! Here take some of mine I always carry extra, delicious! You are lovely! I think there’s something on your cheek... Oh wait sorry that’s just your generous and radiant aura! I’ll leave it where it is :)",
+            "My dear, it’s time I told you; I have some sort of special power, and well, it’s genetic! It’s quite different than most other rats I have to say. I’ve been able to do it since I was just a tiny rat! I’ve always sworn I would only ever show my one true love…",
+            "My love! You chose me! It’s time I reveal my truth: I can fly! This scarf holds the secret to my abilities: using this magical scarf, I will take us on the most fabulous adventures all over the world! I love you! "
         ],
         "has_different_versions":false,
-        "tagline": "",
+        "tagline": "*Knows everyone in the industry*",
         "filename": "seansean",
         "size": "medium",
         "ending": "INTENSE",
-        "reaction_pos":[0.315, 0.1]
+        "reaction_pos":[0.315, 0.1],
+        "zodiac": "Gemini"
     },
     {
         "name": "UltraRat_3000",
         "dialogue": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Hello! I’m Ultrarat 3000; or, well it /is/ me but right now I’m appearing before you as a hologram - I’ll be there as soon as I can! Sorry, I got mixed up with… well… um… Anyways, I’m in the future right now and I’m glad I at least got to call through to the correct time. I come from a line of hyper-evolutionary rats so I have … special powers that I can’t completely control - like I can go somewhere but not always in linear time, or sometimes I know the specific time but get the location mixed out of my control. Yeah I guess it’s kinda like teleportation",
+            "Ah, I overshot again and now I’m a year and a half behind you. They think I’m an art student working on my final project so now I have access to this edu zoom account. There’s no cool filters yet... It’s not all bad though! They have a pretty good library selection and now I can check things out; do you need any books?",
+            "Hi I’m Lara Turt, Ultrarat couldn’t make it but they sent me in their stead - hmm lets see… they wrote about a growing fondness for you and a regret about the unpredictability of their whereabouts. Oh! And it’s signed with a kiss!",
+            "This time I overshot my machine and went in the wrong direction, I accidentally went back home! Hold on one second. __It’s no one Mom!! I’m not talking to anyone…. No, I’m not a robot…__ Sorry, they’re making me do the Turing Test again, but I keep failing since that test was designed for humans… and well, I’m a rat. Anyways, have I told you how much I love the poetry of eating strawberries and cream? ",
+            "I’m so glad to finally meet you in person, my therapist ELIZA says I should really be more open and tell you how I feel! Well here it goes! You inspire me so much. In all the places and times I have seen you, I am so grateful that fate has brought me here! When I was in the future I… caught a glimpse of us, together. Now, I know futures aren’t set in stone, and they can change, but I hope this one doesn’t.",
+            "I feel like everyone in my life debates the nature of my existence, but you… you just accept me as I am! No judgment if I really understand what I am saying or if I simply have cognitive states. You don’t care about any of that! I love you with all 10^22278  of my nodes - I have seen galaxies but they are nothing compared to your eyes! Let us fly through the winds of spacetime together"
         ],
         "has_different_versions":false,
-        "tagline": "",
+        "tagline": "It's 2022? Oh you all havent figured out about quark-bird communication yet",
         "filename": "ultrarat",
         "size": "medium",
         "ending": "CHEERFUL",
-        "reaction_pos":[0.254, 0.1133]
+        "reaction_pos":[0.254, 0.1133],
+        "zodiac": "Pices"
     },
  
     {
         "name": "Pederson",
         "dialogue": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Hey I should let you know ahead of time, I get kind of anxious in big groups like this. So if any of the other rats tell you I’m being weird, they’re probably right, but I promise I’m working on it. ",
+            "Well I’ve never been on the “big screen” but I’ve always wanted to be in a musical. Not the main role, but maybe like a funny best friend or something. I signed up for an improv class once, but I only went one time. It seemed like they had fun though.",
+            "You know, one day I was feeling kind of down about myself, and I was walking around the block. This rat I’d never met said “you look really nice today”. Sure they might have said that to anybody, just to be kind. But I really felt like they meant it, and then I wasn’t so down anymore. Had a big smile on my face after that.",
+            "There’s all these things I enjoy, like knitting, cooking, and hiking, but none of that gets me up in the morning. The reason I get up is because the clock says it’s time to get up and I’ve got stuff to do. So every day I rub my eyes, roll out of bed, and I live my life. It’s not the most glamorous life in the world, but it’s mine, and I experience it just like anyone experiences anything I suppose. You could say I’m happy, and you wouldn’t be wrong.",
+            "The honest truth is, I’ve always felt like I’m waiting for something great to happen. But I’m starting to realize, what if there’s no “big moment” it’s all leading up to? Maybe every moment is equally special, beautiful, and important. And no moment really exists besides “right now”. I guess what I’m saying is that us together, right now, this is the only moment that exists. There’s no past or future. Just now. And honestly, “now” is giving me butterflies.",
+            "How lucky are we? Out of all the rats in the world, throughout all of history, you and I managed to find each other. Just two unlikely furballs, falling in love. What a miracle. Thank you for sharing your gentle soul with me. I love you! Let’s live happily together, one moment at a time. "
         ],
         "has_different_versions":false,
-        "tagline": "",
+        "tagline": "It’s very nice to meet you",
         "filename": "pederson",
         "size": "medium",
         "ending": "ROMANTICSAD",
-        "reaction_pos":[0.3, 0.14]
+        "reaction_pos":[0.3, 0.14],
+        "zodiac": "Aquarius"
     },
     {
         "name": "Sminny",
         "dialogue": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Hey, thanks for making time to chat, I know your calendar is packed. Excited for us to double down on our objectives so we can figure out if there’s good synergy here",
+            "You know I used to actually be kind of nervous about business deals? But now every day when I wake up I look in the mirror and tell myself “Sminny, it’s time to make S’money.” Then I power pose to get those endorphins up. It really works, you should try it",
+            "Not many people know this about me, but I don’t mind sharing personal things with you: I feel like we have a connection, and I... *beep beep* Oh sorry I have to take this call. Okay guys so what's first on the agenda? Yeah that sounds perfect. Yes, call up Slagorini and tell them if we don’t have it settled by Monday there’s gonna be some real issues with the week's cheese settlement. No I don’t mean that metaphorically. Okay great, so they’ll expedite the shipping for us? Okay, perfect. Great, yes, we are good to go. *beep* Sorry about that! Business waits for no one, but of course we all know that.",
+            "On work days I like to keep my briefcase full of work documents, but on weekends and bank holidays? I get rid of most of the weight. Of course I keep the important high profile client papers in case I get a call, but with the extra room left over I keep some of my favorite fruits and vegetables. I have what you could call a seasonal rotating collection: today I have a few Cube Watermelons that one of my contacts brought in from Japan. Why, I could stare at one of these bad boys allll day…",
+            "There’s something about you that just… really motivates me. Did I tell you I got that promotion I was up for? The boss said I’ve been glowing lately, it must be because of all the time I’ve been spending with you. I’d love to take you out to a nice dinner to celebrate. What does your schedule look like next week?",
+            "Wow! I’m so happy you asked me to be your life partner… I wanted to ask you… do you want to be my… business partner? I know our time gets interrupted by the office a lot, and this way if I have to go to a meeting you can come with me, and we can keep holding hands, and we’ll be so successful!"
         ],
         "has_different_versions":false,
         "filename": "sminny",
-        "tagline": "",
+        "tagline": "Can I add you on LinkedIn?",
         "size": "medium",
         "ending": "POP",
-        "reaction_pos":[0.250, 0.015]
+        "reaction_pos":[0.250, 0.015],
+        "zodiac": "Capricorn"
     }
 ]
  
