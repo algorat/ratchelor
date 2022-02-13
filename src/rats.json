@@ -28,7 +28,7 @@
         ],
         "size": "medium",
         "ending": "POP",
-        "reaction_pos": [0.22, 0.12],
+        "reaction_pos": [0.3, 0.4],
         "zodiac": "Aries"
     },
     {
@@ -45,7 +45,7 @@
         "filename": "lepix",
         "size": "medium",
         "ending": "CHEERFUL",
-        "reaction_pos": [0.23, 0.29],
+        "reaction_pos": [0.4, 0.29],
         "zodiac":"Aquarius"
     },
     {
@@ -62,7 +62,7 @@
         "filename": "fizzywig",
         "size": "medium",
         "ending": "PARIS",
-        "reaction_pos": [0.16, 0.134],
+        "reaction_pos": [0.26, 0.2],
         "zodiac":"Libra"
     },
     {
@@ -86,7 +86,7 @@
         "filename": "moom",
         "size": "medium",
         "ending": "ROMANTICSAD",
-        "reaction_pos": [0.23, 0.14],
+        "reaction_pos": [0.28, 0.14],
         "zodiac": "Cancer"
     },
     {
@@ -110,7 +110,7 @@
         ],
         "size": "medium",
         "ending": "ROMANTICSAD",
-        "reaction_pos":[0.285, 0.105],
+        "reaction_pos":[0.24, 0.2],
         "zodiac": "Gemini"
     },
     {
@@ -127,7 +127,7 @@
         "filename": "boyboymysterio",
         "size": "medium",
         "ending": "CHEERFUL",
-        "reaction_pos":[0.2, 0.1],
+        "reaction_pos":[0.27, 0.25],
         "zodiac": "Scorpio"
     },
     {
@@ -144,7 +144,7 @@
         "filename": "barronhotlands",
         "size": "medium",
         "ending": "FUNKY",
-        "reaction_pos":[0.214, 0.13],
+        "reaction_pos":[0.2, 0.12],
         "zodiac": "Gemini"
     },
     {
@@ -168,7 +168,7 @@
         ],
         "size": "medium",
         "ending": "ROMANTICHAPPY",
-        "reaction_pos":[0.214, 0.13],
+        "reaction_pos":[0.3, 0.13],
         "zodiac": "Taurus"
     },
     {
@@ -185,7 +185,7 @@
         "filename": "sharpie",
         "size": "medium",
         "ending": "INTENSE",
-        "reaction_pos":[0.25, 0.1358],
+        "reaction_pos":[0.25, 0.2],
         "zodiac": "Scorpio"
     },
     {
@@ -236,7 +236,7 @@
         "filename": "empire",
         "size": "medium",
         "ending": "PARIS",
-        "reaction_pos":[0.26, 0.0925],
+        "reaction_pos":[0.4, 0.2],
         "zodiac": "Virgo"
     },
     {
@@ -253,7 +253,7 @@
         "filename": "esche",
         "size": "medium",
         "ending": "ROMANTICSAD",
-        "reaction_pos":[0.24, 0.13],
+        "reaction_pos":[0.24, 0.26],
         "zodiac": "Aquarius"
     },
     {
@@ -308,7 +308,7 @@
         ],
         "size": "medium",
         "ending": "ROMANTICSAD",
-        "reaction_pos":[0.24, 0.11667],
+        "reaction_pos":[0.35, 0.2],
         "zodiac": "Sagittarius"
     },
  
@@ -343,7 +343,7 @@
         "filename": "simmsammo",
         "size": "medium",
         "ending": "ROMANTICHAPPY",
-        "reaction_pos":[0.3267, 0.172],
+        "reaction_pos":[0.3267, 0.15],
         "zodiac": "Virgo"
     },
     {
@@ -368,7 +368,7 @@
         ],
         "size": "medium",
         "ending": "INTENSE",
-        "reaction_pos":[0.315, 0.1],
+        "reaction_pos":[0.315, 0.2],
         "zodiac": "Gemini"
     },
     {
@@ -442,7 +442,7 @@
         "tagline": "Can I add you on LinkedIn?",
         "size": "medium",
         "ending": "POP",
-        "reaction_pos":[0.250, 0.015],
+        "reaction_pos":[0.31, 0.09],
         "zodiac": "Capricorn"
     }
 ]
