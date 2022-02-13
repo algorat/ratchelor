@@ -1,5 +1,9 @@
 import React from "react";
 
+const roseSuffix = '-rose.png'
+const roseSadSuffix = '-sad.png'
+
+
 class RoseCeremony extends React.Component {
   constructor(props) {
     super(props);
@@ -10,6 +14,7 @@ class RoseCeremony extends React.Component {
     this.activeRats = [];
     this.backRowRats = [];
     this.frontRowRats = [];
+    this.roundNum = props.roundNum;
 
     this.state = {
       selectedRats: [],
@@ -131,6 +136,7 @@ class RoseCeremony extends React.Component {
 
   // When a rat is clicked
   selectRat(ratName, id) {
+    console.log(ratName, id)
     // Get the element for the current rat button
     const element = document.getElementById(id);
 
@@ -205,23 +211,20 @@ class RoseCeremony extends React.Component {
     let backRatsList = [];
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.backRowRats.length; i++) {
-      let filename;
-      let roseFilename;
-      let sadFilename;
-      //was gonna add this section in by  checking has_dif_versions from the jason, then pulling the index
-      //from accessing the round we are on but im not sure how to check the round so Ill ccircle back
-      // if($(this.backRowRats[i].has_different_versions) == true){
-        // filename = `/ratchelor/img/Characters/${this.backRowRats[i].scene_filename[ROUNDNUMBER]}.png`;
-        // roseFilename = `/ratchelor/img/Characters/${this.backRowRats[i].scene_filename[ROUNDNUMBER]}-rose.png`;
-        // sadFilename = `/ratchelor/img/Characters/${this.backRowRats[i].scene_filename[ROUNDNUMBER]}-sad.png`;
-      // }
-      // else{
-        filename = `/ratchelor/img/Characters/${this.backRowRats[i].filename}.png`;
-        roseFilename = `/ratchelor/img/Characters/${this.backRowRats[i].filename}-rose.png`;
-        sadFilename = `/ratchelor/img/Characters/${this.backRowRats[i].filename}-sad.png`;
+      const activeRat = this.backRowRats[i];
+      const baseName = activeRat.filename;
+      let filename = `/ratchelor/img/Characters/${baseName}.png`;
+      let roseFilename = `/ratchelor/img/Characters/${baseName}${roseSuffix}`;
+      let sadFilename = `/ratchelor/img/Characters/${baseName}${roseSadSuffix}`;
+
+      if (activeRat.rose_ceremony_filename && this.roundNum < activeRat.rose_ceremony_filename.length) {
+        const baseFilename = activeRat.rose_ceremony_filename[this.roundNum];
+        filename = `/ratchelor/img/Characters/${baseFilename}.png`;
+        roseFilename = `/ratchelor/img/Characters/${baseFilename}${roseSuffix}`;
+        sadFilename = `/ratchelor/img/Characters/${baseFilename}${roseSadSuffix}`;
+      }
         //}
       backRatsList.push(
-      
         <div
           key={i}
           id={`rat${i}`}
@@ -257,31 +260,28 @@ class RoseCeremony extends React.Component {
     // Create a clickable div for every rat in the game
     for (let i = 0; i < this.frontRowRats.length; i++) {
 
-      let filename;
-      let roseFilename;
-      let sadFilename;
-      //was gonna add this section in by  checking has_dif_versions from the jason, then pulling the index
-      //from accessing the round we are on but im not sure how to check the round so Ill ccircle back
-      // if($(this.backRowRats[i].has_different_versions) == true){
-        // filename = `/ratchelor/img/Characters/${this.backRowRats[i].scene_filename[ROUNDNUMBER]}.png`;
-        // roseFilename = `/ratchelor/img/Characters/${this.backRowRats[i].scene_filename[ROUNDNUMBER]}-rose.png`;
-        // sadFilename = `/ratchelor/img/Characters/${this.backRowRats[i].scene_filename[ROUNDNUMBER]}-sad.png`;
-      // }
-      // else{
-        filename = `/ratchelor/img/Characters/${this.frontRowRats[i].filename}.png`;
-        roseFilename = `/ratchelor/img/Characters/${this.frontRowRats[i].filename}-rose.png`;
-        sadFilename = `/ratchelor/img/Characters/${this.frontRowRats[i].filename}-sad.png`; 
-// }
+      const activeRat = this.frontRowRats[i];
+      const baseName = activeRat.filename;
+      let filename = `/ratchelor/img/Characters/${baseName}.png`;
+      let roseFilename = `/ratchelor/img/Characters/${baseName}${roseSuffix}`;
+      let sadFilename = `/ratchelor/img/Characters/${baseName}${roseSadSuffix}`;
+
+      if (activeRat.rose_ceremony_filename && this.roundNum < activeRat.rose_ceremony_filename.length) {
+        const baseFilename = activeRat.rose_ceremony_filename[this.roundNum];
+        filename = `/ratchelor/img/Characters/${baseFilename}.png`;
+        roseFilename = `/ratchelor/img/Characters/${baseFilename}${roseSuffix}`;
+        sadFilename = `/ratchelor/img/Characters/${baseFilename}${roseSadSuffix}`;
+      }
 
       frontRatsList.push(
         <div
           key={i}
-          id={`rat${this.frontRowRats.length + i}`}
+          id={`rat${this.backRowRats.length + i}`}
           className={`ratList`}
           onClick={() => {
             this.selectRat(
               this.frontRowRats[i].name,
-              `rat${this.frontRowRats.length + i}`
+              `rat${this.backRowRats.length + i}`
             );
           }}
         >

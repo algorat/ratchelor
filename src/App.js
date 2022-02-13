@@ -479,6 +479,7 @@ class RatchelorGame extends React.Component {
           getRatByName={this.getRatByName}
           round={this.state.roundNum}
           startDelay={1000}
+          roundNum={this.state.roundNum}
           playSelectAnswer={this.playSelectAnswer}
           playCricketsSound={this.playCricketsSound}
           playTromboneSound={this.playTromboneSound}
@@ -515,6 +516,7 @@ class RatchelorGame extends React.Component {
           getRatByName={this.getRatByName}
           playRoseSound={this.playRoseSound}
           playTap={this.playTap}
+          roundNum={this.state.roundNum}
           playSelectAnswer={this.playSelectAnswer}
           playBadActionSound={this.playBadActionSound}
           numRoses={this.rosesPerRound[this.state.roundNum]}
@@ -623,7 +625,6 @@ class RatchelorGame extends React.Component {
 
         <div id="game">
           <img id="frame" src="/ratchelor/img/frameSmaller.png" alt=""></img>
-          <div id="ratchelor2">Stay tuned for The Ratchelor 2, coming this Valentine's Day! </div>
 
           {safariMsg}
 

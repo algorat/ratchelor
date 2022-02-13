@@ -17,6 +17,7 @@ class TalkingToRats extends React.Component {
     this.sendFirstRatTimeout = null;
     this.numRatImgsLoaded = 0;
     this.ratImgs = [];
+    this.roundNum = props.roundNum;
     // Store all of your canned responses in an array
     this.responses = responsesJson;
     this.charSpeed = 30;
@@ -61,7 +62,13 @@ class TalkingToRats extends React.Component {
     }, 4500)
 
     for (let i = 0; i < this.activeRats.length; i++) {
-      let imgHTML = <img key={i} id={`ratImg${i}`} onLoad={this.ratImgLoaded.bind(this)} alt="a rat who wants to fall in love with you" className="ratImg" src={`/ratchelor/img/Couch/${this.activeRats[i].filename}.png`}></img>
+      const activeRat = this.activeRats[i];
+      let filename = `/ratchelor/img/Couch/${activeRat.filename}.png`;
+      if (activeRat.talking_to_rats_filename && this.roundNum < activeRat.talking_to_rats_filename.length) {
+        const baseFilename = activeRat.talking_to_rats_filename[this.roundNum];
+        filename = `/ratchelor/img/Couch/${baseFilename}.png`;
+      }
+      let imgHTML = <img key={i} id={`ratImg${i}`} onLoad={this.ratImgLoaded.bind(this)} alt="a rat who wants to fall in love with you" className="ratImg" src={filename}></img>
       this.ratImgs.push(imgHTML);
     }
   }
