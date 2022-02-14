@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="./favicon.ico" />
-        <meta
+    <meta
       property="og:image"
       content="https://algorat.club/ratchelor/img/fb.png"
     />
@@ -37,6 +37,21 @@
       name="twitter:description"
       content="The landing page for the game The Ratchelor, seasons 1 and 2."
     />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-LV5NLFXL03"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-LV5NLFXL03");
+    </script>
   </head>
   <body>
     <div class="flex-container">
@@ -51,19 +66,19 @@
       </div>
       <div class="games">
         <a class="game" href="https://algorat.club/ratchelor1" target="_blank">
-            <div class="image-container">
+          <div class="image-container">
             <img src="img/s1.png" alt="season 1, a rat with roses" />
             <button>
-                <b>Embark</b>
+              <b>Embark</b>
             </button>
-            </div>
+          </div>
         </a>
         <img
-            class="game"
-            src="img/s2.png"
-            alt="season 2, a rat with roses with a big banner that says Coming Soon."
+          class="game"
+          src="img/s2.png"
+          alt="season 2, a rat with roses with a big banner that says Coming Soon."
         />
-        </div>
+      </div>
     </div>
   </body>
 </html>
