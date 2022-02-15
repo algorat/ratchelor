@@ -23,6 +23,7 @@ body {
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
+  max-width: 1300px;
 }
 
 .games {
@@ -51,7 +52,7 @@ body {
 
 .credits {
   font-family: "Yusei Magic";
-  font-size: 20;
+  font-size: 24px;
   text-align: center;
 }
 
@@ -97,6 +98,11 @@ button:hover {
 }
 
 @media (max-width: 400px) {
+
+  .credits {
+    font-size: 1rem;
+  }
+
   body {
     padding-top: 32px;
     padding-bottom: 32px;
