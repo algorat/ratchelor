@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   margin: 0;
   min-height: 100%;
@@ -13,8 +17,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 48px;
-  padding-bottom: 48px;
+  padding: 48px 20px;
 }
 
 .flex-container {
@@ -35,7 +38,7 @@ body {
 }
 
 .game {
-  min-width: 400px;
+  min-width: 360px;
   width: 40%;
 }
 
@@ -86,6 +89,7 @@ button {
   border: solid;
   cursor: pointer;
   border-radius: 10px;
+  white-space: nowrap;
 }
 
 button:hover {
@@ -94,11 +98,10 @@ button:hover {
 
 .logo {
   width: 40%;
-  min-width: 400px;
+  min-width: 360px;
 }
 
 @media (max-width: 400px) {
-
   .credits {
     font-size: 1rem;
   }
@@ -109,11 +112,11 @@ button:hover {
   }
 
   .logo {
-    width: 95%;
+    width: calc(100% - 40px);
     min-width: 100px;
   }
   .game {
-    width: 95%;
+    width: calc(100% - 40px);
     min-width: 100px;
   }
 }
