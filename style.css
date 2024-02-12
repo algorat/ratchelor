@@ -120,6 +120,8 @@ button:hover {
     width: calc(100% - 40px);
     min-width: 100px;
   }
+
+  .current-game .game,
   .game {
     width: calc(100% - 40px);
     min-width: 100px;
